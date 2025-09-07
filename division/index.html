@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Division Practice</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class' };</script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body class="bg-neutral-950 text-neutral-100 min-h-screen antialiased">
+  <div class="container mx-auto max-w-3xl p-4 sm:p-6">
+    <header class="mb-6">
+      <h1 class="text-2xl sm:text-3xl font-semibold tracking-tight"><span class="material-symbols-outlined text-[28px] align-middle mr-2" aria-hidden="true">calculate</span>Division Practice</h1>
+      <p class="text-neutral-400 mt-1">Generate 10 division problems with quotient and remainder.</p>
+    </header>
+
+    <section id="controls" class="mb-6">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-end">
+        <div>
+          <label for="digitosDividendo" class="block text-sm mb-1 text-neutral-300">Dividend digits</label>
+          <input id="digitosDividendo" type="number" min="1" max="6" value="3" class="w-full rounded-lg bg-neutral-900/60 border border-neutral-800 px-3 py-2 text-neutral-100 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="e.g., 3">
+        </div>
+        <div>
+          <label for="digitosDivisor" class="block text-sm mb-1 text-neutral-300">Divisor digits</label>
+          <input id="digitosDivisor" type="number" min="1" max="6" value="2" class="w-full rounded-lg bg-neutral-900/60 border border-neutral-800 px-3 py-2 text-neutral-100 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="e.g., 2">
+        </div>
+        <div class="flex sm:block">
+          <button id="gerarBtn" class="inline-flex items-center justify-center w-full sm:w-auto gap-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 text-white font-medium px-4 py-2 transition-colors"><span class="material-symbols-outlined text-[20px]" aria-hidden="true">calculate</span>Generate problems</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="questoes" class="hidden">
+      <div id="listaQuestoes" class="space-y-3"></div>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <button id="conferirBtn" class="inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white font-medium px-4 py-2 transition-colors"><span class="material-symbols-outlined text-[20px]" aria-hidden="true">check_circle</span>Check answers</button>
+      </div>
+      <p id="resultado" class="mt-4 text-sm text-neutral-400"></p>
+    </section>
+
+    <footer class="mt-10 text-xs text-neutral-500">
+    </footer>
+  </div>
+
+  <script src="./divisao.js"></script>
+</body>
+</html>
