@@ -12,13 +12,8 @@ function gerarDivisoes(qtdDigitosDividendo, qtdDigitosDivisor) {
 	for (let i = 0; i < 10; i++) {
 		let dividendo = gerarNumeroComDigitos(qtdDigitosDividendo);
 		let divisor = gerarNumeroComDigitos(qtdDigitosDivisor);
-		// Evitar divisor zero (por segurança) e garantir divisor <= dividendo para contas mais naturais
-		if (divisor === 0) {
-			divisor = 1;
-		}
-		if (divisor > dividendo) {
-			// trocamos para manter uma divisão mais intuitiva
-			[dividendo, divisor] = [divisor, dividendo];
+		while (divisor === 0 || divisor > dividendo || divisor === dividendo || divisor === 1) {
+			divisor = gerarNumeroComDigitos(qtdDigitosDivisor);
 		}
 		const quociente = Math.floor(dividendo / divisor);
 		const resto = dividendo % divisor;
