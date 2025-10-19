@@ -121,14 +121,40 @@ function setupFullscreen() {
     updateIcon();
 }
 
+// Função para remover o preloader
+function hidePreloader() {
+    const preloader = document.getElementById("preloader");
+    if (preloader) {
+        preloader.classList.add("loaded");
+        // Remove o preloader do DOM após a animação
+        setTimeout(() => {
+            preloader.remove();
+        }, 500);
+    }
+}
+
 // 4. Roda ao carregar a página
 document.addEventListener("DOMContentLoaded", async () => {
-    startClock();
-    await discoverImages(); // Descobre imagens disponíveis
-    selectRandomImage(); // Carrega primeira imagem aleatória
-    startImageRotation(); // Inicia rotação a cada 3min
-    setupFullscreen();
-    setupFontScaling();
+    try {
+        // Inicia todas as operações necessárias
+        startClock();
+        await discoverImages(); // Descobre imagens disponíveis
+        await new Promise(resolve => {
+            const img = document.getElementById("randomImage");
+            selectRandomImage(); // Carrega primeira imagem aleatória
+            img.onload = resolve; // Espera a primeira imagem carregar
+        });
+        startImageRotation(); // Inicia rotação a cada 3min
+        setupFullscreen();
+        setupFontScaling();
+
+        // Esconde o preloader quando tudo estiver pronto
+        hidePreloader();
+    } catch (error) {
+        console.error("Erro ao inicializar a página:", error);
+        // Esconde o preloader mesmo em caso de erro
+        hidePreloader();
+    }
 });
 
 
