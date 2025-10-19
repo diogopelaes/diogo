@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relógio Digital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Wallpoet&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            height: 100%;
+        }
+        .clock-page {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding: 0;
+        }
+        .clock-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            text-align: center;
+            flex-shrink: 0;
+            padding: 10rem 1rem 1rem 1rem;
+        }
+        #clock {
+            font-family: 'PT Mono', monospace;
+            font-size: clamp(3.5rem, 9vw, 8rem);
+            letter-spacing: 0.05em;
+            color: var(--sky-blue);
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            line-height: 1;
+            font-variant-numeric: tabular-nums; /* evita variação de largura entre dígitos */
+            font-feature-settings: "tnum" 1; /* fallback */
+            white-space: nowrap;
+        }
+        #date {
+            font-size: clamp(1.1rem, 2.8vw, 1.5rem);
+            color: var(--text-light);
+            opacity: 0.9;
+            line-height: 1.05;
+            margin-top: 1rem;
+            font-family: 'Yusei Magic', sans-serif;
+        }
+        .image-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 1rem;
+        }
+        #randomImage {
+            max-width: 80%;
+            max-height: 50vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 12px;
+            border: 1px solid rgba(78, 73, 158, 0.3);
+            box-shadow: 0 4px 15px rgba(78, 73, 158, 0.1);
+        }
+        .page-actions {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            z-index: 10;
+        }
+        .icon-btn {
+            cursor: pointer;
+            user-select: none;
+            color: var(--accent-teal);
+            background: rgba(4, 36, 64, 0.6);
+            border: 1px solid var(--royal-purple);
+            border-radius: 10px;
+            padding: 0.35rem 0.5rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+        .icon-btn:hover { transform: translateY(-2px); background: rgba(78, 73, 158, 0.2); }
+    </style>
+    <meta name="color-scheme" content="dark light">
+    <meta name="theme-color" content="#042440">
+    <link rel="icon" href="../favicon_circle.png">
+</head>
+<body>
+    <main class="grid-container clock-page">
+        <div class="page-actions" role="group" aria-label="Ações da página">
+            <button id="fontDecrease" class="icon-btn" aria-label="Diminuir fonte" title="Diminuir fonte">
+                <span class="material-symbols-outlined">text_decrease</span>
+            </button>
+            <button id="fontIncrease" class="icon-btn" aria-label="Aumentar fonte" title="Aumentar fonte">
+                <span class="material-symbols-outlined">text_increase</span>
+            </button>
+            <button id="fullscreenToggle" class="icon-btn" aria-label="Alternar tela cheia" title="Tela cheia">
+                <span class="material-symbols-outlined" id="fullscreenIcon">fullscreen</span>
+            </button>
+        </div>
+        <section id="clockCard" class="clock-container">
+            <div id="clock" aria-live="polite">00:00:00</div>
+            <div id="date" aria-live="polite"></div>
+        </section>
+
+        <section class="image-wrapper">
+            <img id="randomImage" src="" alt="Imagem aleatória do relógio">
+        </section>
+    </main>
+
+    <script src="./relogio.js" defer></script>
+    
+    
+</body>
+</html>
+
