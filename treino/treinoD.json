@@ -1,0 +1,63 @@
+{
+    "id": "D",
+    "title": "Treino D — Costas + Bíceps + Ombros",
+    "subtitle": "Remadas e curls; remada com aumento de carga.",
+    "exercises": [
+        {
+            "name": "Remada unilateral",
+            "meta": "4×12 por lado",
+            "restType": "main",
+            "setBadge": "4×12/por lado",
+            "restSeconds": 90,
+            "description": "Apoie uma mão/joelho no banco; remar halter com pegada neutra puxando o cotovelo perto do corpo."
+        },
+        {
+            "name": "Remada curvada com halteres",
+            "meta": "4 séries: 12 → 10 → 8 → 6",
+            "restType": "drop",
+            "setBadge": "12 / 10 / 8 / 6",
+            "restSeconds": 120,
+            "description": "Flexão do tronco ~45°, coluna neutra, puxar ambos os halteres mantendo cotovelos junto ao tronco."
+        },
+        {
+            "name": "Encolhimento (shrug)",
+            "meta": "3×15",
+            "restType": "accessory",
+            "setBadge": "3×15",
+            "restSeconds": 60,
+            "description": "Elevar ombros na direção das orelhas com halteres. Evitar rotação ou movimentos bruscos."
+        },
+        {
+            "name": "Elevação lateral inclinada",
+            "meta": "3×15",
+            "restType": "accessory",
+            "setBadge": "3×15",
+            "restSeconds": 60,
+            "description": "Inclinar tronco para frente ~30° e realizar elevação lateral — reduz impacto do trapézio superior e foca deltoide lateral."
+        },
+        {
+            "name": "Rosca direta com halteres",
+            "meta": "3×12",
+            "restType": "accessory",
+            "setBadge": "3×12",
+            "restSeconds": 60,
+            "description": "Pegada supinada (palmas para cima), cotovelo fixo, subir o halter controlado até contração máxima do bíceps."
+        },
+        {
+            "name": "Rosca martelo",
+            "meta": "3×12",
+            "restType": "accessory",
+            "setBadge": "3×12",
+            "restSeconds": 60,
+            "description": "Pegada neutra; subir mantendo o antebraço alinhado com o corpo; reduz rotação do ombro."
+        },
+        {
+            "name": "Prancha com movimento",
+            "meta": "3×12",
+            "restType": "core",
+            "setBadge": "3×12",
+            "restSeconds": 45,
+            "description": "Comece em prancha alta (mãos), alternar para antebraço e voltar; manter core contraído."
+        }
+    ]
+}
