@@ -1,0 +1,55 @@
+{
+    "id": "A",
+    "title": "Treino A — Full Body",
+    "subtitle": "Foco: técnica, controle e readaptação geral",
+    "exercises": [
+        {
+            "name": "Agachamento Goblet",
+            "meta": "3×12",
+            "restType": "main",
+            "setBadge": "3×12",
+            "restSeconds": 90,
+            "description": "Segure um halter na vertical, próximo ao peito, com as duas mãos. Afaste os pés na largura dos ombros, pontas levemente para fora. Inspire e desça flexionando quadris e joelhos ao mesmo tempo, mantendo o peito aberto e a coluna neutra. Os joelhos devem acompanhar a direção dos pés. Desça até onde conseguir sem perder a postura. Expire e suba empurrando o chão com os calcanhares, contraindo glúteos e coxas."
+        },
+        {
+            "name": "Supino com Halteres",
+            "meta": "3×10",
+            "restType": "main",
+            "setBadge": "3×10",
+            "restSeconds": 90,
+            "description": "Deite no banco com os pés firmes no chão. Halteres na altura do peito, cotovelos levemente abaixo da linha do banco. Inspire e desça os halteres de forma controlada, mantendo os ombros encaixados (escápulas retraídas). Empurre os halteres para cima expirando, sem estender totalmente os cotovelos. Evite arquear excessivamente a lombar."
+        },
+        {
+            "name": "Remada Curvada com Halteres",
+            "meta": "3×12",
+            "restType": "main",
+            "setBadge": "3×12",
+            "restSeconds": 90,
+            "description": "Em pé, segure os halteres com os braços estendidos. Flexione levemente os joelhos e incline o tronco para frente mantendo a coluna neutra. Puxe os halteres em direção ao abdômen, aproximando as escápulas. Pense em puxar com as costas, não com os braços. Desça controlando o peso."
+        },
+        {
+            "name": "Desenvolvimento com Halteres",
+            "meta": "3×10",
+            "restType": "accessory",
+            "setBadge": "3×10",
+            "restSeconds": 75,
+            "description": "Sentado ou em pé, halteres na altura dos ombros, palmas voltadas para frente. Abdômen contraído. Inspire e empurre os halteres para cima até quase estender os braços. Evite arquear a lombar. Desça lentamente até a posição inicial."
+        },
+        {
+            "name": "Prancha",
+            "meta": "3×45–60s",
+            "restType": "core",
+            "setBadge": "3×60s",
+            "restSeconds": 45,
+            "description": "Apoie antebraços e pontas dos pés no chão. Ombros alinhados com os cotovelos. Contraia abdômen e glúteos, mantendo corpo reto como uma tábua. Evite deixar o quadril cair ou subir demais. Respire normalmente."
+        },
+        {
+            "name": "Abdominal Crunch",
+            "meta": "3×20",
+            "restType": "core",
+            "setBadge": "3×20",
+            "restSeconds": 45,
+            "description": "Deitado de costas, pés apoiados no chão e mãos atrás da cabeça ou cruzadas no peito. Eleve levemente os ombros do chão, contraindo o abdômen. O movimento é curto. Não puxe o pescoço. Desça devagar."
+        }
+    ]
+}

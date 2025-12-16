@@ -1,0 +1,55 @@
+{
+    "id": "C",
+    "title": "Treino C — Full Body",
+    "subtitle": "Foco: quadríceps, peito e core",
+    "exercises": [
+        {
+            "name": "Agachamento com Barra",
+            "meta": "3×10",
+            "restType": "main",
+            "setBadge": "3×10",
+            "restSeconds": 90,
+            "description": "Barra apoiada no trapézio. Pés na largura dos ombros. Inspire, desça controlando o movimento, mantendo peito aberto. Suba empurrando o chão com os pés."
+        },
+        {
+            "name": "Supino Fechado com Halteres",
+            "meta": "3×10",
+            "restType": "main",
+            "setBadge": "3×10",
+            "restSeconds": 90,
+            "description": "Halteres próximos um do outro. Cotovelos mais fechados. Desça controlado e suba contraindo tríceps e peito."
+        },
+        {
+            "name": "Pullover com Halter",
+            "meta": "3×12",
+            "restType": "main",
+            "setBadge": "3×12",
+            "restSeconds": 75,
+            "description": "Deitado no banco, segure o halter com as duas mãos. Desça o peso atrás da cabeça com braços semi-flexionados. Suba até a linha do peito, sentindo dorsais."
+        },
+        {
+            "name": "Tríceps Testa com Halteres",
+            "meta": "3×12",
+            "restType": "accessory",
+            "setBadge": "3×12",
+            "restSeconds": 60,
+            "description": "Deitado, halteres acima do rosto. Flexione apenas os cotovelos. Evite abrir os braços."
+        },
+        {
+            "name": "Abdominal Infra no Banco",
+            "meta": "3×15",
+            "restType": "core",
+            "setBadge": "3×15",
+            "restSeconds": 45,
+            "description": "Eleve as pernas e finalize elevando levemente o quadril. Controle a descida."
+        },
+        {
+            "name": "Prancha com Toque no Ombro",
+            "meta": "3×20",
+            "restType": "core",
+            "setBadge": "3×20",
+            "restSeconds": 45,
+            "description": "Em posição de prancha alta, toque um ombro de cada vez sem balançar o tronco."
+        }
+    ]
+}

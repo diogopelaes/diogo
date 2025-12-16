@@ -1,0 +1,55 @@
+{
+    "id": "B",
+    "title": "Treino B — Full Body",
+    "subtitle": "Foco: posterior de coxa, costas e estabilidade",
+    "exercises": [
+        {
+            "name": "Levantamento Terra Romeno com Halteres",
+            "meta": "3×10",
+            "restType": "main",
+            "setBadge": "3×10",
+            "restSeconds": 90,
+            "description": "Segure os halteres à frente das coxas. Joelhos levemente flexionados. Empurre o quadril para trás mantendo a coluna neutra. Os halteres descem próximos às pernas. Sinta o alongamento do posterior de coxa. Suba estendendo o quadril e contraindo glúteos."
+        },
+        {
+            "name": "Flexão de Braços",
+            "meta": "3×12",
+            "restType": "main",
+            "setBadge": "3×12",
+            "restSeconds": 75,
+            "description": "Mãos apoiadas no chão na largura dos ombros. Corpo alinhado. Desça flexionando os cotovelos até o peito se aproximar do chão. Empurre o solo para subir. Abdômen e glúteos sempre contraídos."
+        },
+        {
+            "name": "Remada Unilateral com Halter",
+            "meta": "3×12 por lado",
+            "restType": "main",
+            "setBadge": "3×12/lado",
+            "restSeconds": 75,
+            "description": "Apoie um joelho e uma mão no banco. Com o braço livre, puxe o halter em direção ao tronco. Cotovelo próximo ao corpo. Contraia as costas no topo e desça lentamente."
+        },
+        {
+            "name": "Elevação Lateral",
+            "meta": "3×15",
+            "restType": "accessory",
+            "setBadge": "3×15",
+            "restSeconds": 60,
+            "description": "Halteres ao lado do corpo. Eleve os braços até a linha do ombro, com cotovelos levemente flexionados. Movimento controlado, sem balanço."
+        },
+        {
+            "name": "Elevação de Pernas",
+            "meta": "3×15",
+            "restType": "core",
+            "setBadge": "3×15",
+            "restSeconds": 45,
+            "description": "Deitado, mãos sob o quadril. Eleve as pernas mantendo controle. Se a lombar sair do chão, diminua a amplitude. Movimento lento."
+        },
+        {
+            "name": "Prancha Lateral",
+            "meta": "3×30s por lado",
+            "restType": "core",
+            "setBadge": "3×30s/lado",
+            "restSeconds": 45,
+            "description": "Apoie o antebraço e o pé lateralmente. Corpo alinhado. Sinta a contração dos oblíquos. Não deixe o quadril cair."
+        }
+    ]
+}

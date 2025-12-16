@@ -1,0 +1,55 @@
+{
+    "id": "D",
+    "title": "Treino D — Full Body",
+    "subtitle": "Foco: estabilidade, ombros e core",
+    "exercises": [
+        {
+            "name": "Avanço (Lunge) com Halteres",
+            "meta": "3×10 por perna",
+            "restType": "main",
+            "setBadge": "3×10/perna",
+            "restSeconds": 90,
+            "description": "Dê um passo à frente e desça até ambos os joelhos ficarem próximos de 90°. Empurre pelo calcanhar da frente para subir."
+        },
+        {
+            "name": "Desenvolvimento Arnold",
+            "meta": "3×10",
+            "restType": "main",
+            "setBadge": "3×10",
+            "restSeconds": 75,
+            "description": "Inicie com palmas voltadas para você. Durante a subida, gire os halteres até palmas para frente. Movimento contínuo e controlado."
+        },
+        {
+            "name": "Remada Curvada com Barra",
+            "meta": "3×10",
+            "restType": "main",
+            "setBadge": "3×10",
+            "restSeconds": 90,
+            "description": "Incline o tronco mantendo coluna neutra. Puxe a barra em direção ao abdômen, contraindo dorsais."
+        },
+        {
+            "name": "Rosca Alternada com Halteres",
+            "meta": "3×12",
+            "restType": "accessory",
+            "setBadge": "3×12",
+            "restSeconds": 60,
+            "description": "Suba o halter girando o punho. Desça controlando. Evite balanço."
+        },
+        {
+            "name": "Russian Twist com Halter",
+            "meta": "3×20",
+            "restType": "core",
+            "setBadge": "3×20",
+            "restSeconds": 45,
+            "description": "Sentado, tronco levemente inclinado. Gire o tronco levando o halter de um lado ao outro."
+        },
+        {
+            "name": "Prancha",
+            "meta": "3×60s",
+            "restType": "core",
+            "setBadge": "3×60s",
+            "restSeconds": 45,
+            "description": "Finalize mantendo postura sólida e respiração constante."
+        }
+    ]
+}

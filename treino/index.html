@@ -1,58 +1,64 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Plano de Treino — 4x/sem</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-<link rel="stylesheet" href="treino.css">
-</head>
-<body>
-<div class="wrap" id="app">
-  <header>
-    <div>
-      <h1 id="pageTitle">Plano de Treino</h1>
-      <p class="sub" id="pageSub">Selecione o treino do dia</p>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Plano de Treino — 4x/sem</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link rel="stylesheet" href="css/treino.css" />
+  </head>
+  <body>
+    <div class="wrap" id="app">
+      <header>
+        <div>
+          <h1 id="pageTitle">Plano de Treino</h1>
+          <p class="sub" id="pageSub">Selecione o treino do dia</p>
+        </div>
+        <div class="controls" id="workoutControls" style="display: none">
+          <button class="btn" id="clearAll">
+            <span class="material-symbols-outlined">restart_alt</span> Limpar
+          </button>
+          <button class="btn ghost" id="resetTimers">
+            <span class="material-symbols-outlined">timer_off</span> Timers
+          </button>
+        </div>
+      </header>
+
+      <!-- Menu Section -->
+      <section id="menu">
+        <button class="menuBtn" onclick="loadWorkout('A')">
+          <h3>Treino A - Segunda</h3>
+          <span>Pernas + Abdômen</span>
+        </button>
+        <button class="menuBtn" onclick="loadWorkout('B')">
+          <h3>Treino B - Terça</h3>
+          <span>Peito + Ombros + Tríceps</span>
+        </button>
+        <button class="menuBtn" onclick="loadWorkout('C')">
+          <h3>Treino C - Quinta</h3>
+          <span>Pernas + Glúteos + Abdômen</span>
+        </button>
+        <button class="menuBtn" onclick="loadWorkout('D')">
+          <h3>Treino D - Sexta</h3>
+          <span>Costas + Bíceps + Ombros</span>
+        </button>
+      </section>
+
+      <!-- Workout Rendering Container -->
+      <section id="workout-container" class="grid">
+        <!-- Content injected via JS -->
+      </section>
+
+      <footer>
+        Intervalos fixos: <strong>Main = 90s</strong>,
+        <strong>Drop = 120s</strong>, <strong>Acessórios = 60s</strong>,
+        <strong>Core = 45s</strong>.
+      </footer>
     </div>
-    <div class="controls" id="workoutControls" style="display:none">
-      <button class="btn ghost" id="backBtn" onclick="goBack()"><span class="material-symbols-outlined">arrow_back</span> Voltar</button>
-      <button class="btn" id="clearAll"><span class="material-symbols-outlined">restart_alt</span> Limpar</button>
-      <button class="btn ghost" id="resetTimers"><span class="material-symbols-outlined">timer_off</span> Timers</button>
-    </div>
-  </header>
 
-  <!-- Menu Section -->
-  <section id="menu">
-    <button class="menuBtn" onclick="loadWorkout('A')">
-      <h3>Treino A - Segunda</h3>
-      <span>Pernas + Abdômen</span>
-    </button>
-    <button class="menuBtn" onclick="loadWorkout('B')">
-      <h3>Treino B - Terça</h3>
-      <span>Peito + Ombros + Tríceps</span>
-    </button>
-    <button class="menuBtn" onclick="loadWorkout('C')">
-      <h3>Treino C - Quinta</h3>
-      <span>Pernas + Glúteos + Abdômen</span>
-    </button>
-    <button class="menuBtn" onclick="loadWorkout('D')">
-      <h3>Treino D - Sexta</h3>
-      <span>Costas + Bíceps + Ombros</span>
-    </button>
-  </section>
-
-  <!-- Workout Rendering Container -->
-  <section id="workout-container" class="grid">
-    <!-- Content injected via JS -->
-  </section>
-
-  <footer>
-    Intervalos fixos: <strong>Main = 90s</strong>, <strong>Drop = 120s</strong>, <strong>Acessórios = 60s</strong>, <strong>Core = 45s</strong>.
-  </footer>
-</div>
-
-
-
-<script src="treino.js"></script>
-</body>
+    <script src="js/treino.js"></script>
+  </body>
 </html>

@@ -7,7 +7,7 @@ let activeTimers = {};
 
 async function loadWorkout(id) {
     try {
-        const response = await fetch(`treino${id}.json`);
+        const response = await fetch(`data/treino${id}.json`);
         if (!response.ok) throw new Error('Falha ao carregar treino');
         const data = await response.json();
         currentWorkoutData = data;
@@ -17,7 +17,7 @@ async function loadWorkout(id) {
         document.getElementById('menu').style.display = 'none';
         document.getElementById('workout-container').style.display = 'grid';
         document.getElementById('workoutControls').style.display = 'flex';
-        document.getElementById('backBtn').style.display = 'inline-block';
+
         document.getElementById('pageTitle').textContent = data.title;
         document.getElementById('pageSub').textContent = data.subtitle;
 
@@ -29,18 +29,7 @@ async function loadWorkout(id) {
     }
 }
 
-function goBack() {
-    document.getElementById('menu').style.display = 'flex';
-    document.getElementById('workout-container').style.display = 'none';
-    document.getElementById('workoutControls').style.display = 'none';
-    document.getElementById('backBtn').style.display = 'none';
-    document.getElementById('pageTitle').textContent = 'Plano de Treino';
-    document.getElementById('pageSub').textContent = 'Selecione o treino do dia';
 
-    // Limpar container para evitar duplicidade ou estado inválido
-    document.getElementById('workout-container').innerHTML = '';
-    currentWorkoutData = null;
-}
 
 /* ======= Renderização ======= */
 
