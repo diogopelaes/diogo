@@ -92,76 +92,58 @@
                     <div class="code-lines">
                         <!-- Imports -->
                         <div class="line"><span class="keyword">import</span> <span class="variable">math</span></div>
-                        <div class="line"><span class="keyword">from</span> <span class="module">cemep</span> <span class="keyword">import</span> <span class="variable">Education</span></div>
+                        <div class="line"><span class="keyword">from</span> <span class="module">cemep</span> <span class="keyword">import</span> <span class="variable">Teacher</span></div>
                         <div class="line">&nbsp;</div>
                         
                         <!-- Quote -->
                         <div class="line"><span class="comment">"""</span></div>
-                        <div class="line"><span class="comment">"A matemática não mente. Mente quem faz mau uso dela."</span></div>
-                        <div class="line"><span class="comment">- Albert Einstein (parafraseado)</span></div>
+                        <div class="line"><span class="comment">"A Matemática é a arte de dar o mesmo nome a coisas diferentes."</span></div>
+                        <div class="line"><span class="comment">- Henri Poincaré</span></div>
                         <div class="line"><span class="comment">"""</span></div>
                         <div class="line">&nbsp;</div>
 
-                        <!-- Main Class -->
+                        <!-- Class -->
                         <div class="line"><span class="keyword">class</span> <span class="class-name">ProfDiogo</span>(<span class="class-name">Teacher</span>):</div>
                         <div class="line indent-1"><span class="keyword">def</span> <span class="function">__init__</span>(<span class="self">self</span>):</div>
-                        <div class="line indent-2"><span class="self">self</span>.<span class="property">nome_completo</span> = <span class="string">"Diogo Pelaes"</span></div>
-                        <div class="line indent-2"><span class="self">self</span>.<span class="property">area</span> = <span class="string">"Matemática"</span></div>
-                        <div class="line indent-2"><span class="self">self</span>.<span class="property">school</span> = <span class="string">"CEMEP"</span></div>
-                        <div class="line indent-2"><span class="self">self</span>.<span class="property">website</span> = <span class="string">"<a href="https://cemep.net.br" target="_blank" class="link">cemep.net.br</a>"</span></div>
-                        <div class="line indent-2"><span class="self">self</span>.<span class="property">email</span> = <span class="string">"<a href="mailto:diogo.pelaes@prof.paulinia.sp.gov.br" class="link">diogo.pelaes@prof.paulinia.sp.gov.br</a>"</span></div>
+                        <div class="line indent-2"><span class="comment"># CHAMADA AO PAI (SUPER):</span></div>
+                        <div class="line indent-2"><span class="comment"># Passamos os dados concretos para a estrutura genérica de Teacher</span></div>
+                        <div class="line indent-2"><span class="function">super</span>().<span class="function">__init__</span>(</div>
+                        <div class="line indent-3"><span class="variable">nome</span>=<span class="string">"Diogo Pelaes"</span>,</div>
+                        <div class="line indent-3"><span class="variable">area</span>=<span class="string">"Matemática"</span>,</div>
+                        <div class="line indent-3"><span class="variable">school</span>=<span class="string">"CEMEP"</span>,</div>
+                        <div class="line indent-3"><span class="variable">website</span>=<span class="string">"<a href="https://cemep.net.br" target="_blank" class="link">cemep.net.br</a>"</span>,</div>
+                        <div class="line indent-3"><span class="variable">email</span>=<span class="string">"<a href="mailto:diogo.pelaes@prof.paulinia.sp.gov.br" class="link">diogo.pelaes@prof.paulinia.sp.gov.br</a>"</span></div>
+                        <div class="line indent-2">)</div>
                         <div class="line">&nbsp;</div>
 
-                        <!-- Material -->
+                        <!-- Materials -->
                         <div class="line indent-1"><span class="decorator">@property</span></div>
-                        <div class="line indent-1"><span class="keyword">def</span> <span class="function">get_class_materials</span>(<span class="self">self</span>) -> <span class="type">dict</span>:</div>
+                        <div class="line indent-1"><span class="keyword">def</span> <span class="function">class_materials</span>(<span class="self">self</span>) -> <span class="type">dict</span>:</div>
+                        <div class="line indent-2"><span class="comment">"""Links específicos do Diogo"""</span></div>
                         <div class="line indent-2"><span class="keyword">return</span> {</div>
-                            <div class="line">&nbsp;</div>
-                            <!-- 1st Grade -->
-                            <div class="line indent-3"><span class="key">"1a_Serie"</span>: <span class="keyword">lambda</span>: <span class="function">open</span>(</div>
-                            <div class="line indent-4"><span class="string">"<a href="https://drive.google.com/drive/folders/1qDeYASXh_yHG41FjC4s2GPAYvurxMFVc?usp=drive_link" target="_blank" class="link">Google_Drive/1_Serie</a>"</span></div>
-                            <div class="line indent-3">),</div>
-                            <div class="line">&nbsp;</div>
-
-                            <!-- 2nd Grade -->
-                            <div class="line indent-3"><span class="key">"2a_Serie"</span>: <span class="keyword">lambda</span>: <span class="function">open</span>(</div>
-                            <div class="line indent-4"><span class="string">"<a href="https://drive.google.com/drive/folders/1LKHdBo008JEjo4A2ySjw8fcc5FgRSABZ?usp=drive_link" target="_blank" class="link">Google_Drive/2_Serie</a>"</span></div>
-                            <div class="line indent-3">),</div>
-                            <div class="line">&nbsp;</div>
-
-                            <!-- 3rd Grade -->
-                            <div class="line indent-3"><span class="key">"3a_Serie"</span>: <span class="keyword">lambda</span>: <span class="function">open</span>(</div>
-                            <div class="line indent-4"><span class="string">"<a href="https://drive.google.com/drive/folders/1Mut66MjoQS9SDhzuKvBVndKZocu8_n5R?usp=drive_link" target="_blank" class="link">Google_Drive/3_Serie</a>"</span></div>
-                            <div class="line indent-3">)</div>
+                        <div class="line indent-3"><span class="key">"1a_Serie"</span>: <span class="string">"<a href="https://drive.google.com/drive/folders/1qDeYASXh_yHG41FjC4s2GPAYvurxMFVc?usp=drive_link" target="_blank" class="link">drive/1_Serie</a>"</span>,</div>
+                        <div class="line indent-3"><span class="key">"2a_Serie"</span>: <span class="string">"<a href="https://drive.google.com/drive/folders/1LKHdBo008JEjo4A2ySjw8fcc5FgRSABZ?usp=drive_link" target="_blank" class="link">drive/2_Serie</a>"</span>,</div>
+                        <div class="line indent-3"><span class="key">"3a_Serie"</span>: <span class="string">"<a href="https://drive.google.com/drive/folders/1Mut66MjoQS9SDhzuKvBVndKZocu8_n5R?usp=drive_link" target="_blank" class="link">drive/3_Serie</a>"</span></div>
                         <div class="line indent-2">}</div>
                         <div class="line">&nbsp;</div>
 
                         <!-- Classroom -->
                         <div class="line indent-1"><span class="decorator">@property</span></div>
-                        <div class="line indent-1"><span class="keyword">def</span> <span class="function">get_google_classroom</span>(<span class="self">self</span>) -> <span class="type">dict</span>:</div>
+                        <div class="line indent-1"><span class="keyword">def</span> <span class="function">google_classroom</span>(<span class="self">self</span>) -> <span class="type">dict</span>:</div>
                         <div class="line indent-2"><span class="keyword">return</span> {</div>
-                            <div class="line">&nbsp;</div>
-                            <!-- 1st Grade -->
-                            <div class="line indent-3"><span class="key">"1a_Serie"</span>: </div>
-                            <div class="line indent-4"><span class="string">"<a href="https://classroom.google.com/c/ODM3NDk1NDU1Mjg4?cjc=i53eh7lf" target="_blank" class="link">Classroom_1_Serie</a>"</span>,</div>
-                            <div class="line">&nbsp;</div>
-
-                            <!-- 2nd Grade -->
-                            <div class="line indent-3"><span class="key">"2a_Serie"</span>: </div>
-                            <div class="line indent-4"><span class="string">"<a href="https://classroom.google.com/c/ODM3NDkzODc2NDQ2?cjc=mscw36tf" target="_blank" class="link">Classroom_2_Serie</a>"</span>,</div>
-                            <div class="line">&nbsp;</div>
-
-                            <!-- 3rd Grade -->
-                            <div class="line indent-3"><span class="key">"3a_Serie"</span>: </div>
-                            <div class="line indent-4"><span class="string">"<a href="https://classroom.google.com/c/ODM3NDkzNzgxNjYz?cjc=czjsud77" target="_blank" class="link">Classroom_3_Serie</a>"</span></div>
+                        <div class="line indent-3"><span class="key">"1a_Serie"</span>: <span class="string">"<a href="https://classroom.google.com/c/ODM3NDk1NDU1Mjg4?cjc=i53eh7lf" target="_blank" class="link">Classroom_1_Serie</a>"</span>,</div>
+                        <div class="line indent-3"><span class="key">"2a_Serie"</span>: <span class="string">"<a href="https://classroom.google.com/c/ODM3NDkzODc2NDQ2?cjc=mscw36tf" target="_blank" class="link">Classroom_2_Serie</a>"</span>,</div>
+                        <div class="line indent-3"><span class="key">"3a_Serie"</span>: <span class="string">"<a href="https://classroom.google.com/c/ODM3NDkzNzgxNjYz?cjc=czjsud77" target="_blank" class="link">Classroom_3_Serie</a>"</span></div>
                         <div class="line indent-2">}</div>
                         <div class="line">&nbsp;</div>
 
                         <!-- Main Execution -->
                         <div class="line"><span class="keyword">if</span> <span class="variable">__name__</span> == <span class="string">"__main__"</span>:</div>
                         <div class="line indent-1"><span class="variable">diogo</span> = <span class="class-name">ProfDiogo</span>()</div>
-                        <div class="line indent-1"><span class="comment"># Click on links to access Materials or Classroom</span></div>
-                        <div class="line indent-1"><span class="function">print</span>(f<span class="string">"Welcome to {diogo.school}"</span>)</div>
+                        <div class="line indent-1"><span class="comment"># Como herdamos corretamente, podemos acessar diogo.school</span></div>
+                        <div class="line indent-1"><span class="comment"># mesmo que não esteja escrito explicitamente dentro da classe ProfDiogo,</span></div>
+                        <div class="line indent-1"><span class="comment"># pois foi definido no pai (Teacher).</span></div>
+                        <div class="line indent-1"><span class="function">print</span>(f<span class="string">"Loaded profile: {diogo.nome_completo} @ {diogo.school}"</span>)</div>
                     </div>
                 </div>
             </div>
