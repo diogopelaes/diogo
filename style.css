@@ -1,5 +1,5 @@
 :root {
-    /* Color Palette (Based on user request) */
+    /* Color Palette */
     --bg-dark: #042440;
     /* Editor Background */
     --bg-darker: #021220;
@@ -38,7 +38,6 @@ body {
     font-size: 14px;
     height: 100vh;
     overflow: hidden;
-    /* App-like feel */
 }
 
 /* Layout */
@@ -50,7 +49,7 @@ body {
     width: 100vw;
 }
 
-/* 1. Activity Bar (Left icon strip) */
+/* 1. Activity Bar */
 .activity-bar {
     background-color: var(--bg-darker);
     display: flex;
@@ -88,7 +87,7 @@ body {
     flex-grow: 1;
 }
 
-/* 2. Sidebar (Explorer) */
+/* 2. Sidebar */
 .sidebar {
     background-color: var(--bg-darker);
     border-right: 1px solid var(--border-color);
@@ -112,8 +111,6 @@ body {
     font-size: 16px;
     cursor: pointer;
 }
-
-.explorer-section {}
 
 .section-header {
     padding: 4px 0;
@@ -160,7 +157,6 @@ body {
     font-size: 16px;
     margin-right: 6px;
     color: #ffd700;
-    /* Default folder yellow */
 }
 
 .file-icon.python-icon {
@@ -198,7 +194,6 @@ body {
     color: var(--text-primary);
     border-right: 1px solid var(--border-color);
     border-top: 1px solid var(--accent-teal);
-    /* Active tab indicator */
     min-width: 120px;
     cursor: pointer;
     font-size: 13px;
@@ -224,7 +219,6 @@ body {
     font-size: 12px;
     color: var(--text-secondary);
     border-bottom: 1px solid transparent;
-    /* Visual separation if needed */
     display: flex;
     align-items: center;
 }
@@ -233,15 +227,22 @@ body {
     margin: 0 5px;
 }
 
-/* Code Container */
+/* Code Container (Scroll Window) */
 .code-container {
     flex-grow: 1;
-    display: flex;
     overflow-y: auto;
+    width: 100%;
+    position: relative;
+    /* Removed display: flex from here so wrapper works */
+}
+
+/* Wrapper to ensure flex stretch happens on full scrollable height */
+.code-wrapper {
+    display: flex;
+    min-height: 100%;
+    /* Important: allows extending border */
+    width: 100%;
     padding-top: 10px;
-    font-family: 'JetBrains Mono', 'Fira Code', monospace;
-    font-size: 15px;
-    line-height: 1.5;
 }
 
 /* Line Numbers */
@@ -252,12 +253,12 @@ body {
     border-right: 1px solid var(--border-color);
     user-select: none;
     min-width: 50px;
+    /* No need for min-height 100% here as the flex parent stretches it */
 }
 
 .line-number {
     display: block;
     height: 22.5px;
-    /* Adjust to match line-height exactly if possible */
 }
 
 .code-lines {
@@ -265,11 +266,13 @@ body {
     padding-right: 15px;
     color: var(--text-primary);
     width: 100%;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 15px;
+    line-height: 1.5;
 }
 
 .line {
     white-space: pre;
-    /* Changed from pre-wrap to pre to avoid weird wrapping line number mismatches */
     min-height: 22.5px;
 }
 
@@ -313,7 +316,6 @@ body {
     color: #e06c75;
 }
 
-/* Just a nice red/pink for self */
 .number {
     color: var(--accent-orange);
 }
@@ -358,7 +360,6 @@ body {
 /* 4. Status Bar */
 .status-bar {
     background-color: var(--accent-royal);
-    /* Brand color for status bar */
     color: white;
     grid-column: 1 / 4;
     grid-row: 2 / 3;
@@ -391,7 +392,6 @@ body {
 @media (max-width: 768px) {
     .ide-container {
         grid-template-columns: 0 0 1fr;
-        /* Hide sidebar/activity bar on mobile initially */
     }
 
     .activity-bar,
@@ -401,7 +401,6 @@ body {
 
     .code-lines {
         font-size: 13px;
-        /* Slightly smaller on mobile */
     }
 
     .indent-1 {
