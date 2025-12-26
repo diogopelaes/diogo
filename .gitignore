@@ -2,7 +2,6 @@
 .idea/
 
 # Ignorar a pasta .vscode do Visual Studio Code
-.vscode/
  
  # Logs
  logs/

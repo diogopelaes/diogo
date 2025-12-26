@@ -38,6 +38,12 @@ body {
     font-size: 14px;
     height: 100vh;
     overflow: hidden;
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 0; }
 }
 
 /* Layout */
