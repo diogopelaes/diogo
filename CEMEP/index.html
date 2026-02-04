@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="pt-BR" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Portal do Aluno - Prof. Diogo Pelaes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+      :root {
+        --primary: #6366f1;
+        --primary-hover: #4f46e5;
+        --bg-light: #f8fafc;
+        --bg-dark: #0f172a;
+        --card-bg-light: rgba(255, 255, 255, 0.8);
+        --card-bg-dark: rgba(30, 41, 59, 0.7);
+        --border-light: rgba(226, 232, 240, 0.8);
+        --border-dark: rgba(51, 65, 85, 0.5);
+        --text-light: #1e293b;
+        --text-dark: #f1f5f9;
+        --text-muted-light: #64748b;
+        --text-muted-dark: #94a3b8;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: var(--bg-light);
+        font-family: "Inter", system-ui, sans-serif;
+        color: var(--text-light);
+        line-height: 1.5;
+        padding: 1rem 5rem;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: background-color 0.3s ease;
+      }
+
+      .dark body {
+        background-color: var(--bg-dark);
+        color: var(--text-dark);
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .logo-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+      }
+
+      .logo {
+        height: 120px;
+        width: auto;
+        border-radius: 12px;
+        object-fit: contain;
+      }
+
+      h1 {
+        font-family: "Outfit", sans-serif;
+        font-size: 3rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: -0.02em;
+        margin-bottom: 0.5rem;
+      }
+
+      .subtitle {
+        font-size: 1.25rem;
+        color: var(--text-muted-dark);
+        font-weight: 500;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
+
+      .nav-card {
+        text-decoration: none;
+        color: inherit;
+        background: var(--card-bg-light);
+        backdrop-filter: blur(12px);
+        border: 1px solid var(--border-light);
+        border-radius: 1.5rem;
+        padding: 2.5rem 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.5rem;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+      }
+
+      .dark .nav-card {
+        background: var(--card-bg-dark);
+        border-color: var(--border-dark);
+      }
+
+      .nav-card:hover {
+        transform: translateY(-8px);
+        border-color: var(--primary);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+        background: rgba(99, 102, 241, 0.05);
+      }
+
+      .icon-circle {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: rgba(99, 102, 241, 0.1);
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+
+      .nav-card:hover .icon-circle {
+        background: var(--primary);
+        color: white;
+        transform: scale(1.1);
+      }
+
+      .card-title {
+        font-family: "Outfit", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+
+      .card-desc {
+        font-size: 0.95rem;
+        color: var(--text-muted-dark);
+      }
+
+      footer {
+        margin-top: 4rem;
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border-dark);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-muted-dark);
+        font-weight: 600;
+      }
+
+      @media (max-width: 900px) {
+        .grid {
+          grid-template-columns: 1fr;
+          max-width: 500px;
+          margin: 0 auto;
+        }
+        body {
+          padding: 2rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo-container">
+          <img src="CEMEP.jpeg" alt="Logo CEMEP" class="logo" />
+        </div>
+        <h1>Portal de Matemática</h1>
+        <p class="subtitle">Bem-vindo à disciplina de Matemática - 2026</p>
+      </header>
+
+      <div class="grid">
+        <!-- Acesso CEMEP Digital -->
+        <a href="acesso.html" class="nav-card">
+          <div class="icon-circle">
+            <i data-lucide="qr-code" style="width: 40px; height: 40px"></i>
+          </div>
+          <div>
+            <h2 class="card-title">CEMEP Digital</h2>
+            <p class="card-desc">Acesso institucional e QR Code do sistema.</p>
+          </div>
+        </a>
+
+        <!-- Planejamento de Avaliações -->
+        <a href="avaliacao.html" class="nav-card">
+          <div class="icon-circle">
+            <i
+              data-lucide="clipboard-check"
+              style="width: 40px; height: 40px"
+            ></i>
+          </div>
+          <div>
+            <h2 class="card-title">Avaliações</h2>
+            <p class="card-desc">Regulamento, datas e critérios de correção.</p>
+          </div>
+        </a>
+
+        <!-- Conteúdos Provão Paulista -->
+        <a href="conteudos_provao.html" class="nav-card">
+          <div class="icon-circle">
+            <i
+              data-lucide="book-open-check"
+              style="width: 40px; height: 40px"
+            ></i>
+          </div>
+          <div>
+            <h2 class="card-title">Provão Paulista</h2>
+            <p class="card-desc">Lista completa de conteúdos programáticos.</p>
+          </div>
+        </a>
+      </div>
+
+      <footer>
+        <i data-lucide="user-round" style="width: 20px"></i>
+        <span>Prof. Diogo Pelaes</span>
+      </footer>
+    </div>
+
+    <script>
+      // Initialize Lucide icons
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

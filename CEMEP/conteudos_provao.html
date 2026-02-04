@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="pt-BR" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Conteúdos Provão Paulista 2026 - Matemática</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+      :root {
+        --primary: #6366f1;
+        --primary-hover: #4f46e5;
+        --bg-light: #f8fafc;
+        --bg-dark: #0f172a;
+        --card-bg-light: rgba(255, 255, 255, 0.8);
+        --card-bg-dark: rgba(30, 41, 59, 0.7);
+        --border-light: rgba(226, 232, 240, 0.8);
+        --border-dark: rgba(51, 65, 85, 0.5);
+        --text-light: #1e293b;
+        --text-dark: #f1f5f9;
+        --text-muted-light: #64748b;
+        --text-muted-dark: #94a3b8;
+        --table-header-bg: rgba(99, 102, 241, 0.1);
+        --category-bg: rgba(99, 102, 241, 0.2);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: var(--bg-light);
+        font-family: "Inter", system-ui, sans-serif;
+        color: var(--text-light);
+        line-height: 1.5;
+        padding: 1rem 5rem;
+        min-height: 100vh;
+        transition: background-color 0.3s ease;
+      }
+
+      .dark body {
+        background-color: var(--bg-dark);
+        color: var(--text-dark);
+      }
+
+      .container {
+        max-width: 90%;
+        margin: 0 auto;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      header {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid var(--border-light);
+      }
+
+      .dark header {
+        border-bottom-color: var(--border-dark);
+      }
+
+      .logo-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+      }
+
+      .logo {
+        height: 120px;
+        width: auto;
+        border-radius: 12px;
+        object-fit: contain;
+      }
+
+      .header-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      h1 {
+        font-family: "Outfit", sans-serif;
+        font-size: 2.25rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: -0.02em;
+      }
+
+      .teacher-info {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: var(--text-muted-light);
+      }
+
+      .dark .teacher-info {
+        color: var(--text-muted-dark);
+      }
+
+      /* Table Styles based on Card Aesthetics */
+      .table-wrapper {
+        background: var(--card-bg-light);
+        backdrop-filter: blur(12px);
+        border: 1px solid var(--border-light);
+        border-radius: 1.25rem;
+        overflow: hidden;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      }
+
+      .dark .table-wrapper {
+        background: var(--card-bg-dark);
+        border-color: var(--border-dark);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+      }
+
+      th,
+      td {
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid var(--border-light);
+      }
+
+      .dark th,
+      .dark td {
+        border-bottom-color: var(--border-dark);
+      }
+
+      thead th {
+        background: linear-gradient(
+          135deg,
+          rgba(99, 102, 241, 0.25) 0%,
+          rgba(168, 85, 247, 0.25) 100%
+        );
+        font-family: "Outfit", sans-serif;
+        font-weight: 800;
+        color: var(--text-dark);
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        letter-spacing: 0.05em;
+        border-bottom: 3px solid var(--primary);
+      }
+
+      .dark thead th {
+        color: #fff;
+      }
+
+      .category-row {
+        background: var(--category-bg);
+      }
+
+      .category-row td {
+        font-family: "Outfit", sans-serif;
+        font-weight: 700;
+        color: var(--text-dark);
+        font-size: 1.1rem;
+        padding-top: 1.25rem;
+        padding-bottom: 1.25rem;
+      }
+
+      .dark .category-row td {
+        color: #fff;
+      }
+
+      .check-column {
+        text-align: center;
+        width: 80px;
+        font-weight: 800;
+        color: var(--primary);
+        border-left: 1px solid var(--border-light);
+      }
+
+      .dark .check-column {
+        border-left-color: var(--border-dark);
+      }
+
+      .content-column {
+        font-size: 0.95rem;
+      }
+
+      tr:last-child td {
+        border-bottom: none;
+      }
+
+      tr:hover td {
+        background: rgba(99, 102, 241, 0.05);
+      }
+
+      .x-mark {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        background: var(--primary);
+        color: white;
+        border-radius: 6px;
+        font-size: 0.75rem;
+      }
+
+      .dark .nav-card:hover {
+        background: rgba(99, 102, 241, 0.05);
+      }
+
+      .top-nav {
+        display: grid;
+        grid-template-columns: 48px 1fr 48px;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+
+      .back-button {
+        width: 48px;
+        height: 48px;
+        background: var(--card-bg-dark);
+        border: 1px solid var(--border-dark);
+        border-radius: 50%;
+        color: var(--text-dark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(12px);
+      }
+
+      .back-button:hover {
+        background: var(--primary);
+        color: white;
+        transform: scale(1.1);
+        border-color: var(--primary);
+      }
+
+      .logo-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0 !important;
+      }
+
+      @media (max-width: 640px) {
+        body {
+          padding: 1rem;
+        }
+        h1 {
+          font-size: 1.75rem;
+        }
+        th,
+        td {
+          padding: 0.75rem 1rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <div class="top-nav">
+          <a href="index.html" class="back-button" title="Voltar ao início">
+            <i data-lucide="arrow-left"></i>
+          </a>
+          <div class="logo-container">
+            <img src="CEMEP.jpeg" alt="Logo CEMEP" class="logo" />
+          </div>
+          <div></div>
+        </div>
+        <div class="header-top">
+          <h1>Conteúdos Provão Paulista 2026</h1>
+          <div class="teacher-info">
+            <i data-lucide="book-open" style="width: 20px"></i>
+            Matemática
+          </div>
+        </div>
+        <p style="opacity: 0.7; font-weight: 500; margin-top: 0.5rem">
+          Mapeamento de Objetos de Conhecimento por Série
+        </p>
+      </header>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Objeto do Conhecimento</th>
+              <th class="check-column">1ª</th>
+              <th class="check-column">2ª</th>
+              <th class="check-column">3ª</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Conjuntos Numéricos -->
+            <tr class="category-row">
+              <td colspan="4">Conjuntos numéricos</td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Números naturais, inteiros, racionais e reais: operações e
+                propriedades, ordem, reta numérica e resolução de problemas.
+              </td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Razões, proporcionalidade direta e inversa. Proporcionalidade
+                entre duas grandezas, na qual uma é o quadrado da outra.
+              </td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+            <tr>
+              <td class="content-column">Notação científica.</td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Sequências: noção de sequência; progressões aritméticas e
+                geométricas; lei de formação e lei de recorrência.
+              </td>
+              <td class="check-column"></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+            <tr>
+              <td class="content-column">Porcentagem, taxas e índices.</td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+
+            <!-- Análise Combinatória -->
+            <tr class="category-row">
+              <td colspan="4">Análise Combinatória</td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Princípios multiplicativo e aditivo em problemas de contagem.
+              </td>
+              <td class="check-column"></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Arranjos, permutações e combinações simples.
+              </td>
+              <td class="check-column"></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+
+            <!-- Probabilidade -->
+            <tr class="category-row">
+              <td colspan="4">Probabilidade</td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Espaço amostral: discreto e contínuo.
+              </td>
+              <td class="check-column"></td>
+              <td class="check-column"></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Eventos equiprováveis ou não, conjunto universo. Conceituação de
+                probabilidade. Cálculo de probabilidade de um evento simples.
+              </td>
+              <td class="check-column"></td>
+              <td class="check-column"></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Probabilidade da união e da intersecção de dois ou mais eventos.
+              </td>
+              <td class="check-column"></td>
+              <td class="check-column"></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Eventos dependentes e independentes. Eventos sucessivos.
+              </td>
+              <td class="check-column"></td>
+              <td class="check-column"></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+
+            <!-- Sistemas lineares -->
+            <tr class="category-row">
+              <td colspan="4">Sistemas lineares</td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Resolução e discussão de um sistema linear.
+              </td>
+              <td class="check-column"></td>
+              <td class="check-column"></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Representação algébrica e gráfica de um sistema de equações
+                lineares.
+              </td>
+              <td class="check-column"></td>
+              <td class="check-column"></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+
+            <!-- Funções -->
+            <tr class="category-row">
+              <td colspan="4">Funções</td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Relação entre grandezas: velocidade, densidade demográfica,
+                densidade volumétrica etc.
+              </td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Gráfico de funções expressas por uma sentença.
+              </td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Taxa de variação: crescimento linear.
+              </td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Função polinomial do 1º grau e função constante: Conceitos e
+                resolução de problemas, inclusive envolvendo inequações.
+              </td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Função quadrática: Conceitos e resolução de problemas, inclusive
+                envolvendo inequações.
+              </td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Pontos de máximo e mínimo em funções quadráticas: Conceitos e
+                resolução de problemas.
+              </td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Função exponencial e função logarítmica. Conceitos e resolução
+                de problemas.
+              </td>
+              <td class="check-column"></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+
+            <!-- Trigonometria -->
+            <tr class="category-row">
+              <td colspan="4">Trigonometria</td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Arcos e ângulos: medidas, relações entre arcos.
+              </td>
+              <td class="check-column"></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Funções seno e cosseno: representação algébrica e gráfica.
+                Modelagem e análise de fenômenos periódicos. Resolução de
+                problemas.
+              </td>
+              <td class="check-column"></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Resoluções de triângulos retângulos (seno, cosseno e tangente).
+                Teorema dos senos. Teorema dos cossenos. Resolução de triângulos
+                obtusângulos.
+              </td>
+              <td class="check-column"></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+
+            <!-- Geometria plana -->
+            <tr class="category-row">
+              <td colspan="4">Geometria plana</td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Figuras geométricas simples: reta, semirreta, segmento, ângulo
+                plano, polígonos, circunferência e círculo.
+              </td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Coordenadas e Plano cartesiano. Distância entre dois pontos.
+                Ponto médio de um segmento de reta.
+              </td>
+              <td class="check-column"></td>
+              <td class="check-column"></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Semelhança e congruência de triângulos.
+              </td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Relações métricas nos triângulos, polígonos regulares e
+                círculos.
+              </td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Áreas de polígonos (incluindo diferentes métodos para sua
+                obtenção - reconfigurações, aproximações por cortes etc),
+                círculos, coroa e setor circular.
+              </td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Resolver problemas sobre ladrilhamento no plano. Pavimentação de
+                superfícies utilizando o mesmo tipo de polígono ou não.
+              </td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+
+            <!-- Geometria espacial -->
+            <tr class="category-row">
+              <td colspan="4">Geometria espacial</td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Vistas ortogonais e representação plana de uma figura espacial.
+              </td>
+              <td class="check-column"></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Poliedros e corpos redondos - cálculo de áreas, volume e
+                capacidade.
+              </td>
+              <td class="check-column"></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+
+            <!-- Tratamento da informação -->
+            <tr class="category-row">
+              <td colspan="4">Tratamento da informação</td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Gráficos: setores, linhas, barras, infográficos, histogramas,
+                ramos e folhas. Tabelas e planilhas.
+              </td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Medidas de tendência central (moda, mediana e média).
+              </td>
+              <td class="check-column"></td>
+              <td class="check-column"></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+
+            <!-- Sistemas de Medidas -->
+            <tr class="category-row">
+              <td colspan="4">Sistemas de Medidas</td>
+            </tr>
+            <tr>
+              <td class="content-column">
+                Sistema Internacional de Medidas: principais unidades e
+                conversões.
+              </td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+              <td class="check-column"><span class="x-mark">X</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script>
+      // Initialize Lucide icons
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
