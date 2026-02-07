@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/favicon.png" type="image/png">
 </head>
 <body>
     <div class="ide-container">
@@ -70,27 +70,12 @@
 <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">super</span>().<span class="function">__init__</span>(</div>
 <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">name</span> = <span class="string">"Diogo Pelaes"</span>,</div>
 <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">field</span> = <span class="string">"Matemática"</span>,</div>
-<div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">school</span> = <span class="string">"CEMEP"</span>,</div>
+<div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">school</span> = <span class="string">"<a href="CEMEP/index.html" class="link">CEMEP</a>"</span>,</div>
 <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">website</span> = <span class="string">"<a href="https://cemep.net.br" target="_blank" class="link">cemep.net.br</a>"</span>,</div>
 <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">email</span> = <span class="string">"<a href="mailto:diogo.pelaes@prof.paulinia.sp.gov.br" class="link">diogo.pelaes@prof.paulinia.sp.gov.br</a>"</span></div>
 <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</div>
 <div class="line">&nbsp;</div>
-<div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="decorator">@property</span></div>
-<div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span> <span class="function">class_materials</span>(<span class="self">self</span>) -> <span class="type">dict</span>:</div>
-<div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> {</div>
-<div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"1a_Serie"</span>: <span class="string">"<a href="https://drive.google.com/drive/folders/1qDeYASXh_yHG41FjC4s2GPAYvurxMFVc" target="_blank" class="link">drive/1_Serie</a>"</span>,</div>
-<div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"2a_Serie"</span>: <span class="string">"<a href="https://drive.google.com/drive/folders/1LKHdBo008JEjo4A2ySjw8fcc5FgRSABZ" target="_blank" class="link">drive/2_Serie</a>"</span>,</div>
-<div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"3a_Serie"</span>: <span class="string">"<a href="https://drive.google.com/drive/folders/1Mut66MjoQS9SDhzuKvBVndKZocu8_n5R" target="_blank" class="link">drive/3_Serie</a>"</span></div>
-<div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</div>
-<div class="line">&nbsp;</div>
-<div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="decorator">@property</span></div>
-<div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span> <span class="function">google_classroom</span>(<span class="self">self</span>) -> <span class="type">dict</span>:</div>
-<div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> {</div>
-<div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"1a_Serie"</span>: <span class="string">"<a href="https://classroom.google.com/c/ODM3NDk1NDU1Mjg4?cjc=i53eh7lf" target="_blank" class="link">Classroom_1_Serie</a>"</span>,</div>
-<div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"2a_Serie"</span>: <span class="string">"<a href="https://classroom.google.com/c/ODM3NDkzODc2NDQ2?cjc=mscw36tf" target="_blank" class="link">Classroom_2_Serie</a>"</span>,</div>
-<div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"3a_Serie"</span>: <span class="string">"<a href="https://classroom.google.com/c/ODM3NDkzNzgxNjYz?cjc=czjsud77" target="_blank" class="link">Classroom_3_Serie</a>"</span></div>
-<div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</div>
-<div class="line">&nbsp;</div>
+
 <div class="line"><span class="keyword">if</span> <span class="variable">__name__</span> == <span class="string">"__main__"</span>:</div>
 <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">diogo</span> = <span class="class-name">ProfDiogo</span>()</div>
 <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(f<span class="string">"Bem-vindo à aula de {diogo.field}!"</span>)</div>
@@ -154,6 +139,6 @@
         </footer>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

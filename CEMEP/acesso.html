@@ -13,223 +13,11 @@
       rel="stylesheet"
     />
 
+    <link rel="stylesheet" href="css/style.css" />
+
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <style>
-      :root {
-        --primary: #6366f1;
-        --primary-hover: #4f46e5;
-        --bg-light: #f8fafc;
-        --bg-dark: #0f172a;
-        --card-bg-light: rgba(255, 255, 255, 0.8);
-        --card-bg-dark: rgba(30, 41, 59, 0.7);
-        --border-light: rgba(226, 232, 240, 0.8);
-        --border-dark: rgba(51, 65, 85, 0.5);
-        --text-light: #1e293b;
-        --text-dark: #f1f5f9;
-        --text-muted-light: #64748b;
-        --text-muted-dark: #94a3b8;
-      }
-
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
-      body {
-        background-color: var(--bg-light);
-        font-family: "Inter", system-ui, sans-serif;
-        color: var(--text-light);
-        line-height: 1.5;
-        padding: 1rem 2rem;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        transition: background-color 0.3s ease;
-      }
-
-      .dark body {
-        background-color: var(--bg-dark);
-        color: var(--text-dark);
-      }
-
-      .container {
-        width: 100%;
-        max-width: 600px;
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-      }
-
-      header {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .logo-container {
-        display: flex;
-        justify-content: center;
-      }
-
-      .logo {
-        height: 100px;
-        width: auto;
-        border-radius: 12px;
-        object-fit: contain;
-      }
-
-      h1 {
-        font-family: "Outfit", sans-serif;
-        font-size: 2.5rem;
-        font-weight: 800;
-        background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        letter-spacing: -0.02em;
-      }
-
-      .card {
-        background: var(--card-bg-light);
-        backdrop-filter: blur(12px);
-        border: 1px solid var(--border-light);
-        border-radius: 1.5rem;
-        padding: 3rem 2rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-      }
-
-      .dark .card {
-        background: var(--card-bg-dark);
-        border-color: var(--border-dark);
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-      }
-
-      .qr-wrapper {
-        background: white;
-        padding: 1.5rem;
-        border-radius: 1.25rem;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: transform 0.3s ease;
-      }
-
-      .qr-wrapper:hover {
-        transform: scale(1.02);
-      }
-
-      .qrcode {
-        width: 240px;
-        height: 240px;
-        display: block;
-      }
-
-      .info-section {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-      }
-
-      .url {
-        font-family: "Outfit", sans-serif;
-        font-size: 1.75rem;
-        color: var(--primary);
-        text-decoration: none;
-        font-weight: 700;
-        transition: color 0.2s;
-      }
-
-      .url:hover {
-        color: var(--primary-hover);
-        text-decoration: underline;
-      }
-
-      .instruction {
-        font-size: 1.1rem;
-        color: var(--text-muted-light);
-        font-weight: 500;
-      }
-
-      .dark .instruction {
-        color: var(--text-muted-dark);
-      }
-
-      .footer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.5rem;
-        font-weight: 600;
-        color: var(--text-muted-light);
-      }
-
-      .dark .footer {
-        color: var(--text-muted-dark);
-      }
-
-      .dark .footer {
-        color: var(--text-muted-dark);
-      }
-
-      .top-nav {
-        display: grid;
-        grid-template-columns: 48px 1fr 48px;
-        align-items: center;
-        width: 100%;
-        margin-bottom: 1rem;
-      }
-
-      .back-button {
-        width: 48px;
-        height: 48px;
-        background: var(--card-bg-dark);
-        border: 1px solid var(--border-dark);
-        border-radius: 50%;
-        color: var(--text-dark);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(12px);
-      }
-
-      .back-button:hover {
-        background: var(--primary);
-        color: white;
-        transform: scale(1.1);
-        border-color: var(--primary);
-      }
-
-      .logo-container {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 0 !important;
-      }
-
-      @media (max-width: 480px) {
-        h1 {
-          font-size: 2rem;
-        }
-        .qrcode {
-          width: 200px;
-          height: 200px;
-        }
-        .url {
-          font-size: 1.5rem;
-        }
-      }
-    </style>
   </head>
 
   <body>
@@ -240,7 +28,7 @@
             <i data-lucide="arrow-left"></i>
           </a>
           <div class="logo-container">
-            <img src="CEMEP.jpeg" alt="Logo CEMEP" class="logo" />
+            <img src="img/CEMEP.jpeg" alt="Logo CEMEP" class="logo" />
           </div>
           <div></div>
         </div>
@@ -249,7 +37,7 @@
 
       <main class="card">
         <div class="qr-wrapper">
-          <img src="qrcode.png" alt="QR Code" class="qrcode" />
+          <img src="img/qrcode.png" alt="QR Code" class="qrcode" />
         </div>
 
         <div class="info-section">
@@ -259,9 +47,6 @@
       </main>
     </div>
 
-    <script>
-      // Initialize Lucide icons
-      lucide.createIcons();
-    </script>
+    <script src="js/script.js"></script>
   </body>
 </html>

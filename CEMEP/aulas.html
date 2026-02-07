@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Materiais de Aula - Prof. Diogo Pelaes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Lucide Icons (for shared footer/nav) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="top-nav">
+        <a href="index.html" class="back-button" title="Voltar">
+          <i data-lucide="arrow-left"></i>
+        </a>
+        <div class="logo-container">
+          <img src="img/CEMEP.jpeg" alt="Logo CEMEP" class="logo" />
+        </div>
+        <div></div>
+      </div>
+
+      <header style="margin-bottom: 2rem;">
+        <h1>Materiais de Aula</h1>
+        <p class="subtitle">Arquivos sincronizados diretamente do Google Drive</p>
+      </header>
+
+      <div class="series-list">
+        <!-- 1ª Série -->
+        <section class="series-section" id="section-1a">
+          <div class="series-header">
+            <span class="material-symbols-outlined">folder_open</span>
+            <h2 class="series-title">1ª Série</h2>
+          </div>
+          <div class="file-container" id="files-1a">
+            <div class="loading-spinner">
+              <div class="spinner"></div>
+              <span>Carregando arquivos...</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2ª Série -->
+        <section class="series-section" id="section-2a">
+          <div class="series-header">
+            <span class="material-symbols-outlined">folder_shared</span>
+            <h2 class="series-title">2ª Série</h2>
+          </div>
+          <div class="file-container" id="files-2a">
+            <div class="loading-spinner">
+              <div class="spinner"></div>
+              <span>Carregando arquivos...</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3ª Série -->
+        <section class="series-section" id="section-3a">
+          <div class="series-header">
+            <span class="material-symbols-outlined">folder_special</span>
+            <h2 class="series-title">3ª Série</h2>
+          </div>
+          <div class="file-container" id="files-3a">
+            <div class="loading-spinner">
+              <div class="spinner"></div>
+              <span>Carregando arquivos...</span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <footer>
+        <i data-lucide="user-round" style="width: 20px"></i>
+        <span>Prof. Diogo Pelaes</span>
+      </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+      const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyesN-hvYVWDn3pn6Jhiyn6AVx4VQ-fpQy3qq3ZRvjsBxd-DSaco1PuPOvoDztjctRr/exec';
+      
+      // Iniciar carregamento dos arquivos das aulas
+      loadDriveFiles(SCRIPT_URL);
+    </script>
+  </body>
+</html>
