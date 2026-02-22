@@ -30,7 +30,7 @@ async function loadDriveFiles(scriptUrl) {
     const data = await response.json();
 
     Object.keys(data).forEach(seriesKey => {
-      renderFilesToContainer(seriesKey, data[seriesKey]);
+      renderFilesToContainer(seriesKey, data[seriesKey], scriptUrl);
     });
   } catch (error) {
     console.error('Erro ao carregar arquivos:', error);
@@ -46,7 +46,7 @@ async function loadDriveFiles(scriptUrl) {
   }
 }
 
-function renderFilesToContainer(seriesId, files) {
+function renderFilesToContainer(seriesId, files, scriptUrl) {
   const container = document.getElementById(`files-${seriesId}`);
   if (!container) return;
 
@@ -84,14 +84,10 @@ function renderFilesToContainer(seriesId, files) {
     const item = document.createElement('li');
     const link = document.createElement('a');
     
-    // Transformar link do Google Drive para download direto
-    const downloadUrl = getDirectDownloadUrl(file.url);
-    
-    link.href = downloadUrl;
-    link.setAttribute('download', file.name);
-    link.setAttribute('rel', 'noopener noreferrer');
-    link.setAttribute('referrerpolicy', 'no-referrer');
+    link.href = '#'; // Usaremos evento de clique
     link.className = 'file-item';
+    link.setAttribute('data-id', file.id);
+    link.setAttribute('data-name', file.name);
     
     let icon = 'description';
     if (file.mimeType.includes('pdf')) icon = 'picture_as_pdf';
@@ -102,8 +98,14 @@ function renderFilesToContainer(seriesId, files) {
 
     link.innerHTML = `
       <span class="material-symbols-outlined file-icon">${icon}</span>
-      <span>${index + 1}. ${file.name}</span>
+      <span class="file-name-text">${index + 1}. ${file.name}</span>
+      <span class="download-status" style="display:none; margin-left: auto; font-size: 0.7rem; color: var(--accent-light);">Baixando...</span>
     `;
+    
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      downloadFileViaProxy(file.id, file.name, scriptUrl, link);
+    });
     
     item.appendChild(link);
     list.appendChild(item);
@@ -118,22 +120,54 @@ function renderFilesToContainer(seriesId, files) {
 }
 
 /**
- * Converte uma URL do Google Drive para um link de download direto.
- * Suporta formatos: /file/d/ID/view, /open?id=ID, /uc?id=ID
- * @param {string} url - A URL original do Drive
- * @returns {string} - A URL de download direto ou a original se não for Drive
+ * Faz o download do arquivo via proxy do Apps Script
+ * Isso evita que o navegador tente abrir o app do Google Drive (eliminando o seletor de contas)
  */
-function getDirectDownloadUrl(url) {
-  if (!url || !url.includes('drive.google.com')) return url;
+async function downloadFileViaProxy(fileId, fileName, scriptUrl, linkElement) {
+  const statusEl = linkElement.querySelector('.download-status');
+  if (statusEl) statusEl.style.display = 'inline';
+  linkElement.style.pointerEvents = 'none';
+  linkElement.style.opacity = '0.7';
 
-  // Regex para capturar o ID do arquivo (33-44 caracteres alfanuméricos, hífens e sublinhados)
-  const regEx = /(?:file\/d\/|id=|uc\?id=)([\w-]{33,44})/;
-  const match = url.match(regEx);
+  try {
+    const response = await fetch(`${scriptUrl}?id=${fileId}`);
+    
+    if (!response.ok) {
+      throw new Error(`Servidor respondeu com status ${response.status}. Verifique se a URL do script está correta.`);
+    }
 
-  if (match && match[1]) {
-    // Retorna o formato universal de download direto via docs.google.com (mais agressivo para burlar o app do Drive)
-    return `https://docs.google.com/uc?export=download&id=${match[1]}`;
+    const result = await response.json();
+
+    if (result.error) throw new Error(result.error);
+    if (!result.data) {
+      throw new Error("O script não retornou os dados do arquivo. Certifique-se de que você atualizou o código no Google e publicou uma 'Nova Versão'.");
+    }
+
+    // Converter Base64 para Blob
+    const byteCharacters = atob(result.data);
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+    const byteArray = new Uint8Array(byteNumbers);
+    const blob = new Blob([byteArray], { type: result.mimeType });
+
+    // Criar link temporário e baixar
+    const blobUrl = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = blobUrl;
+    a.download = fileName;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(blobUrl);
+
+  } catch (error) {
+    console.error('Erro no download via proxy:', error);
+    alert('Erro ao baixar o arquivo. Tente novamente ou verifique se o arquivo é público.');
+  } finally {
+    if (statusEl) statusEl.style.display = 'none';
+    linkElement.style.pointerEvents = 'auto';
+    linkElement.style.opacity = '1';
   }
-
-  return url;
 }

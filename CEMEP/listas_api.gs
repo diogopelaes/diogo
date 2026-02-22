@@ -13,7 +13,23 @@
  * 9. Clique em "Implantar" e copie a "URL do app da Web".
  */
 
-function doGet() {
+function doGet(e) {
+  // Se houver um parâmetro 'id', funciona como um proxy de download para evitar o seletor de contas do Google
+  if (e && e.parameter && e.parameter.id) {
+    try {
+      const file = DriveApp.getFileById(e.parameter.id);
+      const blob = file.getBlob();
+      return ContentService.createTextOutput(JSON.stringify({
+        name: file.getName(),
+        mimeType: file.getMimeType(),
+        data: Utilities.base64Encode(blob.getBytes())
+      })).setMimeType(ContentService.MimeType.JSON);
+    } catch (err) {
+      return ContentService.createTextOutput(JSON.stringify({ error: 'Arquivo não encontrado ou sem permissão.' }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+  }
+
   const folderIds = {
     '1a': '1ZwnXyPVfNd2gYjeOt4kfMA3J156SHiVk',
     '2a': '1cm5rEX-92Re5cU3HL_DVvwW9pLyX5eVf',
