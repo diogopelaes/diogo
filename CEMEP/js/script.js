@@ -85,13 +85,12 @@ function renderFilesToContainer(seriesId, files) {
     const link = document.createElement('a');
     
     // Transformar link do Google Drive para download direto
-    let downloadUrl = file.url;
-    if (file.url.includes('drive.google.com/file/d/')) {
-      const fileId = file.url.split('/d/')[1].split('/')[0];
-      downloadUrl = `https://docs.google.com/uc?export=download&id=${fileId}`;
-    }
+    const downloadUrl = getDirectDownloadUrl(file.url);
     
     link.href = downloadUrl;
+    link.setAttribute('download', file.name);
+    link.setAttribute('rel', 'noopener noreferrer');
+    link.setAttribute('referrerpolicy', 'no-referrer');
     link.target = '_blank';
     link.className = 'file-item';
     
@@ -117,4 +116,25 @@ function renderFilesToContainer(seriesId, files) {
 
   container.innerHTML = '';
   container.appendChild(inner);
+}
+
+/**
+ * Converte uma URL do Google Drive para um link de download direto.
+ * Suporta formatos: /file/d/ID/view, /open?id=ID, /uc?id=ID
+ * @param {string} url - A URL original do Drive
+ * @returns {string} - A URL de download direto ou a original se não for Drive
+ */
+function getDirectDownloadUrl(url) {
+  if (!url || !url.includes('drive.google.com')) return url;
+
+  // Regex para capturar o ID do arquivo (33-44 caracteres alfanuméricos, hífens e sublinhados)
+  const regEx = /(?:file\/d\/|id=|uc\?id=)([\w-]{33,44})/;
+  const match = url.match(regEx);
+
+  if (match && match[1]) {
+    // Retorna o formato universal de download direto via docs.google.com (mais agressivo para burlar o app do Drive)
+    return `https://docs.google.com/uc?export=download&id=${match[1]}`;
+  }
+
+  return url;
 }
