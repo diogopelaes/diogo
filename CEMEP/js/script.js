@@ -99,8 +99,8 @@ function renderFilesToContainer(seriesId, files, scriptUrl) {
     link.innerHTML = `
       <span class="material-symbols-outlined file-icon">${icon}</span>
       <span class="file-name-text">${index + 1}. ${file.name}</span>
-      <span class="download-status" style="display:none; margin-left: auto; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--primary);">
-        <div class="spinner-mini"></div> Baixando...
+      <span class="download-status" style="display:none;">
+        Baixando... <span class="spinner-mini"></span>
       </span>
     `;
     
@@ -127,7 +127,7 @@ function renderFilesToContainer(seriesId, files, scriptUrl) {
  */
 async function downloadFileViaProxy(fileId, fileName, scriptUrl, linkElement) {
   const statusEl = linkElement.querySelector('.download-status');
-  if (statusEl) statusEl.style.display = 'inline';
+  if (statusEl) statusEl.style.display = 'flex';
   linkElement.style.pointerEvents = 'none';
   linkElement.style.opacity = '0.7';
 

@@ -433,6 +433,12 @@ thead th {
   .eval-grid {
     grid-template-columns: 1fr;
   }
+  .download-status {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 0.5rem;
+    padding-left: 2rem; /* Alinhamento com o texto do nome do arquivo */
+  }
   .qrcode {
     width: 200px;
     height: 200px;
@@ -540,6 +546,16 @@ thead th {
   font-weight: 500;
   transition: all 0.2s ease;
   border: 1px solid transparent;
+  flex-wrap: wrap;
+}
+
+.download-status {
+  margin-left: auto;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--primary);
+  font-weight: 600;
 }
 
 .file-item:hover {
@@ -555,8 +571,8 @@ thead th {
 
 .loading-spinner {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   padding: 2rem;
   color: var(--text-muted-dark);
@@ -577,6 +593,7 @@ thead th {
 }
 
 .spinner-mini {
+  display: inline-block;
   width: 14px;
   height: 14px;
   border: 2px solid rgba(99, 102, 241, 0.2);
@@ -615,8 +632,8 @@ thead th {
 
 .preloader-content {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 1.5rem;
   color: var(--text-dark);
   text-align: center;
