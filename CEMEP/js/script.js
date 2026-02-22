@@ -1,6 +1,18 @@
 // Initialize Lucide icons
 lucide.createIcons();
 
+// Initialize accordions
+function initAccordions() {
+  document.querySelectorAll('.series-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const section = header.closest('.series-section');
+      section.classList.toggle('active');
+    });
+  });
+}
+
+initAccordions();
+
 /**
  * Shared Google Drive File Loader
  * @param {string} scriptUrl - The Web App URL from Google Apps Script
@@ -25,6 +37,12 @@ async function loadDriveFiles(scriptUrl) {
     document.querySelectorAll('.file-container').forEach(container => {
       container.innerHTML = '<p class="error-msg">Erro ao carregar arquivos do Drive.</p>';
     });
+  } finally {
+    // Esconder o preloader de página inteira
+    const preloader = document.getElementById('page-preloader');
+    if (preloader) {
+      preloader.classList.add('fade-out');
+    }
   }
 }
 
@@ -62,10 +80,18 @@ function renderFilesToContainer(seriesId, files) {
   const list = document.createElement('ul');
   list.className = 'file-list';
 
-  files.forEach(file => {
+  files.forEach((file, index) => {
     const item = document.createElement('li');
     const link = document.createElement('a');
-    link.href = file.url;
+    
+    // Transformar link do Google Drive para download direto
+    let downloadUrl = file.url;
+    if (file.url.includes('drive.google.com/file/d/')) {
+      const fileId = file.url.split('/d/')[1].split('/')[0];
+      downloadUrl = `https://docs.google.com/uc?export=download&id=${fileId}`;
+    }
+    
+    link.href = downloadUrl;
     link.target = '_blank';
     link.className = 'file-item';
     
@@ -78,13 +104,17 @@ function renderFilesToContainer(seriesId, files) {
 
     link.innerHTML = `
       <span class="material-symbols-outlined file-icon">${icon}</span>
-      <span>${file.name}</span>
+      <span>${index + 1}. ${file.name}</span>
     `;
     
     item.appendChild(link);
     list.appendChild(item);
   });
 
+  const inner = document.createElement('div');
+  inner.className = 'file-inner';
+  inner.appendChild(list);
+
   container.innerHTML = '';
-  container.appendChild(list);
+  container.appendChild(inner);
 }

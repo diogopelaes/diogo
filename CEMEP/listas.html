@@ -25,6 +25,14 @@
   </head>
 
   <body>
+    <!-- Full-Page Preloader -->
+    <div id="page-preloader" class="preloader-overlay">
+      <div class="preloader-content">
+        <div class="spinner-large"></div>
+        <p>Sincronizando arquivos...</p>
+      </div>
+    </div>
+
     <div class="container">
       <div class="top-nav">
         <a href="index.html" class="back-button" title="Voltar">
@@ -37,15 +45,13 @@
       </div>
 
       <header style="margin-bottom: 2rem;">
-        <h1>Listas de Exercícios</h1>
-        <p class="subtitle">Pratique com os materiais sincronizados do Google Drive</p>
+        <h1><span class="material-symbols-outlined" style="font-size: 40px; vertical-align: middle; margin-right: 10px;">edit_note</span> Listas de Exercícios</h1>
       </header>
 
       <div class="series-list">
         <!-- 1ª Série -->
         <section class="series-section" id="section-1a">
           <div class="series-header">
-            <span class="material-symbols-outlined">edit_note</span>
             <h2 class="series-title">1ª Série</h2>
           </div>
           <div class="file-container" id="files-1a">
@@ -59,7 +65,6 @@
         <!-- 2ª Série -->
         <section class="series-section" id="section-2a">
           <div class="series-header">
-            <span class="material-symbols-outlined">assignment</span>
             <h2 class="series-title">2ª Série</h2>
           </div>
           <div class="file-container" id="files-2a">
@@ -73,7 +78,6 @@
         <!-- 3ª Série -->
         <section class="series-section" id="section-3a">
           <div class="series-header">
-            <span class="material-symbols-outlined">task</span>
             <h2 class="series-title">3ª Série</h2>
           </div>
           <div class="file-container" id="files-3a">
