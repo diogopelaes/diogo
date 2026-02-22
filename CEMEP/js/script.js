@@ -91,7 +91,6 @@ function renderFilesToContainer(seriesId, files) {
     link.setAttribute('download', file.name);
     link.setAttribute('rel', 'noopener noreferrer');
     link.setAttribute('referrerpolicy', 'no-referrer');
-    link.target = '_blank';
     link.className = 'file-item';
     
     let icon = 'description';
