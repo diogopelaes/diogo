@@ -99,7 +99,9 @@ function renderFilesToContainer(seriesId, files, scriptUrl) {
     link.innerHTML = `
       <span class="material-symbols-outlined file-icon">${icon}</span>
       <span class="file-name-text">${index + 1}. ${file.name}</span>
-      <span class="download-status" style="display:none; margin-left: auto; font-size: 0.7rem; color: var(--accent-light);">Baixando...</span>
+      <span class="download-status" style="display:none; margin-left: auto; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--primary);">
+        <div class="spinner-mini"></div> Baixando...
+      </span>
     `;
     
     link.addEventListener('click', (e) => {
