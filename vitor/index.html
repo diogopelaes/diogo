@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Ocorrências - Vitor Brasil</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- ApexCharts -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --accent-primary: #4f46e5;
+            --accent-hover: #4338ca;
+            --border-color: #e2e8f0;
+            --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --sidebar-width: 280px;
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent-primary: #6366f1;
+            --accent-hover: #818cf8;
+            --border-color: #334155;
+            --glass-bg: rgba(30, 41, 59, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --card-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            transition: var(--transition);
+        }
+
+        /* Sidebar Styling */
+        aside {
+            width: var(--sidebar-width);
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border-right: 1px solid var(--border-color);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            position: fixed;
+            height: 100vh;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+        }
+
+        .sidebar-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .sidebar-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        select, button {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            border: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            outline: none;
+        }
+
+        select:focus {
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 2px var(--accent-primary)20;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: transparent;
+            border: 1px solid transparent;
+            text-align: left;
+        }
+
+        .nav-btn.active {
+            background: var(--accent-primary);
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.4);
+        }
+
+        .nav-btn:hover:not(.active) {
+            background: var(--border-color);
+        }
+
+        /* Main Content */
+        main {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            padding: 2.5rem;
+            max-width: 1400px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .header-info h1 {
+            font-size: 2rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .header-info p {
+            color: var(--text-secondary);
+        }
+
+        .theme-toggle {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        /* Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .kpi-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 1.25rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .kpi-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .kpi-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-top: 0.5rem;
+            color: var(--accent-primary);
+        }
+
+        .chart-container {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 1.25rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--card-shadow);
+            grid-column: 1 / -1; /* Take full width of the grid */
+            margin-bottom: 2rem;
+        }
+
+        .table-container {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 1.25rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--card-shadow);
+            grid-column: 1 / -1; /* Take full width of the grid */
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        th {
+            text-align: left;
+            padding: 1rem;
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 1rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.95rem;
+        }
+
+        tr:hover td {
+            background: var(--bg-primary);
+        }
+
+        .val-cell {
+            font-weight: 500;
+            text-align: right;
+        }
+
+        .month-cell {
+            font-weight: 600;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .chart-container {
+                grid-column: span 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            aside {
+                width: 0;
+                padding: 0;
+                overflow: hidden;
+                visibility: hidden;
+            }
+            main {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <aside>
+        <div class="logo">
+            <i data-lucide="bar-chart-3"></i>
+            <span>VitorMetrics</span>
+        </div>
+
+        <div class="sidebar-group">
+            <span class="sidebar-label">Relatórios</span>
+            <button class="nav-btn active" id="btn-pedagogica" onclick="switchReport('pedagogica')">
+                <i data-lucide="book-open"></i>
+                Pedagógicas
+            </button>
+            <button class="nav-btn" id="btn-disciplinar" onclick="switchReport('disciplinar')">
+                <i data-lucide="shield-alert"></i>
+                Disciplinares
+            </button>
+        </div>
+
+        <div class="sidebar-group">
+            <span class="sidebar-label">Filtros</span>
+            <select id="year-filter" onchange="updateView()">
+                <!-- Populated dynamically -->
+            </select>
+        </div>
+
+        <div style="margin-top: auto;">
+             <button class="nav-btn" title="Exportar para PDF">
+                <i data-lucide="download"></i>
+                Exportar Dados
+            </button>
+        </div>
+    </aside>
+
+    <main>
+        <header>
+            <div class="header-info">
+                <h1 id="view-title">Ocorrências Pedagógicas</h1>
+                <p id="view-subtitle">Resumo estatístico mensal</p>
+            </div>
+            <button class="theme-toggle" onclick="toggleTheme()" id="theme-icon-container">
+                <i data-lucide="sun" id="theme-icon"></i>
+            </button>
+        </header>
+
+        <div class="dashboard-grid">
+            <div class="kpi-card">
+                <div class="kpi-label">Total no Ano</div>
+                <div class="kpi-value" id="kpi-total-year">0</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">Média Mensal</div>
+                <div class="kpi-value" id="kpi-average">0</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">Maior Incidência</div>
+                <div class="kpi-value" id="kpi-max" style="font-size: 1.8rem;">---</div>
+            </div>
+
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h3>Tendência Mensal</h3>
+                    <div style="display: flex; gap: 0.5rem;">
+                         <button style="width: auto; padding: 0.5rem;" onclick="setChartType('line')"><i data-lucide="trending-up"></i></button>
+                         <button style="width: auto; padding: 0.5rem;" onclick="setChartType('bar')"><i data-lucide="bar-chart"></i></button>
+                    </div>
+                </div>
+                <div id="main-chart"></div>
+            </div>
+
+            <div class="table-container">
+                <div class="chart-header">
+                    <h3>Valores Detalhados</h3>
+                </div>
+                <table id="details-table">
+                    <thead>
+                        <tr id="table-header">
+                            <!-- Populated dynamically -->
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        <!-- Populated dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Init Lucide Icons
+        lucide.createIcons();
+
+        let currentType = 'pedagogica';
+        let chart = null;
+        let chartType = 'line';
+        let dataPedagogica = {};
+        let dataDisciplinar = {};
+
+        const monthNames = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
+
+        async function loadData() {
+            try {
+                const [resPed, resDis] = await Promise.all([
+                    fetch('ocorrencias_report.json'),
+                    fetch('prontuarios_report.json')
+                ]);
+                dataPedagogica = await resPed.json();
+                dataDisciplinar = await resDis.json();
+                
+                populateYears();
+                updateView();
+            } catch (error) {
+                console.error("Erro ao carregar dados:", error);
+                alert("Erro ao carregar arquivos JSON. Certifique-se de estar rodando em um servidor local.");
+            }
+        }
+
+        function populateYears() {
+            const select = document.getElementById('year-filter');
+            const years = [...new Set([
+                ...Object.keys(dataPedagogica),
+                ...Object.keys(dataDisciplinar)
+            ])].sort().reverse();
+
+            select.innerHTML = '<option value="all">Todos os Anos</option>' + 
+                years.map(y => `<option value="${y}">${y}</option>`).join('');
+        }
+
+        function switchReport(type) {
+            currentType = type;
+            document.getElementById('btn-pedagogica').classList.toggle('active', type === 'pedagogica');
+            document.getElementById('btn-disciplinar').classList.toggle('active', type === 'disciplinar');
+            
+            document.getElementById('view-title').innerText = type === 'pedagogica' 
+                ? 'Ocorrências Pedagógicas' 
+                : 'Ocorrências Disciplinares';
+            
+            updateView();
+        }
+
+        function setChartType(type) {
+            chartType = type;
+            updateView();
+        }
+
+        const formatBR = (num) => new Intl.NumberFormat('pt-BR').format(num);
+
+        function updateView() {
+            const yearSelection = document.getElementById('year-filter').value;
+            const fullData = currentType === 'pedagogica' ? dataPedagogica : dataDisciplinar;
+            
+            let series = [];
+            const categories = monthNames;
+            let total = 0;
+            let maxVal = -1;
+            let maxMonth = "";
+            let maxYear = "";
+
+            if (yearSelection === 'all') {
+                const years = Object.keys(fullData).sort();
+                years.forEach(year => {
+                    const yearData = fullData[year];
+                    const dataPoints = monthNames.map((_, index) => {
+                        const monthKey = (index + 1).toString().padStart(2, '0');
+                        const val = yearData[monthKey] || 0;
+                        total += val;
+                        if (val > maxVal) {
+                            maxVal = val;
+                            maxMonth = monthNames[index];
+                            maxYear = year;
+                        }
+                        return val;
+                    });
+                    series.push({
+                        name: `Ano ${year}`,
+                        data: dataPoints
+                    });
+                });
+            } else {
+                const yearData = fullData[yearSelection] || {};
+                const dataPoints = monthNames.map((_, index) => {
+                    const monthKey = (index + 1).toString().padStart(2, '0');
+                    const val = yearData[monthKey] || 0;
+                    total += val;
+                    if (val > maxVal) {
+                        maxVal = val;
+                        maxMonth = monthNames[index];
+                    }
+                    return val;
+                });
+                series.push({
+                    name: currentType === 'pedagogica' ? 'Pedagógicas' : 'Disciplinares',
+                    year: yearSelection,
+                    data: dataPoints
+                });
+            }
+
+            // KPIs
+            document.getElementById('kpi-total-year').innerText = formatBR(total);
+            document.getElementById('kpi-average').innerText = formatBR((total / (yearSelection === 'all' ? (Object.keys(fullData).length * 12) : 12)).toFixed(1));
+            document.getElementById('kpi-max').innerText = maxVal !== -1 ? `${maxMonth}${maxYear ? ' ' + maxYear : ''} (${formatBR(maxVal)})` : '---';
+
+            renderChart(categories, series);
+            renderTable(series);
+        }
+
+        function renderTable(series) {
+            const headerRow = document.getElementById('table-header');
+            const body = document.getElementById('table-body');
+            
+            // Build Header
+            let headerHTML = '<th class="month-cell">Mês</th>';
+            series.forEach(s => {
+                headerHTML += `<th class="val-cell">${s.name}</th>`;
+            });
+            headerRow.innerHTML = headerHTML;
+
+            // Build Body
+            let bodyHTML = '';
+            monthNames.forEach((month, idx) => {
+                bodyHTML += `<tr><td class="month-cell">${month}</td>`;
+                series.forEach(s => {
+                    const val = s.data[idx];
+                    bodyHTML += `<td class="val-cell">${formatBR(val)}</td>`;
+                });
+                bodyHTML += '</tr>';
+            });
+            
+            // Total Row
+            bodyHTML += `<tr style="background: var(--bg-primary); font-weight: 700;">
+                <td class="month-cell">TOTAL</td>`;
+            series.forEach(s => {
+                const totalS = s.data.reduce((a, b) => a + b, 0);
+                bodyHTML += `<td class="val-cell">${formatBR(totalS)}</td>`;
+            });
+            bodyHTML += '</tr>';
+
+            body.innerHTML = bodyHTML;
+        }
+
+        function renderChart(categories, series) {
+            const isMulti = series.length > 1;
+            const options = {
+                series: series,
+                chart: {
+                    type: chartType,
+                    height: 350,
+                    toolbar: { show: false },
+                    zoom: { enabled: false },
+                    foreColor: getComputedStyle(document.documentElement).getPropertyValue('--text-secondary').trim(),
+                    animations: {
+                        enabled: true,
+                        easing: 'easeinout',
+                        speed: 800
+                    }
+                },
+                colors: isMulti ? undefined : [getComputedStyle(document.documentElement).getPropertyValue('--accent-primary').trim()],
+                stroke: { curve: 'smooth', width: 3 },
+                dataLabels: { enabled: false },
+                grid: {
+                    borderColor: getComputedStyle(document.documentElement).getPropertyValue('--border-color').trim(),
+                },
+                xaxis: {
+                    categories: categories,
+                },
+                legend: {
+                    show: isMulti,
+                    position: 'top',
+                    horizontalAlign: 'right',
+                    labels: {
+                        colors: getComputedStyle(document.documentElement).getPropertyValue('--text-primary').trim()
+                    }
+                },
+                tooltip: {
+                    theme: document.documentElement.getAttribute('data-theme'),
+                    y: {
+                        formatter: function (val) {
+                            return formatBR(val) + " ocorrências"
+                        }
+                    }
+                }
+            };
+
+            if (chart) {
+                chart.updateOptions(options);
+            } else {
+                chart = new ApexCharts(document.querySelector("#main-chart"), options);
+                chart.render();
+            }
+        }
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            const theme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', theme);
+            icon.setAttribute('data-lucide', theme === 'dark' ? 'moon' : 'sun');
+            lucide.createIcons();
+            
+            if (chart) {
+                chart.updateOptions({
+                    chart: { foreColor: getComputedStyle(document.documentElement).getPropertyValue('--text-secondary').trim() },
+                    grid: { borderColor: getComputedStyle(document.documentElement).getPropertyValue('--border-color').trim() },
+                    tooltip: { theme: theme }
+                });
+            }
+        }
+
+        // Run on load
+        loadData();
+    </script>
+</body>
+</html>
