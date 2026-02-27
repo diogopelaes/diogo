@@ -1,0 +1,436 @@
+dia da semana,numero da aula,horario da aula,nome do professor,disciplina,turma
+Segunda-feira,1,07:00 - 07:50,Prof. Cesar,LLA I,1W
+Segunda-feira,2,07:50 - 08:40,Prof. Cesar,LLA I,1W
+Segunda-feira,3,08:40 - 09:30,Prof. Cesar,LLA I,1W
+Segunda-feira,4,09:45 - 10:35,Alexandre,PORT,1W
+Segunda-feira,5,10:35 - 11:25,Alexandre,PORT,1W
+Segunda-feira,6,11:25 - 12:15,Lise,HIST,1W
+Segunda-feira,7,13:15 - 14:05,Profa. Raquel,LP I,1W
+Segunda-feira,8,14:05 - 14:55,Profa. Raquel,LP I,1W
+Segunda-feira,9,14:55 - 15:45,Profa. Raquel,LP I,1W
+Segunda-feira,10,16:00 - 16:50,Prof. Lafaiete,FILO,1W
+Segunda-feira,11,16:50 - 17:40,Profa. Luciane,ING,1W
+Terça-feira,1,07:00 - 07:50,Prof. Luiz,MAT,1W
+Terça-feira,2,07:50 - 08:40,Prof. Luiz,MAT,1W
+Terça-feira,3,08:40 - 09:30,Prof. Bonato,FIS,1W
+Terça-feira,4,09:45 - 10:35,Prof. Bonato,FIS,1W
+Terça-feira,5,10:35 - 11:25,Nathalie,BIO,1W
+Terça-feira,6,11:25 - 12:15,Lise,HIST,1W
+Terça-feira,7,13:15 - 14:05,Profa. Ana,QUI,1W
+Terça-feira,8,14:05 - 14:55,Profa. Ana,QUI,1W
+Terça-feira,9,14:55 - 15:45,Prof. Bonato,FIS,1W
+Terça-feira,10,16:00 - 16:50,Lise,HIST,1W
+Terça-feira,11,16:50 - 17:40,Profa. Sara,SOC,1W
+Quarta-feira,1,07:00 - 07:50,Prof. Luiz,MAT,1W
+Quarta-feira,2,07:50 - 08:40,Prof. Luiz,MAT,1W
+Quarta-feira,3,08:40 - 09:30,Alexandre,PORT,1W
+Quarta-feira,4,09:45 - 10:35,Profa. Mirella,LOG,1W
+Quarta-feira,5,10:35 - 11:25,Profa. Mirella,LOG,1W
+Quarta-feira,6,11:25 - 12:15,Profa. Mirella,LOG,1W
+Quarta-feira,7,13:15 - 14:05,Prof. Cesar,TIC,1W
+Quarta-feira,8,14:05 - 14:55,Prof. Cesar,TIC,1W
+Quarta-feira,9,14:55 - 15:45,Profa. Amanda,EF,1W
+Quarta-feira,10,16:00 - 16:50,Profa. Amanda,EF,1W
+Quarta-feira,11,16:50 - 17:40,Profa. Luciane,ING,1W
+Quinta-feira,1,07:00 - 07:50,Profa. Mirella,DS I,1W
+Quinta-feira,2,07:50 - 08:40,Profa. Mirella,DS I,1W
+Quinta-feira,3,08:40 - 09:30,Profa. Mirella,DS I,1W
+Quinta-feira,4,09:45 - 10:35,Alexandre,PORT,1W
+Quinta-feira,5,10:35 - 11:25,Prof. Paulo,BD I,1W
+Quinta-feira,6,11:25 - 12:15,Prof. Paulo,BD I,1W
+Quinta-feira,7,13:15 - 14:05,Prof. Cesar,TIC,1W
+Quinta-feira,8,14:05 - 14:55,Prof. Cesar,TIC,1W
+Quinta-feira,9,14:55 - 15:45,Prof. Daniel,GEO,1W
+Quinta-feira,10,16:00 - 16:50,Prof. Bonato,NP,1W
+Quinta-feira,11,16:50 - 17:40,Prof. Bonato,NP,1W
+Sexta-feira,1,07:00 - 07:50,Profa. Cissa,ART,1W
+Sexta-feira,2,07:50 - 08:40,Profa. Cissa,ART,1W
+Sexta-feira,3,08:40 - 09:30,Prof. Daniel,GEO,1W
+Sexta-feira,4,09:45 - 10:35,Prof. Daniel,GEO,1W
+Sexta-feira,5,10:35 - 11:25,Nathalie,BIO,1W
+Sexta-feira,6,11:25 - 12:15,Nathalie,BIO,1W
+Segunda-feira,1,07:00 - 07:50,Prof. Luiz,MAT,1X
+Segunda-feira,2,07:50 - 08:40,Prof. Luiz,MAT,1X
+Segunda-feira,3,08:40 - 09:30,Lise,HIST,1X
+Segunda-feira,4,09:45 - 10:35,Lise,HIST,1X
+Segunda-feira,5,10:35 - 11:25,Prof. Daniel,GEO,1X
+Segunda-feira,6,11:25 - 12:15,Alexandre,PORT,1X
+Segunda-feira,7,13:15 - 14:05,Nathalie,BIO,1X
+Segunda-feira,8,14:05 - 14:55,Prof. Bonato,FIS,1X
+Segunda-feira,9,14:55 - 15:45,Profa. Luciane,ING,1X
+Segunda-feira,10,16:00 - 16:50,Profa. Sara,SOC,1X
+Segunda-feira,11,16:50 - 17:40,Prof. Lafaiete,FILO,1X
+Terça-feira,1,07:00 - 07:50,Profa. Mirella,LOG,1X
+Terça-feira,2,07:50 - 08:40,Profa. Mirella,LOG,1X
+Terça-feira,3,08:40 - 09:30,Profa. Mirella,LOG,1X
+Terça-feira,4,09:45 - 10:35,Profa. Raquel,LP I,1X
+Terça-feira,5,10:35 - 11:25,Profa. Raquel,LP I,1X
+Terça-feira,6,11:25 - 12:15,Profa. Raquel,LP I,1X
+Terça-feira,7,13:15 - 14:05,Prof. Cesar,TIC,1X
+Terça-feira,8,14:05 - 14:55,Prof. Cesar,TIC,1X
+Terça-feira,9,14:55 - 15:45,Profa. Ana,QUI,1X
+Terça-feira,10,16:00 - 16:50,Profa. Ana,QUI,1X
+Terça-feira,11,16:50 - 17:40,Lise,HIST,1X
+Quarta-feira,1,07:00 - 07:50,Prof. Paulo,BD I,1X
+Quarta-feira,2,07:50 - 08:40,Prof. Paulo,BD I,1X
+Quarta-feira,3,08:40 - 09:30,Prof. Luiz,MAT,1X
+Quarta-feira,4,09:45 - 10:35,Prof. Luiz,MAT,1X
+Quarta-feira,5,10:35 - 11:25,Profa. Luciane,ING,1X
+Quarta-feira,6,11:25 - 12:15,Prof. Bonato,FIS,1X
+Quarta-feira,7,13:15 - 14:05,Profa. Mirella,DS I,1X
+Quarta-feira,8,14:05 - 14:55,Profa. Mirella,DS I,1X
+Quarta-feira,9,14:55 - 15:45,Profa. Mirella,DS I,1X
+Quarta-feira,10,16:00 - 16:50,Nathalie,BIO,1X
+Quarta-feira,11,16:50 - 17:40,Nathalie,BIO,1X
+Quinta-feira,1,07:00 - 07:50,Prof. Cesar,LLA I,1X
+Quinta-feira,2,07:50 - 08:40,Prof. Cesar,LLA I,1X
+Quinta-feira,3,08:40 - 09:30,Prof. Cesar,LLA I,1X
+Quinta-feira,4,09:45 - 10:35,Prof. Daniel,GEO,1X
+Quinta-feira,5,10:35 - 11:25,Alexandre,PORT,1X
+Quinta-feira,6,11:25 - 12:15,Alexandre,PORT,1X
+Quinta-feira,7,13:15 - 14:05,Prof. Bonato,FIS,1X
+Quinta-feira,8,14:05 - 14:55,Profa. Amanda,EF,1X
+Quinta-feira,9,14:55 - 15:45,Profa. Amanda,EF,1X
+Quinta-feira,10,16:00 - 16:50,Prof. Daniel,GEO,1X
+Quinta-feira,11,16:50 - 17:40,Alexandre,PORT,1X
+Sexta-feira,1,07:00 - 07:50,Prof. Cesar,TIC,1X
+Sexta-feira,2,07:50 - 08:40,Prof. Cesar,TIC,1X
+Sexta-feira,3,08:40 - 09:30,Profa. Cissa,ART,1X
+Sexta-feira,4,09:45 - 10:35,Profa. Cissa,ART,1X
+Sexta-feira,5,10:35 - 11:25,Prof. Bonato,NP,1X
+Sexta-feira,6,11:25 - 12:15,Prof. Bonato,NP,1X
+Segunda-feira,1,07:00 - 07:50,Prof. Diogo,MAT,1Y
+Segunda-feira,2,07:50 - 08:40,Prof. Diogo,MAT,1Y
+Segunda-feira,3,08:40 - 09:30,Profa. Luciane,ING,1Y
+Segunda-feira,4,09:45 - 10:35,Profa. Mirella,LOG,1Y
+Segunda-feira,5,10:35 - 11:25,Profa. Mirella,LOG,1Y
+Segunda-feira,6,11:25 - 12:15,Profa. Mirella,LOG,1Y
+Segunda-feira,7,13:15 - 14:05,Prof. Cesar,TIC,1Y
+Segunda-feira,8,14:05 - 14:55,Prof. Cesar,TIC,1Y
+Segunda-feira,9,14:55 - 15:45,Prof. Daniel,GEO,1Y
+Segunda-feira,10,16:00 - 16:50,Prof. Daniel,GEO,1Y
+Segunda-feira,11,16:50 - 17:40,Prof. Diogo,MAT,1Y
+Terça-feira,1,07:00 - 07:50,Prof. Cesar,TIC,1Y
+Terça-feira,2,07:50 - 08:40,Prof. Cesar,TIC,1Y
+Terça-feira,3,08:40 - 09:30,Nathalie,BIO,1Y
+Terça-feira,4,09:45 - 10:35,Nathalie,BIO,1Y
+Terça-feira,5,10:35 - 11:25,Profa. Amanda,EF,1Y
+Terça-feira,6,11:25 - 12:15,Profa. Amanda,EF,1Y
+Terça-feira,7,13:15 - 14:05,Lise,HIST,1Y
+Terça-feira,8,14:05 - 14:55,Lise,HIST,1Y
+Terça-feira,9,14:55 - 15:45,Profa. Sara,SOC,1Y
+Terça-feira,10,16:00 - 16:50,Prof. Lafaiete,FILO,1Y
+Terça-feira,11,16:50 - 17:40,Prof. Bonato,FIS,1Y
+Quarta-feira,1,07:00 - 07:50,Alexandre,PORT,1Y
+Quarta-feira,2,07:50 - 08:40,Alexandre,PORT,1Y
+Quarta-feira,3,08:40 - 09:30,Prof. Paulo,BD I,1Y
+Quarta-feira,4,09:45 - 10:35,Prof. Paulo,BD I,1Y
+Quarta-feira,5,10:35 - 11:25,Prof. Bonato,FIS,1Y
+Quarta-feira,6,11:25 - 12:15,Profa. Luciane,ING,1Y
+Quarta-feira,7,13:15 - 14:05,Profa. Ana,QUI,1Y
+Quarta-feira,8,14:05 - 14:55,Profa. Ana,QUI,1Y
+Quarta-feira,9,14:55 - 15:45,Profa. Raquel,LP I,1Y
+Quarta-feira,10,16:00 - 16:50,Profa. Raquel,LP I,1Y
+Quarta-feira,11,16:50 - 17:40,Profa. Raquel,LP I,1Y
+Quinta-feira,1,07:00 - 07:50,Prof. Diogo,MAT,1Y
+Quinta-feira,2,07:50 - 08:40,Lise,HIST,1Y
+Quinta-feira,3,08:40 - 09:30,Alexandre,PORT,1Y
+Quinta-feira,4,09:45 - 10:35,Prof. Cesar,LLA I,1Y
+Quinta-feira,5,10:35 - 11:25,Prof. Cesar,LLA I,1Y
+Quinta-feira,6,11:25 - 12:15,Prof. Cesar,LLA I,1Y
+Quinta-feira,7,13:15 - 14:05,Prof. Daniel,GEO,1Y
+Quinta-feira,8,14:05 - 14:55,Prof. Bonato,NP,1Y
+Quinta-feira,9,14:55 - 15:45,Prof. Bonato,NP,1Y
+Quinta-feira,10,16:00 - 16:50,Alexandre,PORT,1Y
+Quinta-feira,11,16:50 - 17:40,Nathalie,BIO,1Y
+Sexta-feira,1,07:00 - 07:50,Profa. Mirella,DS I,1Y
+Sexta-feira,2,07:50 - 08:40,Profa. Mirella,DS I,1Y
+Sexta-feira,3,08:40 - 09:30,Profa. Mirella,DS I,1Y
+Sexta-feira,4,09:45 - 10:35,Prof. Bonato,FIS,1Y
+Sexta-feira,5,10:35 - 11:25,Profa. Cissa,ART,1Y
+Sexta-feira,6,11:25 - 12:15,Profa. Cissa,ART,1Y
+Segunda-feira,1,07:00 - 07:50,Profa. Luciane,ING,2W
+Segunda-feira,2,07:50 - 08:40,Profa. Ana,QUI,2W
+Segunda-feira,3,08:40 - 09:30,Profa. Cilene,PORT,2W
+Segunda-feira,4,09:45 - 10:35,Prof. Cesar,LLA II,2W
+Segunda-feira,5,10:35 - 11:25,Prof. Cesar,LLA II,2W
+Segunda-feira,6,11:25 - 12:15,Prof. Cesar,LLA II,2W
+Segunda-feira,7,13:15 - 14:05,Prof. Daniel,GEO,2W
+Segunda-feira,8,14:05 - 14:55,Prof. Daniel,GEO,2W
+Segunda-feira,9,14:55 - 15:45,Profa. Sara,SOC,2W
+Segunda-feira,10,16:00 - 16:50,Profa. Fabiana,DS II,2W
+Segunda-feira,11,16:50 - 17:40,Profa. Fabiana,DS II,2W
+Terça-feira,1,07:00 - 07:50,Lise,HIST,2W
+Terça-feira,2,07:50 - 08:40,Prof. Bonato,FIS,2W
+Terça-feira,3,08:40 - 09:30,Profa. Cilene,PORT,2W
+Terça-feira,4,09:45 - 10:35,Profa. Cilene,PORT,2W
+Terça-feira,5,10:35 - 11:25,Prof. Diogo,MAT,2W
+Terça-feira,6,11:25 - 12:15,Prof. Diogo,MAT,2W
+Terça-feira,7,13:15 - 14:05,Profa. Mirella,TPV I,2W
+Terça-feira,8,14:05 - 14:55,Profa. Mirella,TPV I,2W
+Terça-feira,9,14:55 - 15:45,Profa. Mirella,TPV I,2W
+Terça-feira,10,16:00 - 16:50,Prof. Paulo,ESI,2W
+Terça-feira,11,16:50 - 17:40,Prof. Paulo,ESI,2W
+Quarta-feira,1,07:00 - 07:50,Prof. Bonato,FIS,2W
+Quarta-feira,2,07:50 - 08:40,Prof. Bonato,FIS,2W
+Quarta-feira,3,08:40 - 09:30,Prof. Lafaiete,FILO,2W
+Quarta-feira,4,09:45 - 10:35,Profa. Fabiana,LP II,2W
+Quarta-feira,5,10:35 - 11:25,Profa. Fabiana,LP II,2W
+Quarta-feira,6,11:25 - 12:15,Profa. Fabiana,LP II,2W
+Quarta-feira,7,13:15 - 14:05,Prof. Diogo,MAT,2W
+Quarta-feira,8,14:05 - 14:55,Prof. Diogo,MAT,2W
+Quarta-feira,9,14:55 - 15:45,Profa. Luciane,ING,2W
+Quarta-feira,10,16:00 - 16:50,Profa. Ana,QUI,2W
+Quarta-feira,11,16:50 - 17:40,Profa. Ana,QUI,2W
+Quinta-feira,1,07:00 - 07:50,Profa. Raquel,BD II,2W
+Quinta-feira,2,07:50 - 08:40,Profa. Raquel,BD II,2W
+Quinta-feira,3,08:40 - 09:30,Profa. Fabiana,DS II,2W
+Quinta-feira,4,09:45 - 10:35,Profa. Fabiana,DS II,2W
+Quinta-feira,5,10:35 - 11:25,Profa. Amanda,EF,2W
+Quinta-feira,6,11:25 - 12:15,Profa. Amanda,EF,2W
+Quinta-feira,7,13:15 - 14:05,Nathalie,BIO,2W
+Quinta-feira,8,14:05 - 14:55,Nathalie,BIO,2W
+Quinta-feira,9,14:55 - 15:45,Prof. Paulo,LPC I,2W
+Quinta-feira,10,16:00 - 16:50,Prof. Paulo,LPC I,2W
+Quinta-feira,11,16:50 - 17:40,Prof. Paulo,LPC I,2W
+Sexta-feira,1,07:00 - 07:50,Prof. Diogo,MAT,2W
+Sexta-feira,2,07:50 - 08:40,Lise,HIST,2W
+Sexta-feira,3,08:40 - 09:30,Lise,HIST,2W
+Sexta-feira,4,09:45 - 10:35,Prof. Lafaiete,FILO,2W
+Sexta-feira,5,10:35 - 11:25,Profa. Cilene,PORT,2W
+Sexta-feira,6,11:25 - 12:15,Prof. Daniel,GEO,2W
+Segunda-feira,1,07:00 - 07:50,Lise,HIST,2X
+Segunda-feira,2,07:50 - 08:40,Lise,HIST,2X
+Segunda-feira,3,08:40 - 09:30,Profa. Ana,QUI,2X
+Segunda-feira,4,09:45 - 10:35,Profa. Ana,QUI,2X
+Segunda-feira,5,10:35 - 11:25,Profa. Cilene,PORT,2X
+Segunda-feira,6,11:25 - 12:15,Prof. Daniel,GEO,2X
+Segunda-feira,7,13:15 - 14:05,Profa. Cilene,PORT,2X
+Segunda-feira,8,14:05 - 14:55,Profa. Cilene,PORT,2X
+Segunda-feira,9,14:55 - 15:45,Prof. Lafaiete,FILO,2X
+Segunda-feira,10,16:00 - 16:50,Prof. Bonato,FIS,2X
+Segunda-feira,11,16:50 - 17:40,Prof. Bonato,FIS,2X
+Terça-feira,1,07:00 - 07:50,Prof. Bonato,FIS,2X
+Terça-feira,2,07:50 - 08:40,Profa. Cilene,PORT,2X
+Terça-feira,3,08:40 - 09:30,Prof. Diogo,MAT,2X
+Terça-feira,4,09:45 - 10:35,Prof. Cesar,LLA II,2X
+Terça-feira,5,10:35 - 11:25,Prof. Cesar,LLA II,2X
+Terça-feira,6,11:25 - 12:15,Prof. Cesar,LLA II,2X
+Terça-feira,7,13:15 - 14:05,Profa. Sara,SOC,2X
+Terça-feira,8,14:05 - 14:55,Profa. Amanda,EF,2X
+Terça-feira,9,14:55 - 15:45,Profa. Amanda,EF,2X
+Terça-feira,10,16:00 - 16:50,Profa. Fabiana,DS II,2X
+Terça-feira,11,16:50 - 17:40,Profa. Fabiana,DS II,2X
+Quarta-feira,1,07:00 - 07:50,Profa. Fabiana,LP II,2X
+Quarta-feira,2,07:50 - 08:40,Profa. Fabiana,LP II,2X
+Quarta-feira,3,08:40 - 09:30,Profa. Fabiana,LP II,2X
+Quarta-feira,4,09:45 - 10:35,Prof. Daniel,GEO,2X
+Quarta-feira,5,10:35 - 11:25,Profa. Raquel,BD II,2X
+Quarta-feira,6,11:25 - 12:15,Profa. Raquel,BD II,2X
+Quarta-feira,7,13:15 - 14:05,Profa. Luciane,ING,2X
+Quarta-feira,8,14:05 - 14:55,Profa. Luciane,ING,2X
+Quarta-feira,9,14:55 - 15:45,Prof. Diogo,MAT,2X
+Quarta-feira,10,16:00 - 16:50,Prof. Paulo,ESI,2X
+Quarta-feira,11,16:50 - 17:40,Prof. Paulo,ESI,2X
+Quinta-feira,1,07:00 - 07:50,Profa. Fabiana,DS II,2X
+Quinta-feira,2,07:50 - 08:40,Profa. Fabiana,DS II,2X
+Quinta-feira,3,08:40 - 09:30,Profa. Ana,QUI,2X
+Quinta-feira,4,09:45 - 10:35,Profa. Mirella,TPV I,2X
+Quinta-feira,5,10:35 - 11:25,Profa. Mirella,TPV I,2X
+Quinta-feira,6,11:25 - 12:15,Profa. Mirella,TPV I,2X
+Quinta-feira,7,13:15 - 14:05,Prof. Paulo,LPC I,2X
+Quinta-feira,8,14:05 - 14:55,Prof. Paulo,LPC I,2X
+Quinta-feira,9,14:55 - 15:45,Nathalie,BIO,2X
+Quinta-feira,10,16:00 - 16:50,Nathalie,BIO,2X
+Quinta-feira,11,16:50 - 17:40,Prof. Diogo,MAT,2X
+Sexta-feira,1,07:00 - 07:50,Lise,HIST,2X
+Sexta-feira,2,07:50 - 08:40,Prof. Diogo,MAT,2X
+Sexta-feira,3,08:40 - 09:30,Prof. Diogo,MAT,2X
+Sexta-feira,4,09:45 - 10:35,Prof. Paulo,LPC I,2X
+Sexta-feira,5,10:35 - 11:25,Prof. Daniel,GEO,2X
+Sexta-feira,6,11:25 - 12:15,Prof. Lafaiete,FILO,2X
+Segunda-feira,1,07:00 - 07:50,Profa. Mirella,TPV I,2Y
+Segunda-feira,2,07:50 - 08:40,Profa. Mirella,TPV I,2Y
+Segunda-feira,3,08:40 - 09:30,Profa. Mirella,TPV I,2Y
+Segunda-feira,4,09:45 - 10:35,Profa. Fabiana,LP II,2Y
+Segunda-feira,5,10:35 - 11:25,Profa. Fabiana,LP II,2Y
+Segunda-feira,6,11:25 - 12:15,Profa. Fabiana,LP II,2Y
+Segunda-feira,7,13:15 - 14:05,Prof. Lafaiete,FILO,2Y
+Segunda-feira,8,14:05 - 14:55,Prof. Lafaiete,FILO,2Y
+Segunda-feira,9,14:55 - 15:45,Prof. Bonato,FIS,2Y
+Segunda-feira,10,16:00 - 16:50,Prof. Diogo,MAT,2Y
+Segunda-feira,11,16:50 - 17:40,Prof. Daniel,GEO,2Y
+Terça-feira,1,07:00 - 07:50,Prof. Diogo,MAT,2Y
+Terça-feira,2,07:50 - 08:40,Lise,HIST,2Y
+Terça-feira,3,08:40 - 09:30,Profa. Amanda,EF,2Y
+Terça-feira,4,09:45 - 10:35,Profa. Amanda,EF,2Y
+Terça-feira,5,10:35 - 11:25,Profa. Cilene,PORT,2Y
+Terça-feira,6,11:25 - 12:15,Profa. Cilene,PORT,2Y
+Terça-feira,7,13:15 - 14:05,Prof. Paulo,LPC I,2Y
+Terça-feira,8,14:05 - 14:55,Prof. Paulo,LPC I,2Y
+Terça-feira,9,14:55 - 15:45,Prof. Paulo,LPC I,2Y
+Terça-feira,10,16:00 - 16:50,Profa. Sara,SOC,2Y
+Terça-feira,11,16:50 - 17:40,Profa. Luciane,ING,2Y
+Quarta-feira,1,07:00 - 07:50,Prof. Cesar,LLA II,2Y
+Quarta-feira,2,07:50 - 08:40,Prof. Cesar,LLA II,2Y
+Quarta-feira,3,08:40 - 09:30,Prof. Cesar,LLA II,2Y
+Quarta-feira,4,09:45 - 10:35,Profa. Luciane,ING,2Y
+Quarta-feira,5,10:35 - 11:25,Profa. Cilene,PORT,2Y
+Quarta-feira,6,11:25 - 12:15,Profa. Cilene,PORT,2Y
+Quarta-feira,7,13:15 - 14:05,Nathalie,BIO,2Y
+Quarta-feira,8,14:05 - 14:55,Nathalie,BIO,2Y
+Quarta-feira,9,14:55 - 15:45,Profa. Ana,QUI,2Y
+Quarta-feira,10,16:00 - 16:50,Profa. Fabiana,DS II,2Y
+Quarta-feira,11,16:50 - 17:40,Profa. Fabiana,DS II,2Y
+Quinta-feira,1,07:00 - 07:50,Prof. Paulo,ESI,2Y
+Quinta-feira,2,07:50 - 08:40,Prof. Paulo,ESI,2Y
+Quinta-feira,3,08:40 - 09:30,Profa. Raquel,BD II,2Y
+Quinta-feira,4,09:45 - 10:35,Profa. Raquel,BD II,2Y
+Quinta-feira,5,10:35 - 11:25,Profa. Fabiana,DS II,2Y
+Quinta-feira,6,11:25 - 12:15,Profa. Fabiana,DS II,2Y
+Quinta-feira,7,13:15 - 14:05,Profa. Ana,QUI,2Y
+Quinta-feira,8,14:05 - 14:55,Profa. Ana,QUI,2Y
+Quinta-feira,9,14:55 - 15:45,Prof. Diogo,MAT,2Y
+Quinta-feira,10,16:00 - 16:50,Prof. Diogo,MAT,2Y
+Quinta-feira,11,16:50 - 17:40,Prof. Daniel,GEO,2Y
+Sexta-feira,1,07:00 - 07:50,Prof. Daniel,GEO,2Y
+Sexta-feira,2,07:50 - 08:40,Prof. Bonato,FIS,2Y
+Sexta-feira,3,08:40 - 09:30,Prof. Bonato,FIS,2Y
+Sexta-feira,4,09:45 - 10:35,Prof. Diogo,MAT,2Y
+Sexta-feira,5,10:35 - 11:25,Lise,HIST,2Y
+Sexta-feira,6,11:25 - 12:15,Lise,HIST,2Y
+Segunda-feira,1,07:00 - 07:50,Profa. Marister,OP,3W
+Segunda-feira,2,07:50 - 08:40,Profa. Marister,OP,3W
+Segunda-feira,3,08:40 - 09:30,Prof. Diogo,MAT,3W
+Segunda-feira,4,09:45 - 10:35,Prof. Diogo,MAT,3W
+Segunda-feira,5,10:35 - 11:25,Lise,HIST,3W
+Segunda-feira,6,11:25 - 12:15,Profa. Cilene,PORT,3W
+Segunda-feira,7,13:15 - 14:05,Profa. Fabiana,LP III,3W
+Segunda-feira,8,14:05 - 14:55,Profa. Fabiana,LP III,3W
+Segunda-feira,9,14:55 - 15:45,Profa. Fabiana,LP III,3W
+Segunda-feira,10,16:00 - 16:50,Profa. Luciane,ING,3W
+Segunda-feira,11,16:50 - 17:40,Nathalie,BIO,3W
+Terça-feira,1,07:00 - 07:50,Profa. Raquel,TCC,3W
+Terça-feira,2,07:50 - 08:40,Profa. Raquel,TCC,3W
+Terça-feira,3,08:40 - 09:30,Profa. Raquel,TCC,3W
+Terça-feira,4,09:45 - 10:35,Prof. Diogo,MAT,3W
+Terça-feira,5,10:35 - 11:25,Lise,HIST,3W
+Terça-feira,6,11:25 - 12:15,Nathalie,BIO,3W
+Terça-feira,7,13:15 - 14:05,Prof. Bonato,FIS,3W
+Terça-feira,8,14:05 - 14:55,Profa. Sara,SOC,3W
+Terça-feira,9,14:55 - 15:45,Prof. Lafaiete,FILO,3W
+Terça-feira,10,16:00 - 16:50,Profa. Luciane,ING,3W
+Terça-feira,11,16:50 - 17:40,Profa. Ana,QUI,3W
+Quarta-feira,1,07:00 - 07:50,Prof. Daniel,GEO,3W
+Quarta-feira,2,07:50 - 08:40,Prof. Daniel,GEO,3W
+Quarta-feira,3,08:40 - 09:30,Lise,HIST,3W
+Quarta-feira,4,09:45 - 10:35,Profa. Cilene,PORT,3W
+Quarta-feira,5,10:35 - 11:25,Profa. Ana,QUI,3W
+Quarta-feira,6,11:25 - 12:15,Profa. Ana,QUI,3W
+Quarta-feira,7,13:15 - 14:05,Profa. Raquel,BD III,3W
+Quarta-feira,8,14:05 - 14:55,Profa. Raquel,BD III,3W
+Quarta-feira,9,14:55 - 15:45,Profa. Cilene,PORT,3W
+Quarta-feira,10,16:00 - 16:50,Profa. Mirella,TPV II,3W
+Quarta-feira,11,16:50 - 17:40,Profa. Mirella,TPV II,3W
+Quinta-feira,1,07:00 - 07:50,Prof. Bonato,FIS,3W
+Quinta-feira,2,07:50 - 08:40,Profa. Cilene,PORT,3W
+Quinta-feira,3,08:40 - 09:30,Profa. Amanda,EF,3W
+Quinta-feira,4,09:45 - 10:35,Profa. Amanda,EF,3W
+Quinta-feira,5,10:35 - 11:25,Prof. Diogo,MAT,3W
+Quinta-feira,6,11:25 - 12:15,Prof. Daniel,GEO,3W
+Sexta-feira,1,07:00 - 07:50,Prof. Paulo,LPC II,3W
+Sexta-feira,2,07:50 - 08:40,Prof. Paulo,LPC II,3W
+Sexta-feira,3,08:40 - 09:30,Prof. Paulo,LPC II,3W
+Sexta-feira,4,09:45 - 10:35,Nathalie,BIO,3W
+Sexta-feira,5,10:35 - 11:25,Prof. Lafaiete,FILO,3W
+Sexta-feira,6,11:25 - 12:15,Profa. Cilene,PORT,3W
+Segunda-feira,1,07:00 - 07:50,Profa. Raquel,TCC,3X
+Segunda-feira,2,07:50 - 08:40,Profa. Raquel,TCC,3X
+Segunda-feira,3,08:40 - 09:30,Profa. Raquel,TCC,3X
+Segunda-feira,4,09:45 - 10:35,Profa. Cilene,PORT,3X
+Segunda-feira,5,10:35 - 11:25,Profa. Ana,QUI,3X
+Segunda-feira,6,11:25 - 12:15,Profa. Ana,QUI,3X
+Segunda-feira,7,13:15 - 14:05,Profa. Luciane,ING,3X
+Segunda-feira,8,14:05 - 14:55,Profa. Luciane,ING,3X
+Segunda-feira,9,14:55 - 15:45,Profa. Mirella,TPV II,3X
+Segunda-feira,10,16:00 - 16:50,Profa. Mirella,TPV II,3X
+Segunda-feira,11,16:50 - 17:40,Profa. Sara,SOC,3X
+Terça-feira,1,07:00 - 07:50,Nathalie,BIO,3X
+Terça-feira,2,07:50 - 08:40,Nathalie,BIO,3X
+Terça-feira,3,08:40 - 09:30,Lise,HIST,3X
+Terça-feira,4,09:45 - 10:35,Lise,HIST,3X
+Terça-feira,5,10:35 - 11:25,Prof. Bonato,FIS,3X
+Terça-feira,6,11:25 - 12:15,Prof. Bonato,FIS,3X
+Terça-feira,7,13:15 - 14:05,Profa. Fabiana,LP III,3X
+Terça-feira,8,14:05 - 14:55,Profa. Fabiana,LP III,3X
+Terça-feira,9,14:55 - 15:45,Profa. Fabiana,LP III,3X
+Terça-feira,10,16:00 - 16:50,Profa. Raquel,BD III,3X
+Terça-feira,11,16:50 - 17:40,Profa. Raquel,BD III,3X
+Quarta-feira,1,07:00 - 07:50,Profa. Marister,OP,3X
+Quarta-feira,2,07:50 - 08:40,Profa. Marister,OP,3X
+Quarta-feira,3,08:40 - 09:30,Prof. Daniel,GEO,3X
+Quarta-feira,4,09:45 - 10:35,Profa. Ana,QUI,3X
+Quarta-feira,5,10:35 - 11:25,Prof. Lafaiete,FILO,3X
+Quarta-feira,6,11:25 - 12:15,Prof. Lafaiete,FILO,3X
+Quarta-feira,7,13:15 - 14:05,Prof. Paulo,LPC II,3X
+Quarta-feira,8,14:05 - 14:55,Prof. Paulo,LPC II,3X
+Quarta-feira,9,14:55 - 15:45,Prof. Paulo,LPC II,3X
+Quarta-feira,10,16:00 - 16:50,Profa. Cilene,PORT,3X
+Quarta-feira,11,16:50 - 17:40,Profa. Cilene,PORT,3X
+Quinta-feira,1,07:00 - 07:50,Lise,HIST,3X
+Quinta-feira,2,07:50 - 08:40,Prof. Daniel,GEO,3X
+Quinta-feira,3,08:40 - 09:30,Prof. Diogo,MAT,3X
+Quinta-feira,4,09:45 - 10:35,Prof. Diogo,MAT,3X
+Quinta-feira,5,10:35 - 11:25,Profa. Cilene,PORT,3X
+Quinta-feira,6,11:25 - 12:15,Profa. Cilene,PORT,3X
+Sexta-feira,1,07:00 - 07:50,Nathalie,BIO,3X
+Sexta-feira,2,07:50 - 08:40,Prof. Daniel,GEO,3X
+Sexta-feira,3,08:40 - 09:30,Profa. Amanda,EF,3X
+Sexta-feira,4,09:45 - 10:35,Profa. Amanda,EF,3X
+Sexta-feira,5,10:35 - 11:25,Prof. Diogo,MAT,3X
+Sexta-feira,6,11:25 - 12:15,Prof. Diogo,MAT,3X
+Segunda-feira,1,07:00 - 07:50,Profa. Ana,QUI,3Y
+Segunda-feira,2,07:50 - 08:40,Profa. Luciane,ING,3Y
+Segunda-feira,3,08:40 - 09:30,Profa. Marister,OP,3Y
+Segunda-feira,4,09:45 - 10:35,Profa. Marister,OP,3Y
+Segunda-feira,5,10:35 - 11:25,Prof. Diogo,MAT,3Y
+Segunda-feira,6,11:25 - 12:15,Prof. Diogo,MAT,3Y
+Segunda-feira,7,13:15 - 14:05,Profa. Sara,SOC,3Y
+Segunda-feira,8,14:05 - 14:55,Nathalie,BIO,3Y
+Segunda-feira,9,14:55 - 15:45,Nathalie,BIO,3Y
+Segunda-feira,10,16:00 - 16:50,Profa. Raquel,BD III,3Y
+Segunda-feira,11,16:50 - 17:40,Profa. Raquel,BD III,3Y
+Terça-feira,1,07:00 - 07:50,Profa. Fabiana,LP III,3Y
+Terça-feira,2,07:50 - 08:40,Profa. Fabiana,LP III,3Y
+Terça-feira,3,08:40 - 09:30,Profa. Fabiana,LP III,3Y
+Terça-feira,4,09:45 - 10:35,Prof. Paulo,LPC II,3Y
+Terça-feira,5,10:35 - 11:25,Prof. Paulo,LPC II,3Y
+Terça-feira,6,11:25 - 12:15,Prof. Paulo,LPC II,3Y
+Terça-feira,7,13:15 - 14:05,Prof. Lafaiete,FILO,3Y
+Terça-feira,8,14:05 - 14:55,Prof. Lafaiete,FILO,3Y
+Terça-feira,9,14:55 - 15:45,Lise,HIST,3Y
+Terça-feira,10,16:00 - 16:50,Profa. Mirella,TPV II,3Y
+Terça-feira,11,16:50 - 17:40,Profa. Mirella,TPV II,3Y
+Quarta-feira,1,07:00 - 07:50,Lise,HIST,3Y
+Quarta-feira,2,07:50 - 08:40,Lise,HIST,3Y
+Quarta-feira,3,08:40 - 09:30,Prof. Bonato,FIS,3Y
+Quarta-feira,4,09:45 - 10:35,Prof. Bonato,FIS,3Y
+Quarta-feira,5,10:35 - 11:25,Prof. Daniel,GEO,3Y
+Quarta-feira,6,11:25 - 12:15,Prof. Daniel,GEO,3Y
+Quarta-feira,7,13:15 - 14:05,Profa. Cilene,PORT,3Y
+Quarta-feira,8,14:05 - 14:55,Profa. Cilene,PORT,3Y
+Quarta-feira,9,14:55 - 15:45,Nathalie,BIO,3Y
+Quarta-feira,10,16:00 - 16:50,Profa. Luciane,ING,3Y
+Quarta-feira,11,16:50 - 17:40,Prof. Diogo,MAT,3Y
+Quinta-feira,1,07:00 - 07:50,Profa. Ana,QUI,3Y
+Quinta-feira,2,07:50 - 08:40,Profa. Ana,QUI,3Y
+Quinta-feira,3,08:40 - 09:30,Profa. Cilene,PORT,3Y
+Quinta-feira,4,09:45 - 10:35,Profa. Cilene,PORT,3Y
+Quinta-feira,5,10:35 - 11:25,Prof. Daniel,GEO,3Y
+Quinta-feira,6,11:25 - 12:15,Prof. Diogo,MAT,3Y
+Sexta-feira,1,07:00 - 07:50,Profa. Raquel,TCC,3Y
+Sexta-feira,2,07:50 - 08:40,Profa. Raquel,TCC,3Y
+Sexta-feira,3,08:40 - 09:30,Profa. Raquel,TCC,3Y
+Sexta-feira,4,09:45 - 10:35,Profa. Cilene,PORT,3Y
+Sexta-feira,5,10:35 - 11:25,Profa. Amanda,EF,3Y
+Sexta-feira,6,11:25 - 12:15,Profa. Amanda,EF,3Y

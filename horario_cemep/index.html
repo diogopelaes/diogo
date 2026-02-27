@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grade Horária 2026 — Dark Edition</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="app-layout">
+      <header>
+        <h1>CEMEP 2026</h1>
+        <div class="subtitle">Grade Horária</div>
+      </header>
+
+      <main id="schedule-grid" class="main-content">
+        <!-- Dynamic Content -->
+        <div style="text-align: center; color: var(--text-md); padding: 4rem">
+          Sintonizando frequências acadêmicas...
+        </div>
+      </main>
+
+      <aside class="sidebar">
+        <div id="info-panel" class="info-card">
+          <h3 id="info-name">Detalhes</h3>
+
+          <!-- Custom Premium Dropdown -->
+          <div class="custom-select-wrapper" id="teacher-dropdown">
+            <div class="custom-select-trigger">
+              <span>Selecione um Professor</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </div>
+            <div class="custom-options" id="teacher-options">
+              <!-- Options populated by JS -->
+            </div>
+          </div>
+
+          <div id="info-content">
+            <p style="color: var(--text-md)">
+              Selecione uma aula para ver detalhes do professor.
+            </p>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

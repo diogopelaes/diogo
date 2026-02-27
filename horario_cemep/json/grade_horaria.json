@@ -1,0 +1,3482 @@
+[
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Cesar",
+        "disciplina": "LLA I",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Cesar",
+        "disciplina": "LLA I",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Cesar",
+        "disciplina": "LLA I",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Alexandre",
+        "disciplina": "PORT",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Alexandre",
+        "disciplina": "PORT",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Lise",
+        "disciplina": "HIST",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Raquel",
+        "disciplina": "LP I",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Raquel",
+        "disciplina": "LP I",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Raquel",
+        "disciplina": "LP I",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Lafaiete",
+        "disciplina": "FILO",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Luciane",
+        "disciplina": "ING",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Luiz",
+        "disciplina": "MAT",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Luiz",
+        "disciplina": "MAT",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Bonato",
+        "disciplina": "FIS",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Bonato",
+        "disciplina": "FIS",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Nathalie",
+        "disciplina": "BIO",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Lise",
+        "disciplina": "HIST",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Ana",
+        "disciplina": "QUI",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Ana",
+        "disciplina": "QUI",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Bonato",
+        "disciplina": "FIS",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Lise",
+        "disciplina": "HIST",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Sara",
+        "disciplina": "SOC",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Luiz",
+        "disciplina": "MAT",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Luiz",
+        "disciplina": "MAT",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Alexandre",
+        "disciplina": "PORT",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Mirella",
+        "disciplina": "LOG",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Mirella",
+        "disciplina": "LOG",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Mirella",
+        "disciplina": "LOG",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Cesar",
+        "disciplina": "TIC",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Cesar",
+        "disciplina": "TIC",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Amanda",
+        "disciplina": "EF",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Amanda",
+        "disciplina": "EF",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Luciane",
+        "disciplina": "ING",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Mirella",
+        "disciplina": "DS I",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Mirella",
+        "disciplina": "DS I",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Mirella",
+        "disciplina": "DS I",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Alexandre",
+        "disciplina": "PORT",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Paulo",
+        "disciplina": "BD I",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Paulo",
+        "disciplina": "BD I",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Cesar",
+        "disciplina": "TIC",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Cesar",
+        "disciplina": "TIC",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Daniel",
+        "disciplina": "GEO",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Bonato",
+        "disciplina": "NP",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Bonato",
+        "disciplina": "NP",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Cissa",
+        "disciplina": "ART",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Cissa",
+        "disciplina": "ART",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Daniel",
+        "disciplina": "GEO",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Daniel",
+        "disciplina": "GEO",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Nathalie",
+        "disciplina": "BIO",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Nathalie",
+        "disciplina": "BIO",
+        "turma": "1W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Luiz",
+        "disciplina": "MAT",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Luiz",
+        "disciplina": "MAT",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Lise",
+        "disciplina": "HIST",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Lise",
+        "disciplina": "HIST",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Daniel",
+        "disciplina": "GEO",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Alexandre",
+        "disciplina": "PORT",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Nathalie",
+        "disciplina": "BIO",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Bonato",
+        "disciplina": "FIS",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Luciane",
+        "disciplina": "ING",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Sara",
+        "disciplina": "SOC",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Lafaiete",
+        "disciplina": "FILO",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Mirella",
+        "disciplina": "LOG",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Mirella",
+        "disciplina": "LOG",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Mirella",
+        "disciplina": "LOG",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Raquel",
+        "disciplina": "LP I",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Raquel",
+        "disciplina": "LP I",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Raquel",
+        "disciplina": "LP I",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Cesar",
+        "disciplina": "TIC",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Cesar",
+        "disciplina": "TIC",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Ana",
+        "disciplina": "QUI",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Ana",
+        "disciplina": "QUI",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Lise",
+        "disciplina": "HIST",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Paulo",
+        "disciplina": "BD I",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Paulo",
+        "disciplina": "BD I",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Luiz",
+        "disciplina": "MAT",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Luiz",
+        "disciplina": "MAT",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Luciane",
+        "disciplina": "ING",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Bonato",
+        "disciplina": "FIS",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Mirella",
+        "disciplina": "DS I",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Mirella",
+        "disciplina": "DS I",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Mirella",
+        "disciplina": "DS I",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Nathalie",
+        "disciplina": "BIO",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Nathalie",
+        "disciplina": "BIO",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Cesar",
+        "disciplina": "LLA I",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Cesar",
+        "disciplina": "LLA I",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Cesar",
+        "disciplina": "LLA I",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Daniel",
+        "disciplina": "GEO",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Alexandre",
+        "disciplina": "PORT",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Alexandre",
+        "disciplina": "PORT",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Bonato",
+        "disciplina": "FIS",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Amanda",
+        "disciplina": "EF",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Amanda",
+        "disciplina": "EF",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Daniel",
+        "disciplina": "GEO",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Alexandre",
+        "disciplina": "PORT",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Cesar",
+        "disciplina": "TIC",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Cesar",
+        "disciplina": "TIC",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Cissa",
+        "disciplina": "ART",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Cissa",
+        "disciplina": "ART",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Bonato",
+        "disciplina": "NP",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Bonato",
+        "disciplina": "NP",
+        "turma": "1X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Luciane",
+        "disciplina": "ING",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Mirella",
+        "disciplina": "LOG",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Mirella",
+        "disciplina": "LOG",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Mirella",
+        "disciplina": "LOG",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Cesar",
+        "disciplina": "TIC",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Cesar",
+        "disciplina": "TIC",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Daniel",
+        "disciplina": "GEO",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Daniel",
+        "disciplina": "GEO",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Cesar",
+        "disciplina": "TIC",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Cesar",
+        "disciplina": "TIC",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Nathalie",
+        "disciplina": "BIO",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Nathalie",
+        "disciplina": "BIO",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Amanda",
+        "disciplina": "EF",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Amanda",
+        "disciplina": "EF",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Lise",
+        "disciplina": "HIST",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Lise",
+        "disciplina": "HIST",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Sara",
+        "disciplina": "SOC",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Lafaiete",
+        "disciplina": "FILO",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Bonato",
+        "disciplina": "FIS",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Alexandre",
+        "disciplina": "PORT",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Alexandre",
+        "disciplina": "PORT",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Paulo",
+        "disciplina": "BD I",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Paulo",
+        "disciplina": "BD I",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Bonato",
+        "disciplina": "FIS",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Luciane",
+        "disciplina": "ING",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Ana",
+        "disciplina": "QUI",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Ana",
+        "disciplina": "QUI",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Raquel",
+        "disciplina": "LP I",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Raquel",
+        "disciplina": "LP I",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Raquel",
+        "disciplina": "LP I",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Lise",
+        "disciplina": "HIST",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Alexandre",
+        "disciplina": "PORT",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Cesar",
+        "disciplina": "LLA I",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Cesar",
+        "disciplina": "LLA I",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Cesar",
+        "disciplina": "LLA I",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Daniel",
+        "disciplina": "GEO",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Bonato",
+        "disciplina": "NP",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Bonato",
+        "disciplina": "NP",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Alexandre",
+        "disciplina": "PORT",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Nathalie",
+        "disciplina": "BIO",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Mirella",
+        "disciplina": "DS I",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Mirella",
+        "disciplina": "DS I",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Mirella",
+        "disciplina": "DS I",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Bonato",
+        "disciplina": "FIS",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Cissa",
+        "disciplina": "ART",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Cissa",
+        "disciplina": "ART",
+        "turma": "1Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Luciane",
+        "disciplina": "ING",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Ana",
+        "disciplina": "QUI",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Cilene",
+        "disciplina": "PORT",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Cesar",
+        "disciplina": "LLA II",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Cesar",
+        "disciplina": "LLA II",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Cesar",
+        "disciplina": "LLA II",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Daniel",
+        "disciplina": "GEO",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Daniel",
+        "disciplina": "GEO",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Sara",
+        "disciplina": "SOC",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Fabiana",
+        "disciplina": "DS II",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Fabiana",
+        "disciplina": "DS II",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Lise",
+        "disciplina": "HIST",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Bonato",
+        "disciplina": "FIS",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Cilene",
+        "disciplina": "PORT",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Cilene",
+        "disciplina": "PORT",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Mirella",
+        "disciplina": "TPV I",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Mirella",
+        "disciplina": "TPV I",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Mirella",
+        "disciplina": "TPV I",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Paulo",
+        "disciplina": "ESI",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Paulo",
+        "disciplina": "ESI",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Bonato",
+        "disciplina": "FIS",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Bonato",
+        "disciplina": "FIS",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Lafaiete",
+        "disciplina": "FILO",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Fabiana",
+        "disciplina": "LP II",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Fabiana",
+        "disciplina": "LP II",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Fabiana",
+        "disciplina": "LP II",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Luciane",
+        "disciplina": "ING",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Ana",
+        "disciplina": "QUI",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Ana",
+        "disciplina": "QUI",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Raquel",
+        "disciplina": "BD II",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Raquel",
+        "disciplina": "BD II",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Fabiana",
+        "disciplina": "DS II",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Fabiana",
+        "disciplina": "DS II",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Amanda",
+        "disciplina": "EF",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Amanda",
+        "disciplina": "EF",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Nathalie",
+        "disciplina": "BIO",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Nathalie",
+        "disciplina": "BIO",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Paulo",
+        "disciplina": "LPC I",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Paulo",
+        "disciplina": "LPC I",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Paulo",
+        "disciplina": "LPC I",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Lise",
+        "disciplina": "HIST",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Lise",
+        "disciplina": "HIST",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Lafaiete",
+        "disciplina": "FILO",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Cilene",
+        "disciplina": "PORT",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Daniel",
+        "disciplina": "GEO",
+        "turma": "2W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Lise",
+        "disciplina": "HIST",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Lise",
+        "disciplina": "HIST",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Ana",
+        "disciplina": "QUI",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Ana",
+        "disciplina": "QUI",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Cilene",
+        "disciplina": "PORT",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Daniel",
+        "disciplina": "GEO",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Cilene",
+        "disciplina": "PORT",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Cilene",
+        "disciplina": "PORT",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Lafaiete",
+        "disciplina": "FILO",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Bonato",
+        "disciplina": "FIS",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Bonato",
+        "disciplina": "FIS",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Bonato",
+        "disciplina": "FIS",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Cilene",
+        "disciplina": "PORT",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Cesar",
+        "disciplina": "LLA II",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Cesar",
+        "disciplina": "LLA II",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Cesar",
+        "disciplina": "LLA II",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Sara",
+        "disciplina": "SOC",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Amanda",
+        "disciplina": "EF",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Amanda",
+        "disciplina": "EF",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Fabiana",
+        "disciplina": "DS II",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Fabiana",
+        "disciplina": "DS II",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Fabiana",
+        "disciplina": "LP II",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Fabiana",
+        "disciplina": "LP II",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Fabiana",
+        "disciplina": "LP II",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Daniel",
+        "disciplina": "GEO",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Raquel",
+        "disciplina": "BD II",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Raquel",
+        "disciplina": "BD II",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Luciane",
+        "disciplina": "ING",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Luciane",
+        "disciplina": "ING",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Paulo",
+        "disciplina": "ESI",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Paulo",
+        "disciplina": "ESI",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Fabiana",
+        "disciplina": "DS II",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Fabiana",
+        "disciplina": "DS II",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Ana",
+        "disciplina": "QUI",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Mirella",
+        "disciplina": "TPV I",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Mirella",
+        "disciplina": "TPV I",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Mirella",
+        "disciplina": "TPV I",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Paulo",
+        "disciplina": "LPC I",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Paulo",
+        "disciplina": "LPC I",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Nathalie",
+        "disciplina": "BIO",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Nathalie",
+        "disciplina": "BIO",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Lise",
+        "disciplina": "HIST",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Paulo",
+        "disciplina": "LPC I",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Daniel",
+        "disciplina": "GEO",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Lafaiete",
+        "disciplina": "FILO",
+        "turma": "2X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Mirella",
+        "disciplina": "TPV I",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Mirella",
+        "disciplina": "TPV I",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Mirella",
+        "disciplina": "TPV I",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Fabiana",
+        "disciplina": "LP II",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Fabiana",
+        "disciplina": "LP II",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Fabiana",
+        "disciplina": "LP II",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Lafaiete",
+        "disciplina": "FILO",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Lafaiete",
+        "disciplina": "FILO",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Bonato",
+        "disciplina": "FIS",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Daniel",
+        "disciplina": "GEO",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Lise",
+        "disciplina": "HIST",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Amanda",
+        "disciplina": "EF",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Amanda",
+        "disciplina": "EF",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Cilene",
+        "disciplina": "PORT",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Cilene",
+        "disciplina": "PORT",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Paulo",
+        "disciplina": "LPC I",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Paulo",
+        "disciplina": "LPC I",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Paulo",
+        "disciplina": "LPC I",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Sara",
+        "disciplina": "SOC",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Luciane",
+        "disciplina": "ING",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Cesar",
+        "disciplina": "LLA II",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Cesar",
+        "disciplina": "LLA II",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Cesar",
+        "disciplina": "LLA II",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Luciane",
+        "disciplina": "ING",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Cilene",
+        "disciplina": "PORT",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Cilene",
+        "disciplina": "PORT",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Nathalie",
+        "disciplina": "BIO",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Nathalie",
+        "disciplina": "BIO",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Ana",
+        "disciplina": "QUI",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Fabiana",
+        "disciplina": "DS II",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Fabiana",
+        "disciplina": "DS II",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Paulo",
+        "disciplina": "ESI",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Paulo",
+        "disciplina": "ESI",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Raquel",
+        "disciplina": "BD II",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Raquel",
+        "disciplina": "BD II",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Fabiana",
+        "disciplina": "DS II",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Fabiana",
+        "disciplina": "DS II",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Ana",
+        "disciplina": "QUI",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Ana",
+        "disciplina": "QUI",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Daniel",
+        "disciplina": "GEO",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Daniel",
+        "disciplina": "GEO",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Bonato",
+        "disciplina": "FIS",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Bonato",
+        "disciplina": "FIS",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Lise",
+        "disciplina": "HIST",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Lise",
+        "disciplina": "HIST",
+        "turma": "2Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Marister",
+        "disciplina": "OP",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Marister",
+        "disciplina": "OP",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Lise",
+        "disciplina": "HIST",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Cilene",
+        "disciplina": "PORT",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Fabiana",
+        "disciplina": "LP III",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Fabiana",
+        "disciplina": "LP III",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Fabiana",
+        "disciplina": "LP III",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Luciane",
+        "disciplina": "ING",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Nathalie",
+        "disciplina": "BIO",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Raquel",
+        "disciplina": "TCC",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Raquel",
+        "disciplina": "TCC",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Raquel",
+        "disciplina": "TCC",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Lise",
+        "disciplina": "HIST",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Nathalie",
+        "disciplina": "BIO",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Bonato",
+        "disciplina": "FIS",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Sara",
+        "disciplina": "SOC",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Lafaiete",
+        "disciplina": "FILO",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Luciane",
+        "disciplina": "ING",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Ana",
+        "disciplina": "QUI",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Daniel",
+        "disciplina": "GEO",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Daniel",
+        "disciplina": "GEO",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Lise",
+        "disciplina": "HIST",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Cilene",
+        "disciplina": "PORT",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Ana",
+        "disciplina": "QUI",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Ana",
+        "disciplina": "QUI",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Raquel",
+        "disciplina": "BD III",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Raquel",
+        "disciplina": "BD III",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Cilene",
+        "disciplina": "PORT",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Mirella",
+        "disciplina": "TPV II",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Mirella",
+        "disciplina": "TPV II",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Bonato",
+        "disciplina": "FIS",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Cilene",
+        "disciplina": "PORT",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Amanda",
+        "disciplina": "EF",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Amanda",
+        "disciplina": "EF",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Daniel",
+        "disciplina": "GEO",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Paulo",
+        "disciplina": "LPC II",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Paulo",
+        "disciplina": "LPC II",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Paulo",
+        "disciplina": "LPC II",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Nathalie",
+        "disciplina": "BIO",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Lafaiete",
+        "disciplina": "FILO",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Cilene",
+        "disciplina": "PORT",
+        "turma": "3W"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Raquel",
+        "disciplina": "TCC",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Raquel",
+        "disciplina": "TCC",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Raquel",
+        "disciplina": "TCC",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Cilene",
+        "disciplina": "PORT",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Ana",
+        "disciplina": "QUI",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Ana",
+        "disciplina": "QUI",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Luciane",
+        "disciplina": "ING",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Luciane",
+        "disciplina": "ING",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Mirella",
+        "disciplina": "TPV II",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Mirella",
+        "disciplina": "TPV II",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Sara",
+        "disciplina": "SOC",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Nathalie",
+        "disciplina": "BIO",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Nathalie",
+        "disciplina": "BIO",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Lise",
+        "disciplina": "HIST",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Lise",
+        "disciplina": "HIST",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Bonato",
+        "disciplina": "FIS",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Bonato",
+        "disciplina": "FIS",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Fabiana",
+        "disciplina": "LP III",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Fabiana",
+        "disciplina": "LP III",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Fabiana",
+        "disciplina": "LP III",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Raquel",
+        "disciplina": "BD III",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Raquel",
+        "disciplina": "BD III",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Marister",
+        "disciplina": "OP",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Marister",
+        "disciplina": "OP",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Daniel",
+        "disciplina": "GEO",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Ana",
+        "disciplina": "QUI",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Lafaiete",
+        "disciplina": "FILO",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Lafaiete",
+        "disciplina": "FILO",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Paulo",
+        "disciplina": "LPC II",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Paulo",
+        "disciplina": "LPC II",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Paulo",
+        "disciplina": "LPC II",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Cilene",
+        "disciplina": "PORT",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Cilene",
+        "disciplina": "PORT",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Lise",
+        "disciplina": "HIST",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Daniel",
+        "disciplina": "GEO",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Cilene",
+        "disciplina": "PORT",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Cilene",
+        "disciplina": "PORT",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Nathalie",
+        "disciplina": "BIO",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Daniel",
+        "disciplina": "GEO",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Amanda",
+        "disciplina": "EF",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Amanda",
+        "disciplina": "EF",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "3X"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Ana",
+        "disciplina": "QUI",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Luciane",
+        "disciplina": "ING",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Marister",
+        "disciplina": "OP",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Marister",
+        "disciplina": "OP",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Sara",
+        "disciplina": "SOC",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Nathalie",
+        "disciplina": "BIO",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Nathalie",
+        "disciplina": "BIO",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Raquel",
+        "disciplina": "BD III",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Segunda-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Raquel",
+        "disciplina": "BD III",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Fabiana",
+        "disciplina": "LP III",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Fabiana",
+        "disciplina": "LP III",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Fabiana",
+        "disciplina": "LP III",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Paulo",
+        "disciplina": "LPC II",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Paulo",
+        "disciplina": "LPC II",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Paulo",
+        "disciplina": "LPC II",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Lafaiete",
+        "disciplina": "FILO",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Lafaiete",
+        "disciplina": "FILO",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Lise",
+        "disciplina": "HIST",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Mirella",
+        "disciplina": "TPV II",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Terça-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Mirella",
+        "disciplina": "TPV II",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Lise",
+        "disciplina": "HIST",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Lise",
+        "disciplina": "HIST",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Bonato",
+        "disciplina": "FIS",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Bonato",
+        "disciplina": "FIS",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Daniel",
+        "disciplina": "GEO",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Daniel",
+        "disciplina": "GEO",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "7",
+        "horario da aula": "13:15 - 14:05",
+        "nome do professor": "Cilene",
+        "disciplina": "PORT",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "8",
+        "horario da aula": "14:05 - 14:55",
+        "nome do professor": "Cilene",
+        "disciplina": "PORT",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "9",
+        "horario da aula": "14:55 - 15:45",
+        "nome do professor": "Nathalie",
+        "disciplina": "BIO",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "10",
+        "horario da aula": "16:00 - 16:50",
+        "nome do professor": "Luciane",
+        "disciplina": "ING",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Quarta-feira",
+        "numero da aula": "11",
+        "horario da aula": "16:50 - 17:40",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Ana",
+        "disciplina": "QUI",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Ana",
+        "disciplina": "QUI",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Cilene",
+        "disciplina": "PORT",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Cilene",
+        "disciplina": "PORT",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Daniel",
+        "disciplina": "GEO",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Quinta-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Diogo",
+        "disciplina": "MAT",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "1",
+        "horario da aula": "07:00 - 07:50",
+        "nome do professor": "Raquel",
+        "disciplina": "TCC",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "2",
+        "horario da aula": "07:50 - 08:40",
+        "nome do professor": "Raquel",
+        "disciplina": "TCC",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "3",
+        "horario da aula": "08:40 - 09:30",
+        "nome do professor": "Raquel",
+        "disciplina": "TCC",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "4",
+        "horario da aula": "09:45 - 10:35",
+        "nome do professor": "Cilene",
+        "disciplina": "PORT",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "5",
+        "horario da aula": "10:35 - 11:25",
+        "nome do professor": "Amanda",
+        "disciplina": "EF",
+        "turma": "3Y"
+    },
+    {
+        "dia da semana": "Sexta-feira",
+        "numero da aula": "6",
+        "horario da aula": "11:25 - 12:15",
+        "nome do professor": "Amanda",
+        "disciplina": "EF",
+        "turma": "3Y"
+    }
+]
