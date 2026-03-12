@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Matriz 2x2 - Inversa</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#4facfe,#00f2fe);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    text-align:center;
+    width:320px;
+}
+
+h2{
+    margin-bottom:20px;
+}
+
+.matrix{
+    display:grid;
+    grid-template-columns:repeat(2,70px);
+    gap:10px;
+    justify-content:center;
+    margin-bottom:20px;
+}
+
+.matrix input{
+    width:70px;
+    height:40px;
+    font-size:18px;
+    text-align:center;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+button{
+    background:#4facfe;
+    border:none;
+    padding:10px 18px;
+    color:white;
+    font-size:16px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#3794e8;
+}
+
+.result{
+    margin-top:20px;
+    font-size:18px;
+}
+
+.inverse{
+    display:grid;
+    grid-template-columns:repeat(2,70px);
+    gap:10px;
+    justify-content:center;
+    margin-top:10px;
+}
+
+.inverse div{
+    background:#f2f2f2;
+    padding:10px;
+    border-radius:6px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Matriz 2×2</h2>
+
+<div class="matrix">
+<input id="a" type="number" placeholder="a">
+<input id="b" type="number" placeholder="b">
+<input id="c" type="number" placeholder="c">
+<input id="d" type="number" placeholder="d">
+</div>
+
+<button onclick="calcular()">Calcular Inversa</button>
+
+<div class="result" id="resultado"></div>
+
+<div class="inverse" id="inversa"></div>
+
+</div>
+
+<script>
+
+function calcular(){
+
+let a = parseFloat(document.getElementById("a").value);
+let b = parseFloat(document.getElementById("b").value);
+let c = parseFloat(document.getElementById("c").value);
+let d = parseFloat(document.getElementById("d").value);
+
+let det = a*d - b*c;
+
+let resultado = document.getElementById("resultado");
+let inversaDiv = document.getElementById("inversa");
+
+inversaDiv.innerHTML = "";
+
+if(det === 0){
+
+    resultado.innerHTML = "Determinante = 0<br><b>Não existe inversa</b>";
+    return;
+
+}
+
+resultado.innerHTML = "Determinante = " + det + "<br><b>Existe inversa</b>";
+
+let i11 = (d/det).toFixed(3);
+let i12 = (-b/det).toFixed(3);
+let i21 = (-c/det).toFixed(3);
+let i22 = (a/det).toFixed(3);
+
+inversaDiv.innerHTML = `
+<div>${i11}</div>
+<div>${i12}</div>
+<div>${i21}</div>
+<div>${i22}</div>
+`;
+
+}
+
+</script>
+
+</body>
+</html>
