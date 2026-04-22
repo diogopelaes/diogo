@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorteio CEMEP | Leitor XLSX</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Iconify Icon -->
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@3.0.2/dist/iconify-icon.min.js"></script>
+
+  <!-- Tailwind (Silenciando aviso de produção) -->
+  <script>
+    const _warn = console.warn;
+    console.warn = (...args) => {
+      if (typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) return;
+      _warn(...args);
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Seu CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gray-900 text-gray-200 min-h-screen flex items-center justify-center p-4 md:p-10">
+
+  <main class="main-container w-full max-w-2xl space-y-8">
+
+    <header class="text-center space-y-2">
+      <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-orange-600/10 text-orange-500 mb-2">
+        <iconify-icon icon="lucide:shuffle" class="text-5xl"></iconify-icon>
+      </div>
+      <h1 class="text-4xl font-bold text-white tracking-tight">
+        Sistema Super Simples de Sorteio
+      </h1>
+      <p class="text-gray-400 font-medium">Prof. Diogo | CEMEP</p>
+    </header>
+
+    <div class="glass-card p-8 space-y-6">
+      <h2 class="text-xl font-bold text-white tracking-tight text-center">Carregar Sorteio</h2>
+      <div class="space-y-3">
+        <label class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Continuar de arquivo JSON</label>
+        <label for="jsonInput" class="file-upload-wrapper">
+          <div class="file-upload-icon">
+            <iconify-icon icon="material-symbols:file-open" class="text-2xl"></iconify-icon>
+          </div>
+          <div class="file-upload-text">
+            <span id="jsonFileName" class="block font-medium text-white">Escolher arquivo JSON</span>
+            <span class="text-xs text-gray-500">Selecione o arquivo baixado anteriormente</span>
+          </div>
+        </label>
+        <input type="file" id="jsonInput" accept=".json" class="hidden">
+      </div>
+      <div class="flex justify-center w-full">
+        <button id="loadJsonBtn" class="btn-primary">
+          <iconify-icon icon="material-symbols:upload-file"></iconify-icon>
+          Carregar Dados
+        </button>
+      </div>
+    </div>
+
+    <div class="glass-card p-8 space-y-6">
+      <h2 class="text-xl font-bold text-white tracking-tight text-center">Criar Novo Sorteio</h2>
+
+      <!-- Título do Sorteio -->
+      <div class="space-y-3">
+        <label class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Título do Sorteio</label>
+        <input type="text" id="raffleTitle" placeholder="Ex: Sorteio de Brindes" class="input-dark">
+      </div>
+
+      <!-- Input -->
+      <div class="space-y-3">
+        <label class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Arquivo de Dados</label>
+        <label for="fileInput" class="file-upload-wrapper">
+          <div class="file-upload-icon">
+            <iconify-icon icon="material-symbols:cloud-upload" class="text-2xl"></iconify-icon>
+          </div>
+          <div class="file-upload-text">
+            <span id="fileName" class="block font-medium text-white">Escolher arquivo</span>
+            <span class="text-xs text-gray-500">Arraste ou clique para selecionar (.xlsx, .xls)</span>
+            <span class="text-[10px] text-orange-500/80 font-bold block mt-1 uppercase tracking-wider">Necessário colunas: "Nome" e "Turma"</span>
+          </div>
+        </label>
+        <input type="file" id="fileInput" accept=".xlsx, .xls" class="hidden">
+      </div>
+
+      <!-- Modo de Sorteio -->
+      <div class="space-y-3">
+        <label class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Modo de Sorteio</label>
+        <div class="grid grid-cols-2 gap-4">
+          <label class="radio-card">
+            <input type="radio" name="modo_sorteio" value="com">
+            <div class="radio-content">
+              <iconify-icon icon="material-symbols:refresh"></iconify-icon>
+              <div class="radio-text">
+                <span>Com Reposição</span>
+                <small>Alunos podem ser sorteados várias vezes</small>
+              </div>
+            </div>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="modo_sorteio" value="sem" checked>
+            <div class="radio-content">
+              <iconify-icon icon="material-symbols:block"></iconify-icon>
+              <div class="radio-text">
+                <span>Sem Reposição</span>
+                <small>Cada aluno é sorteado apenas uma vez</small>
+              </div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Botões -->
+      <div class="flex justify-center w-full">
+        <button id="processBtn" class="btn-primary">
+          <iconify-icon icon="material-symbols:casino"></iconify-icon>
+          Novo Sorteio
+        </button>
+      </div>
+
+      <!-- Output removido -->
+    </div>
+
+    <footer class="text-center text-xs text-gray-600 font-medium uppercase tracking-widest">
+      &copy; Sistema Super Simples de Sorteio
+    </footer>
+
+  </main>
+
+  <!-- XLSX -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+  <!-- Seu script -->
+  <script src="iniciar.js"></script>
+
+</body>
+</html>

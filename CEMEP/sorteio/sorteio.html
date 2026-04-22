@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorteio | Sala de Sorteio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Iconify Icon -->
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@3.0.2/dist/iconify-icon.min.js"></script>
+
+  <!-- Tailwind (Silenciando aviso de produção) -->
+  <script>
+    const _warn = console.warn;
+    console.warn = (...args) => {
+      if (typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) return;
+      _warn(...args);
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Seu CSS -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Scripts de Estilo e UI -->
+  <script src="style.js"></script>
+  
+  <style>
+    body {
+      overflow: hidden; /* Fixa a tela para o layout de sidebar */
+    }
+
+    .app-layout {
+      display: flex;
+      height: 100vh;
+      width: 100%;
+      padding: 16px;
+      gap: 16px;
+    }
+
+    .sidebar {
+      width: 350px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .student-list-scroll {
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 8px;
+    }
+
+    /* Scrollbar personalizada para a lista lateral */
+    .student-list-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+    .student-list-scroll::-webkit-scrollbar-thumb {
+      background: hsla(20, 90%, 50%, 0.2);
+      border-radius: 10px;
+    }
+
+    .student-item-sidebar {
+      background: hsla(0, 0%, 100%, 0.02);
+      border: 1px solid hsla(0, 0%, 100%, 0.05);
+      padding: 10px 14px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .student-item-sidebar:hover {
+      background: hsla(20, 90%, 50%, 0.05);
+      border-color: hsla(20, 90%, 50%, 0.2);
+      transform: translateX(4px);
+    }
+
+    .student-item-sidebar.drawn {
+      background: hsla(140, 70%, 50%, 0.05);
+      border-color: hsla(140, 70%, 50%, 0.2);
+    }
+
+    .status-icon {
+      font-size: 18px;
+      color: hsla(0, 0%, 100%, 0.2);
+    }
+
+    .drawn .status-icon {
+      color: #10b981; /* Emerald-500 */
+    }
+
+    /* Animação para a área principal */
+    .raffle-display-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .big-name-display {
+      font-size: 5rem;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      color: white;
+      text-shadow: 0 0 30px rgba(255, 107, 0, 0.3);
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-gray-200">
+
+  <div class="app-layout">
+    
+    <!-- Menu Lateral (Sidebar) -->
+    <aside class="sidebar glass-card p-6">
+      
+      <header class="space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="p-2 bg-orange-600/20 rounded-lg">
+            <iconify-icon icon="material-symbols:dashboard" class="text-orange-500 text-xl"></iconify-icon>
+          </div>
+          <div>
+            <h2 id="raffleHeaderTitle" class="text-xl font-bold text-white leading-tight">Sorteio CEMEP</h2>
+            <p class="text-[11px] text-gray-500 uppercase tracking-widest font-bold">Painel de Controle</p>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <label class="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-2">Selecionar Turma</label>
+          <div id="turmaSelectContainer"></div>
+        </div>
+      </header>
+
+      <div class="flex-1 flex flex-col overflow-hidden pt-4 border-t border-white/5">
+        <div class="flex justify-between items-center mb-4">
+          <span class="text-[11px] font-bold text-gray-400 uppercase tracking-widest">Estudantes</span>
+          <span id="studentCount" class="text-xs font-bold px-3 py-1 bg-white/5 text-gray-500 rounded-full">0/0</span>
+        </div>
+
+        <div id="studentList" class="student-list-scroll">
+          <!-- Lista de estudantes injetada aqui -->
+          <div class="text-center py-10 text-gray-600 text-sm italic">
+            Selecione uma turma para carregar os alunos...
+          </div>
+        </div>
+      </div>
+
+      <footer class="pt-4 border-t border-white/5 flex gap-2">
+        <button onclick="window.location.href='index.html'" class="btn-secondary flex-1 !text-[10px] !py-2 !px-2">
+          <iconify-icon icon="material-symbols:arrow-back" class="text-base"></iconify-icon>
+          Voltar
+        </button>
+        <button id="saveJsonBtn" class="btn-secondary flex-1 !text-[10px] !py-2 !px-2">
+          <iconify-icon icon="material-symbols:download" class="text-base"></iconify-icon>
+          Salvar JSON
+        </button>
+      </footer>
+
+    </aside>
+
+    <!-- Área Principal -->
+    <main class="main-content glass-card">
+      
+      <div class="raffle-display-area">
+        <div id="emptyState" class="space-y-4">
+          <iconify-icon icon="material-symbols:casino" class="text-6xl text-gray-700"></iconify-icon>
+          <p class="text-gray-500 max-w-sm mx-auto">
+            Escolha uma turma ao lado e clique no botão para iniciar o sorteio de um aluno.
+          </p>
+        </div>
+
+        <div id="raffleResult" class="hidden space-y-6">
+          <p class="text-orange-500 font-bold uppercase tracking-[0.3em] text-sm">Ganhador(a)!</p>
+          <h2 id="winnerName" class="big-name-display">NOME DO ALUNO</h2>
+          <div class="flex justify-center gap-4">
+             <div class="px-4 py-2 bg-white/5 rounded-xl border border-white/10">
+               <span id="winnerTurma" class="text-gray-400 font-bold">Turma: 1A</span>
+             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Barra de Ações Inferior -->
+      <div class="p-8 border-t border-white/5 bg-black/20 flex justify-center">
+        <button id="drawBtn" class="btn-primary !px-12 !py-4 text-lg">
+          <iconify-icon icon="material-symbols:auto-awesome" class="text-2xl"></iconify-icon>
+          SORTEAR AGORA
+        </button>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- Modal de Edição do Estudante -->
+  <div id="studentModal" class="modal-overlay">
+    <div class="modal-card">
+      <header class="modal-header">
+        <p class="modal-subtitle">Editar Estado</p>
+        <h2 id="modalStudentName" class="modal-title">Nome do Aluno</h2>
+      </header>
+
+      <footer class="modal-footer">
+        <button id="markAsDrawnBtn" class="btn-primary w-full">
+          <iconify-icon icon="material-symbols:check-circle"></iconify-icon>
+          Marcar como Sorteado
+        </button>
+        <button id="resetStudentBtn" class="btn-primary w-full !bg-red-600/20 !text-white !border-red-500/30">
+          <iconify-icon icon="material-symbols:refresh"></iconify-icon>
+          Resetar Sorteio
+        </button>
+        <button id="closeModalBtn" class="btn-secondary w-full">
+          Cancelar
+        </button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Core do Sorteio -->
+  <script src="sorteio.js"></script>
+
+</body>
+</html>
+
+</body>
+</html>
