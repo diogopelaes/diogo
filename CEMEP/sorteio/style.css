@@ -469,3 +469,5 @@ h1, h2, h3 {
 .duration-300 {
   transition-duration: 300ms;
 }
+
+/* Slot Machine Styles movidos para slot.css */

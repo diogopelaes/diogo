@@ -25,6 +25,7 @@
 
   <!-- Seu CSS -->
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="slot.css">
   
   <!-- Scripts de Estilo e UI -->
   <script src="style.js"></script>
@@ -192,13 +193,15 @@
         </div>
 
         <div id="raffleResult" class="hidden space-y-6">
-          <p class="text-orange-500 font-bold uppercase tracking-[0.3em] text-sm">Ganhador(a)!</p>
-          <h2 id="winnerName" class="big-name-display">NOME DO ALUNO</h2>
-          <div class="flex justify-center gap-4">
-             <div class="px-4 py-2 bg-white/5 rounded-xl border border-white/10">
-               <span id="winnerTurma" class="text-gray-400 font-bold">Turma: 1A</span>
-             </div>
+          <p id="raffleStatusText" class="text-orange-500 font-bold uppercase tracking-[0.3em] text-sm">Escolhido!</p>
+          
+          <div class="slot-machine-viewport" id="slotViewport">
+            <div class="slot-highlight"></div>
+            <div id="slotStrip" class="slot-strip">
+              <!-- Nomes injetados aqui via JS -->
+            </div>
           </div>
+          <!-- Removido o display da turma aqui -->
         </div>
       </div>
 
@@ -238,7 +241,11 @@
     </div>
   </div>
 
+  <!-- Celebration Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
   <!-- Core do Sorteio -->
+  <script src="slot.js"></script>
   <script src="sorteio.js"></script>
 
 </body>

@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", function() {
   const drawBtn = document.getElementById("drawBtn");
   const emptyState = document.getElementById("emptyState");
   const raffleResult = document.getElementById("raffleResult");
-  const winnerName = document.getElementById("winnerName");
-  const winnerTurma = document.getElementById("winnerTurma");
+  const slotStrip = document.getElementById("slotStrip");
+  const raffleStatusText = document.getElementById("raffleStatusText");
   
   // Modal Elements
   const modal = document.getElementById("studentModal");
@@ -17,6 +17,9 @@ document.addEventListener("DOMContentLoaded", function() {
   const markAsDrawnBtn = document.getElementById("markAsDrawnBtn");
   const resetStudentBtn = document.getElementById("resetStudentBtn");
   const closeModalBtn = document.getElementById("closeModalBtn");
+  
+  // Slot Machine Engine
+  const slotEngine = new SlotMachineEngine("slotViewport", "slotStrip");
   
   let currentEditingStudent = null;
   const rawData = localStorage.getItem("sorteioData");
@@ -121,43 +124,140 @@ document.addEventListener("DOMContentLoaded", function() {
       return;
     }
 
-    // Escolha aleatória (Algoritmo de sorteio)
+    // Desabilita o botão durante a animação
+    drawBtn.disabled = true;
+    drawBtn.classList.add("opacity-50", "cursor-not-allowed");
+
+    // Escolha o ganhador ANTES de começar a animação
     const randomIndex = Math.floor(Math.random() * candidates.length);
     const winner = candidates[randomIndex];
 
-    // Registra o sorteio com data, hora e posição global
-    const now = new Date();
-    const timestamp = now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
-    
-    // 1. Incrementa a contagem global
-    data.qtd_sorteios++;
-    
-    // 2. Atualiza a posição do estudante (Apenas no modo "Sem Reposição")
-    if (data.com_reposicao === false) {
-      winner.posicao = data.qtd_sorteios;
-    }
+    // Inicia a animação
+    runRaffleAnimation(candidates, winner, group, () => {
+      // 1. Incrementa a contagem global
+      data.qtd_sorteios++;
+      
+      // 2. Atualiza a posição do estudante (Apenas no modo "Sem Reposição")
+      if (data.com_reposicao === false) {
+        winner.posicao = data.qtd_sorteios;
+      }
 
-    // 3. Registra os dados do sorteio no estudante
-    winner.sorteios_count++;
-    if (!winner.sorteios_datas) winner.sorteios_datas = [];
-    
-    // unshift adiciona no INÍCIO da lista (Garante ordem decrescente)
-    winner.sorteios_datas.unshift(timestamp);
+      // 3. Registra os dados do sorteio no estudante
+      winner.sorteios_count++;
+      if (!winner.sorteios_datas) winner.sorteios_datas = [];
+      
+      const now = new Date();
+      const timestamp = now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+      winner.sorteios_datas.unshift(timestamp);
 
-    // Salva o novo estado no localStorage
-    localStorage.setItem("sorteioData", JSON.stringify(data));
+      // Salva o novo estado no localStorage
+      localStorage.setItem("sorteioData", JSON.stringify(data));
 
-    // Feedback Visual do Ganhador
-    winnerName.textContent = winner.nome;
-    winnerTurma.textContent = `Turma: ${group.turma}`;
-    
+      // Re-renderiza lista lateral
+      renderStudentList(selectedGroupIndex);
+
+      // Reabilita o botão
+      drawBtn.disabled = false;
+      drawBtn.classList.remove("opacity-50", "cursor-not-allowed");
+    });
+  });
+
+  /**
+   * Função de Animação Slot Machine (Nova Versão)
+   */
+  function runRaffleAnimation(candidates, winner, group, onComplete) {
     emptyState.classList.add("hidden");
     raffleResult.classList.remove("hidden");
-    raffleResult.style.animation = "fadeIn 0.5s ease-out";
+    
+    // Anima o texto de status
+    raffleStatusText.textContent = "Sorteando...";
+    raffleStatusText.classList.remove("revealed");
+    raffleStatusText.classList.add("searching");
 
-    // Re-renderiza lista lateral para atualizar ícones e contadores
-    renderStudentList(selectedGroupIndex);
-  });
+    // Limpa destaque anterior
+    const highlight = document.querySelector('.slot-highlight');
+    if (highlight) highlight.classList.remove('active');
+
+    slotEngine.spin(candidates, winner, () => {
+      // Finaliza animação do texto de forma suave
+      raffleStatusText.classList.remove("searching");
+      
+      // Pequeno timeout para resetar o estado visual antes do reveal
+      raffleStatusText.style.opacity = "0";
+      
+      setTimeout(() => {
+        raffleStatusText.textContent = "Escolhido!";
+        raffleStatusText.classList.add("revealed");
+        raffleStatusText.style.opacity = "";
+      }, 50);
+
+      // Efeito de Celebração (Confetes)
+      triggerCelebration();
+
+      onComplete();
+    });
+  }
+
+  /**
+   * Dispara um efeito de celebração aleatório e bem distinto
+   */
+  function triggerCelebration() {
+    const effects = [
+      // 1. Canhões Laterais (School Pride) - Contínuo
+      () => {
+        console.log("Celebration: School Pride");
+        const duration = 3 * 1000;
+        const end = Date.now() + duration;
+        (function frame() {
+          confetti({ particleCount: 3, angle: 60, spread: 55, origin: { x: 0 }, colors: ['#ff6b00', '#ffffff'] });
+          confetti({ particleCount: 3, angle: 120, spread: 55, origin: { x: 1 }, colors: ['#ff6b00', '#ffffff'] });
+          if (Date.now() < end) requestAnimationFrame(frame);
+        }());
+      },
+      // 2. Fogos de Artifício (Fireworks) - Múltiplas explosões
+      () => {
+        console.log("Celebration: Fireworks");
+        const duration = 5 * 1000;
+        const animationEnd = Date.now() + duration;
+        const interval = setInterval(function() {
+          const timeLeft = animationEnd - Date.now();
+          if (timeLeft <= 0) return clearInterval(interval);
+          confetti({
+            particleCount: 40,
+            startVelocity: 30,
+            spread: 360,
+            origin: { x: Math.random(), y: Math.random() - 0.2 },
+            colors: ['#ff6b00', '#ff9d00', '#ffffff', '#000000']
+          });
+        }, 300);
+      },
+      // 3. Chuva de Estrelas - Muito brilho
+      () => {
+        console.log("Celebration: Stars");
+        const defaults = { spread: 360, ticks: 100, gravity: 0, decay: 0.94, startVelocity: 30, colors: ['#ff6b00', '#ffffff', '#ffeb3b'] };
+        confetti({ ...defaults, particleCount: 80, scalar: 1.5, shapes: ['star'] });
+        confetti({ ...defaults, particleCount: 20, scalar: 0.75, shapes: ['circle'] });
+      },
+      // 4. Explosão Central "Confetti Cannon" - Realista
+      () => {
+        console.log("Celebration: Realistic");
+        confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 }, colors: ['#ff6b00', '#ffffff', '#ff9d00'] });
+      },
+      // 5. Neve Laranja (Snow) - Caindo do topo
+      () => {
+        console.log("Celebration: Snow");
+        const duration = 4 * 1000;
+        const end = Date.now() + duration;
+        (function frame() {
+          confetti({ particleCount: 2, angle: -90, spread: 360, origin: { x: Math.random(), y: 0 }, colors: ['#ff6b00'] });
+          if (Date.now() < end) requestAnimationFrame(frame);
+        }());
+      }
+    ];
+
+    const randomIndex = Math.floor(Math.random() * effects.length);
+    effects[randomIndex]();
+  }
 
   /**
    * Lógica do Modal
