@@ -1,0 +1,66 @@
+﻿[
+    {
+        "name":  "Aula 01 - 1ª Série - 2º Bim",
+        "fullName":  "Aula 01 - 1ª Série - 2º Bim.pdf",
+        "path":  "aulas/1serie/Aula 01 - 1ª Série - 2º Bim.pdf",
+        "category":  "aulas",
+        "series":  "1serie",
+        "ext":  ".pdf"
+    },
+    {
+        "name":  "Aula 02 - 1ª Série - 2º Bim",
+        "fullName":  "Aula 02 - 1ª Série - 2º Bim.pdf",
+        "path":  "aulas/1serie/Aula 02 - 1ª Série - 2º Bim.pdf",
+        "category":  "aulas",
+        "series":  "1serie",
+        "ext":  ".pdf"
+    },
+    {
+        "name":  "Aula 01 - 2ª Série - 2º Bim",
+        "fullName":  "Aula 01 - 2ª Série - 2º Bim.pdf",
+        "path":  "aulas/2serie/Aula 01 - 2ª Série - 2º Bim.pdf",
+        "category":  "aulas",
+        "series":  "2serie",
+        "ext":  ".pdf"
+    },
+    {
+        "name":  "Aula 02 - 2ª Série - 2º Bim",
+        "fullName":  "Aula 02 - 2ª Série - 2º Bim.pdf",
+        "path":  "aulas/2serie/Aula 02 - 2ª Série - 2º Bim.pdf",
+        "category":  "aulas",
+        "series":  "2serie",
+        "ext":  ".pdf"
+    },
+    {
+        "name":  "graficos_funcoes",
+        "fullName":  "graficos_funcoes.ipynb",
+        "path":  "aulas/2serie/graficos_funcoes.ipynb",
+        "category":  "aulas",
+        "series":  "2serie",
+        "ext":  ".ipynb"
+    },
+    {
+        "name":  "Aula 01 - 3ª Série - 2º Bim",
+        "fullName":  "Aula 01 - 3ª Série - 2º Bim.pdf",
+        "path":  "aulas/3serie/Aula 01 - 3ª Série - 2º Bim.pdf",
+        "category":  "aulas",
+        "series":  "3serie",
+        "ext":  ".pdf"
+    },
+    {
+        "name":  "Aula 02 - 3ª Série - 2º Bim",
+        "fullName":  "Aula 02 - 3ª Série - 2º Bim.pdf",
+        "path":  "aulas/3serie/Aula 02 - 3ª Série - 2º Bim.pdf",
+        "category":  "aulas",
+        "series":  "3serie",
+        "ext":  ".pdf"
+    },
+    {
+        "name":  "pesquisa_num_e",
+        "fullName":  "pesquisa_num_e.pdf",
+        "path":  "listas/2serie/pesquisa_num_e.pdf",
+        "category":  "listas",
+        "series":  "2serie",
+        "ext":  ".pdf"
+    }
+]
