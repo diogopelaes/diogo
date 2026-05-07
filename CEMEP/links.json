@@ -62,5 +62,13 @@
         "category":  "listas",
         "series":  "2serie",
         "ext":  ".pdf"
+    },
+    {
+        "name":  "Aula2-Geogebra",
+        "fullName":  "AulaGeoGebra.pdf",
+        "path":  "listas/2serie/AulaGeoGebra.pdf",
+        "category":  "listas",
+        "series":  "2serie",
+        "ext":  ".pdf"
     }
 ]
