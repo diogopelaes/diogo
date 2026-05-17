@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manual Markdown — Guia Prático Completo</title>
+  <meta name="description" content="Guia prático e completo de Markdown com exemplos, botões de cópia, busca interativa e progresso."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-base: #0d0d0d;
+      --bg-card: #141414;
+      --bg-code: #1a1a1a;
+      --bg-result: #111111;
+      --border: #1f1f1f;
+      --border-hover: #2a2a2a;
+      --text-primary: #e8e8e8;
+      --text-secondary: #888;
+      --text-muted: #555;
+      --accent: #a0a0a0;
+      --accent-hover: #ccc;
+      --copy-bg: #1e1e1e;
+      --copy-hover: #2a2a2a;
+      --success: #4a4;
+      --search-bg: #161616;
+      --tag-bg: #1a1a1a;
+      --tag-text: #999;
+      --radius: 10px;
+      --radius-sm: 6px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-base);
+      color: var(--text-primary);
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 24px 20px;
+      text-align: center;
+    }
+    .header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+    }
+    .header p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    /* ── SEARCH ── */
+    .search-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px 12px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-base);
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
+    .search-box {
+      position: relative;
+    }
+    .search-box svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      width: 18px;
+      height: 18px;
+      pointer-events: none;
+    }
+    #searchInput {
+      width: 100%;
+      padding: 12px 16px 12px 44px;
+      background: var(--search-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    #searchInput::placeholder { color: var(--text-muted); }
+    #searchInput:focus { border-color: var(--border-hover); }
+    .search-count {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+    }
+
+    /* ── TOC ── */
+    .toc {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .toc a {
+      display: inline-block;
+      padding: 5px 12px;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      text-decoration: none;
+      transition: color 0.2s, background 0.2s;
+      border: 1px solid transparent;
+    }
+    .toc a:hover {
+      color: var(--text-primary);
+      background: var(--copy-hover);
+    }
+    .toc a.active-toc {
+      background: var(--accent) !important;
+      color: var(--bg-base) !important;
+      font-weight: 600;
+    }
+
+    /* ── TOC FIXED SIDEBAR ON DESKTOP ── */
+    @media (min-width: 1200px) {
+      body {
+        padding-right: 360px; /* Space for the fixed right sidebar + breathing room */
+      }
+      .header, .search-wrap, .progress-wrap, .content, .footer {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 800px;
+      }
+      .toc {
+        position: fixed;
+        top: 40px;
+        right: 40px;
+        width: 280px;
+        bottom: 40px;
+        height: auto;
+        background: #111;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 20px 14px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        overflow: hidden;
+        gap: 0;
+        z-index: 150;
+      }
+      
+      /* Search wrap inside TOC */
+      .toc .search-wrap {
+        position: static;
+        margin: 0 0 12px 0;
+        padding: 0 0 12px 0;
+        background: #111;
+        width: 100%;
+        max-width: 100%;
+        border-bottom: 1px solid var(--border);
+        z-index: 10;
+      }
+      .toc #searchInput {
+        background: var(--bg-code);
+        padding: 10px 12px 10px 38px;
+        font-size: 0.8rem;
+        border-radius: var(--radius-sm);
+      }
+      .toc .search-box svg {
+        left: 12px;
+        width: 16px;
+        height: 16px;
+      }
+      .toc .search-count {
+        right: 12px;
+        font-size: 0.7rem;
+      }
+
+      /* Scrollable links inside TOC on desktop */
+      .toc-links {
+        flex: 1;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding-right: 2px;
+      }
+      .toc-links::-webkit-scrollbar {
+        width: 4px;
+      }
+      .toc-links::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .toc-links::-webkit-scrollbar-thumb {
+        background: var(--border-hover);
+        border-radius: 2px;
+      }
+      .toc-links::-webkit-scrollbar-thumb:hover {
+        background: var(--text-muted);
+      }
+
+      .toc a {
+        display: block;
+        width: 100%;
+        padding: 6px 12px;
+        border-radius: var(--radius-sm);
+        background: transparent;
+        border: none;
+        font-size: 0.75rem;
+        transition: all 0.2s;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        flex-shrink: 0;
+      }
+      .toc a:hover {
+        background: var(--copy-hover);
+        color: var(--text-primary);
+      }
+      .toc a.active-toc {
+        background: var(--copy-hover) !important;
+        color: var(--text-primary) !important;
+        border-left: 2px solid var(--accent);
+        border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      }
+    }
+
+    /* ── CONTENT ── */
+    .content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* ── SECTION CARD ── */
+    .section {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg-card);
+      overflow: hidden;
+      transition: border-color 0.25s;
+    }
+    .section:hover { border-color: var(--border-hover); }
+    .section.hidden { display: none; }
+
+    .section-header {
+      padding: 18px 20px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .section-desc {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .section-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 700px) {
+      .section-body { grid-template-columns: 1fr; }
+    }
+
+    /* ── CODE PANEL ── */
+    .code-panel {
+      padding: 16px 20px;
+      background: var(--bg-code);
+      border-right: 1px solid var(--border);
+      position: relative;
+    }
+    @media (max-width: 700px) {
+      .code-panel { border-right: none; border-bottom: 1px solid var(--border); }
+    }
+    .code-panel-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .copy-btn {
+      background: var(--copy-bg);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      padding: 3px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 0.7rem;
+      font-family: inherit;
+      cursor: pointer;
+      transition: color 0.2s, background 0.2s, border-color 0.2s;
+    }
+    .copy-btn:hover {
+      background: var(--copy-hover);
+      color: var(--text-primary);
+      border-color: var(--border-hover);
+    }
+    .copy-btn.copied {
+      color: var(--success);
+      border-color: var(--success);
+    }
+
+    .code-content {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      line-height: 1.7;
+      color: var(--accent);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    /* ── RESULT PANEL ── */
+    .result-panel {
+      padding: 16px 20px;
+      background: var(--bg-result);
+    }
+    .result-panel-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    /* ── MARKDOWN RENDER ── */
+    .md h1 { font-size: 1.6rem; font-weight: 700; margin: 0.5rem 0; }
+    .md h2 { font-size: 1.3rem; font-weight: 700; margin: 0.4rem 0; }
+    .md h3 { font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0; }
+    .md h4 { font-size: 1rem; font-weight: 600; margin: 0.3rem 0; }
+    .md h5 { font-size: 0.9rem; font-weight: 600; margin: 0.2rem 0; }
+    .md h6 { font-size: 0.85rem; font-weight: 600; margin: 0.2rem 0; color: var(--text-secondary); }
+    .md p { margin-bottom: 0.6rem; line-height: 1.7; font-size: 0.9rem; }
+    .md ul { list-style: disc; padding-left: 1.4rem; margin-bottom: 0.6rem; font-size: 0.9rem; }
+    .md ol { list-style: decimal; padding-left: 1.4rem; margin-bottom: 0.6rem; font-size: 0.9rem; }
+    .md li { margin-bottom: 0.2rem; }
+    .md blockquote {
+      border-left: 3px solid #333;
+      padding-left: 14px;
+      color: var(--text-secondary);
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+    }
+    .md code {
+      background: var(--bg-code);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+    }
+    .md pre {
+      background: var(--bg-code);
+      padding: 12px;
+      border-radius: var(--radius-sm);
+      overflow-x: auto;
+      margin: 0.5rem 0;
+    }
+    .md pre code { background: transparent; padding: 0; }
+    .md table { width: 100%; border-collapse: collapse; margin: 0.5rem 0; font-size: 0.85rem; }
+    .md th, .md td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; }
+    .md th { background: var(--bg-code); font-weight: 600; }
+    .md hr { border: none; border-top: 1px solid var(--border); margin: 1rem 0; }
+    .md a { color: var(--text-primary); text-decoration: underline; text-underline-offset: 2px; }
+    .md img { max-width: 100%; border-radius: var(--radius-sm); margin: 0.5rem 0; }
+    .md del { color: var(--text-secondary); }
+    .md input[type="checkbox"] { margin-right: 6px; accent-color: var(--text-muted); }
+
+    /* ── FOOTER ── */
+    .footer {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px 40px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+    }
+
+    /* ── SCROLL TO TOP ── */
+    #toTop {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s, color 0.2s;
+      z-index: 200;
+    }
+    #toTop:hover { border-color: var(--border-hover); color: var(--text-primary); }
+
+    /* ── HIGHLIGHT ── */
+    mark.search-hl {
+      background: #443d00;
+      color: #ffd;
+      border-radius: 2px;
+      padding: 0 2px;
+    }
+
+    /* ── CHECKBOX ── */
+    .section-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .section-check {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      border: 1.5px solid var(--border-hover);
+      border-radius: 4px;
+      background: transparent;
+      cursor: pointer;
+      margin-top: 2px;
+      transition: background 0.2s, border-color 0.2s;
+      position: relative;
+    }
+    .section-check:hover {
+      border-color: var(--text-muted);
+    }
+    .section-check:checked {
+      background: var(--text-muted);
+      border-color: var(--text-muted);
+    }
+    .section-check:checked::after {
+      content: '✓';
+      position: absolute;
+      top: -1px;
+      left: 2px;
+      font-size: 13px;
+      color: var(--bg-base);
+      font-weight: 700;
+    }
+    .section.checked .section-title {
+      text-decoration: line-through;
+      text-decoration-color: var(--text-muted);
+      color: var(--text-secondary);
+    }
+    .section.checked {
+      opacity: 0.55;
+    }
+    .section.checked:hover {
+      opacity: 0.85;
+    }
+
+    /* ── PROGRESS BAR ── */
+    .progress-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .progress-bar {
+      flex: 1;
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--text-muted);
+      border-radius: 2px;
+      transition: width 0.3s ease;
+      width: 0%;
+    }
+    .progress-text {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    /* ── CUSTOM RENDERS STYLE ── */
+    .metadata-block {
+      background: #141414;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      font-size: 0.85rem;
+    }
+    .metadata-block ul {
+      list-style: none !important;
+      padding-left: 0 !important;
+      margin-top: 5px;
+    }
+    .metadata-block li {
+      margin-bottom: 2px;
+      color: var(--text-secondary);
+    }
+    .metadata-block strong {
+      color: var(--text-primary);
+    }
+    .alert-title {
+      display: block;
+      font-weight: bold;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    .text-note { color: #2f81f7; }
+    .text-tip { color: #3fb950; }
+    .text-warning { color: #d29922; }
+    .text-caution { color: #f85149; }
+    .text-important { color: #a371f7; }
+
+    .md blockquote.alert-box {
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 8px 14px;
+      margin: 0.6rem 0;
+      background: rgba(255, 255, 255, 0.01);
+    }
+    .md blockquote.alert-box-note { border-left: 3.5px solid #2f81f7; background: rgba(47, 129, 247, 0.03); }
+    .md blockquote.alert-box-tip { border-left: 3.5px solid #3fb950; background: rgba(63, 185, 80, 0.03); }
+    .md blockquote.alert-box-warning { border-left: 3.5px solid #d29922; background: rgba(210, 153, 34, 0.03); }
+    .md blockquote.alert-box-caution { border-left: 3.5px solid #f85149; background: rgba(248, 81, 73, 0.03); }
+    .md blockquote.alert-box-important { border-left: 3.5px solid #a371f7; background: rgba(163, 113, 247, 0.03); }
+
+    .math-render-wrap {
+      font-size: 0.95rem;
+      padding: 10px 0;
+    }
+    .math-block-display {
+      background: #141414;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      text-align: center;
+      margin-top: 6px;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+    .math-sum {
+      font-size: 1.4rem;
+      font-weight: 300;
+    }
+    .math-frac {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 0.85rem;
+      vertical-align: middle;
+      line-height: 1.1;
+      margin-left: 4px;
+    }
+    .frac-line {
+      width: 100%;
+      height: 1px;
+      background: var(--text-primary);
+      margin: 2px 0;
+    }
+    .mermaid-render-wrap {
+      background: #141414;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .mermaid-svg {
+      max-width: 320px;
+    }
+    .badge-wrap img {
+      margin-right: 4px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Manual Markdown</h1>
+  <p>Guia prático — sintaxe, resultado e cópia rápida</p>
+</div>
+
+<div class="search-wrap">
+  <div class="search-box">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="text" id="searchInput" placeholder="Buscar tópico… ex: tabela, link, código" autocomplete="off"/>
+    <span class="search-count" id="searchCount"></span>
+  </div>
+</div>
+
+<nav class="toc" id="toc">
+  <div class="toc-links" id="tocLinks"></div>
+</nav>
+
+<div class="progress-wrap" id="progressWrap">
+  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  <span class="progress-text" id="progressText">0 / 50</span>
+</div>
+
+<div class="content" id="content"></div>
+
+<button id="toTop" title="Voltar ao topo">↑</button>
+
+<div class="footer">Markdown Manual — referência rápida offline</div>
+
+<script>
+const sections = [
+// ═══ 1. METADADOS ═══
+{
+  id:"frontmatter", title:"Front Matter (YAML)", desc:"Metadados no topo do arquivo .md — título, autor, tags.",
+  tags:["yaml","metadata","front matter","cabeçalho"],
+  code:`---\ntitle: Meu Documento\nauthor: Nome\ndate: 2026-01-01\ntags: [markdown, guia]\n---`
+},
+{
+  id:"comentarios", title:"Comentários Ocultos", desc:"Comentários invisíveis no render final.",
+  tags:["comment","oculto","invisível","hidden"],
+  code:`<!-- Este comentário não aparece -->\n\nTexto visível aqui.`
+},
+
+// ═══ 2. ESTRUTURA DO DOCUMENTO ═══
+{
+  id:"titulos", title:"Títulos (h1–h6)", desc:"Hierarquia de cabeçalhos com # — de h1 a h6.",
+  tags:["heading","cabeçalho","título","h1","h2","h3"],
+  code:`# Título h1\n## Título h2\n### Título h3\n#### Título h4\n##### Título h5\n###### Título h6`
+},
+{
+  id:"id-personalizado", title:"ID Personalizado em Títulos", desc:"Defina IDs para âncoras com {#id} (extensão).",
+  tags:["custom id","heading id","âncora personalizada"],
+  code:`## Minha Seção {#minha-secao}\n\n[Ir para Minha Seção](#minha-secao)`
+},
+{
+  id:"toc-automatico", title:"Sumário / TOC", desc:"Crie índice manual linkando seções internas.",
+  tags:["toc","sumário","índice","table of contents"],
+  code:`## Sumário\n- [Introdução](#introdução)\n- [Instalação](#instalação)\n- [Uso](#uso)\n\n## Introdução\nTexto...\n\n## Instalação\nTexto...\n\n## Uso\nTexto...`
+},
+{
+  id:"linha-horizontal", title:"Linha Horizontal", desc:"Separador visual com ---, *** ou ___.",
+  tags:["separador","hr","divisor","horizontal"],
+  code:`Texto acima\n\n---\n\nTexto abaixo`
+},
+
+// ═══ 3. TEXTO BÁSICO ═══
+{
+  id:"paragrafos", title:"Parágrafos e Quebras de Linha", desc:"Separe parágrafos com linha em branco. Use dois espaços ou <br> para quebra.",
+  tags:["parágrafo","texto","quebra","linha","br"],
+  code:`Primeiro parágrafo.\n\nSegundo parágrafo.\n\nLinha 1 com quebra  \nLinha 2 na sequência.`
+},
+{
+  id:"linha-continuacao", title:"Quebra Forçada vs Parágrafo", desc:"Dois espaços no final = quebra. Linha vazia = novo parágrafo.",
+  tags:["break","line break","parágrafo","dois espaços","br"],
+  code:`Mesma linha  \nquebra com dois espaços\n\nNovo parágrafo (linha vazia entre)`
+},
+{
+  id:"negrito", title:"Negrito", desc:"Destaque forte com ** ou __.",
+  tags:["bold","destaque","negrito"],
+  code:`**texto em negrito**\n__também negrito__`
+},
+{
+  id:"italico", title:"Itálico", desc:"Ênfase sutil com * ou _.",
+  tags:["ênfase","itálico","italic"],
+  code:`*texto em itálico*\n_também itálico_`
+},
+{
+  id:"negrito-italico", title:"Negrito + Itálico", desc:"Combinação com ***.",
+  tags:["bold italic","destaque forte"],
+  code:`***texto em negrito e itálico***`
+},
+{
+  id:"riscado", title:"Texto Riscado", desc:"Riscar texto com ~~.",
+  tags:["strikethrough","tachado","deletado","riscado"],
+  code:`~~texto removido~~`
+},
+{
+  id:"highlight", title:"Texto Destacado (Highlight)", desc:"Use ==texto== (extensão) ou <mark> (HTML).",
+  tags:["highlight","destaque","marca","mark","realce"],
+  code:`==texto destacado== (extensão)\n\n<mark>texto destacado</mark> (HTML)`
+},
+{
+  id:"escape", title:"Escape de Caracteres", desc:"Use \\ antes de caracteres especiais do Markdown.",
+  tags:["barra","escape","especial","backslash"],
+  code:`\\*isso não fica itálico\\*\n\\# isso não vira título`
+},
+
+// ═══ 4. LISTAS ═══
+{
+  id:"lista-nao-ordenada", title:"Lista Não Ordenada", desc:"Use -, * ou + para marcadores.",
+  tags:["bullet","marcador","lista","ul"],
+  code:`- Item A\n- Item B\n- Item C`
+},
+{
+  id:"lista-ordenada", title:"Lista Ordenada", desc:"Numere os itens com 1. 2. 3.",
+  tags:["numerada","ordered","ol"],
+  code:`1. Primeiro\n2. Segundo\n3. Terceiro`
+},
+{
+  id:"sublistas", title:"Sublistas (Aninhadas)", desc:"Indente com 2 espaços para subitens.",
+  tags:["nested","aninhada","hierarquia","sublista"],
+  code:`- Backend\n  - Node.js\n  - Python\n- Frontend\n  - React\n  - Vue`
+},
+{
+  id:"checklist", title:"Checklist / Tarefas", desc:"Lista com checkbox: - [x] e - [ ].",
+  tags:["tarefa","task","checkbox","todo"],
+  code:`- [x] Tarefa concluída\n- [ ] Tarefa pendente\n- [ ] Outra tarefa`
+},
+{
+  id:"lista-definicao-nativa", title:"Lista de Definição (Nativa)", desc:"Termo seguido de : definição (suporte em alguns parsers).",
+  tags:["definition list","termo","definição",":"],
+  code:`Markdown\n: Linguagem de marcação leve para formatação de texto.\n\nHTML\n: Linguagem de marcação padrão para páginas web.`
+},
+{
+  id:"definicao", title:"Lista de Definição (HTML)", desc:"Use <dl> <dt> <dd> para glossários.",
+  tags:["definition","glossário","dl","dt","dd"],
+  code:`<dl>\n  <dt>Markdown</dt>\n  <dd>Linguagem de marcação leve.</dd>\n  <dt>HTML</dt>\n  <dd>Linguagem de marcação para web.</dd>\n</dl>`
+},
+
+// ═══ 5. LINKS ═══
+{
+  id:"links", title:"Links", desc:"Sintaxe [texto](url) para hiperlinks.",
+  tags:["hyperlink","url","âncora","link"],
+  code:`[Visite o GitHub](https://github.com)\n\n[Link com título](https://github.com "Ir ao GitHub")`
+},
+{
+  id:"links-auto", title:"Links Automáticos", desc:"URLs e emails são clicáveis direto.",
+  tags:["autolink","url direta"],
+  code:`https://github.com\n\ncontato@email.com`
+},
+{
+  id:"link-referencia", title:"Link por Referência", desc:"Separe URLs do texto para melhor leitura.",
+  tags:["reference","referência","link id","ref"],
+  code:`Veja o [site oficial][md] e a [documentação][docs].\n\n[md]: https://daringfireball.net/projects/markdown\n[docs]: https://www.markdownguide.org`
+},
+{
+  id:"autolink-email", title:"Links de Email", desc:"Emails clicáveis com mailto automático.",
+  tags:["email","mailto","contato"],
+  code:`<contato@exemplo.com>\n\n[Enviar email](mailto:contato@exemplo.com)`
+},
+{
+  id:"ancora", title:"Âncora Interna", desc:"Link para seções do mesmo documento.",
+  tags:["âncora","anchor","interno","toc","sumário"],
+  code:`## Instalação\nTexto da seção...\n\n[Ir para Instalação](#instalação)`
+},
+{
+  id:"link-secao-outro-arquivo", title:"Link para Outro Arquivo", desc:"Referência a outros arquivos .md no repositório.",
+  tags:["arquivo","file link","relativo","outro documento"],
+  code:`[Leia o README](./README.md)\n\n[Seção específica](./docs/guia.md#instalação)`
+},
+
+// ═══ 6. IMAGENS ═══
+{
+  id:"imagens", title:"Imagens", desc:"Inserção com ![alt](url).",
+  tags:["image","foto","figura","img"],
+  code:`![Exemplo](https://picsum.photos/320/120)`
+},
+{
+  id:"imagem-link", title:"Imagem como Link", desc:"Combine imagem dentro de link.",
+  tags:["image link","imagem clicável"],
+  code:`[![Alt](https://picsum.photos/200/80)](https://github.com)`
+},
+{
+  id:"imagem-referencia", title:"Imagem por Referência", desc:"Mesma ideia dos links, mas para imagens.",
+  tags:["image ref","imagem referência"],
+  code:`![Logo do projeto][logo]\n\n[logo]: https://picsum.photos/200/80`
+},
+{
+  id:"imagem-tamanho", title:"Imagem com Tamanho (HTML)", desc:"Controle dimensões com tags HTML.",
+  tags:["image size","tamanho","width","height","dimensão"],
+  code:`<img src="https://picsum.photos/400/200" width="300" alt="Imagem redimensionada">`
+},
+{
+  id:"badges", title:"Badges / Shields", desc:"Selos de status em repositórios.",
+  tags:["badge","shield","selo","status","npm","build"],
+  code:`![Status](https://img.shields.io/badge/status-ativo-brightgreen)\n![Versão](https://img.shields.io/badge/versão-2.0-blue)\n![Licença](https://img.shields.io/badge/licença-MIT-yellow)`
+},
+
+// ═══ 7. CÓDIGO ═══
+{
+  id:"codigo-inline", title:"Código Inline", desc:"Trecho curto com crases simples.",
+  tags:["backtick","inline code","crase"],
+  code:"Use o comando `git status` no terminal."
+},
+{
+  id:"bloco-codigo", title:"Bloco de Código", desc:"Bloco com ``` e linguagem opcional para highlight.",
+  tags:["code block","fenced","syntax","highlight"],
+  code:"```python\ndef saudacao(nome):\n    return f\"Olá, {nome}!\"\n```"
+},
+{
+  id:"bloco-codigo-linguagens", title:"Linguagens em Blocos de Código", desc:"Especifique a linguagem para syntax highlight.",
+  tags:["language","linguagem","javascript","python","bash","json","css","html","syntax"],
+  code:"```javascript\nconst x = 42;\n```\n\n```bash\nnpm install marked\n```\n\n```json\n{\"nome\": \"Manual\", \"versao\": 1}\n```"
+},
+{
+  id:"codigo-indentado", title:"Código Indentado (4 espaços)", desc:"Alternativa ao bloco cercado — indente com 4 espaços.",
+  tags:["indented code","4 espaços","recuo"],
+  code:`Texto normal:\n\n    function hello() {\n        console.log("Olá!");\n    }`
+},
+{
+  id:"diff", title:"Bloco Diff (+/−)", desc:"Mostre alterações de código com ```diff.",
+  tags:["diff","alteração","mudança","git","comparar"],
+  code:"```diff\n- linha removida\n+ linha adicionada\n  linha sem alteração\n```"
+},
+
+// ═══ 8. CITAÇÕES ═══
+{
+  id:"blockquote", title:"Citação (Blockquote)", desc:"Use > para citações.",
+  tags:["quote","citação",">"],
+  code:`> "Simplicidade é a sofisticação suprema."\n> — Leonardo da Vinci`
+},
+{
+  id:"blockquote-aninhado", title:"Citação Aninhada", desc:"Use >> para níveis de citação.",
+  tags:["nested quote","citação aninhada"],
+  code:`> Citação principal\n>> Citação dentro da citação\n>>> Terceiro nível`
+},
+{
+  id:"alertas-github", title:"Alertas GitHub", desc:"Blocos de alerta com > [!TYPE] (NOTE, TIP, IMPORTANT, WARNING, CAUTION).",
+  tags:["alert","alerta","note","tip","warning","caution","important","aviso","dica"],
+  code:`> [!NOTE]\n> Informação útil para o leitor.\n\n> [!TIP]\n> Dica para melhor resultado.\n\n> [!WARNING]\n> Atenção com este passo.\n\n> [!CAUTION]\n> Ação perigosa — pode causar perda de dados.`
+},
+
+// ═══ 9. TABELAS ═══
+{
+  id:"tabela", title:"Tabela", desc:"Colunas com | e separador com ---.",
+  tags:["table","tabela","coluna","dado tabular"],
+  code:`| Recurso    | Status |\n|:-----------|:------:|\n| Busca      |   ✅   |\n| Exportar   |   ❌   |\n| Temas      |   ✅   |`
+},
+{
+  id:"tabela-alinhamento", title:"Alinhamento em Tabelas", desc:"Use : para alinhar colunas à esquerda, centro ou direita.",
+  tags:["align","alinhar","centro","direita","esquerda","tabela"],
+  code:`| Esquerda | Centro | Direita |\n|:---------|:------:|--------:|\n| texto    | texto  |   texto |\n| alinha   | alinha |  alinha  |`
+},
+{
+  id:"tabela-multiline", title:"Tabela com Conteúdo Rico", desc:"Combine formatação dentro de células.",
+  tags:["tabela rich","célula","formatação tabela"],
+  code:"| Recurso       | Exemplo           |\n|---------------|-------------------|\n| **Negrito**   | Texto forte       |\n| *Itálico*     | Texto sutil       |\n| `código`      | inline code       |\n| [Link](https://github.com) | Clicável |"
+},
+
+// ═══ 10. REFERÊNCIAS ═══
+{
+  id:"notas-rodape", title:"Notas de Rodapé", desc:"Referências com [^id] (suporte GitHub).",
+  tags:["footnote","rodapé","referência","nota"],
+  code:`Texto com referência[^1].\n\n[^1]: Explicação da nota de rodapé.`
+},
+
+// ═══ 11. HTML AVANÇADO ═══
+{
+  id:"html-inline", title:"HTML no Markdown", desc:"Tags HTML funcionam em vários renderizadores.",
+  tags:["html","sublinhado","u","mark","sub","sup","kbd"],
+  code:`<u>Sublinhado</u>\n<mark>Destacado</mark>\n<kbd>Ctrl</kbd> + <kbd>S</kbd>\nH<sub>2</sub>O — x<sup>2</sup>`
+},
+{
+  id:"texto-alinhado", title:"Alinhamento de Texto (HTML)", desc:"Alinhe com tags HTML div + style.",
+  tags:["center","right","alinhamento","centralizar"],
+  code:`<div align="center">\n\n**Texto centralizado**\n\n</div>`
+},
+{
+  id:"detalhes", title:"Bloco Expansível (Details)", desc:"Conteúdo recolhível com <details>.",
+  tags:["details","summary","collapse","expandir","recolher"],
+  code:`<details>\n<summary>Clique para expandir</summary>\n\nConteúdo oculto aparece aqui.\n\n</details>`
+},
+
+// ═══ 12. PLATAFORMA (GITHUB) ═══
+{
+  id:"emoji", title:"Emoji (Shortcodes)", desc:"Atalhos de emoji em plataformas como GitHub.",
+  tags:["emoji","emoticon","ícone"],
+  code:`:rocket: :white_check_mark: :warning:\n\nOu use emojis direto: 🚀 ✅ ⚠️ 📌`
+},
+{
+  id:"mencoes", title:"Menções e Referências (GitHub)", desc:"Mencione usuários, issues e PRs.",
+  tags:["mention","menção","@user","issue","pull request","#"],
+  code:`@usuario mencionado\n\nRelacionado à issue #42\n\nCorrigido no PR #108`
+},
+
+// ═══ 13. CONTEÚDO ESPECIALIZADO ═══
+{
+  id:"matematica", title:"Matemática / LaTeX", desc:"Fórmulas com $ (inline) e $$ (bloco). Suporte GitHub.",
+  tags:["math","latex","fórmula","equação","katex","mathjax"],
+  code:`Inline: $E = mc^2$\n\nBloco:\n\n$$\n\\sum_{i=1}^{n} i = \\frac{n(n+1)}{2}\n$$`
+},
+{
+  id:"mermaid", title:"Diagramas Mermaid", desc:"Gere diagramas de fluxo, sequência, etc. com ```mermaid.",
+  tags:["mermaid","diagrama","flowchart","sequence","fluxo","gráfico"],
+  code:"```mermaid\nflowchart LR\n    A[Início] --> B{Decisão}\n    B -->|Sim| C[Ação A]\n    B -->|Não| D[Ação B]\n    C --> E[Fim]\n    D --> E\n```"
+},
+];
+
+// ── STORAGE ──
+const STORAGE_KEY = 'md-manual-checked';
+function getChecked() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch { return {}; }
+}
+function setChecked(obj) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
+}
+
+// ── BUILD ──
+const contentEl = document.getElementById('content');
+const tocEl = document.getElementById('toc');
+const tocLinks = document.getElementById('tocLinks');
+const searchInput = document.getElementById('searchInput');
+const searchCount = document.getElementById('searchCount');
+const progressFill = document.getElementById('progressFill');
+const progressText = document.getElementById('progressText');
+const checkedState = getChecked();
+const searchWrap = document.querySelector('.search-wrap');
+
+function adjustSearchBox() {
+  if (window.innerWidth >= 1200) {
+    if (searchWrap.parentElement !== tocEl) {
+      tocEl.insertBefore(searchWrap, tocEl.firstChild);
+    }
+  } else {
+    const progressWrap = document.getElementById('progressWrap');
+    if (searchWrap.nextElementSibling !== progressWrap) {
+      document.body.insertBefore(searchWrap, progressWrap);
+    }
+  }
+}
+
+window.addEventListener('resize', adjustSearchBox);
+document.addEventListener('DOMContentLoaded', adjustSearchBox);
+adjustSearchBox();
+
+function escapeHtml(t) {
+  return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function updateProgress() {
+  const total = sections.length;
+  const done = Object.values(checkedState).filter(Boolean).length;
+  const pct = Math.round((done / total) * 100);
+  progressFill.style.width = pct + '%';
+  progressText.textContent = `${done} / ${total}`;
+}
+
+sections.forEach(s => {
+  // TOC
+  const a = document.createElement('a');
+  a.href = '#' + s.id;
+  a.textContent = s.title;
+  tocLinks.appendChild(a);
+
+  // Custom Renders for specific commands that browser standard marked can't display correctly
+  let rendered;
+  if (s.id === "frontmatter") {
+    rendered = `
+      <div class="metadata-block">
+        <strong>title:</strong> Meu Documento<br>
+        <strong>author:</strong> Nome<br>
+        <strong>date:</strong> 2026-01-01<br>
+        <strong>tags:</strong> [markdown, guia]
+      </div>`;
+  } else if (s.id === "comentarios") {
+    rendered = `
+      <p style="color: var(--text-secondary); font-style: italic; font-size: 0.8rem; margin-bottom: 6px;">(Comentário HTML oculto no render real):</p>
+      <div style="opacity: 0.4; font-family: monospace; font-size: 0.8rem; margin-bottom: 10px;">&lt;!-- Este comentário não aparece --&gt;</div>
+      <p>Texto visível aqui.</p>`;
+  } else if (s.id === "matematica") {
+    rendered = `
+      <div class="math-render-wrap">
+        <p>Inline: <em>E = mc²</em></p>
+        <p>Bloco:</p>
+        <div class="math-block-display">
+          <span class="math-sum">∑</span><sub>i=1</sub><sup>n</sup> i = 
+          <div class="math-frac">
+            <span>n(n+1)</span>
+            <span class="frac-line"></span>
+            <span>2</span>
+          </div>
+        </div>
+      </div>`;
+  } else if (s.id === "mermaid") {
+    rendered = `
+      <div class="mermaid-render-wrap">
+        <svg viewBox="0 0 400 120" class="mermaid-svg">
+          <!-- Nodes -->
+          <rect x="10" y="42" width="60" height="30" rx="4" fill="#1a1a1a" stroke="#444" stroke-width="1.2"/>
+          <text x="40" y="61" fill="#e8e8e8" font-size="10" text-anchor="middle" font-family="Inter">Início</text>
+
+          <polygon points="130,57 160,32 190,57 160,82" fill="#1a1a1a" stroke="#444" stroke-width="1.2"/>
+          <text x="160" y="61" fill="#e8e8e8" font-size="9" text-anchor="middle" font-family="Inter">Decisão?</text>
+
+          <rect x="250" y="15" width="70" height="30" rx="4" fill="#1a1a1a" stroke="#444" stroke-width="1.2"/>
+          <text x="285" y="34" fill="#e8e8e8" font-size="10" text-anchor="middle" font-family="Inter">Ação A</text>
+
+          <rect x="250" y="70" width="70" height="30" rx="4" fill="#1a1a1a" stroke="#444" stroke-width="1.2"/>
+          <text x="285" y="89" fill="#e8e8e8" font-size="10" text-anchor="middle" font-family="Inter">Ação B</text>
+
+          <circle cx="370" cy="57" r="14" fill="#1a1a1a" stroke="#444" stroke-width="1.2"/>
+          <text x="370" y="60" fill="#e8e8e8" font-size="9" text-anchor="middle" font-family="Inter">Fim</text>
+
+          <!-- Connectors -->
+          <path d="M 70 57 L 130 57" fill="none" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+          <path d="M 190 57 L 220 57 L 220 30 L 250 30" fill="none" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+          <path d="M 190 57 L 220 57 L 220 85 L 250 85" fill="none" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+          <path d="M 320 30 L 340 30 L 340 57 L 356 57" fill="none" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+          <path d="M 320 85 L 340 85 L 340 57 L 356 57" fill="none" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+          <!-- Labels -->
+          <text x="205" y="24" fill="#888" font-size="9" font-family="Inter">Sim</text>
+          <text x="205" y="96" fill="#888" font-size="9" font-family="Inter">Não</text>
+
+          <!-- Arrow -->
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 2 L 8 5 L 0 8 z" fill="#555"/>
+            </marker>
+          </defs>
+        </svg>
+      </div>`;
+  } else {
+    // Parse normal marked
+    let parsed = marked.parse(s.code);
+    
+    // Custom post-processing for features like highlights and github alerts
+    parsed = parsed.replace(/==([^=]+)==/g, '<mark>$1</mark>');
+    
+    // GitHub Alerts styling
+    if (parsed.includes('[!NOTE]') || parsed.includes('[!TIP]') || parsed.includes('[!WARNING]') || parsed.includes('[!CAUTION]')) {
+      parsed = parsed.replace(/<blockquote>/g, '<blockquote class="alert-box">');
+      parsed = parsed.replace(/\[!NOTE\]/gi, '<blockquote class="alert-box alert-box-note"><span class="alert-title text-note">📌 Nota</span>');
+      parsed = parsed.replace(/\[!TIP\]/gi, '<blockquote class="alert-box alert-box-tip"><span class="alert-title text-tip">💡 Dica</span>');
+      parsed = parsed.replace(/\[!WARNING\]/gi, '<blockquote class="alert-box alert-box-warning"><span class="alert-title text-warning">⚠️ Atenção</span>');
+      parsed = parsed.replace(/\[!CAUTION\]/gi, '<blockquote class="alert-box alert-box-caution"><span class="alert-title text-caution">🔥 Perigo</span>');
+      // Remove double blockquotes if generated
+      parsed = parsed.replace(/<blockquote class="alert-box">\s*<blockquote/g, '<blockquote');
+      parsed = parsed.replace(/<\/blockquote>\s*<\/blockquote>/g, '</blockquote>');
+    }
+
+    // Fix checkboxes by making them disabled so they render nicely without being clickable
+    parsed = parsed.replace(/<input type="checkbox"/g, '<input type="checkbox" disabled');
+
+    rendered = parsed;
+  }
+
+  const isChecked = checkedState[s.id] || false;
+  const el = document.createElement('section');
+  el.className = 'section' + (isChecked ? ' checked' : '');
+  el.id = s.id;
+  el.dataset.search = (s.title + ' ' + s.desc + ' ' + s.tags.join(' ')).toLowerCase();
+  el.innerHTML = `
+    <div class="section-header">
+      <input type="checkbox" class="section-check" data-id="${s.id}" ${isChecked ? 'checked' : ''} title="Marcar como aprendido"/>
+      <div>
+        <div class="section-title">${s.title}</div>
+        <div class="section-desc">${s.desc}</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="code-panel">
+        <div class="code-panel-label">
+          <span>Markdown</span>
+          <button class="copy-btn" data-code="${encodeURIComponent(s.code)}">Copiar</button>
+        </div>
+        <div class="code-content">${escapeHtml(s.code)}</div>
+      </div>
+      <div class="result-panel">
+        <div class="result-panel-label">Resultado</div>
+        <div class="md">${rendered}</div>
+      </div>
+    </div>`;
+  contentEl.appendChild(el);
+});
+
+updateProgress();
+
+// ── CHECKBOX ──
+document.addEventListener('change', e => {
+  if (!e.target.classList.contains('section-check')) return;
+  const id = e.target.dataset.id;
+  const card = e.target.closest('.section');
+  checkedState[id] = e.target.checked;
+  card.classList.toggle('checked', e.target.checked);
+  setChecked(checkedState);
+  updateProgress();
+});
+
+// ── SEARCH ──
+searchInput.addEventListener('input', () => {
+  const q = searchInput.value.toLowerCase().trim();
+  const cards = document.querySelectorAll('.section');
+  let visible = 0;
+
+  cards.forEach(card => {
+    if (!q) {
+      card.classList.remove('hidden');
+      visible++;
+    } else {
+      const match = card.dataset.search.includes(q);
+      card.classList.toggle('hidden', !match);
+      if (match) visible++;
+    }
+  });
+
+  // Update TOC visibility
+  document.querySelectorAll('.toc a').forEach(a => {
+    const target = document.getElementById(a.getAttribute('href').slice(1));
+    if (target) a.style.display = target.classList.contains('hidden') ? 'none' : '';
+  });
+
+  searchCount.textContent = q ? `${visible} de ${cards.length}` : '';
+
+  // Scroll to first visible
+  if (q) {
+    const first = document.querySelector('.section:not(.hidden)');
+    if (first) first.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+});
+
+// ── COPY ──
+document.addEventListener('click', e => {
+  if (!e.target.classList.contains('copy-btn')) return;
+  const code = decodeURIComponent(e.target.dataset.code);
+  navigator.clipboard.writeText(code);
+  e.target.textContent = '✓ Copiado';
+  e.target.classList.add('copied');
+  setTimeout(() => {
+    e.target.textContent = 'Copiar';
+    e.target.classList.remove('copied');
+  }, 1500);
+});
+
+// ── SCROLL TO TOP ──
+const toTop = document.getElementById('toTop');
+window.addEventListener('scroll', () => {
+  toTop.style.display = window.scrollY > 400 ? 'flex' : 'none';
+});
+toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// ── SCROLLSPY ──
+if (window.innerWidth >= 1200) {
+  const activeSections = new Set();
+  
+  const observerOptions = {
+    root: null,
+    rootMargin: '-2% 0px -75% 0px',
+    threshold: 0
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        activeSections.add(entry.target.id);
+      } else {
+        activeSections.delete(entry.target.id);
+      }
+    });
+
+    // Encontra a primeira seção ativa na ordem real do DOM (do topo para baixo)
+    let firstActiveId = null;
+    for (const s of sections) {
+      if (activeSections.has(s.id)) {
+        firstActiveId = s.id;
+        break;
+      }
+    }
+
+    if (firstActiveId) {
+      document.querySelectorAll('.toc a').forEach(a => {
+        const active = a.getAttribute('href') === '#' + firstActiveId;
+        a.classList.toggle('active-toc', active);
+      });
+
+      // Rola a barra lateral interna para manter o link ativo visível
+      const activeLink = document.querySelector(`.toc a[href="#${firstActiveId}"]`);
+      if (activeLink && tocLinks) {
+        const linkRect = activeLink.getBoundingClientRect();
+        const containerRect = tocLinks.getBoundingClientRect();
+        if (linkRect.top < containerRect.top || linkRect.bottom > containerRect.bottom) {
+          activeLink.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }
+    }
+  }, observerOptions);
+
+  sections.forEach(s => {
+    const el = document.getElementById(s.id);
+    if (el) observer.observe(el);
+  });
+}
+</script>
+
+</body>
+</html>
