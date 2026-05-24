@@ -32,6 +32,22 @@
         "ext":  ".pdf"
     },
     {
+        "name":  "Aula 05 - 1ª Série - 2º Bim",
+        "fullName":  "Aula 05 - 1ª Série - 2º Bim.pdf",
+        "path":  "aulas/1serie/Aula 05 - 1ª Série - 2º Bim.pdf",
+        "category":  "aulas",
+        "series":  "1serie",
+        "ext":  ".pdf"
+    },
+    {
+        "name":  "Aula 06- 1ª Série - 2º Bim",
+        "fullName":  "Aula 06- 1ª Série - 2º Bim.pdf",
+        "path":  "aulas/1serie/Aula 06- 1ª Série - 2º Bim.pdf",
+        "category":  "aulas",
+        "series":  "1serie",
+        "ext":  ".pdf"
+    },
+    {
         "name":  "Aula 01 - 2ª Série - 2º Bim",
         "fullName":  "Aula 01 - 2ª Série - 2º Bim.pdf",
         "path":  "aulas/2serie/Aula 01 - 2ª Série - 2º Bim.pdf",
@@ -59,6 +75,14 @@
         "name":  "Aula 04 - 2ª Série - 2º Bim",
         "fullName":  "Aula 04 - 2ª Série - 2º Bim.pdf",
         "path":  "aulas/2serie/Aula 04 - 2ª Série - 2º Bim.pdf",
+        "category":  "aulas",
+        "series":  "2serie",
+        "ext":  ".pdf"
+    },
+    {
+        "name":  "Aula 05 - 2ª Série - 2º Bim",
+        "fullName":  "Aula 05 - 2ª Série - 2º Bim.pdf",
+        "path":  "aulas/2serie/Aula 05 - 2ª Série - 2º Bim.pdf",
         "category":  "aulas",
         "series":  "2serie",
         "ext":  ".pdf"
@@ -101,6 +125,22 @@
         "path":  "aulas/3serie/Aula 04 - 3ª Série - 2º Bim.pdf",
         "category":  "aulas",
         "series":  "3serie",
+        "ext":  ".pdf"
+    },
+    {
+        "name":  "lista_1Y_2Bim2026",
+        "fullName":  "lista_1Y_2Bim2026.pdf",
+        "path":  "listas/1serie/lista_1Y_2Bim2026.pdf",
+        "category":  "listas",
+        "series":  "1serie",
+        "ext":  ".pdf"
+    },
+    {
+        "name":  "lista_2WXY_2Bim2026",
+        "fullName":  "lista_2WXY_2Bim2026.pdf",
+        "path":  "listas/2serie/lista_2WXY_2Bim2026.pdf",
+        "category":  "listas",
+        "series":  "2serie",
         "ext":  ".pdf"
     },
     {
