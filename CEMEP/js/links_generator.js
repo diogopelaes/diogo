@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Carrega os links do JSON
-    fetch("links.json")
+    // Carrega os links do JSON (com cache-busting usando timestamp)
+    fetch(`links.json?t=${Date.now()}`)
         .then(response => response.json())
         .then(data => {
             const filteredFiles = data.filter(file => file.category === category);
