@@ -88,6 +88,14 @@
         "ext":  ".pdf"
     },
     {
+        "name":  "Aula 06 - 2ª Série - 2º Bim",
+        "fullName":  "Aula 06 - 2ª Série - 2º Bim.pdf",
+        "path":  "aulas/2serie/Aula 06 - 2ª Série - 2º Bim.pdf",
+        "category":  "aulas",
+        "series":  "2serie",
+        "ext":  ".pdf"
+    },
+    {
         "name":  "graficos_funcoes",
         "fullName":  "graficos_funcoes.ipynb",
         "path":  "aulas/2serie/graficos_funcoes.ipynb",
@@ -123,6 +131,22 @@
         "name":  "Aula 04 - 3ª Série - 2º Bim",
         "fullName":  "Aula 04 - 3ª Série - 2º Bim.pdf",
         "path":  "aulas/3serie/Aula 04 - 3ª Série - 2º Bim.pdf",
+        "category":  "aulas",
+        "series":  "3serie",
+        "ext":  ".pdf"
+    },
+    {
+        "name":  "Aula 05 - 3ª Série - 2º Bim",
+        "fullName":  "Aula 05 - 3ª Série - 2º Bim.pdf",
+        "path":  "aulas/3serie/Aula 05 - 3ª Série - 2º Bim.pdf",
+        "category":  "aulas",
+        "series":  "3serie",
+        "ext":  ".pdf"
+    },
+    {
+        "name":  "Aula 06 - 3ª Série - 2º Bim",
+        "fullName":  "Aula 06 - 3ª Série - 2º Bim.pdf",
+        "path":  "aulas/3serie/Aula 06 - 3ª Série - 2º Bim.pdf",
         "category":  "aulas",
         "series":  "3serie",
         "ext":  ".pdf"
