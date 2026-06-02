@@ -578,7 +578,7 @@
         <div class="widget">
             <div class="widget-icon" style="background-color: #10b981;"><i class="fa-solid fa-calendar-day"></i></div>
             <div class="widget-data">
-                <h3>Hoje é dia (Simulado)</h3>
+                <h3>Hoje é dia</h3>
                 <p id="currentDate">Carregando...</p>
             </div>
         </div>
@@ -1036,8 +1036,10 @@
 
     function updateDashboard() {
         // Exibe a data de simulação formatada
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById('currentDate').innerText = mockToday.toLocaleDateString('pt-BR', options);
+        const day = String(mockToday.getDate()).padStart(2, '0');
+        const month = String(mockToday.getMonth() + 1).padStart(2, '0');
+        const year = mockToday.getFullYear();
+        document.getElementById('currentDate').innerText = `${day}/${month}/${year}`;
 
         // Calcula a contagem regressiva para a viagem
         const diffTime = tripStartDate - mockToday;
