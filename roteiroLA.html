@@ -16,46 +16,46 @@
            VARIÁVEIS DE TEMA (SUPORTE A MODO CLARO E ESCURO)
            ========================================================================== */
         :root {
-            --bg-body: #f8fafc;
+            --bg-body: #f6f8fa;
             --bg-card: #ffffff;
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --border-color: #e2e8f0;
-            --primary-color: #2563eb;
-            --primary-hover: #1d4ed8;
-            --priority-bg: #fff5f5;
-            --priority-border: #f87171;
-            --priority-text: #991b1b;
-            --accent-bg: #f0fdf4;
-            --accent-border: #4ade80;
-            --accent-text: #166534;
-            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            --calendar-active: #dbeafe;
-            --calendar-active-text: #1e40af;
+            --text-primary: #2d3748;      /* soft charcoal instead of pure black */
+            --text-secondary: #5e6e82;    /* muted slate grey */
+            --border-color: #e6edf5;      /* soft blue-grey border */
+            --primary-color: #4f6b8c;     /* premium dusty slate-blue */
+            --primary-hover: #3d536e;     /* deeper slate blue on hover */
+            --priority-bg: #fdf4f4;       /* soft pastel rose tint */
+            --priority-border: #f3c6c6;   /* desaturated rose border */
+            --priority-text: #a04e4e;     /* soft terracotta rose */
+            --accent-bg: #f0f7f4;         /* soft desaturated mint tint */
+            --accent-border: #c2e0d1;     /* muted sage green border */
+            --accent-text: #3b7a57;       /* elegant sage green */
+            --shadow: 0 6px 16px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.02); /* very soft diffuse shadows */
+            --calendar-active: #e2e7ee;
+            --calendar-active-text: #314863;
         }
 
         [data-theme="dark"] {
-            --bg-body: #0f172a;
-            --bg-card: #1e293b;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --border-color: #334155;
-            --primary-color: #3b82f6;
-            --primary-hover: #60a5fa;
-            --priority-bg: #451a03;
-            --priority-border: #ea580c;
-            --priority-text: #ffedd5;
-            --accent-bg: #064e3b;
-            --accent-border: #059669;
-            --accent-text: #ecfdf5;
-            --shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3);
-            --calendar-active: #1e3a8a;
-            --calendar-active-text: #60a5fa;
+            --bg-body: #151c2c;           /* deep slate blue-grey instead of pure black */
+            --bg-card: #1d2636;           /* soft dark card background */
+            --text-primary: #e2e8f0;      /* gentle off-white */
+            --text-secondary: #94a3b8;    /* cool blue-grey */
+            --border-color: #2b364a;      /* subtle dark border */
+            --primary-color: #8fa3c2;     /* beautiful desaturated pastel blue */
+            --primary-hover: #a3b7d6;     /* lighter pastel blue on hover */
+            --priority-bg: #2c1b1c;       /* very soft deep burgundy */
+            --priority-border: #6e3b3e;   /* muted dark red border */
+            --priority-text: #f3c6c6;     /* soft pastel rose */
+            --accent-bg: #15261d;         /* deep soft moss green */
+            --accent-border: #355c46;     /* muted sage-green border */
+            --accent-text: #a2d4b6;       /* soft pastel mint */
+            --shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            --calendar-active: #2b374d;
+            --calendar-active-text: #c2d0e6;
         }
 
         * {
             box-sizing: border-box;
-            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+            transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
         }
 
         body {
@@ -64,6 +64,8 @@
             color: var(--text-primary);
             margin: 0;
             padding: 20px 12px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .container {
@@ -100,6 +102,7 @@
 
         .theme-toggle:hover {
             border-color: var(--primary-color);
+            background: color-mix(in srgb, var(--primary-color) 4%, var(--bg-card));
         }
 
         h1 {
@@ -138,8 +141,8 @@
         }
 
         .widget-icon {
-            background: var(--primary-color);
-            color: #fff;
+            background: color-mix(in srgb, var(--primary-color) 8%, var(--bg-card));
+            color: var(--primary-color);
             width: 44px;
             height: 44px;
             border-radius: 10px;
@@ -147,6 +150,12 @@
             align-items: center;
             justify-content: center;
             font-size: 1.25rem;
+        }
+
+        /* Intercepting hardcoded inline background-color style on calendar-day widget to keep style unified and soft */
+        .widget .widget-icon[style*="background-color"] {
+            background-color: color-mix(in srgb, var(--accent-text) 8%, var(--bg-card)) !important;
+            color: var(--accent-text) !important;
         }
 
         .widget-data h3 {
@@ -194,7 +203,7 @@
         }
 
         .calendar-day-btn {
-            background: var(--bg-body);
+            background: color-mix(in srgb, var(--text-primary) 2%, var(--bg-card));
             border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 8px 4px;
@@ -210,7 +219,8 @@
 
         .calendar-day-btn:hover {
             border-color: var(--primary-color);
-            transform: translateY(-2px);
+            background: color-mix(in srgb, var(--primary-color) 4%, var(--bg-card));
+            transform: translateY(-1px);
         }
 
         .calendar-day-btn .cal-num {
@@ -238,6 +248,7 @@
             background: var(--calendar-active);
             border-color: var(--primary-color);
             color: var(--calendar-active-text);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
         }
 
         .calendar-day-btn.active .cal-month,
@@ -274,21 +285,23 @@
             box-shadow: var(--shadow);
             white-space: nowrap;
             width: 100%;
+            transition: all 0.2s ease;
         }
 
         .filter-btn.active, .filter-btn:hover {
             background: var(--primary-color);
-            color: #fff;
+            color: var(--bg-card);
             border-color: var(--primary-color);
         }
 
-        .filter-btn.active i {
-            color: #fff;
+        .filter-btn.active i, .filter-btn:hover i {
+            color: var(--bg-card);
         }
 
         .filter-btn i {
             color: var(--text-secondary);
             font-size: 0.9rem;
+            transition: color 0.2s ease;
         }
 
         /* ==========================================================================
@@ -307,18 +320,20 @@
         }
 
         .day-card.priority {
-            border-left: 6px solid var(--priority-border);
+            border-left: 4px solid var(--priority-border);
+            background: linear-gradient(to right, var(--priority-bg), var(--bg-card) 200px);
         }
 
         .day-card.today {
             border: 2px solid var(--primary-color);
-            animation: pulse-border 2s infinite;
+            background: linear-gradient(to right, color-mix(in srgb, var(--primary-color) 4%, transparent), var(--bg-card) 200px);
+            animation: pulse-border 3s infinite ease-in-out;
         }
 
         @keyframes pulse-border {
-            0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
-            70% { box-shadow: 0 0 0 8px rgba(37, 99, 235, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+            0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary-color) 20%, transparent); }
+            70% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--primary-color) 0%, transparent); }
+            100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary-color) 0%, transparent); }
         }
 
         /* Efeito de destaque ao clicar no calendário */
@@ -327,8 +342,8 @@
         }
 
         @keyframes glow-pulse {
-            0% { box-shadow: 0 0 0 0px rgba(37, 99, 235, 0.7); transform: scale(1); }
-            50% { box-shadow: 0 0 15px 3px rgba(37, 99, 235, 0.4); transform: scale(1.01); }
+            0% { box-shadow: 0 0 0 0px color-mix(in srgb, var(--primary-color) 40%, transparent); transform: scale(1); }
+            50% { box-shadow: 0 0 12px 2px color-mix(in srgb, var(--primary-color) 20%, transparent); transform: scale(1.005); }
             100% { box-shadow: var(--shadow); transform: scale(1); }
         }
 
@@ -370,19 +385,80 @@
         }
 
         .badge-today {
-            background: #2563eb;
-            color: #fff;
+            background: var(--primary-color);
+            color: var(--bg-card);
+            border: 1px solid var(--primary-color);
         }
 
+        .badge-ticket {
+            background: color-mix(in srgb, #f59e0b 8%, var(--bg-card));
+            color: color-mix(in srgb, #d97706 90%, var(--text-primary));
+            border: 1px solid color-mix(in srgb, #f59e0b 30%, var(--border-color));
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        [data-theme="dark"] .badge-ticket {
+            background: color-mix(in srgb, #f59e0b 10%, var(--bg-card));
+            color: #fbbf24;
+            border: 1px solid color-mix(in srgb, #f59e0b 35%, var(--border-color));
+        }
+
+        .badge-ticket:hover {
+            background: color-mix(in srgb, #f59e0b 15%, var(--bg-card));
+            transform: translateY(-1px);
+        }
+
+        .ticket-note {
+            display: inline-flex;
+            align-items: center;
+            color: #d97706;
+            margin-left: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        [data-theme="dark"] .ticket-note {
+            color: #fbbf24;
+        }
+
+        .ticket-note:hover {
+            transform: scale(1.15) rotate(-10deg);
+            opacity: 0.85;
+        }
+
+        .map-link {
+            color: var(--text-secondary);
+            margin-left: 6px;
+            font-size: 0.85rem;
+            text-decoration: none;
+            opacity: 0.6;
+            transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .map-link:hover {
+            opacity: 1;
+            transform: scale(1.15);
+            color: #ea4335;
+        }
+
+
+
+
         .phrase {
-            background: var(--bg-body);
+            background: color-mix(in srgb, var(--text-primary) 3%, var(--bg-card));
             color: var(--text-secondary);
             font-style: italic;
             padding: 10px 14px;
             border-radius: 8px;
             margin-bottom: 16px;
             font-size: 0.9rem;
-            border-left: 3px solid var(--border-color);
+            border-left: 3px solid color-mix(in srgb, var(--text-secondary) 30%, var(--bg-card));
         }
 
         .details-grid {
@@ -401,6 +477,7 @@
             color: var(--primary-color);
             font-size: 1rem;
             margin-top: 2px;
+            opacity: 0.85;
         }
 
         .detail-content strong {
@@ -608,11 +685,11 @@
             <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-plane-arrival"></i></div>
-                    <div class="detail-content"><strong>Passeio</strong>Voo para Los Angeles e check-in na casa da Diana.</div>
+                    <div class="detail-content"><strong>Passeio</strong>Voo para Los Angeles <a href="https://www.google.com/maps/search/?api=1&query=Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Los Angeles no Google Maps"><i class="fa-solid fa-location-dot"></i></a> e check-in na casa da Diana.</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-utensils"></i></div>
-                    <div class="detail-content"><strong>Almoço</strong>Serviço de bordo / Aeroporto</div>
+                    <div class="detail-content"><strong>Almoço</strong>Serviço de bordo / Aeroporto <a href="https://www.google.com/maps/search/?api=1&query=Los+Angeles+International+Airport" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Aeroporto LAX no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-house-user"></i></div>
@@ -631,7 +708,7 @@
             <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-cart-shopping"></i></div>
-                    <div class="detail-content"><strong>Passeio</strong>Visita aos supermercados Walmart, Target e Costco.</div>
+                    <div class="detail-content"><strong>Passeio</strong>Visita aos supermercados Walmart <a href="https://www.google.com/maps/search/?api=1&query=Walmart+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Walmart no Google Maps"><i class="fa-solid fa-location-dot"></i></a>, Target <a href="https://www.google.com/maps/search/?api=1&query=Target+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Target no Google Maps"><i class="fa-solid fa-location-dot"></i></a> e Costco <a href="https://www.google.com/maps/search/?api=1&query=Costco+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Costco no Google Maps"><i class="fa-solid fa-location-dot"></i></a>.</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-hamburger"></i></div>
@@ -639,7 +716,7 @@
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-store"></i></div>
-                    <div class="detail-content"><strong>Jantar</strong>Hambúrguer no famoso In-N-Out Burger</div>
+                    <div class="detail-content"><strong>Jantar</strong>Hambúrguer no famoso In-N-Out Burger <a href="https://www.google.com/maps/search/?api=1&query=In-N-Out+Burger+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver In-N-Out no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
                 </div>
             </div>
         </div>
@@ -654,15 +731,15 @@
             <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-umbrella-beach"></i></div>
-                    <div class="detail-content"><strong>Passeio</strong>Píer de Santa Monica, Pacific Park e calçadão de Venice Beach.</div>
+                    <div class="detail-content"><strong>Passeio</strong>Píer de Santa Monica <a href="https://www.google.com/maps/search/?api=1&query=Santa+Monica+Pier" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Santa Monica Pier no Google Maps"><i class="fa-solid fa-location-dot"></i></a>, Pacific Park <a href="https://www.google.com/maps/search/?api=1&query=Pacific+Park+Santa+Monica" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Pacific Park no Google Maps"><i class="fa-solid fa-location-dot"></i></a> e calçadão de Venice Beach <a href="https://www.google.com/maps/search/?api=1&query=Venice+Beach+Boardwalk" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Venice Beach no Google Maps"><i class="fa-solid fa-location-dot"></i></a>.</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-shrimp"></i></div>
-                    <div class="detail-content"><strong>Almoço</strong>Bubba Gump Shrimp Co. no Píer</div>
+                    <div class="detail-content"><strong>Almoço</strong>Bubba Gump Shrimp Co. no Píer <a href="https://www.google.com/maps/search/?api=1&query=Bubba+Gump+Shrimp+Co.+Santa+Monica" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Bubba Gump no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-pizza-slice"></i></div>
-                    <div class="detail-content"><strong>Jantar</strong>Pizzeria Mozza ou Third Street Promenade</div>
+                    <div class="detail-content"><strong>Jantar</strong>Pizzeria Mozza <a href="https://www.google.com/maps/search/?api=1&query=Pizzeria+Mozza+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Pizzeria Mozza no Google Maps"><i class="fa-solid fa-location-dot"></i></a> ou Third Street Promenade <a href="https://www.google.com/maps/search/?api=1&query=Third+Street+Promenade+Santa+Monica" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Third Street Promenade no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
                 </div>
             </div>
         </div>
@@ -671,21 +748,23 @@
         <div class="day-card" data-category="theme-park" data-date="2026-07-12" id="day-2026-07-12">
             <div class="day-header">
                 <div class="day-date">12/07/2026 — Domingo</div>
-                <div class="badges-container"></div>
+                <div class="badges-container">
+                    <a href="https://disneyland.disney.go.com/admission/tickets/" target="_blank" rel="noopener noreferrer" class="badge badge-ticket"><i class="fa-solid fa-ticket"></i> Ingresso</a>
+                </div>
             </div>
             <div class="phrase">"O parque clássico da Disney repleto de magia e atrações icônicas para toda a família."</div>
             <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                    <div class="detail-content"><strong>Passeio</strong>Disneyland Park (Anaheim).</div>
+                    <div class="detail-content"><strong>Passeio</strong>Disneyland Park (Anaheim) <a href="https://www.google.com/maps/search/?api=1&query=Disneyland+Park+Anaheim" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Disneyland no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://disneyland.disney.go.com/admission/tickets/" target="_blank" rel="noopener noreferrer" class="ticket-note" title="Comprar ingresso com antecedência obrigatória + reserva de data!"><i class="fa-solid fa-ticket"></i></a></div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-drumstick-bite"></i></div>
-                    <div class="detail-content"><strong>Almoço</strong>Plaza Inn (Dentro do parque)</div>
+                    <div class="detail-content"><strong>Almoço</strong>Plaza Inn (Dentro do parque) <a href="https://www.google.com/maps/search/?api=1&query=Plaza+Inn+Disneyland+Anaheim" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Plaza Inn no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-pepper-hot"></i></div>
-                    <div class="detail-content"><strong>Jantar</strong>Rancho del Zocalo Restaurante</div>
+                    <div class="detail-content"><strong>Jantar</strong>Rancho del Zocalo Restaurante <a href="https://www.google.com/maps/search/?api=1&query=Rancho+del+Zocalo+Restaurante+Disneyland" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Rancho del Zocalo no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
                 </div>
             </div>
         </div>
@@ -694,21 +773,23 @@
         <div class="day-card" data-category="theme-park" data-date="2026-07-13" id="day-2026-07-13">
             <div class="day-header">
                 <div class="day-date">13/07/2026 — Segunda-feira</div>
-                <div class="badges-container"></div>
+                <div class="badges-container">
+                    <a href="https://disneyland.disney.go.com/admission/tickets/" target="_blank" rel="noopener noreferrer" class="badge badge-ticket"><i class="fa-solid fa-ticket"></i> Ingresso</a>
+                </div>
             </div>
             <div class="phrase">"Parque focado nas aventuras da Pixar, incluindo a incrível área de Carros e o Avengers Campus."</div>
             <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-car"></i></div>
-                    <div class="detail-content"><strong>Passeio</strong>Disney California Adventure (Anaheim).</div>
+                    <div class="detail-content"><strong>Passeio</strong>Disney California Adventure (Anaheim) <a href="https://www.google.com/maps/search/?api=1&query=Disney+California+Adventure+Anaheim" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Disney California Adventure no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://disneyland.disney.go.com/admission/tickets/" target="_blank" rel="noopener noreferrer" class="ticket-note" title="Comprar ingresso com antecedência obrigatória + reserva de data!"><i class="fa-solid fa-ticket"></i></a></div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-burger"></i></div>
-                    <div class="detail-content"><strong>Almoço</strong>Flo's V8 Cafe (Área dos Carros)</div>
+                    <div class="detail-content"><strong>Almoço</strong>Flo's V8 Cafe (Área dos Carros) <a href="https://www.google.com/maps/search/?api=1&query=Flo%27s+V8+Cafe+California+Adventure" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Flo's V8 Cafe no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-wine-glass"></i></div>
-                    <div class="detail-content"><strong>Jantar</strong>Wine Country Trattoria ou Lamplight Lounge</div>
+                    <div class="detail-content"><strong>Jantar</strong>Wine Country Trattoria <a href="https://www.google.com/maps/search/?api=1&query=Wine+Country+Trattoria+California+Adventure" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Wine Country Trattoria no Google Maps"><i class="fa-solid fa-location-dot"></i></a> ou Lamplight Lounge <a href="https://www.google.com/maps/search/?api=1&query=Lamplight+Lounge+California+Adventure" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Lamplight Lounge no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
                 </div>
             </div>
         </div>
@@ -723,15 +804,15 @@
             <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-clapperboard"></i></div>
-                    <div class="detail-content"><strong>Passeio</strong>Calçada da Fama, Teatro Chinês, Letreiro de Hollywood e Rodeo Drive.</div>
+                    <div class="detail-content"><strong>Passeio</strong>Calçada da Fama <a href="https://www.google.com/maps/search/?api=1&query=Hollywood+Walk+of+Fame" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Calçada da Fama no Google Maps"><i class="fa-solid fa-location-dot"></i></a>, Teatro Chinês <a href="https://www.google.com/maps/search/?api=1&query=TCL+Chinese+Theatre" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Teatro Chinês no Google Maps"><i class="fa-solid fa-location-dot"></i></a>, Letreiro de Hollywood <a href="https://www.google.com/maps/search/?api=1&query=Hollywood+Sign" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Letreiro de Hollywood no Google Maps"><i class="fa-solid fa-location-dot"></i></a> e Rodeo Drive <a href="https://www.google.com/maps/search/?api=1&query=Rodeo+Drive+Beverly+Hills" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Rodeo Drive no Google Maps"><i class="fa-solid fa-location-dot"></i></a>.</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-hotdog"></i></div>
-                    <div class="detail-content"><strong>Almoço</strong>Hard Rock Cafe Hollywood</div>
+                    <div class="detail-content"><strong>Almoço</strong>Hard Rock Cafe Hollywood <a href="https://www.google.com/maps/search/?api=1&query=Hard+Rock+Cafe+Hollywood+Blvd" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Hard Rock Cafe no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-cake-candles"></i></div>
-                    <div class="detail-content"><strong>Jantar</strong>The Cheesecake Factory em Beverly Hills</div>
+                    <div class="detail-content"><strong>Jantar</strong>The Cheesecake Factory em Beverly Hills <a href="https://www.google.com/maps/search/?api=1&query=The+Cheesecake+Factory+Beverly+Hills" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver The Cheesecake Factory no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
                 </div>
             </div>
         </div>
@@ -740,21 +821,23 @@
         <div class="day-card" data-category="theme-park" data-date="2026-07-15" id="day-2026-07-15">
             <div class="day-header">
                 <div class="day-date">15/07/2026 — Quarta-feira</div>
-                <div class="badges-container"></div>
+                <div class="badges-container">
+                    <a href="https://www.universalstudioshollywood.com/web/en/us/tickets-and-packages" target="_blank" rel="noopener noreferrer" class="badge badge-ticket"><i class="fa-solid fa-ticket"></i> Ingresso</a>
+                </div>
             </div>
             <div class="phrase">"Parque temático dentro de um estúdio de cinema real, com destaque para o Super Nintendo World."</div>
             <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-film"></i></div>
-                    <div class="detail-content"><strong>Passeio</strong>Universal Studios Hollywood.</div>
+                    <div class="detail-content"><strong>Passeio</strong>Universal Studios Hollywood <a href="https://www.google.com/maps/search/?api=1&query=Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Universal Studios no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://www.universalstudioshollywood.com/web/en/us/tickets-and-packages" target="_blank" rel="noopener noreferrer" class="ticket-note" title="Recomendado comprar antecipado para garantir menor preço e acesso ao Super Nintendo World!"><i class="fa-solid fa-ticket"></i></a></div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-beer-card"></i></div>
-                    <div class="detail-content"><strong>Almoço</strong>Three Broomsticks (Área do Harry Potter)</div>
+                    <div class="detail-content"><strong>Almoço</strong>Three Broomsticks (Área do Harry Potter) <a href="https://www.google.com/maps/search/?api=1&query=Three+Broomsticks+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Three Broomsticks no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-ice-cream"></i></div>
-                    <div class="detail-content"><strong>Jantar</strong>Restaurantes do Universal CityWalk</div>
+                    <div class="detail-content"><strong>Jantar</strong>Restaurantes do Universal CityWalk <a href="https://www.google.com/maps/search/?api=1&query=Universal+CityWalk+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Universal CityWalk no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
                 </div>
             </div>
         </div>
@@ -765,13 +848,14 @@
                 <div class="day-date">16/07/2026 — Quinta-feira</div>
                 <div class="badges-container">
                     <span class="badge badge-priority"><i class="fa-solid fa-user-astronaut"></i> Ciência</span>
+                    <a href="https://californiasciencecenter.org/visit" target="_blank" rel="noopener noreferrer" class="badge badge-ticket"><i class="fa-solid fa-ticket"></i> Reserva Requerida</a>
                 </div>
             </div>
             <div class="phrase">"Museu focado em ciência e exploração onde veremos de perto o ônibus espacial Endeavour de verdade."</div>
             <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-shuttle-space"></i></div>
-                    <div class="detail-content"><strong>Passeio</strong>California Science Center (Exposição do Ônibus Espacial Endeavour).</div>
+                    <div class="detail-content"><strong>Passeio</strong>California Science Center (Exposição do Ônibus Espacial Endeavour) <a href="https://www.google.com/maps/search/?api=1&query=California+Science+Center" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver California Science Center no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://californiasciencecenter.org/visit" target="_blank" rel="noopener noreferrer" class="ticket-note" title="Reserva com hora marcada recomendada para ver o Endeavour!"><i class="fa-solid fa-ticket"></i></a></div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-bowl-food"></i></div>
@@ -779,7 +863,7 @@
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-pasta"></i></div>
-                    <div class="detail-content"><strong>Jantar</strong>Olive Garden</div>
+                    <div class="detail-content"><strong>Jantar</strong>Olive Garden <a href="https://www.google.com/maps/search/?api=1&query=Olive+Garden+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Olive Garden no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
                 </div>
             </div>
         </div>
@@ -790,21 +874,22 @@
                 <div class="day-date">17/07/2026 — Sexta-feira</div>
                 <div class="badges-container">
                     <span class="badge badge-priority"><i class="fa-solid fa-dragon"></i> Fósseis</span>
+                    <a href="https://nhm.org/visit" target="_blank" rel="noopener noreferrer" class="badge badge-ticket"><i class="fa-solid fa-ticket"></i> Ingresso</a>
                 </div>
             </div>
             <div class="phrase">"Dia de ver fósseis reais e os poços ativos de piche de onde mamutes foram escavados."</div>
             <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-bone"></i></div>
-                    <div class="detail-content"><strong>Passeio</strong>Natural History Museum (Manhã) e La Brea Tar Pits (Tarde).</div>
+                    <div class="detail-content"><strong>Passeio</strong>Natural History Museum <a href="https://www.google.com/maps/search/?api=1&query=Natural+History+Museum+of+Los+Angeles+County" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Natural History Museum no Google Maps"><i class="fa-solid fa-location-dot"></i></a> (Manhã) e La Brea Tar Pits <a href="https://www.google.com/maps/search/?api=1&query=La+Brea+Tar+Pits" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver La Brea Tar Pits no Google Maps"><i class="fa-solid fa-location-dot"></i></a> (Tarde) <a href="https://nhm.org/visit" target="_blank" rel="noopener noreferrer" class="ticket-note" title="Comprar ingressos online com antecedência para evitar filas nas bilheterias!"><i class="fa-solid fa-ticket"></i></a></div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-truck"></i></div>
-                    <div class="detail-content"><strong>Almoço</strong>Próximo ao Exposition Park / Food Trucks</div>
+                    <div class="detail-content"><strong>Almoço</strong>Próximo ao Exposition Park / Food Trucks <a href="https://www.google.com/maps/search/?api=1&query=Exposition+Park+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Exposition Park no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-basket-shopping"></i></div>
-                    <div class="detail-content"><strong>Jantar</strong>The Grove / Original Farmers Market</div>
+                    <div class="detail-content"><strong>Jantar</strong>The Grove <a href="https://www.google.com/maps/search/?api=1&query=The+Grove+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver The Grove no Google Maps"><i class="fa-solid fa-location-dot"></i></a> / Original Farmers Market <a href="https://www.google.com/maps/search/?api=1&query=Original+Farmers+Market+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Original Farmers Market no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
                 </div>
             </div>
         </div>
@@ -819,11 +904,11 @@
             <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-user-astronaut"></i></div>
-                    <div class="detail-content"><strong>Passeio</strong>Griffith Observatory e letreiro de Hollywood de perto.</div>
+                    <div class="detail-content"><strong>Passeio</strong>Griffith Observatory <a href="https://www.google.com/maps/search/?api=1&query=Griffith+Observatory" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Griffith Observatory no Google Maps"><i class="fa-solid fa-location-dot"></i></a> e letreiro de Hollywood <a href="https://www.google.com/maps/search/?api=1&query=Hollywood+Sign" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Letreiro de Hollywood no Google Maps"><i class="fa-solid fa-location-dot"></i></a> de perto.</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-burger"></i></div>
-                    <div class="detail-content"><strong>Almoço</strong>Shake Shack</div>
+                    <div class="detail-content"><strong>Almoço</strong>Shake Shack <a href="https://www.google.com/maps/search/?api=1&query=Shake+Shack+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Shake Shack no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-box"></i></div>
@@ -838,21 +923,22 @@
                 <div class="day-date">19/07/2026 — Domingo</div>
                 <div class="badges-container">
                     <span class="badge badge-priority"><i class="fa-solid fa-fish"></i> Aquário</span>
+                    <a href="https://www.aquariumofpacific.org/visit/tickets" target="_blank" rel="noopener noreferrer" class="badge badge-ticket"><i class="fa-solid fa-ticket"></i> Reserva Requerida</a>
                 </div>
             </div>
             <div class="phrase">"Um dos maiores aquários americanos, ideal para ver tubarões, pinguins e florestas de kelp."</div>
             <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-fish-fins"></i></div>
-                    <div class="detail-content"><strong>Passeio</strong>Aquarium of the Pacific (Long Beach).</div>
+                    <div class="detail-content"><strong>Passeio</strong>Aquarium of the Pacific (Long Beach) <a href="https://www.google.com/maps/search/?api=1&query=Aquarium+of+the+Pacific+Long+Beach" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Aquarium of the Pacific no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://www.aquariumofpacific.org/visit/tickets" target="_blank" rel="noopener noreferrer" class="ticket-note" title="Compra antecipada obrigatória para fins de semana com reserva de horário!"><i class="fa-solid fa-ticket"></i></a></div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-anchor"></i></div>
-                    <div class="detail-content"><strong>Almoço</strong>Restaurante na marina de Long Beach</div>
+                    <div class="detail-content"><strong>Almoço</strong>Restaurante na marina de Long Beach <a href="https://www.google.com/maps/search/?api=1&query=Rainbow+Harbor+Long+Beach" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Marina de Long Beach no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-shrimp"></i></div>
-                    <div class="detail-content"><strong>Jantar</strong>Bubba Gump Shrimp Co. em Long Beach</div>
+                    <div class="detail-content"><strong>Jantar</strong>Bubba Gump Shrimp Co. em Long Beach <a href="https://www.google.com/maps/search/?api=1&query=Bubba+Gump+Shrimp+Co.+Long+Beach" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Bubba Gump Long Beach no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
                 </div>
             </div>
         </div>
@@ -867,7 +953,7 @@
             <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-tags"></i></div>
-                    <div class="detail-content"><strong>Passeio</strong>Dia inteiro de compras no Citadel Outlets.</div>
+                    <div class="detail-content"><strong>Passeio</strong>Dia inteiro de compras no Citadel Outlets <a href="https://www.google.com/maps/search/?api=1&query=Citadel+Outlets+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Citadel Outlets no Google Maps"><i class="fa-solid fa-location-dot"></i></a>.</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-pizza-slice"></i></div>
@@ -875,7 +961,7 @@
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-shrimp"></i></div>
-                    <div class="detail-content"><strong>Jantar</strong>Red Lobster</div>
+                    <div class="detail-content"><strong>Jantar</strong>Red Lobster <a href="https://www.google.com/maps/search/?api=1&query=Red+Lobster+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Red Lobster no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
                 </div>
             </div>
         </div>
@@ -890,7 +976,7 @@
             <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-mobile-screen"></i></div>
-                    <div class="detail-content"><strong>Passeio</strong>Visita à Best Buy (eletrônicos) e mercados finais.</div>
+                    <div class="detail-content"><strong>Passeio</strong>Visita à Best Buy (eletrônicos) <a href="https://www.google.com/maps/search/?api=1&query=Best+Buy+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Best Buy no Google Maps"><i class="fa-solid fa-location-dot"></i></a> e mercados finais.</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-burger"></i></div>
@@ -898,7 +984,7 @@
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-coffee"></i></div>
-                    <div class="detail-content"><strong>Jantar</strong>Jantar de encerramento no Denny's</div>
+                    <div class="detail-content"><strong>Jantar</strong>Jantar de encerramento no Denny's <a href="https://www.google.com/maps/search/?api=1&query=Denny%27s+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Denny's no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
                 </div>
             </div>
         </div>
@@ -913,7 +999,7 @@
             <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-plane-departure"></i></div>
-                    <div class="detail-content"><strong>Passeio</strong>Deslocamento para o aeroporto (LAX) e devolução do carro.</div>
+                    <div class="detail-content"><strong>Passeio</strong>Deslocamento para o aeroporto (LAX) <a href="https://www.google.com/maps/search/?api=1&query=Los+Angeles+International+Airport" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Aeroporto LAX no Google Maps"><i class="fa-solid fa-location-dot"></i></a> e devolução do carro.</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-plane"></i></div>
