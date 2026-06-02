@@ -48,3 +48,7 @@
  .tmp/
  tmp/
  .temp/
+
+# Roteiros de Viagem
+roteiro/Roteiro_Viagem_EUA_2026.md
+roteiro/Viagem_EUA_2026_Base_V2.md

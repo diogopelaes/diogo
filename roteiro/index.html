@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // Carrega o tema salvo antes de renderizar a página para evitar o "flash" visual
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+    <title>Roteiro Califórnia 2026</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="turismo.png">
+    <!-- Fontes Modernas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Icones FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* ==========================================================================
+           VARIÁVEIS DE TEMA (SUPORTE A MODO CLARO E ESCURO)
+           ========================================================================== */
+        :root {
+            --bg-body: #f6f8fa;
+            --bg-card: #ffffff;
+            --text-primary: #2d3748;      /* soft charcoal instead of pure black */
+            --text-secondary: #5e6e82;    /* muted slate grey */
+            --border-color: #e6edf5;      /* soft blue-grey border */
+            --primary-color: #4f6b8c;     /* premium dusty slate-blue */
+            --primary-hover: #3d536e;     /* deeper slate blue on hover */
+            --priority-bg: #fdf4f4;       /* soft pastel rose tint */
+            --priority-border: #f3c6c6;   /* desaturated rose border */
+            --priority-text: #a04e4e;     /* soft terracotta rose */
+            --accent-bg: #f0f7f4;         /* soft desaturated mint tint */
+            --accent-border: #c2e0d1;     /* muted sage green border */
+            --accent-text: #3b7a57;       /* elegant sage green */
+            --shadow: 0 6px 16px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.02); /* very soft diffuse shadows */
+            --calendar-active: #e2e7ee;
+            --calendar-active-text: #314863;
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #151c2c;           /* deep slate blue-grey instead of pure black */
+            --bg-card: #1d2636;           /* soft dark card background */
+            --text-primary: #e2e8f0;      /* gentle off-white */
+            --text-secondary: #94a3b8;    /* cool blue-grey */
+            --border-color: #2b364a;      /* subtle dark border */
+            --primary-color: #8fa3c2;     /* beautiful desaturated pastel blue */
+            --primary-hover: #a3b7d6;     /* lighter pastel blue on hover */
+            --priority-bg: #2c1b1c;       /* very soft deep burgundy */
+            --priority-border: #6e3b3e;   /* muted dark red border */
+            --priority-text: #f3c6c6;     /* soft pastel rose */
+            --accent-bg: #15261d;         /* deep soft moss green */
+            --accent-border: #355c46;     /* muted sage-green border */
+            --accent-text: #a2d4b6;       /* soft pastel mint */
+            --shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            --calendar-active: #2b374d;
+            --calendar-active-text: #c2d0e6;
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px 12px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* ==========================================================================
+           HEADER E CONTROLE DE TEMA
+           ========================================================================== */
+        header {
+            text-align: center;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 99px;
+            cursor: pointer;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--primary-color);
+            background: color-mix(in srgb, var(--primary-color) 4%, var(--bg-card));
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 10px 0 4px;
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .sub-header {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 24px;
+        }
+
+        /* ==========================================================================
+           WIDGETS DE INFORMAÇÃO RÁPIDA
+           ========================================================================== */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .widget {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 16px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .widget-icon {
+            background: color-mix(in srgb, var(--primary-color) 8%, var(--bg-card));
+            color: var(--primary-color);
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        /* Intercepting hardcoded inline background-color style on calendar-day widget to keep style unified and soft */
+        .widget .widget-icon[style*="background-color"] {
+            background-color: color-mix(in srgb, var(--accent-text) 8%, var(--bg-card)) !important;
+            color: var(--accent-text) !important;
+        }
+
+        .widget-data h3 {
+            margin: 0;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .widget-data p {
+            margin: 2px 0 0;
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        /* ==========================================================================
+           WIDGET DO MINICALENDÁRIO (GRID TOTALMENTE VISÍVEL EM MOBILE)
+           ========================================================================== */
+        .calendar-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .calendar-section h3 {
+            margin: 0 0 16px 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Grid de 7 colunas (semana completa) que evita rolagem */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+        }
+
+        .calendar-day-btn {
+            background: color-mix(in srgb, var(--text-primary) 2%, var(--bg-card));
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 8px 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+        }
+
+        .calendar-day-btn:hover {
+            border-color: var(--primary-color);
+            background: color-mix(in srgb, var(--primary-color) 4%, var(--bg-card));
+            transform: translateY(-1px);
+        }
+
+        .calendar-day-btn .cal-num {
+            font-size: 1.1rem;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .calendar-day-btn .cal-month {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-top: 1px;
+        }
+
+        .calendar-day-btn .cal-icon {
+            font-size: 0.8rem;
+            margin-top: 4px;
+            color: var(--primary-color);
+        }
+
+        /* Status ativo do calendário */
+        .calendar-day-btn.active {
+            background: var(--calendar-active);
+            border-color: var(--primary-color);
+            color: var(--calendar-active-text);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .calendar-day-btn.active .cal-month,
+        .calendar-day-btn.active .cal-icon {
+            color: var(--calendar-active-text);
+        }
+
+        /* ==========================================================================
+           MENU DE FILTROS (GRID ORGANIZADO PARA MOBILE)
+           ========================================================================== */
+        .filters-section {
+            margin-bottom: 24px;
+        }
+
+        .filters {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 colunas em telas maiores */
+            gap: 8px;
+        }
+
+        .filter-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 10px 12px;
+            border-radius: 99px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            box-shadow: var(--shadow);
+            white-space: nowrap;
+            width: 100%;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary-color);
+            color: var(--bg-card);
+            border-color: var(--primary-color);
+        }
+
+        .filter-btn.active i, .filter-btn:hover i {
+            color: var(--bg-card);
+        }
+
+        .filter-btn i {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        /* ==========================================================================
+           CARDS DO ROTEIRO E DETALHES
+           ========================================================================== */
+        .day-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            scroll-margin-top: 20px;
+        }
+
+        .day-card.priority {
+            border-left: 4px solid var(--priority-border);
+            background: linear-gradient(to right, var(--priority-bg), var(--bg-card) 200px);
+        }
+
+        .day-card.today {
+            border: 2px solid var(--primary-color);
+            background: linear-gradient(to right, color-mix(in srgb, var(--primary-color) 4%, transparent), var(--bg-card) 200px);
+            animation: pulse-border 3s infinite ease-in-out;
+        }
+
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary-color) 20%, transparent); }
+            70% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--primary-color) 0%, transparent); }
+            100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary-color) 0%, transparent); }
+        }
+
+        /* Efeito de destaque ao clicar no calendário */
+        .day-card.glow-active {
+            animation: glow-pulse 1.2s ease-out;
+        }
+
+        @keyframes glow-pulse {
+            0% { box-shadow: 0 0 0 0px color-mix(in srgb, var(--primary-color) 40%, transparent); transform: scale(1); }
+            50% { box-shadow: 0 0 12px 2px color-mix(in srgb, var(--primary-color) 20%, transparent); transform: scale(1.005); }
+            100% { box-shadow: var(--shadow); transform: scale(1); }
+        }
+
+        .day-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .day-date {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .badges-container {
+            display: flex;
+            gap: 6px;
+        }
+
+        .badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .badge-priority {
+            background: var(--priority-bg);
+            color: var(--priority-text);
+            border: 1px solid var(--priority-border);
+        }
+
+        .badge-today {
+            background: var(--primary-color);
+            color: var(--bg-card);
+            border: 1px solid var(--primary-color);
+        }
+
+        .badge-ticket {
+            background: color-mix(in srgb, #f59e0b 8%, var(--bg-card));
+            color: color-mix(in srgb, #d97706 90%, var(--text-primary));
+            border: 1px solid color-mix(in srgb, #f59e0b 30%, var(--border-color));
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        [data-theme="dark"] .badge-ticket {
+            background: color-mix(in srgb, #f59e0b 10%, var(--bg-card));
+            color: #fbbf24;
+            border: 1px solid color-mix(in srgb, #f59e0b 35%, var(--border-color));
+        }
+
+        .badge-ticket:hover {
+            background: color-mix(in srgb, #f59e0b 15%, var(--bg-card));
+            transform: translateY(-1px);
+        }
+
+        .ticket-note {
+            display: inline-flex;
+            align-items: center;
+            color: #d97706;
+            margin-left: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        [data-theme="dark"] .ticket-note {
+            color: #fbbf24;
+        }
+
+        .ticket-note:hover {
+            transform: scale(1.15) rotate(-10deg);
+            opacity: 0.85;
+        }
+
+        .map-link {
+            color: var(--text-secondary);
+            margin-left: 6px;
+            font-size: 0.85rem;
+            text-decoration: none;
+            opacity: 0.6;
+            transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .map-link:hover {
+            opacity: 1;
+            transform: scale(1.15);
+            color: #ea4335;
+        }
+
+
+
+
+        .phrase {
+            background: color-mix(in srgb, var(--text-primary) 3%, var(--bg-card));
+            color: var(--text-secondary);
+            font-style: italic;
+            padding: 10px 14px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+            border-left: 3px solid color-mix(in srgb, var(--text-secondary) 30%, var(--bg-card));
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .detail-item {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .detail-icon {
+            color: var(--primary-color);
+            font-size: 1rem;
+            margin-top: 2px;
+            opacity: 0.85;
+        }
+
+        .detail-content strong {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .detail-content span {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* ==========================================================================
+           MEDIA QUERIES (OTIMIZAÇÃO MOBILE EXTREMA)
+           ========================================================================== */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.6rem; }
+            .theme-toggle { position: static; margin: 0 auto 12px; width: fit-content; }
+            .day-header { flex-direction: column; align-items: flex-start; }
+            .dashboard-grid { grid-template-columns: 1fr; }
+            body { padding: 12px 8px; }
+            .day-card { padding: 16px; }
+
+            /* 2x2 Grid para filtros no mobile para evitar desalinhamento */
+            .filters {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+
+            /* Ajustes no calendário 7 colunas para ecrãs pequenos */
+            .calendar-grid {
+                gap: 4px;
+            }
+
+            .calendar-day-btn {
+                padding: 6px 2px;
+                border-radius: 6px;
+            }
+
+            .calendar-day-btn .cal-num {
+                font-size: 0.95rem;
+            }
+
+            /* Ocultar mês Jul no mobile para priorizar espaço vertical */
+            .calendar-day-btn .cal-month {
+                display: none;
+            }
+
+            .calendar-day-btn .cal-icon {
+                font-size: 0.7rem;
+                margin-top: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
+            <i class="fa-solid fa-moon"></i> Modo Escuro
+        </button>
+        <h1>Califórnia 2026</h1>
+        <div class="sub-header">Roteiro Inteligente</div>
+    </header>
+
+    <!-- Dashboard de Widgets -->
+    <div class="dashboard-grid">
+        <div class="widget">
+            <div class="widget-icon"><i class="fa-solid fa-hourglass-half"></i></div>
+            <div class="widget-data">
+                <h3>Contagem Regressiva</h3>
+                <p id="countdown">Carregando...</p>
+            </div>
+        </div>
+        <div class="widget">
+            <div class="widget-icon" style="background-color: #10b981;"><i class="fa-solid fa-calendar-day"></i></div>
+            <div class="widget-data">
+                <h3>Hoje é dia</h3>
+                <p id="currentDate">Carregando...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Minicalendário de Navegação Inteligente (Grid 7 colunas por 2 linhas) -->
+    <div class="calendar-section">
+        <h3><i class="fa-solid fa-calendar-alt"></i> Atalhos Rápidos por Dia</h3>
+        <div class="calendar-grid" id="calendarGrid">
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-09')">
+                <span class="cal-num">09</span>
+                
+                <span class="cal-icon"><i class="fa-solid fa-plane"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-10')">
+                <span class="cal-num">10</span>
+                
+                <span class="cal-icon"><i class="fa-solid fa-cart-shopping"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-11')">
+                <span class="cal-num">11</span>
+                
+                <span class="cal-icon"><i class="fa-solid fa-umbrella-beach"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-12')">
+                <span class="cal-num">12</span>
+                
+                <span class="cal-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-13')">
+                <span class="cal-num">13</span>
+                
+                <span class="cal-icon"><i class="fa-solid fa-car"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-14')">
+                <span class="cal-num">14</span>
+                
+                <span class="cal-icon"><i class="fa-solid fa-clapperboard"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-15')">
+                <span class="cal-num">15</span>
+                
+                <span class="cal-icon"><i class="fa-solid fa-film"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-16')">
+                <span class="cal-num">16</span>
+                
+                <span class="cal-icon"><i class="fa-solid fa-shuttle-space"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-17')">
+                <span class="cal-num">17</span>
+                
+                <span class="cal-icon"><i class="fa-solid fa-bone"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-18')">
+                <span class="cal-num">18</span>
+                
+                <span class="cal-icon"><i class="fa-solid fa-user-astronaut"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-19')">
+                <span class="cal-num">19</span>
+                
+                <span class="cal-icon"><i class="fa-solid fa-fish-fins"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-20')">
+                <span class="cal-num">20</span>
+                
+                <span class="cal-icon"><i class="fa-solid fa-tags"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-21')">
+                <span class="cal-num">21</span>
+                
+                <span class="cal-icon"><i class="fa-solid fa-mobile-screen"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-22')">
+                <span class="cal-num">22</span>
+                
+                <span class="cal-icon"><i class="fa-solid fa-bed"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-23')">
+                <span class="cal-num">23</span>
+                
+                <span class="cal-icon"><i class="fa-solid fa-couch"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-24')">
+                <span class="cal-num">24</span>
+                
+                <span class="cal-icon"><i class="fa-solid fa-house-user"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-25')">
+                <span class="cal-num">25</span>
+                
+                <span class="cal-icon"><i class="fa-solid fa-mug-hot"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-26')">
+                <span class="cal-num">26</span>
+                
+                <span class="cal-icon"><i class="fa-solid fa-plane-departure"></i></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Filtros de Categorias (Layout Grid Responsivo) -->
+    <div class="filters-section">
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterCategory('all', this)">
+                <i class="fa-solid fa-globe"></i> Todos
+            </button>
+            <button class="filter-btn" onclick="filterCategory('priority', this)">
+                <i class="fa-solid fa-star"></i> Prioridades
+            </button>
+            <button class="filter-btn" onclick="filterCategory('theme-park', this)">
+                <i class="fa-solid fa-ticket"></i> Parques
+            </button>
+            <button class="filter-btn" onclick="filterCategory('shopping-tourism', this)">
+                <i class="fa-solid fa-bag-shopping"></i> Compras
+            </button>
+        </div>
+    </div>
+
+    <!-- Lista de Dias do Roteiro -->
+    <div id="itinerary">
+
+        <!-- Dia 09/07 -->
+        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-09" id="day-2026-07-09">
+            <div class="day-header">
+                <div class="day-date">09/07/2026 — Quinta-feira</div>
+                <div class="badges-container"></div>
+            </div>
+            <div class="phrase">"Dia dedicado ao deslocamento e descanso da longa viagem de chegada."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-plane-arrival"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Voo para Los Angeles <a href="https://www.google.com/maps/search/?api=1&query=Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Los Angeles no Google Maps"><i class="fa-solid fa-location-dot"></i></a> e check-in na casa da Diana.</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-utensils"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Serviço de bordo / Aeroporto <a href="https://www.google.com/maps/search/?api=1&query=Los+Angeles+International+Airport" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Aeroporto LAX no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-house-user"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Descanso e lanche na casa da Diana</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 10/07 -->
+        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-10" id="day-2026-07-10">
+            <div class="day-header">
+                <div class="day-date">10/07/2026 — Sexta-feira</div>
+                <div class="badges-container"></div>
+            </div>
+            <div class="phrase">"Dia de abastecer o carro com lanches, águas e fazer as primeiras compras essenciais."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Visita aos supermercados Walmart <a href="https://www.google.com/maps/search/?api=1&query=Walmart+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Walmart no Google Maps"><i class="fa-solid fa-location-dot"></i></a>, Target <a href="https://www.google.com/maps/search/?api=1&query=Target+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Target no Google Maps"><i class="fa-solid fa-location-dot"></i></a> e Costco <a href="https://www.google.com/maps/search/?api=1&query=Costco+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Costco no Google Maps"><i class="fa-solid fa-location-dot"></i></a>.</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-hamburger"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Praça de alimentação ou fast-food local</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-store"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Hambúrguer no famoso In-N-Out Burger <a href="https://www.google.com/maps/search/?api=1&query=In-N-Out+Burger+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver In-N-Out no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 11/07 -->
+        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-11" id="day-2026-07-11">
+            <div class="day-header">
+                <div class="day-date">11/07/2026 — Sábado</div>
+                <div class="badges-container"></div>
+            </div>
+            <div class="phrase">"Um dia relaxante para curtir o famoso píer e a vibe praiana clássica da Califórnia."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-umbrella-beach"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Píer de Santa Monica <a href="https://www.google.com/maps/search/?api=1&query=Santa+Monica+Pier" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Santa Monica Pier no Google Maps"><i class="fa-solid fa-location-dot"></i></a>, Pacific Park <a href="https://www.google.com/maps/search/?api=1&query=Pacific+Park+Santa+Monica" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Pacific Park no Google Maps"><i class="fa-solid fa-location-dot"></i></a> e calçadão de Venice Beach <a href="https://www.google.com/maps/search/?api=1&query=Venice+Beach+Boardwalk" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Venice Beach no Google Maps"><i class="fa-solid fa-location-dot"></i></a>.</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-shrimp"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Bubba Gump Shrimp Co. no Píer <a href="https://www.google.com/maps/search/?api=1&query=Bubba+Gump+Shrimp+Co.+Santa+Monica" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Bubba Gump no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-pizza-slice"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Pizzeria Mozza <a href="https://www.google.com/maps/search/?api=1&query=Pizzeria+Mozza+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Pizzeria Mozza no Google Maps"><i class="fa-solid fa-location-dot"></i></a> ou Third Street Promenade <a href="https://www.google.com/maps/search/?api=1&query=Third+Street+Promenade+Santa+Monica" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Third Street Promenade no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 12/07 -->
+        <div class="day-card" data-category="theme-park" data-date="2026-07-12" id="day-2026-07-12">
+            <div class="day-header">
+                <div class="day-date">12/07/2026 — Domingo</div>
+                <div class="badges-container">
+                    <a href="https://disneyland.disney.go.com/admission/tickets/" target="_blank" rel="noopener noreferrer" class="badge badge-ticket"><i class="fa-solid fa-ticket"></i> Ingresso</a>
+                </div>
+            </div>
+            <div class="phrase">"O parque clássico da Disney repleto de magia e atrações icônicas para toda a família."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Disneyland Park (Anaheim) <a href="https://www.google.com/maps/search/?api=1&query=Disneyland+Park+Anaheim" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Disneyland no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://disneyland.disney.go.com/admission/tickets/" target="_blank" rel="noopener noreferrer" class="ticket-note" title="Comprar ingresso com antecedência obrigatória + reserva de data!"><i class="fa-solid fa-ticket"></i></a></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-drumstick-bite"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Plaza Inn (Dentro do parque) <a href="https://www.google.com/maps/search/?api=1&query=Plaza+Inn+Disneyland+Anaheim" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Plaza Inn no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-pepper-hot"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Rancho del Zocalo Restaurante <a href="https://www.google.com/maps/search/?api=1&query=Rancho+del+Zocalo+Restaurante+Disneyland" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Rancho del Zocalo no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 13/07 -->
+        <div class="day-card" data-category="theme-park" data-date="2026-07-13" id="day-2026-07-13">
+            <div class="day-header">
+                <div class="day-date">13/07/2026 — Segunda-feira</div>
+                <div class="badges-container">
+                    <a href="https://disneyland.disney.go.com/admission/tickets/" target="_blank" rel="noopener noreferrer" class="badge badge-ticket"><i class="fa-solid fa-ticket"></i> Ingresso</a>
+                </div>
+            </div>
+            <div class="phrase">"Parque focado nas aventuras da Pixar, incluindo a incrível área de Carros e o Avengers Campus."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-car"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Disney California Adventure (Anaheim) <a href="https://www.google.com/maps/search/?api=1&query=Disney+California+Adventure+Anaheim" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Disney California Adventure no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://disneyland.disney.go.com/admission/tickets/" target="_blank" rel="noopener noreferrer" class="ticket-note" title="Comprar ingresso com antecedência obrigatória + reserva de data!"><i class="fa-solid fa-ticket"></i></a></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-burger"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Flo's V8 Cafe (Área dos Carros) <a href="https://www.google.com/maps/search/?api=1&query=Flo%27s+V8+Cafe+California+Adventure" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Flo's V8 Cafe no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-wine-glass"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Wine Country Trattoria <a href="https://www.google.com/maps/search/?api=1&query=Wine+Country+Trattoria+California+Adventure" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Wine Country Trattoria no Google Maps"><i class="fa-solid fa-location-dot"></i></a> ou Lamplight Lounge <a href="https://www.google.com/maps/search/?api=1&query=Lamplight+Lounge+California+Adventure" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Lamplight Lounge no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 14/07 -->
+        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-14" id="day-2026-07-14">
+            <div class="day-header">
+                <div class="day-date">14/07/2026 — Terça-feira</div>
+                <div class="badges-container"></div>
+            </div>
+            <div class="phrase">"Caminhada pelas ruas mais famosas do cinema e o glamour das vitrines de Beverly Hills."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-clapperboard"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Calçada da Fama <a href="https://www.google.com/maps/search/?api=1&query=Hollywood+Walk+of+Fame" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Calçada da Fama no Google Maps"><i class="fa-solid fa-location-dot"></i></a>, Teatro Chinês <a href="https://www.google.com/maps/search/?api=1&query=TCL+Chinese+Theatre" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Teatro Chinês no Google Maps"><i class="fa-solid fa-location-dot"></i></a>, Letreiro de Hollywood <a href="https://www.google.com/maps/search/?api=1&query=Hollywood+Sign" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Letreiro de Hollywood no Google Maps"><i class="fa-solid fa-location-dot"></i></a> e Rodeo Drive <a href="https://www.google.com/maps/search/?api=1&query=Rodeo+Drive+Beverly+Hills" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Rodeo Drive no Google Maps"><i class="fa-solid fa-location-dot"></i></a>.</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-hotdog"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Hard Rock Cafe Hollywood <a href="https://www.google.com/maps/search/?api=1&query=Hard+Rock+Cafe+Hollywood+Blvd" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Hard Rock Cafe no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-cake-candles"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>The Cheesecake Factory em Beverly Hills <a href="https://www.google.com/maps/search/?api=1&query=The+Cheesecake+Factory+Beverly+Hills" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver The Cheesecake Factory no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 15/07 -->
+        <div class="day-card" data-category="theme-park" data-date="2026-07-15" id="day-2026-07-15">
+            <div class="day-header">
+                <div class="day-date">15/07/2026 — Quarta-feira</div>
+                <div class="badges-container">
+                    <a href="https://www.universalstudioshollywood.com/web/en/us/tickets-and-packages" target="_blank" rel="noopener noreferrer" class="badge badge-ticket"><i class="fa-solid fa-ticket"></i> Ingresso</a>
+                </div>
+            </div>
+            <div class="phrase">"Parque temático dentro de um estúdio de cinema real, com destaque para o Super Nintendo World."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-film"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Universal Studios Hollywood <a href="https://www.google.com/maps/search/?api=1&query=Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Universal Studios no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://www.universalstudioshollywood.com/web/en/us/tickets-and-packages" target="_blank" rel="noopener noreferrer" class="ticket-note" title="Recomendado comprar antecipado para garantir menor preço e acesso ao Super Nintendo World!"><i class="fa-solid fa-ticket"></i></a></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-beer-card"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Three Broomsticks (Área do Harry Potter) <a href="https://www.google.com/maps/search/?api=1&query=Three+Broomsticks+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Three Broomsticks no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-ice-cream"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Restaurantes do Universal CityWalk <a href="https://www.google.com/maps/search/?api=1&query=Universal+CityWalk+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Universal CityWalk no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 16/07 (Prioritário) -->
+        <div class="day-card priority" data-category="priority" data-date="2026-07-16" id="day-2026-07-16">
+            <div class="day-header">
+                <div class="day-date">16/07/2026 — Quinta-feira</div>
+                <div class="badges-container">
+                    <span class="badge badge-priority"><i class="fa-solid fa-user-astronaut"></i> Ciência</span>
+                    <a href="https://californiasciencecenter.org/visit" target="_blank" rel="noopener noreferrer" class="badge badge-ticket"><i class="fa-solid fa-ticket"></i> Reserva Requerida</a>
+                </div>
+            </div>
+            <div class="phrase">"Museu focado em ciência e exploração onde veremos de perto o ônibus espacial Endeavour de verdade."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-shuttle-space"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>California Science Center (Exposição do Ônibus Espacial Endeavour) <a href="https://www.google.com/maps/search/?api=1&query=California+Science+Center" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver California Science Center no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://californiasciencecenter.org/visit" target="_blank" rel="noopener noreferrer" class="ticket-note" title="Reserva com hora marcada recomendada para ver o Endeavour!"><i class="fa-solid fa-ticket"></i></a></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-bowl-food"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Praça de alimentação do museum / USC</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-pasta"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Olive Garden <a href="https://www.google.com/maps/search/?api=1&query=Olive+Garden+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Olive Garden no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 17/07 (Prioritário) -->
+        <div class="day-card priority" data-category="priority" data-date="2026-07-17" id="day-2026-07-17">
+            <div class="day-header">
+                <div class="day-date">17/07/2026 — Sexta-feira</div>
+                <div class="badges-container">
+                    <span class="badge badge-priority"><i class="fa-solid fa-dragon"></i> Fósseis</span>
+                    <a href="https://nhm.org/visit" target="_blank" rel="noopener noreferrer" class="badge badge-ticket"><i class="fa-solid fa-ticket"></i> Ingresso</a>
+                </div>
+            </div>
+            <div class="phrase">"Dia de ver fósseis reais e os poços ativos de piche de onde mamutes foram escavados."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-bone"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Natural History Museum <a href="https://www.google.com/maps/search/?api=1&query=Natural+History+Museum+of+Los+Angeles+County" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Natural History Museum no Google Maps"><i class="fa-solid fa-location-dot"></i></a> (Manhã) e La Brea Tar Pits <a href="https://www.google.com/maps/search/?api=1&query=La+Brea+Tar+Pits" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver La Brea Tar Pits no Google Maps"><i class="fa-solid fa-location-dot"></i></a> (Tarde) <a href="https://nhm.org/visit" target="_blank" rel="noopener noreferrer" class="ticket-note" title="Comprar ingressos online com antecedência para evitar filas nas bilheterias!"><i class="fa-solid fa-ticket"></i></a></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-truck"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Próximo ao Exposition Park / Food Trucks <a href="https://www.google.com/maps/search/?api=1&query=Exposition+Park+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Exposition Park no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-basket-shopping"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>The Grove <a href="https://www.google.com/maps/search/?api=1&query=The+Grove+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver The Grove no Google Maps"><i class="fa-solid fa-location-dot"></i></a> / Original Farmers Market <a href="https://www.google.com/maps/search/?api=1&query=Original+Farmers+Market+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Original Farmers Market no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 18/07 -->
+        <div class="day-card" data-category="priority" data-date="2026-07-18" id="day-2026-07-18">
+            <div class="day-header">
+                <div class="day-date">18/07/2026 — Sábado</div>
+                <div class="badges-container"></div>
+            </div>
+            <div class="phrase">"Visita ao observatório icônico para observar telescópios e curtir o pôr do sol de Los Angeles."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-user-astronaut"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Griffith Observatory <a href="https://www.google.com/maps/search/?api=1&query=Griffith+Observatory" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Griffith Observatory no Google Maps"><i class="fa-solid fa-location-dot"></i></a> e letreiro de Hollywood <a href="https://www.google.com/maps/search/?api=1&query=Hollywood+Sign" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Letreiro de Hollywood no Google Maps"><i class="fa-solid fa-location-dot"></i></a> de perto.</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-burger"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Shake Shack <a href="https://www.google.com/maps/search/?api=1&query=Shake+Shack+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Shake Shack no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-box"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Lanche rápido no próprio observatório ou arredores</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 19/07 (Prioritário) -->
+        <div class="day-card priority" data-category="priority" data-date="2026-07-19" id="day-2026-07-19">
+            <div class="day-header">
+                <div class="day-date">19/07/2026 — Domingo</div>
+                <div class="badges-container">
+                    <span class="badge badge-priority"><i class="fa-solid fa-fish"></i> Aquário</span>
+                    <a href="https://www.aquariumofpacific.org/visit/tickets" target="_blank" rel="noopener noreferrer" class="badge badge-ticket"><i class="fa-solid fa-ticket"></i> Reserva Requerida</a>
+                </div>
+            </div>
+            <div class="phrase">"Um dos maiores aquários americanos, ideal para ver tubarões, pinguins e florestas de kelp."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-fish-fins"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Aquarium of the Pacific (Long Beach) <a href="https://www.google.com/maps/search/?api=1&query=Aquarium+of+the+Pacific+Long+Beach" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Aquarium of the Pacific no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://www.aquariumofpacific.org/visit/tickets" target="_blank" rel="noopener noreferrer" class="ticket-note" title="Compra antecipada obrigatória para fins de semana com reserva de horário!"><i class="fa-solid fa-ticket"></i></a></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-anchor"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Restaurante na marina de Long Beach <a href="https://www.google.com/maps/search/?api=1&query=Rainbow+Harbor+Long+Beach" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Marina de Long Beach no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-shrimp"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Bubba Gump Shrimp Co. em Long Beach <a href="https://www.google.com/maps/search/?api=1&query=Bubba+Gump+Shrimp+Co.+Long+Beach" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Bubba Gump Long Beach no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 20/07 -->
+        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-20" id="day-2026-07-20">
+            <div class="day-header">
+                <div class="day-date">20/07/2026 — Segunda-feira</div>
+                <div class="badges-container"></div>
+            </div>
+            <div class="phrase">"Dia focado no compras das melhores marcas americanas com excelentes descontos."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-tags"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Dia inteiro de compras no Citadel Outlets <a href="https://www.google.com/maps/search/?api=1&query=Citadel+Outlets+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Citadel Outlets no Google Maps"><i class="fa-solid fa-location-dot"></i></a>.</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-pizza-slice"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Praça de alimentação do Outlet</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-shrimp"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Red Lobster <a href="https://www.google.com/maps/search/?api=1&query=Red+Lobster+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Red Lobster no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 21/07 -->
+        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-21" id="day-2026-07-21">
+            <div class="day-header">
+                <div class="day-date">21/07/2026 — Terça-feira</div>
+                <div class="badges-container"></div>
+            </div>
+            <div class="phrase">"Dia livre para garantir os últimos eletrônicos e lembranças de última hora."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Visita à Best Buy (eletrônicos) <a href="https://www.google.com/maps/search/?api=1&query=Best+Buy+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Best Buy no Google Maps"><i class="fa-solid fa-location-dot"></i></a> e mercados finais.</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-burger"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Fast food rápido (Wendy's ou similar)</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-coffee"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Jantar de encerramento no Denny's <a href="https://www.google.com/maps/search/?api=1&query=Denny%27s+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Denny's no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 22/07 -->
+        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-22" id="day-2026-07-22">
+            <div class="day-header">
+                <div class="day-date">22/07/2026 — Quarta-feira</div>
+                <div class="badges-container"></div>
+            </div>
+            <div class="phrase">"Dia livre para relaxar, recarregar as energias e fazer atividades tranquilas na região."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-bed"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Descanso e passeios próximos à casa da Diana (bairro de Bel Air, caminhos arborizados).</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-utensils"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Comida caseira ou restaurante local próximo.</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-house-user"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Lanche rápido ou jantar em família na casa da Diana.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 23/07 -->
+        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-23" id="day-2026-07-23">
+            <div class="day-header">
+                <div class="day-date">23/07/2026 — Quinta-feira</div>
+                <div class="badges-container"></div>
+            </div>
+            <div class="phrase">"Dia de relaxar e curtir momentos em família na casa da Diana."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-couch"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Descanso, jogos de tabuleiro em família e caminhadas leves pelas redondezas.</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-drumstick-bite"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Churrasco em família ou lanche rápido em casa.</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-utensils"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Jantar caseiro preparado em família.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 24/07 -->
+        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-24" id="day-2026-07-24">
+            <div class="day-header">
+                <div class="day-date">24/07/2026 — Sexta-feira</div>
+                <div class="badges-container"></div>
+            </div>
+            <div class="phrase">"Dia para aproveitar a piscina, ler um livro ou fazer um passeio rápido pelo bairro."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-house-user"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Atividades relaxantes em casa e caminhada no final da tarde.</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-burger"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Comida rápida local (Chick-fil-A ou similar).</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-pizza-slice"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Pizza em família.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 25/07 -->
+        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-25" id="day-2026-07-25">
+            <div class="day-header">
+                <div class="day-date">25/07/2026 — Sábado</div>
+                <div class="badges-container"></div>
+            </div>
+            <div class="phrase">"Último dia completo em Los Angeles para arrumar as malas com calma e descansar."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-suitcase"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Organização das bagagens, pesagem das malas e últimos detalhes para a viagem.</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-utensils"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Almoço em família ou restaurante nas proximidades.</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Jantar especial de despedida na casa da Diana.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 26/07 -->
+        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-26" id="day-2026-07-26">
+            <div class="day-header">
+                <div class="day-date">26/07/2026 — Domingo</div>
+                <div class="badges-container"></div>
+            </div>
+            <div class="phrase">"Arrumar os últimos detalhes, despedida de Los Angeles e início do retorno para o Brasil."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-plane-departure"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Deslocamento para o aeroporto (LAX) <a href="https://www.google.com/maps/search/?api=1&query=Los+Angeles+International+Airport" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Aeroporto LAX no Google Maps"><i class="fa-solid fa-location-dot"></i></a>, devolução do carro e voo para o Brasil (15:55).</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-plane"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Aeroporto / Lanche rápido no terminal de passageiros.</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-moon"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Serviço de bordo da aeronave (LATAM).</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <p><small>© 2026 Assistente Pessoal de Viagem. Todos os direitos reservados.</small></p>
+</footer>
+
+<script>
+    // Inicialização de Datas Contextuais (Focado no período real do passeio)
+    const tripStartDate = new Date("2026-07-09T10:00:00");
+    const tripEndDate = new Date("2026-07-26T23:59:59");
+    
+    // Simulação do contexto atual do usuário (02/06/2026)
+    const mockToday = new Date("2026-06-02T11:21:16");
+
+    function updateDashboard() {
+        // Exibe a data de simulação formatada
+        const day = String(mockToday.getDate()).padStart(2, '0');
+        const month = String(mockToday.getMonth() + 1).padStart(2, '0');
+        const year = mockToday.getFullYear();
+        document.getElementById('currentDate').innerText = `${day}/${month}/${year}`;
+
+        // Calcula a contagem regressiva para a viagem
+        const diffTime = tripStartDate - mockToday;
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+        const countdownEl = document.getElementById('countdown');
+        if (diffDays > 0) {
+            countdownEl.innerText = `Faltam ${diffDays} dias! ✈️`;
+        } else if (mockToday >= tripStartDate && mockToday <= tripEndDate) {
+            countdownEl.innerText = "A viagem começou! 🎉";
+            highlightTodayCard(mockToday);
+        } else {
+            countdownEl.innerText = "Viagem Concluída! 💙";
+        }
+    }
+
+    // Função para destacar o dia atual da viagem caso ela esteja acontecendo
+    function highlightTodayCard(currentDate) {
+        const formattedDateString = currentDate.toISOString().split('T')[0];
+        const targetCard = document.getElementById(`day-${formattedDateString}`);
+        
+        if (targetCard) {
+            targetCard.classList.add('today');
+            
+            // Adiciona badge informativa "HOJE"
+            const badgeContainer = targetCard.querySelector('.badges-container');
+            if (badgeContainer && !badgeContainer.querySelector('.badge-today')) {
+                const todayBadge = document.createElement('span');
+                todayBadge.className = 'badge badge-today';
+                todayBadge.innerHTML = '<i class="fa-solid fa-clock"></i> HOJE';
+                badgeContainer.appendChild(todayBadge);
+            }
+
+            // Adiciona a classe active no respectivo botão do calendário de atalho
+            const calBtns = document.querySelectorAll('.calendar-day-btn');
+            calBtns.forEach(btn => {
+                if (btn.getAttribute('onclick').includes(formattedDateString)) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+    }
+
+    // Scroll suave até o dia clicado e aplicação do efeito Glow de foco temporário
+    function scrollToDay(dateString) {
+        const targetId = `day-${dateString}`;
+        const targetCard = document.getElementById(targetId);
+        
+        if (targetCard) {
+            // Se o card estiver atualmente invisível por conta de filtros, reseta filtros primeiro
+            const currentFilter = document.querySelector('.filter-btn.active');
+            if (currentFilter && !currentFilter.getAttribute('onclick').includes('all')) {
+                const cardCategory = targetCard.getAttribute('data-category');
+                const isPriority = targetCard.classList.contains('priority');
+                
+                let isFilteredOut = true;
+                if (currentFilter.getAttribute('onclick').includes('priority') && isPriority) isFilteredOut = false;
+                if (currentFilter.getAttribute('onclick').includes(cardCategory)) isFilteredOut = false;
+
+                if (isFilteredOut) {
+                    filterCategory('all', document.querySelector('.filter-btn'));
+                }
+            }
+
+            // Scroll suave até o elemento
+            targetCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            // Remove glow de outros cards primeiro
+            document.querySelectorAll('.day-card').forEach(card => card.classList.remove('glow-active'));
+
+            // Aplica efeito visual de "Glow"
+            targetCard.classList.add('glow-active');
+
+            // Atualiza o estado ativo no minicalendário visual
+            document.querySelectorAll('.calendar-day-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('onclick').includes(dateString)) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+    }
+
+    // Atualiza o texto e ícone do botão de alternância de tema
+    function updateThemeButton() {
+        const themeBtn = document.getElementById('themeBtn');
+        if (!themeBtn) return;
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+            themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i> Modo Claro';
+        } else {
+            themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i> Modo Escuro';
+        }
+    }
+
+    // Toggle de Tema Claro / Escuro com persistência no localStorage
+    function toggleTheme() {
+        const html = document.documentElement;
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeButton();
+    }
+
+    // Filtragem por Categorias
+    function filterCategory(category, button) {
+        // Atualiza botões ativos
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        // Filtra os cards
+        const cards = document.querySelectorAll('.day-card');
+        cards.forEach(card => {
+            if (category === 'all') {
+                card.style.display = 'block';
+            } else if (category === 'priority') {
+                if (card.classList.contains('priority')) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            } else {
+                if (card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            }
+        });
+    }
+
+    // Inicia funções dinâmicas no load da página
+    window.onload = function() {
+        updateDashboard();
+        updateThemeButton();
+    };
+</script>
+
+</body>
+</html>
