@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roteiro Califórnia 2026 - Família Pereira</title>
+    <!-- Fontes Modernas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icones FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Variáveis de Tema */
+        :root {
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border-color: #e2e8f0;
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --priority-bg: #fff5f5;
+            --priority-border: #f87171;
+            --priority-text: #991b1b;
+            --accent-bg: #f0fdf4;
+            --accent-border: #4ade80;
+            --accent-text: #166534;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #0f172a;
+            --bg-card: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+            --primary-color: #3b82f6;
+            --primary-hover: #60a5fa;
+            --priority-bg: #451a03;
+            --priority-border: #ea580c;
+            --priority-text: #ffedd5;
+            --accent-bg: #064e3b;
+            --accent-border: #059669;
+            --accent-text: #ecfdf5;
+            --shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px 10px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header e Controles */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            right: 10px;
+            top: 0;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 10px 15px;
+            border-radius: 99px;
+            cursor: pointer;
+            color: var(--text-primary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--primary-color);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 10px 0;
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+
+        .sub-header {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        /* Widgets Inteligentes */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .widget {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .widget-icon {
+            background: var(--primary-color);
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .widget-data h3 {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .widget-data p {
+            margin: 5px 0 0;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        /* Menu de Filtros */
+        .filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .filter-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 10px 20px;
+            border-radius: 99px;
+            cursor: pointer;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary-color);
+            color: #fff;
+            border-color: var(--primary-color);
+        }
+
+        /* Cards do Roteiro */
+        .day-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Destaques Especiais */
+        .day-card.priority {
+            border-left: 6px solid var(--priority-border);
+        }
+
+        .day-card.today {
+            border: 2px solid var(--primary-color);
+            animation: pulse-border 2s infinite;
+        }
+
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+        }
+
+        .day-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .day-date {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .badges-container {
+            display: flex;
+            gap: 8px;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+            text-transform: uppercase;
+        }
+
+        .badge-priority {
+            background: var(--priority-bg);
+            color: var(--priority-text);
+            border: 1px solid var(--priority-border);
+        }
+
+        .badge-today {
+            background: #2563eb;
+            color: #fff;
+        }
+
+        .phrase {
+            background: var(--bg-body);
+            color: var(--text-secondary);
+            font-style: italic;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 3px solid var(--border-color);
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .detail-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .detail-icon {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-top: 3px;
+        }
+
+        .detail-content strong {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .detail-content span {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .theme-toggle { position: static; margin: 10px auto; width: fit-content; }
+            .day-header { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
+            <i class="fa-solid fa-moon"></i> Modo Escuro
+        </button>
+        <h1>Califórnia 2026</h1>
+        <div class="sub-header">Roteiro Inteligente — Família Pereira</div>
+    </header>
+
+    <!-- Dashboard de Widgets -->
+    <div class="dashboard-grid">
+        <div class="widget">
+            <div class="widget-icon"><i class="fa-solid fa-hourglass-half"></i></div>
+            <div class="widget-data">
+                <h3>Contagem Regressiva</h3>
+                <p id="countdown">Carregando...</p>
+            </div>
+        </div>
+        <div class="widget">
+            <div class="widget-icon" style="background-color: #10b981;"><i class="fa-solid fa-calendar-day"></i></div>
+            <div class="widget-data">
+                <h3>Hoje é dia</h3>
+                <p id="currentDate">Carregando...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filtros de Categorias -->
+    <div class="filters">
+        <button class="filter-btn active" onclick="filterCategory('all', this)">Todos os Dias</button>
+        <button class="filter-btn" onclick="filterCategory('priority', this)">Museus & Ciência</button>
+        <button class="filter-btn" onclick="filterCategory('theme-park', this)">Parques Temáticos</button>
+        <button class="filter-btn" onclick="filterCategory('shopping-tourism', this)">Turismo & Compras</button>
+    </div>
+
+    <!-- Lista de Dias do Roteiro -->
+    <div id="itinerary">
+
+        <!-- Dia 09/07 -->
+        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-09">
+            <div class="day-header">
+                <div class="day-date">09/07/2026 — Quinta-feira</div>
+                <div class="badges-container"></div>
+            </div>
+            <div class="phrase">"Dia dedicado ao deslocamento e descanso da longa viagem."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-plane-arrival"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Voo para Los Angeles e check-in no hotel.</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-utensils"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Serviço de bordo / Aeroporto</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-moon"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Próximo ao hotel ou serviço de quarto</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 10/07 -->
+        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-10">
+            <div class="day-header">
+                <div class="day-date">10/07/2026 — Sexta-feira</div>
+                <div class="badges-container"></div>
+            </div>
+            <div class="phrase">"Dia de abastecer o carro com lanches, águas e fazer as primeiras compras da viagem."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Visita ao Walmart, Target e Costco.</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-hamburger"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Praça de alimentação ou fast-food local</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-store"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>In-N-Out Burger</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 11/07 -->
+        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-11">
+            <div class="day-header">
+                <div class="day-date">11/07/2026 — Sábado</div>
+                <div class="badges-container"></div>
+            </div>
+            <div class="phrase">"Um dia relaxante para curtir o famoso píer e a vibe praiana da Califórnia."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-umbrella-beach"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Píer de Santa Monica, Pacific Park e calçadão de Venice Beach.</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-shrimp"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Bubba Gump Shrimp Co. no Píer</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-pizza-slice"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Pizzeria Mozza ou Third Street Promenade</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 12/07 -->
+        <div class="day-card" data-category="theme-park" data-date="2026-07-12">
+            <div class="day-header">
+                <div class="day-date">12/07/2026 — Domingo</div>
+                <div class="badges-container"></div>
+            </div>
+            <div class="phrase">"O parque clássico da Disney repleto de magia e atrações nostálgicas para toda a família."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Disneyland Park (Anaheim).</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-drumstick-bite"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Plaza Inn (Dentro do parque)</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-pepper-hot"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Rancho del Zocalo Restaurante</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 13/07 -->
+        <div class="day-card" data-category="theme-park" data-date="2026-07-13">
+            <div class="day-header">
+                <div class="day-date">13/07/2026 — Segunda-feira</div>
+                <div class="badges-container"></div>
+            </div>
+            <div class="phrase">"Parque focado nas aventuras da Pixar, incluindo a incrível área de Carros e a Avengers Campus."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-car"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Disney California Adventure (Anaheim).</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-burger"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Flo's V8 Cafe (Área dos Carros)</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-wine-glass"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Wine Country Trattoria ou Lamplight Lounge</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 14/07 -->
+        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-14">
+            <div class="day-header">
+                <div class="day-date">14/07/2026 — Terça-feira</div>
+                <div class="badges-container"></div>
+            </div>
+            <div class="phrase">"Caminhada pelas ruas mais famosas do cinema e o glamour das lojas de Beverly Hills."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-clapperboard"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Calçada da Fama, Teatro Chinês, Letreiro de Hollywood e Rodeo Drive.</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-hotdog"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Hard Rock Cafe Hollywood</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-cake-candles"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>The Cheesecake Factory em Beverly Hills</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 15/07 -->
+        <div class="day-card" data-category="theme-park" data-date="2026-07-15">
+            <div class="day-header">
+                <div class="day-date">15/07/2026 — Quarta-feira</div>
+                <div class="badges-container"></div>
+            </div>
+            <div class="phrase">"Parque temático dentro de um estúdio de cinema real, com destaque para o Super Nintendo World."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-film"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Universal Studios Hollywood.</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-beer-card"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Three Broomsticks (Área do Harry Potter)</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-ice-cream"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Restaurantes do Universal CityWalk</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 16/07 (Prioritário) -->
+        <div class="day-card priority" data-category="priority" data-date="2026-07-16">
+            <div class="day-header">
+                <div class="day-date">16/07/2026 — Quinta-feira</div>
+                <div class="badges-container">
+                    <span class="badge badge-priority"><i class="fa-solid fa-star"></i> Ciência</span>
+                </div>
+            </div>
+            <div class="phrase">"Museu incrível focado em ciência onde veremos de perto um ônibus espacial real que foi ao espaço."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-shuttle-space"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>California Science Center (Exposição do Ônibus Espacial Endeavour).</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-bowl-food"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Praça de alimentação do museu / USC</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-pasta"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Olive Garden</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 17/07 (Prioritário) -->
+        <div class="day-card priority" data-category="priority" data-date="2026-07-17">
+            <div class="day-header">
+                <div class="day-date">17/07/2026 — Sexta-feira</div>
+                <div class="badges-container">
+                    <span class="badge badge-priority"><i class="fa-solid fa-star"></i> Dinossauros</span>
+                </div>
+            </div>
+            <div class="phrase">"Dia de ver esqueletos gigantes de dinossauros e os poços de piche onde fósseis reais são escavados."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-bone"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Natural History Museum (Manhã) e La Brea Tar Pits (Tarde).</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-truck"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Próximo ao Exposition Park / Food Trucks</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-basket-shopping"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>The Grove / Original Farmers Market</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 18/07 -->
+        <div class="day-card" data-category="priority" data-date="2026-07-18">
+            <div class="day-header">
+                <div class="day-date">18/07/2026 — Sábado</div>
+                <div class="badges-container"></div>
+            </div>
+            <div class="phrase">"Visita ao observatório icônico para ver os telescópios e uma vista panorâmica deslumbrante de Los Angeles."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-user-astronaut"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Griffith Observatory e parque ao redor.</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-burger"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Shake Shack</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-box"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Panda Express ou lanche no observatório</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 19/07 (Prioritário) -->
+        <div class="day-card priority" data-category="priority" data-date="2026-07-19">
+            <div class="day-header">
+                <div class="day-date">19/07/2026 — Domingo</div>
+                <div class="badges-container">
+                    <span class="badge badge-priority"><i class="fa-solid fa-star"></i> Marinho</span>
+                </div>
+            </div>
+            <div class="phrase">"Um dos maiores aquários do país, perfeito para ver tubarões, pinguins e a fauna do Oceano Pacífico."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-fish-fins"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Aquarium of the Pacific (Long Beach).</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-anchor"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Gladstones Long Beach ou na marina</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-shrimp"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Bubba Gump Shrimp Co. (Long Beach)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 20/07 -->
+        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-20">
+            <div class="day-header">
+                <div class="day-date">20/07/2026 — Segunda-feira</div>
+                <div class="badges-container"></div>
+            </div>
+            <div class="phrase">"Dia inteiramente reservado para aproveitar os melhores descontos em roupas, tênis e eletrônicos."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-tags"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Citadel Outlets.</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-pizza-slice"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Praça de alimentação do Outlet</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-shrimp"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Red Lobster</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 21/07 -->
+        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-21">
+            <div class="day-header">
+                <div class="day-date">21/07/2026 — Terça-feira</div>
+                <div class="badges-container"></div>
+            </div>
+            <div class="phrase">"Um dia tranquilo para garantir as últimas lembranças e arrumar as malas."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Visita a lojas de eletrônicos (Best Buy) e mercados (Target/Walmart).</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-burger"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Fast food local (Wendy's ou Taco Bell)</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-coffee"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Jantar de despedida no Denny's</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dia 22/07 -->
+        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-22">
+            <div class="day-header">
+                <div class="day-date">22/07/2026 — Quarta-feira</div>
+                <div class="badges-container"></div>
+            </div>
+            <div class="phrase">"Momento de embarcar de volta para casa com as malas cheias e memórias inesquecíveis."</div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-plane-departure"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Deslocamento para o aeroporto (LAX) e devolução do carro.</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-plane"></i></div>
+                    <div class="detail-content"><strong>Almoço</strong>Aeroporto</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-moon"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Serviço de bordo do voo</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <p>Roteiro desenvolvido para Diogo, Michelly, Lívia e Edilene</p>
+    <p><small>© 2026 Assistente Pessoal de Viagem. Todos os direitos reservados.</small></p>
+</footer>
+
+<script>
+    // Inicialização de Dados Contextuais (Focado no período do passeio)
+    const tripStartDate = new Date("2026-07-09T10:00:00");
+    const tripEndDate = new Date("2026-07-22T23:59:59");
+    
+    // Forçamos a simulação do dia atual conforme o contexto fornecido pelo usuário (02/06/2026)
+    const mockToday = new Date("2026-06-02T11:11:47");
+
+    function updateDashboard() {
+        // Mostra o dia simulado atual no painel
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('currentDate').innerText = mockToday.toLocaleDateString('pt-BR', options);
+
+        // Calcula a contagem decrescente para a viagem
+        const diffTime = tripStartDate - mockToday;
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+        const countdownEl = document.getElementById('countdown');
+        if (diffDays > 0) {
+            countdownEl.innerText = `Faltam ${diffDays} dias! ✈️`;
+        } else if (mockToday >= tripStartDate && mockToday <= tripEndDate) {
+            countdownEl.innerText = "A viagem começou! 🎉";
+            highlightTodayCard(mockToday);
+        } else {
+            countdownEl.innerText = "Viagem Concluída! 💙";
+        }
+    }
+
+    // Função que destaca dinamicamente o card de passeio do dia atual caso esteja na data do evento
+    function highlightTodayCard(currentDate) {
+        const formattedDateString = currentDate.toISOString().split('T')[0];
+        const cards = document.querySelectorAll('.day-card');
+        
+        cards.forEach(card => {
+            if (card.getAttribute('data-date') === formattedDateString) {
+                card.classList.add('today');
+                
+                // Adiciona badge de "Acontecendo hoje"
+                const badgeContainer = card.querySelector('.badges-container');
+                const todayBadge = document.createElement('span');
+                todayBadge.className = 'badge badge-today';
+                todayBadge.innerHTML = '<i class="fa-solid fa-clock"></i> HOJE';
+                badgeContainer.appendChild(todayBadge);
+                
+                // Faz scroll suave até o card correspondente ao dia de hoje
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        });
+    }
+
+    // Toggle de Tema Claro / Escuro com CSS Variables
+    function toggleTheme() {
+        const html = document.documentElement;
+        const themeBtn = document.getElementById('themeBtn');
+        const currentTheme = html.getAttribute('data-theme');
+        
+        if (currentTheme === 'light') {
+            html.setAttribute('data-theme', 'dark');
+            themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i> Modo Claro';
+        } else {
+            html.setAttribute('data-theme', 'light');
+            themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i> Modo Escuro';
+        }
+    }
+
+    // Filtragem de Categorias
+    function filterCategory(category, button) {
+        // Atualiza botões ativos
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        // Filtra os cards
+        const cards = document.querySelectorAll('.day-card');
+        cards.forEach(card => {
+            if (category === 'all') {
+                card.style.display = 'block';
+            } else if (category === 'priority') {
+                // Filtra apenas os dias prioritários de ciência e educação
+                if (card.classList.contains('priority')) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            } else {
+                // Filtra por categoria de dados
+                if (card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            }
+        });
+    }
+
+    // Inicia funções dinâmicas
+    window.onload = function() {
+        updateDashboard();
+    };
+</script>
+
+</body>
+</html>
