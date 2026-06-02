@@ -7,12 +7,14 @@
     <!-- Fontes Modernas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Icones FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        /* Variáveis de Tema */
+        /* ==========================================================================
+           VARIÁVEIS DE TEMA (SUPORTE A MODO CLARO E ESCURO)
+           ========================================================================== */
         :root {
             --bg-body: #f8fafc;
             --bg-card: #ffffff;
@@ -28,6 +30,8 @@
             --accent-border: #4ade80;
             --accent-text: #166534;
             --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --calendar-active: #dbeafe;
+            --calendar-active-text: #1e40af;
         }
 
         [data-theme="dark"] {
@@ -45,11 +49,13 @@
             --accent-border: #059669;
             --accent-text: #ecfdf5;
             --shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3);
+            --calendar-active: #1e3a8a;
+            --calendar-active-text: #60a5fa;
         }
 
         * {
             box-sizing: border-box;
-            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
         }
 
         body {
@@ -57,7 +63,7 @@
             background-color: var(--bg-body);
             color: var(--text-primary);
             margin: 0;
-            padding: 20px 10px;
+            padding: 20px 12px;
         }
 
         .container {
@@ -65,24 +71,27 @@
             margin: 0 auto;
         }
 
-        /* Header e Controles */
+        /* ==========================================================================
+           HEADER E CONTROLE DE TEMA
+           ========================================================================== */
         header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 24px;
             position: relative;
         }
 
         .theme-toggle {
             position: absolute;
-            right: 10px;
+            right: 0;
             top: 0;
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            padding: 10px 15px;
+            padding: 8px 16px;
             border-radius: 99px;
             cursor: pointer;
             color: var(--text-primary);
             font-weight: 600;
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -95,80 +104,176 @@
 
         h1 {
             color: var(--primary-color);
-            margin: 10px 0;
-            font-size: 2.2rem;
-            font-weight: 700;
+            margin: 10px 0 4px;
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         .sub-header {
             color: var(--text-secondary);
-            font-size: 1.1rem;
-            margin-bottom: 20px;
+            font-size: 1rem;
+            margin-bottom: 24px;
         }
 
-        /* Widgets Inteligentes */
+        /* ==========================================================================
+           WIDGETS DE INFORMAÇÃO RÁPIDA
+           ========================================================================== */
         .dashboard-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+            margin-bottom: 24px;
         }
 
         .widget {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            padding: 20px;
+            padding: 16px;
             border-radius: 12px;
             box-shadow: var(--shadow);
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
 
         .widget-icon {
             background: var(--primary-color);
             color: #fff;
-            width: 50px;
-            height: 50px;
+            width: 44px;
+            height: 44px;
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
         }
 
         .widget-data h3 {
             margin: 0;
-            font-size: 0.9rem;
+            font-size: 0.75rem;
             color: var(--text-secondary);
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .widget-data p {
-            margin: 5px 0 0;
-            font-size: 1.3rem;
+            margin: 2px 0 0;
+            font-size: 1.15rem;
             font-weight: 700;
         }
 
-        /* Menu de Filtros */
-        .filters {
+        /* ==========================================================================
+           WIDGET DO MINICALENDÁRIO (GRID TOTALMENTE VISÍVEL EM MOBILE)
+           ========================================================================== */
+        .calendar-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .calendar-section h3 {
+            margin: 0 0 16px 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             display: flex;
-            gap: 10px;
-            margin-bottom: 25px;
-            overflow-x: auto;
-            padding-bottom: 10px;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Grid de 7 colunas (semana completa) que evita rolagem */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+        }
+
+        .calendar-day-btn {
+            background: var(--bg-body);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 8px 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+        }
+
+        .calendar-day-btn:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .calendar-day-btn .cal-num {
+            font-size: 1.1rem;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .calendar-day-btn .cal-month {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-top: 1px;
+        }
+
+        .calendar-day-btn .cal-icon {
+            font-size: 0.8rem;
+            margin-top: 4px;
+            color: var(--primary-color);
+        }
+
+        /* Status ativo do calendário */
+        .calendar-day-btn.active {
+            background: var(--calendar-active);
+            border-color: var(--primary-color);
+            color: var(--calendar-active-text);
+        }
+
+        .calendar-day-btn.active .cal-month,
+        .calendar-day-btn.active .cal-icon {
+            color: var(--calendar-active-text);
+        }
+
+        /* ==========================================================================
+           MENU DE FILTROS (GRID ORGANIZADO PARA MOBILE)
+           ========================================================================== */
+        .filters-section {
+            margin-bottom: 24px;
+        }
+
+        .filters {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 colunas em telas maiores */
+            gap: 8px;
         }
 
         .filter-btn {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             color: var(--text-primary);
-            padding: 10px 20px;
+            padding: 10px 12px;
             border-radius: 99px;
             cursor: pointer;
             font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            box-shadow: var(--shadow);
             white-space: nowrap;
+            width: 100%;
         }
 
         .filter-btn.active, .filter-btn:hover {
@@ -177,19 +282,30 @@
             border-color: var(--primary-color);
         }
 
-        /* Cards do Roteiro */
+        .filter-btn.active i {
+            color: #fff;
+        }
+
+        .filter-btn i {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* ==========================================================================
+           CARDS DO ROTEIRO E DETALHES
+           ========================================================================== */
         .day-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 20px;
+            padding: 20px;
+            margin-bottom: 16px;
             box-shadow: var(--shadow);
             position: relative;
             overflow: hidden;
+            scroll-margin-top: 20px;
         }
 
-        /* Destaques Especiais */
         .day-card.priority {
             border-left: 6px solid var(--priority-border);
         }
@@ -201,8 +317,19 @@
 
         @keyframes pulse-border {
             0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
+            70% { box-shadow: 0 0 0 8px rgba(37, 99, 235, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+        }
+
+        /* Efeito de destaque ao clicar no calendário */
+        .day-card.glow-active {
+            animation: glow-pulse 1.2s ease-out;
+        }
+
+        @keyframes glow-pulse {
+            0% { box-shadow: 0 0 0 0px rgba(37, 99, 235, 0.7); transform: scale(1); }
+            50% { box-shadow: 0 0 15px 3px rgba(37, 99, 235, 0.4); transform: scale(1.01); }
+            100% { box-shadow: var(--shadow); transform: scale(1); }
         }
 
         .day-header {
@@ -210,27 +337,30 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 15px;
+            gap: 8px;
+            margin-bottom: 12px;
         }
 
         .day-date {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--primary-color);
         }
 
         .badges-container {
             display: flex;
-            gap: 8px;
+            gap: 6px;
         }
 
         .badge {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 700;
-            padding: 4px 10px;
+            padding: 3px 8px;
             border-radius: 6px;
             text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
         }
 
         .badge-priority {
@@ -248,57 +378,96 @@
             background: var(--bg-body);
             color: var(--text-secondary);
             font-style: italic;
-            padding: 12px 16px;
+            padding: 10px 14px;
             border-radius: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
             border-left: 3px solid var(--border-color);
         }
 
         .details-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
         }
 
         .detail-item {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             align-items: flex-start;
         }
 
         .detail-icon {
             color: var(--primary-color);
-            font-size: 1.1rem;
-            margin-top: 3px;
+            font-size: 1rem;
+            margin-top: 2px;
         }
 
         .detail-content strong {
             display: block;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--text-secondary);
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .detail-content span {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-primary);
         }
 
-        /* Footer */
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
         footer {
             text-align: center;
-            margin-top: 50px;
+            margin-top: 40px;
             padding: 20px;
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             border-top: 1px solid var(--border-color);
         }
 
+        /* ==========================================================================
+           MEDIA QUERIES (OTIMIZAÇÃO MOBILE EXTREMA)
+           ========================================================================== */
         @media (max-width: 600px) {
-            h1 { font-size: 1.8rem; }
-            .theme-toggle { position: static; margin: 10px auto; width: fit-content; }
+            h1 { font-size: 1.6rem; }
+            .theme-toggle { position: static; margin: 0 auto 12px; width: fit-content; }
             .day-header { flex-direction: column; align-items: flex-start; }
+            .dashboard-grid { grid-template-columns: 1fr; }
+            body { padding: 12px 8px; }
+            .day-card { padding: 16px; }
+
+            /* 2x2 Grid para filtros no mobile para evitar desalinhamento */
+            .filters {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+
+            /* Ajustes no calendário 7 colunas para ecrãs pequenos */
+            .calendar-grid {
+                gap: 4px;
+            }
+
+            .calendar-day-btn {
+                padding: 6px 2px;
+                border-radius: 6px;
+            }
+
+            .calendar-day-btn .cal-num {
+                font-size: 0.95rem;
+            }
+
+            /* Ocultar mês Jul no mobile para priorizar espaço vertical */
+            .calendar-day-btn .cal-month {
+                display: none;
+            }
+
+            .calendar-day-btn .cal-icon {
+                font-size: 0.7rem;
+                margin-top: 2px;
+            }
         }
     </style>
 </head>
@@ -325,57 +494,144 @@
         <div class="widget">
             <div class="widget-icon" style="background-color: #10b981;"><i class="fa-solid fa-calendar-day"></i></div>
             <div class="widget-data">
-                <h3>Hoje é dia</h3>
+                <h3>Hoje é dia (Simulado)</h3>
                 <p id="currentDate">Carregando...</p>
             </div>
         </div>
     </div>
 
-    <!-- Filtros de Categorias -->
-    <div class="filters">
-        <button class="filter-btn active" onclick="filterCategory('all', this)">Todos os Dias</button>
-        <button class="filter-btn" onclick="filterCategory('priority', this)">Museus & Ciência</button>
-        <button class="filter-btn" onclick="filterCategory('theme-park', this)">Parques Temáticos</button>
-        <button class="filter-btn" onclick="filterCategory('shopping-tourism', this)">Turismo & Compras</button>
+    <!-- Minicalendário de Navegação Inteligente (Grid 7 colunas por 2 linhas) -->
+    <div class="calendar-section">
+        <h3><i class="fa-solid fa-calendar-alt"></i> Atalhos Rápidos por Dia</h3>
+        <div class="calendar-grid" id="calendarGrid">
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-09')">
+                <span class="cal-num">09</span>
+                <span class="cal-month">Jul</span>
+                <span class="cal-icon"><i class="fa-solid fa-plane"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-10')">
+                <span class="cal-num">10</span>
+                <span class="cal-month">Jul</span>
+                <span class="cal-icon"><i class="fa-solid fa-cart-shopping"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-11')">
+                <span class="cal-num">11</span>
+                <span class="cal-month">Jul</span>
+                <span class="cal-icon"><i class="fa-solid fa-umbrella-beach"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-12')">
+                <span class="cal-num">12</span>
+                <span class="cal-month">Jul</span>
+                <span class="cal-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-13')">
+                <span class="cal-num">13</span>
+                <span class="cal-month">Jul</span>
+                <span class="cal-icon"><i class="fa-solid fa-car"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-14')">
+                <span class="cal-num">14</span>
+                <span class="cal-month">Jul</span>
+                <span class="cal-icon"><i class="fa-solid fa-clapperboard"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-15')">
+                <span class="cal-num">15</span>
+                <span class="cal-month">Jul</span>
+                <span class="cal-icon"><i class="fa-solid fa-film"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-16')">
+                <span class="cal-num">16</span>
+                <span class="cal-month">Jul</span>
+                <span class="cal-icon"><i class="fa-solid fa-shuttle-space"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-17')">
+                <span class="cal-num">17</span>
+                <span class="cal-month">Jul</span>
+                <span class="cal-icon"><i class="fa-solid fa-bone"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-18')">
+                <span class="cal-num">18</span>
+                <span class="cal-month">Jul</span>
+                <span class="cal-icon"><i class="fa-solid fa-user-astronaut"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-19')">
+                <span class="cal-num">19</span>
+                <span class="cal-month">Jul</span>
+                <span class="cal-icon"><i class="fa-solid fa-fish-fins"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-20')">
+                <span class="cal-num">20</span>
+                <span class="cal-month">Jul</span>
+                <span class="cal-icon"><i class="fa-solid fa-tags"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-21')">
+                <span class="cal-num">21</span>
+                <span class="cal-month">Jul</span>
+                <span class="cal-icon"><i class="fa-solid fa-mobile-screen"></i></span>
+            </button>
+            <button class="calendar-day-btn" onclick="scrollToDay('2026-07-22')">
+                <span class="cal-num">22</span>
+                <span class="cal-month">Jul</span>
+                <span class="cal-icon"><i class="fa-solid fa-plane-departure"></i></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Filtros de Categorias (Layout Grid Responsivo) -->
+    <div class="filters-section">
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterCategory('all', this)">
+                <i class="fa-solid fa-globe"></i> Todos
+            </button>
+            <button class="filter-btn" onclick="filterCategory('priority', this)">
+                <i class="fa-solid fa-star"></i> Prioridades
+            </button>
+            <button class="filter-btn" onclick="filterCategory('theme-park', this)">
+                <i class="fa-solid fa-ticket"></i> Parques
+            </button>
+            <button class="filter-btn" onclick="filterCategory('shopping-tourism', this)">
+                <i class="fa-solid fa-bag-shopping"></i> Compras
+            </button>
+        </div>
     </div>
 
     <!-- Lista de Dias do Roteiro -->
     <div id="itinerary">
 
         <!-- Dia 09/07 -->
-        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-09">
+        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-09" id="day-2026-07-09">
             <div class="day-header">
                 <div class="day-date">09/07/2026 — Quinta-feira</div>
                 <div class="badges-container"></div>
             </div>
-            <div class="phrase">"Dia dedicado ao deslocamento e descanso da longa viagem."</div>
+            <div class="phrase">"Dia dedicado ao deslocamento e descanso da longa viagem de chegada."</div>
             <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-plane-arrival"></i></div>
-                    <div class="detail-content"><strong>Passeio</strong>Voo para Los Angeles e check-in no hotel.</div>
+                    <div class="detail-content"><strong>Passeio</strong>Voo para Los Angeles e check-in na casa da Diana.</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-utensils"></i></div>
                     <div class="detail-content"><strong>Almoço</strong>Serviço de bordo / Aeroporto</div>
                 </div>
                 <div class="detail-item">
-                    <div class="detail-icon"><i class="fa-solid fa-moon"></i></div>
-                    <div class="detail-content"><strong>Jantar</strong>Próximo ao hotel ou serviço de quarto</div>
+                    <div class="detail-icon"><i class="fa-solid fa-house-user"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Descanso e lanche na casa da Diana</div>
                 </div>
             </div>
         </div>
 
         <!-- Dia 10/07 -->
-        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-10">
+        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-10" id="day-2026-07-10">
             <div class="day-header">
                 <div class="day-date">10/07/2026 — Sexta-feira</div>
                 <div class="badges-container"></div>
             </div>
-            <div class="phrase">"Dia de abastecer o carro com lanches, águas e fazer as primeiras compras da viagem."</div>
+            <div class="phrase">"Dia de abastecer o carro com lanches, águas e fazer as primeiras compras essenciais."</div>
             <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-cart-shopping"></i></div>
-                    <div class="detail-content"><strong>Passeio</strong>Visita ao Walmart, Target e Costco.</div>
+                    <div class="detail-content"><strong>Passeio</strong>Visita aos supermercados Walmart, Target e Costco.</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-hamburger"></i></div>
@@ -383,18 +639,18 @@
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-store"></i></div>
-                    <div class="detail-content"><strong>Jantar</strong>In-N-Out Burger</div>
+                    <div class="detail-content"><strong>Jantar</strong>Hambúrguer no famoso In-N-Out Burger</div>
                 </div>
             </div>
         </div>
 
         <!-- Dia 11/07 -->
-        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-11">
+        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-11" id="day-2026-07-11">
             <div class="day-header">
                 <div class="day-date">11/07/2026 — Sábado</div>
                 <div class="badges-container"></div>
             </div>
-            <div class="phrase">"Um dia relaxante para curtir o famoso píer e a vibe praiana da Califórnia."</div>
+            <div class="phrase">"Um dia relaxante para curtir o famoso píer e a vibe praiana clássica da Califórnia."</div>
             <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-umbrella-beach"></i></div>
@@ -412,12 +668,12 @@
         </div>
 
         <!-- Dia 12/07 -->
-        <div class="day-card" data-category="theme-park" data-date="2026-07-12">
+        <div class="day-card" data-category="theme-park" data-date="2026-07-12" id="day-2026-07-12">
             <div class="day-header">
                 <div class="day-date">12/07/2026 — Domingo</div>
                 <div class="badges-container"></div>
             </div>
-            <div class="phrase">"O parque clássico da Disney repleto de magia e atrações nostálgicas para toda a família."</div>
+            <div class="phrase">"O parque clássico da Disney repleto de magia e atrações icônicas para toda a família."</div>
             <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
@@ -435,12 +691,12 @@
         </div>
 
         <!-- Dia 13/07 -->
-        <div class="day-card" data-category="theme-park" data-date="2026-07-13">
+        <div class="day-card" data-category="theme-park" data-date="2026-07-13" id="day-2026-07-13">
             <div class="day-header">
                 <div class="day-date">13/07/2026 — Segunda-feira</div>
                 <div class="badges-container"></div>
             </div>
-            <div class="phrase">"Parque focado nas aventuras da Pixar, incluindo a incrível área de Carros e a Avengers Campus."</div>
+            <div class="phrase">"Parque focado nas aventuras da Pixar, incluindo a incrível área de Carros e o Avengers Campus."</div>
             <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-car"></i></div>
@@ -458,12 +714,12 @@
         </div>
 
         <!-- Dia 14/07 -->
-        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-14">
+        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-14" id="day-2026-07-14">
             <div class="day-header">
                 <div class="day-date">14/07/2026 — Terça-feira</div>
                 <div class="badges-container"></div>
             </div>
-            <div class="phrase">"Caminhada pelas ruas mais famosas do cinema e o glamour das lojas de Beverly Hills."</div>
+            <div class="phrase">"Caminhada pelas ruas mais famosas do cinema e o glamour das vitrines de Beverly Hills."</div>
             <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-clapperboard"></i></div>
@@ -481,7 +737,7 @@
         </div>
 
         <!-- Dia 15/07 -->
-        <div class="day-card" data-category="theme-park" data-date="2026-07-15">
+        <div class="day-card" data-category="theme-park" data-date="2026-07-15" id="day-2026-07-15">
             <div class="day-header">
                 <div class="day-date">15/07/2026 — Quarta-feira</div>
                 <div class="badges-container"></div>
@@ -504,14 +760,14 @@
         </div>
 
         <!-- Dia 16/07 (Prioritário) -->
-        <div class="day-card priority" data-category="priority" data-date="2026-07-16">
+        <div class="day-card priority" data-category="priority" data-date="2026-07-16" id="day-2026-07-16">
             <div class="day-header">
                 <div class="day-date">16/07/2026 — Quinta-feira</div>
                 <div class="badges-container">
-                    <span class="badge badge-priority"><i class="fa-solid fa-star"></i> Ciência</span>
+                    <span class="badge badge-priority"><i class="fa-solid fa-user-astronaut"></i> Ciência</span>
                 </div>
             </div>
-            <div class="phrase">"Museu incrível focado em ciência onde veremos de perto um ônibus espacial real que foi ao espaço."</div>
+            <div class="phrase">"Museu focado em ciência e exploração onde veremos de perto o ônibus espacial Endeavour de verdade."</div>
             <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-shuttle-space"></i></div>
@@ -519,7 +775,7 @@
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-bowl-food"></i></div>
-                    <div class="detail-content"><strong>Almoço</strong>Praça de alimentação do museu / USC</div>
+                    <div class="detail-content"><strong>Almoço</strong>Praça de alimentação do museum / USC</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-pasta"></i></div>
@@ -529,14 +785,14 @@
         </div>
 
         <!-- Dia 17/07 (Prioritário) -->
-        <div class="day-card priority" data-category="priority" data-date="2026-07-17">
+        <div class="day-card priority" data-category="priority" data-date="2026-07-17" id="day-2026-07-17">
             <div class="day-header">
                 <div class="day-date">17/07/2026 — Sexta-feira</div>
                 <div class="badges-container">
-                    <span class="badge badge-priority"><i class="fa-solid fa-star"></i> Dinossauros</span>
+                    <span class="badge badge-priority"><i class="fa-solid fa-dragon"></i> Fósseis</span>
                 </div>
             </div>
-            <div class="phrase">"Dia de ver esqueletos gigantes de dinossauros e os poços de piche onde fósseis reais são escavados."</div>
+            <div class="phrase">"Dia de ver fósseis reais e os poços ativos de piche de onde mamutes foram escavados."</div>
             <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-bone"></i></div>
@@ -554,16 +810,16 @@
         </div>
 
         <!-- Dia 18/07 -->
-        <div class="day-card" data-category="priority" data-date="2026-07-18">
+        <div class="day-card" data-category="priority" data-date="2026-07-18" id="day-2026-07-18">
             <div class="day-header">
                 <div class="day-date">18/07/2026 — Sábado</div>
                 <div class="badges-container"></div>
             </div>
-            <div class="phrase">"Visita ao observatório icônico para ver os telescópios e uma vista panorâmica deslumbrante de Los Angeles."</div>
+            <div class="phrase">"Visita ao observatório icônico para observar telescópios e curtir o pôr do sol de Los Angeles."</div>
             <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-user-astronaut"></i></div>
-                    <div class="detail-content"><strong>Passeio</strong>Griffith Observatory e parque ao redor.</div>
+                    <div class="detail-content"><strong>Passeio</strong>Griffith Observatory e letreiro de Hollywood de perto.</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-burger"></i></div>
@@ -571,20 +827,20 @@
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-box"></i></div>
-                    <div class="detail-content"><strong>Jantar</strong>Panda Express ou lanche no observatório</div>
+                    <div class="detail-content"><strong>Jantar</strong>Lanche rápido no próprio observatório ou arredores</div>
                 </div>
             </div>
         </div>
 
         <!-- Dia 19/07 (Prioritário) -->
-        <div class="day-card priority" data-category="priority" data-date="2026-07-19">
+        <div class="day-card priority" data-category="priority" data-date="2026-07-19" id="day-2026-07-19">
             <div class="day-header">
                 <div class="day-date">19/07/2026 — Domingo</div>
                 <div class="badges-container">
-                    <span class="badge badge-priority"><i class="fa-solid fa-star"></i> Marinho</span>
+                    <span class="badge badge-priority"><i class="fa-solid fa-fish"></i> Aquário</span>
                 </div>
             </div>
-            <div class="phrase">"Um dos maiores aquários do país, perfeito para ver tubarões, pinguins e a fauna do Oceano Pacífico."</div>
+            <div class="phrase">"Um dos maiores aquários americanos, ideal para ver tubarões, pinguins e florestas de kelp."</div>
             <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-fish-fins"></i></div>
@@ -592,26 +848,26 @@
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-anchor"></i></div>
-                    <div class="detail-content"><strong>Almoço</strong>Gladstones Long Beach ou na marina</div>
+                    <div class="detail-content"><strong>Almoço</strong>Restaurante na marina de Long Beach</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-shrimp"></i></div>
-                    <div class="detail-content"><strong>Jantar</strong>Bubba Gump Shrimp Co. (Long Beach)</div>
+                    <div class="detail-content"><strong>Jantar</strong>Bubba Gump Shrimp Co. em Long Beach</div>
                 </div>
             </div>
         </div>
 
         <!-- Dia 20/07 -->
-        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-20">
+        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-20" id="day-2026-07-20">
             <div class="day-header">
                 <div class="day-date">20/07/2026 — Segunda-feira</div>
                 <div class="badges-container"></div>
             </div>
-            <div class="phrase">"Dia inteiramente reservado para aproveitar os melhores descontos em roupas, tênis e eletrônicos."</div>
+            <div class="phrase">"Dia focado no compras das melhores marcas americanas com excelentes descontos."</div>
             <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-tags"></i></div>
-                    <div class="detail-content"><strong>Passeio</strong>Citadel Outlets.</div>
+                    <div class="detail-content"><strong>Passeio</strong>Dia inteiro de compras no Citadel Outlets.</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-pizza-slice"></i></div>
@@ -625,35 +881,35 @@
         </div>
 
         <!-- Dia 21/07 -->
-        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-21">
+        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-21" id="day-2026-07-21">
             <div class="day-header">
                 <div class="day-date">21/07/2026 — Terça-feira</div>
                 <div class="badges-container"></div>
             </div>
-            <div class="phrase">"Um dia tranquilo para garantir as últimas lembranças e arrumar as malas."</div>
+            <div class="phrase">"Dia livre para garantir os últimos eletrônicos e lembranças de última hora."</div>
             <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-mobile-screen"></i></div>
-                    <div class="detail-content"><strong>Passeio</strong>Visita a lojas de eletrônicos (Best Buy) e mercados (Target/Walmart).</div>
+                    <div class="detail-content"><strong>Passeio</strong>Visita à Best Buy (eletrônicos) e mercados finais.</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-burger"></i></div>
-                    <div class="detail-content"><strong>Almoço</strong>Fast food local (Wendy's ou Taco Bell)</div>
+                    <div class="detail-content"><strong>Almoço</strong>Fast food rápido (Wendy's ou similar)</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-coffee"></i></div>
-                    <div class="detail-content"><strong>Jantar</strong>Jantar de despedida no Denny's</div>
+                    <div class="detail-content"><strong>Jantar</strong>Jantar de encerramento no Denny's</div>
                 </div>
             </div>
         </div>
 
         <!-- Dia 22/07 -->
-        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-22">
+        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-22" id="day-2026-07-22">
             <div class="day-header">
                 <div class="day-date">22/07/2026 — Quarta-feira</div>
                 <div class="badges-container"></div>
             </div>
-            <div class="phrase">"Momento de embarcar de volta para casa com as malas cheias e memórias inesquecíveis."</div>
+            <div class="phrase">"Arrumar malas, despedida de Los Angeles e início do retorno para casa."</div>
             <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-plane-departure"></i></div>
@@ -661,11 +917,11 @@
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-plane"></i></div>
-                    <div class="detail-content"><strong>Almoço</strong>Aeroporto</div>
+                    <div class="detail-content"><strong>Almoço</strong>Aeroporto / Lanche rápido</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-moon"></i></div>
-                    <div class="detail-content"><strong>Jantar</strong>Serviço de bordo do voo</div>
+                    <div class="detail-content"><strong>Jantar</strong>Serviço de bordo da aeronave</div>
                 </div>
             </div>
         </div>
@@ -674,24 +930,23 @@
 </div>
 
 <footer>
-    <p>Roteiro desenvolvido para Diogo, Michelly, Lívia e Edilene</p>
     <p><small>© 2026 Assistente Pessoal de Viagem. Todos os direitos reservados.</small></p>
 </footer>
 
 <script>
-    // Inicialização de Dados Contextuais (Focado no período do passeio)
+    // Inicialização de Datas Contextuais (Focado no período real do passeio)
     const tripStartDate = new Date("2026-07-09T10:00:00");
     const tripEndDate = new Date("2026-07-22T23:59:59");
     
-    // Forçamos a simulação do dia atual conforme o contexto fornecido pelo usuário (02/06/2026)
-    const mockToday = new Date("2026-06-02T11:11:47");
+    // Simulação do contexto atual do usuário (02/06/2026)
+    const mockToday = new Date("2026-06-02T11:21:16");
 
     function updateDashboard() {
-        // Mostra o dia simulado atual no painel
+        // Exibe a data de simulação formatada
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         document.getElementById('currentDate').innerText = mockToday.toLocaleDateString('pt-BR', options);
 
-        // Calcula a contagem decrescente para a viagem
+        // Calcula a contagem regressiva para a viagem
         const diffTime = tripStartDate - mockToday;
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
@@ -706,29 +961,74 @@
         }
     }
 
-    // Função que destaca dinamicamente o card de passeio do dia atual caso esteja na data do evento
+    // Função para destacar o dia atual da viagem caso ela esteja acontecendo
     function highlightTodayCard(currentDate) {
         const formattedDateString = currentDate.toISOString().split('T')[0];
-        const cards = document.querySelectorAll('.day-card');
+        const targetCard = document.getElementById(`day-${formattedDateString}`);
         
-        cards.forEach(card => {
-            if (card.getAttribute('data-date') === formattedDateString) {
-                card.classList.add('today');
-                
-                // Adiciona badge de "Acontecendo hoje"
-                const badgeContainer = card.querySelector('.badges-container');
+        if (targetCard) {
+            targetCard.classList.add('today');
+            
+            // Adiciona badge informativa "HOJE"
+            const badgeContainer = targetCard.querySelector('.badges-container');
+            if (badgeContainer && !badgeContainer.querySelector('.badge-today')) {
                 const todayBadge = document.createElement('span');
                 todayBadge.className = 'badge badge-today';
                 todayBadge.innerHTML = '<i class="fa-solid fa-clock"></i> HOJE';
                 badgeContainer.appendChild(todayBadge);
-                
-                // Faz scroll suave até o card correspondente ao dia de hoje
-                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
-        });
+
+            // Adiciona a classe active no respectivo botão do calendário de atalho
+            const calBtns = document.querySelectorAll('.calendar-day-btn');
+            calBtns.forEach(btn => {
+                if (btn.getAttribute('onclick').includes(formattedDateString)) {
+                    btn.classList.add('active');
+                }
+            });
+        }
     }
 
-    // Toggle de Tema Claro / Escuro com CSS Variables
+    // Scroll suave até o dia clicado e aplicação do efeito Glow de foco temporário
+    function scrollToDay(dateString) {
+        const targetId = `day-${dateString}`;
+        const targetCard = document.getElementById(targetId);
+        
+        if (targetCard) {
+            // Se o card estiver atualmente invisível por conta de filtros, reseta filtros primeiro
+            const currentFilter = document.querySelector('.filter-btn.active');
+            if (currentFilter && !currentFilter.getAttribute('onclick').includes('all')) {
+                const cardCategory = targetCard.getAttribute('data-category');
+                const isPriority = targetCard.classList.contains('priority');
+                
+                let isFilteredOut = true;
+                if (currentFilter.getAttribute('onclick').includes('priority') && isPriority) isFilteredOut = false;
+                if (currentFilter.getAttribute('onclick').includes(cardCategory)) isFilteredOut = false;
+
+                if (isFilteredOut) {
+                    filterCategory('all', document.querySelector('.filter-btn'));
+                }
+            }
+
+            // Scroll suave até o elemento
+            targetCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            // Remove glow de outros cards primeiro
+            document.querySelectorAll('.day-card').forEach(card => card.classList.remove('glow-active'));
+
+            // Aplica efeito visual de "Glow"
+            targetCard.classList.add('glow-active');
+
+            // Atualiza o estado ativo no minicalendário visual
+            document.querySelectorAll('.calendar-day-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('onclick').includes(dateString)) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+    }
+
+    // Toggle de Tema Claro / Escuro
     function toggleTheme() {
         const html = document.documentElement;
         const themeBtn = document.getElementById('themeBtn');
@@ -743,7 +1043,7 @@
         }
     }
 
-    // Filtragem de Categorias
+    // Filtragem por Categorias
     function filterCategory(category, button) {
         // Atualiza botões ativos
         document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
@@ -755,14 +1055,12 @@
             if (category === 'all') {
                 card.style.display = 'block';
             } else if (category === 'priority') {
-                // Filtra apenas os dias prioritários de ciência e educação
                 if (card.classList.contains('priority')) {
                     card.style.display = 'block';
                 } else {
                     card.style.display = 'none';
                 }
             } else {
-                // Filtra por categoria de dados
                 if (card.getAttribute('data-category') === category) {
                     card.style.display = 'block';
                 } else {
@@ -772,7 +1070,7 @@
         });
     }
 
-    // Inicia funções dinâmicas
+    // Inicia funções dinâmicas no load da página
     window.onload = function() {
         updateDashboard();
     };
