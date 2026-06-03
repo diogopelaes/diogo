@@ -661,7 +661,7 @@
             <button class="calendar-day-btn" onclick="scrollToDay('2026-07-23')">
                 <span class="cal-num">23</span>
                 
-                <span class="cal-icon"><i class="fa-solid fa-user-astronaut"></i></span>
+                <span class="cal-icon"><i class="fa-solid fa-film"></i></span>
             </button>
             <button class="calendar-day-btn" onclick="scrollToDay('2026-07-24')">
                 <span class="cal-num">24</span>
@@ -694,7 +694,7 @@
                 <ul style="margin: 0; padding-left: 20px; font-size: 0.85rem; line-height: 1.5; color: var(--text-primary);">
                     <li><a href="https://disneyland.disney.go.com/admission/tickets/" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: underline; font-weight: 600;">Disneyland Park</a> (Visita em 14/07)</li>
                     <li><a href="https://disneyland.disney.go.com/admission/tickets/" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: underline; font-weight: 600;">Disney California Adventure</a> (Visita em 16/07)</li>
-                    <li><a href="https://www.universalstudioshollywood.com/web/en/us/tickets-and-packages" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: underline; font-weight: 600;">Universal Studios Hollywood</a> (Visita em 20/07)</li>
+                    <li><a href="https://www.universalstudioshollywood.com/web/en/us/tickets-and-packages" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: underline; font-weight: 600;">Universal Studios Hollywood</a> (2 dias: 20/07 e 23/07)</li>
                 </ul>
             </div>
             <div style="border-left: 4px solid #d97706; padding: 12px; background: color-mix(in srgb, #d97706 6%, var(--bg-card)); border-radius: 0 8px 8px 0;">
@@ -1072,48 +1072,54 @@
             </div>
         </div>
 
-        <!-- Dia 23/07 -->
-        <div class="day-card" data-category="priority" data-date="2026-07-23" id="day-2026-07-23">
+        <!-- Dia 23/07 (Prioritário) -->
+        <div class="day-card priority" data-category="theme-park" data-date="2026-07-23" id="day-2026-07-23">
             <div class="day-header">
                 <div class="day-date">23/07/2026 — Quinta-feira</div>
-                <div class="badges-container"></div>
+                <div class="badges-container">
+                    <span class="badge badge-priority"><i class="fa-solid fa-film"></i> Universal</span>
+                    <a href="https://www.universalstudioshollywood.com/web/en/us/tickets-and-packages" target="_blank" rel="noopener noreferrer" class="badge badge-ticket"><i class="fa-solid fa-ticket"></i> Ingresso</a>
+                </div>
             </div>
-            <div class="phrase">"Visita ao observatório icônico para observar telescópios e curtir o pôr do sol de Los Angeles."</div>
+            <div class="phrase">"Segundo dia na Universal para repetir as atrações favoritas e explorar com mais calma."</div>
             <div class="details-grid">
                 <div class="detail-item">
-                    <div class="detail-icon"><i class="fa-solid fa-user-astronaut"></i></div>
-                    <div class="detail-content"><strong>Passeio</strong>Griffith Observatory <a href="https://www.google.com/maps/search/?api=1&query=Griffith+Observatory" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Griffith Observatory no Google Maps"><i class="fa-solid fa-location-dot"></i></a> e letreiro de Hollywood <a href="https://www.google.com/maps/search/?api=1&query=Hollywood+Sign" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Letreiro de Hollywood no Google Maps"><i class="fa-solid fa-location-dot"></i></a> de perto.</div>
+                    <div class="detail-icon"><i class="fa-solid fa-film"></i></div>
+                    <div class="detail-content"><strong>Passeio</strong>Universal Studios Hollywood (Dia 2) <a href="https://www.google.com/maps/search/?api=1&query=Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Universal Studios no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://www.universalstudioshollywood.com/web/en/us/tickets-and-packages" target="_blank" rel="noopener noreferrer" class="ticket-note" title="Segundo dia de parque!"><i class="fa-solid fa-ticket"></i></a></div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-burger"></i></div>
-                    <div class="detail-content"><strong>Almoço</strong>Shake Shack <a href="https://www.google.com/maps/search/?api=1&query=Shake+Shack+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Shake Shack no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                    <div class="detail-content"><strong>Almoço</strong>Minion Cafe ou Simpsons Lard Lad Donuts <a href="https://www.google.com/maps/search/?api=1&query=Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Universal Studios no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
                 </div>
                 <div class="detail-item">
-                    <div class="detail-icon"><i class="fa-solid fa-box"></i></div>
-                    <div class="detail-content"><strong>Jantar</strong>Lanche rápido no próprio observatório ou arredores</div>
+                    <div class="detail-icon"><i class="fa-solid fa-utensils"></i></div>
+                    <div class="detail-content"><strong>Jantar</strong>Universal CityWalk <a href="https://www.google.com/maps/search/?api=1&query=Universal+CityWalk+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Universal CityWalk no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
                 </div>
             </div>
         </div>
 
-        <!-- Dia 24/07 -->
-        <div class="day-card" data-category="shopping-tourism" data-date="2026-07-24" id="day-2026-07-24">
+        <!-- Dia 24/07 (Prioritário) -->
+        <div class="day-card priority" data-category="priority" data-date="2026-07-24" id="day-2026-07-24">
             <div class="day-header">
                 <div class="day-date">24/07/2026 — Sexta-feira</div>
-                <div class="badges-container"></div>
+                <div class="badges-container">
+                    <span class="badge badge-priority"><i class="fa-solid fa-tags"></i> Compras</span>
+                    <span class="badge badge-priority"><i class="fa-solid fa-user-astronaut"></i> Observatório</span>
+                </div>
             </div>
-            <div class="phrase">"Dia focado no compras das melhores marcas americanas com excelentes descontos."</div>
+            <div class="phrase">"Dia de compras no Citadel Outlets e visita ao Griffith Observatory no fim de tarde para curtir o pôr do sol e telescópios."</div>
             <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-tags"></i></div>
-                    <div class="detail-content"><strong>Passeio</strong>Dia inteiro de compras no Citadel Outlets <a href="https://www.google.com/maps/search/?api=1&query=Citadel+Outlets+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Citadel Outlets no Google Maps"><i class="fa-solid fa-location-dot"></i></a>.</div>
+                    <div class="detail-content"><strong>Manhã/Tarde</strong>Compras no Citadel Outlets <a href="https://www.google.com/maps/search/?api=1&query=Citadel+Outlets+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Citadel Outlets no Google Maps"><i class="fa-solid fa-location-dot"></i></a>.</div>
                 </div>
                 <div class="detail-item">
-                    <div class="detail-icon"><i class="fa-solid fa-pizza-slice"></i></div>
-                    <div class="detail-content"><strong>Almoço</strong>Praça de alimentação do Outlet</div>
+                    <div class="detail-icon"><i class="fa-solid fa-user-astronaut"></i></div>
+                    <div class="detail-content"><strong>Fim de Tarde/Noite</strong>Griffith Observatory <a href="https://www.google.com/maps/search/?api=1&query=Griffith+Observatory" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Griffith Observatory no Google Maps"><i class="fa-solid fa-location-dot"></i></a> e letreiro de Hollywood.</div>
                 </div>
                 <div class="detail-item">
-                    <div class="detail-icon"><i class="fa-solid fa-shrimp"></i></div>
-                    <div class="detail-content"><strong>Jantar</strong>Red Lobster <a href="https://www.google.com/maps/search/?api=1&query=Red+Lobster+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Red Lobster no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                    <div class="detail-icon"><i class="fa-solid fa-utensils"></i></div>
+                    <div class="detail-content"><strong>Almoço/Jantar</strong>Almoço na praça de alimentação do Outlet / Jantar rápido no Observatório ou Red Lobster <a href="https://www.google.com/maps/search/?api=1&query=Red+Lobster+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Red Lobster no Google Maps"><i class="fa-solid fa-location-dot"></i></a>.</div>
                 </div>
             </div>
         </div>
