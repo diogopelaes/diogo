@@ -1184,26 +1184,28 @@
     const tripStartDate = new Date("2026-07-09T10:00:00");
     const tripEndDate = new Date("2026-07-26T23:59:59");
     
-    // Simulação do contexto atual do usuário (02/06/2026)
-    const mockToday = new Date("2026-06-02T11:21:16");
+    // Data atual real do dispositivo do usuário
+    const today = new Date();
+    // Para simular uma data específica durante os testes, descomente a linha abaixo e comente a linha acima:
+    // const today = new Date("2026-06-02T11:21:16");
 
     function updateDashboard() {
-        // Exibe a data de simulação formatada
-        const day = String(mockToday.getDate()).padStart(2, '0');
-        const month = String(mockToday.getMonth() + 1).padStart(2, '0');
-        const year = mockToday.getFullYear();
+        // Exibe a data atual formatada
+        const day = String(today.getDate()).padStart(2, '0');
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const year = today.getFullYear();
         document.getElementById('currentDate').innerText = `${day}/${month}/${year}`;
 
         // Calcula a contagem regressiva para a viagem
-        const diffTime = tripStartDate - mockToday;
+        const diffTime = tripStartDate - today;
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
         const countdownEl = document.getElementById('countdown');
         if (diffDays > 0) {
             countdownEl.innerText = `Faltam ${diffDays} dias! ✈️`;
-        } else if (mockToday >= tripStartDate && mockToday <= tripEndDate) {
+        } else if (today >= tripStartDate && today <= tripEndDate) {
             countdownEl.innerText = "A viagem começou! 🎉";
-            highlightTodayCard(mockToday);
+            highlightTodayCard(today);
         } else {
             countdownEl.innerText = "Viagem Concluída! 💙";
         }
@@ -1211,7 +1213,12 @@
 
     // Função para destacar o dia atual da viagem caso ela esteja acontecendo
     function highlightTodayCard(currentDate) {
-        const formattedDateString = currentDate.toISOString().split('T')[0];
+        // Formata a data no fuso horário local para evitar desvios causados por toISOString()
+        const year = currentDate.getFullYear();
+        const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+        const day = String(currentDate.getDate()).padStart(2, '0');
+        const formattedDateString = `${year}-${month}-${day}`;
+        
         const targetCard = document.getElementById(`day-${formattedDateString}`);
         
         if (targetCard) {
