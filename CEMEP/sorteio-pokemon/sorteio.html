@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorteio | Pokémon</title>
+  <link rel="icon" type="image/svg+xml" href="https://api.iconify.design/material-symbols:casino.svg?color=%23ff6b00">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Iconify Icon -->
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@3.0.2/dist/iconify-icon.min.js"></script>
+
+  <!-- Tailwind (Silenciando aviso de produção) -->
+  <script>
+    const _warn = console.warn;
+    console.warn = (...args) => {
+      if (typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) return;
+      _warn(...args);
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Seu CSS -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="pokemon-arena.css">
+  
+  <!-- Scripts de Estilo e UI -->
+  <script src="style.js"></script>
+  
+  <style>
+    body {
+      overflow: auto;
+      -webkit-overflow-scrolling: touch; /* ← habilita scroll suave em touch screens */
+    }
+
+    .app-layout {
+      display: flex;
+      height: 100vh;
+      width: 100%;
+      padding: 16px;
+      gap: 16px;
+    }
+
+    .sidebar {
+      width: 350px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      height: 100%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .student-list-scroll {
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 8px;
+    }
+
+    /* Scrollbar personalizada para a lista lateral */
+    .student-list-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+    .student-list-scroll::-webkit-scrollbar-thumb {
+      background: hsla(20, 90%, 50%, 0.2);
+      border-radius: 10px;
+    }
+
+    .student-item-sidebar {
+      background: hsla(0, 0%, 100%, 0.02);
+      border: 1px solid hsla(0, 0%, 100%, 0.05);
+      padding: 10px 14px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .student-item-sidebar:hover {
+      background: hsla(20, 90%, 50%, 0.05);
+      border-color: hsla(20, 90%, 50%, 0.2);
+      transform: translateX(4px);
+    }
+
+    .student-item-sidebar.drawn {
+      background: hsla(140, 70%, 50%, 0.05);
+      border-color: hsla(140, 70%, 50%, 0.2);
+    }
+
+    .status-icon {
+      font-size: 18px;
+      color: hsla(0, 0%, 100%, 0.2);
+    }
+
+    .drawn .status-icon {
+      color: #10b981; /* Emerald-500 */
+    }
+
+    /* Animação para a área principal */
+    .raffle-display-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: clamp(12px, 3vh, 40px);
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .app-layout {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
+        padding: 8px;
+        gap: 12px;
+      }
+
+      .sidebar {
+        width: 100%;
+        height: auto;
+        max-height: 380px;
+        flex-shrink: 0;
+      }
+
+      .main-content {
+        width: 100%;
+        height: auto;
+        min-height: 520px;
+        overflow: visible;
+      }
+    }
+
+    .big-name-display {
+      font-size: 5rem;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      color: white;
+      text-shadow: 0 0 30px rgba(255, 107, 0, 0.3);
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-gray-200">
+
+  <div class="app-layout">
+    
+    <!-- Menu Lateral (Sidebar) -->
+    <aside class="sidebar glass-card p-6">
+      
+      <header class="space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="p-2 bg-orange-600/20 rounded-lg">
+            <iconify-icon icon="material-symbols:dashboard" class="text-orange-500 text-xl"></iconify-icon>
+          </div>
+          <div>
+            <h2 id="raffleHeaderTitle" class="text-xl font-bold text-white leading-tight">Sorteio CEMEP</h2>
+            <p class="text-[11px] text-gray-500 uppercase tracking-widest font-bold">Painel de Controle</p>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <label class="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-2">Selecionar Turma</label>
+          <div id="turmaSelectContainer"></div>
+        </div>
+      </header>
+
+      <div class="flex-1 flex flex-col overflow-hidden pt-4 border-t border-white/5">
+        <div class="flex justify-between items-center mb-4">
+          <span class="text-[11px] font-bold text-gray-400 uppercase tracking-widest">Estudantes</span>
+          <span id="studentCount" class="text-xs font-bold px-3 py-1 bg-white/5 text-gray-500 rounded-full">0/0</span>
+        </div>
+
+        <div id="studentList" class="student-list-scroll">
+          <!-- Lista de estudantes injetada aqui -->
+          <div class="text-center py-10 text-gray-600 text-sm italic">
+            Selecione uma turma para carregar os alunos...
+          </div>
+        </div>
+      </div>
+
+      <footer class="pt-4 border-t border-white/5 flex gap-2">
+        <button id="saveJsonBtn" class="btn-secondary flex-1 !text-[10px] !py-2 !px-2">
+          <iconify-icon icon="material-symbols:download" class="text-base"></iconify-icon>
+          Salvar JSON
+        </button>
+      </footer>
+
+    </aside>
+
+    <!-- Área Principal -->
+    <main class="main-content glass-card">
+      
+      <div class="raffle-display-area">
+        <div id="emptyState" class="space-y-4">
+          <iconify-icon icon="material-symbols:casino" class="text-6xl text-gray-700"></iconify-icon>
+          <p class="text-gray-500 max-w-sm mx-auto">
+            Escolha uma turma ao lado e clique no botão para iniciar o sorteio de um aluno.
+          </p>
+        </div>
+
+        <div id="raffleResult" class="hidden w-full max-w-xl mx-auto space-y-4">
+          <!-- Arena de captura -->
+          <div class="arena-stack">
+            <div class="arena-targets" id="arena-targets">
+              <div class="targets-label" id="throw-target">Zona dos Pokémon — arremesse aqui!</div>
+              <div class="pokemon-slots" id="pokemon-slots" aria-live="polite">
+                <div class="slot" data-slot="0">
+                  <div class="slot-sprite-wrap">
+                    <img class="slot-sprite" src="" alt="" width="72" height="72" />
+                  </div>
+                  <p class="slot-name">—</p>
+                </div>
+                <div class="slot" data-slot="1">
+                  <div class="slot-sprite-wrap">
+                    <img class="slot-sprite" src="" alt="" width="72" height="72" />
+                  </div>
+                  <p class="slot-name">—</p>
+                </div>
+                <div class="slot" data-slot="2">
+                  <div class="slot-sprite-wrap">
+                    <img class="slot-sprite" src="" alt="" width="72" height="72" />
+                  </div>
+                  <p class="slot-name">—</p>
+                </div>
+              </div>
+            </div>
+            <!-- Texto de Dica (Lado de fora do campo) -->
+            <p class="external-hint" id="pokeball-hint">Segure a Pokébola e chacoalhe no campo</p>
+
+            <div class="throw-field" id="throw-field">
+              <div class="field-scene" aria-hidden="true">
+                <div class="scene-sky"></div>
+                <div class="scene-sun"></div>
+                <div class="scene-cloud scene-cloud-1"></div>
+                <div class="scene-cloud scene-cloud-2"></div>
+                <div class="scene-cloud scene-cloud-3"></div>
+                <svg class="scene-cityscape" viewBox="0 0 800 200" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="bldg-a" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#7c9ec8"/><stop offset="100%" stop-color="#4a6a94"/>
+                    </linearGradient>
+                    <linearGradient id="bldg-b" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#f4a96a"/><stop offset="100%" stop-color="#c97a45"/>
+                    </linearGradient>
+                    <linearGradient id="bldg-c" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#a8d4a0"/><stop offset="100%" stop-color="#6b9e62"/>
+                    </linearGradient>
+                    <linearGradient id="roof" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#e85d5d"/><stop offset="100%" stop-color="#b91c1c"/>
+                    </linearGradient>
+                  </defs>
+                  <rect x="0" y="120" width="800" height="80" fill="#5a8f5a" opacity="0.5"/>
+                  <rect x="30" y="70" width="55" height="90" fill="url(#bldg-b)" rx="2"/>
+                  <polygon points="30,70 57,40 85,70" fill="url(#roof)"/>
+                  <rect x="38" y="95" width="14" height="18" fill="#ffe9a8" opacity="0.9" rx="1"/>
+                  <rect x="58" y="88" width="14" height="14" fill="#ffe9a8" opacity="0.7" rx="1"/>
+                  <rect x="110" y="50" width="70" height="110" fill="url(#bldg-a)" rx="3"/>
+                  <rect x="125" y="68" width="18" height="22" fill="#c5e3ff" opacity="0.85" rx="1"/>
+                  <rect x="150" y="68" width="18" height="22" fill="#c5e3ff" opacity="0.85" rx="1"/>
+                  <rect x="125" y="98" width="18" height="22" fill="#c5e3ff" opacity="0.7" rx="1"/>
+                  <rect x="150" y="98" width="18" height="22" fill="#c5e3ff" opacity="0.7" rx="1"/>
+                  <rect x="200" y="85" width="48" height="75" fill="url(#bldg-c)" rx="2"/>
+                  <polygon points="200,85 224,55 248,85" fill="#5cb85c"/>
+                  <rect x="210" y="100" width="12" height="14" fill="#fff8dc" opacity="0.85" rx="1"/>
+                  <rect x="228" y="100" width="12" height="14" fill="#fff8dc" opacity="0.85" rx="1"/>
+                  <rect x="270" y="35" width="85" height="125" fill="url(#bldg-a)" rx="4"/>
+                  <rect x="285" y="55" width="20" height="25" fill="#d4ebff" rx="1"/>
+                  <rect x="315" y="55" width="20" height="25" fill="#d4ebff" rx="1"/>
+                  <rect x="285" y="90" width="20" height="25" fill="#d4ebff" opacity="0.8" rx="1"/>
+                  <rect x="315" y="90" width="20" height="25" fill="#d4ebff" opacity="0.8" rx="1"/>
+                  <rect x="375" y="75" width="60" height="85" fill="url(#bldg-b)" rx="2"/>
+                  <polygon points="375,75 405,45 435,75" fill="url(#roof)"/>
+                  <rect x="388" y="95" width="16" height="18" fill="#fff3c4" rx="1"/>
+                  <rect x="410" y="95" width="16" height="18" fill="#fff3c4" rx="1"/>
+                  <rect x="455" y="60" width="65" height="100" fill="url(#bldg-c)" rx="3"/>
+                  <rect x="470" y="78" width="16" height="20" fill="#f0ffe0" rx="1"/>
+                  <rect x="492" y="78" width="16" height="20" fill="#f0ffe0" rx="1"/>
+                  <rect x="540" y="80" width="52" height="80" fill="url(#bldg-b)" rx="2"/>
+                  <polygon points="540,80 566,52 592,80" fill="#e07b54"/>
+                  <rect x="600" y="45" width="75" height="115" fill="url(#bldg-a)" rx="3"/>
+                  <rect x="618" y="65" width="18" height="22" fill="#b8dcff" rx="1"/>
+                  <rect x="645" y="65" width="18" height="22" fill="#b8dcff" rx="1"/>
+                  <rect x="618" y="95" width="18" height="22" fill="#b8dcff" opacity="0.75" rx="1"/>
+                  <rect x="690" y="72" width="58" height="88" fill="url(#bldg-c)" rx="2"/>
+                  <polygon points="690,72 719,42 748,72" fill="#4ade80"/>
+                  <rect x="702" y="92" width="14" height="16" fill="#ffffe0" rx="1"/>
+                  <rect x="722" y="92" width="14" height="16" fill="#ffffe0" rx="1"/>
+                  <ellipse cx="120" cy="165" rx="35" ry="12" fill="#3d7a3d" opacity="0.6"/>
+                  <ellipse cx="400" cy="168" rx="50" ry="14" fill="#3d7a3d" opacity="0.5"/>
+                  <ellipse cx="620" cy="162" rx="40" ry="11" fill="#3d7a3d" opacity="0.55"/>
+                </svg>
+                <div class="scene-hills"></div>
+                <div class="scene-grass-far"></div>
+                <div class="scene-grass-near"></div>
+                <div class="scene-grass-texture"></div>
+              </div>
+              <div class="field-arrows" id="field-arrows" aria-hidden="true">
+                <span>↑</span><span>↑</span><span>↑</span>
+              </div>
+              <div class="field-ui">
+                <div class="shake-meter-wrap">
+                  <span class="shake-label">Energia</span>
+                  <div class="shake-meter">
+                    <div class="shake-meter-fill" id="shake-meter-fill"></div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="pokeball-draggable"
+                id="pokeball"
+                role="button"
+                tabindex="0"
+                aria-label="Pokébola — mova, chacoalhe e arremesse"
+              >
+                <div class="pokeball" id="pokeball-visual">
+                  <div class="pokeball-half pokeball-top">
+                    <div class="pokeball-shine"></div>
+                  </div>
+                  <div class="pokeball-band">
+                    <div class="pokeball-button-outer">
+                      <div class="pokeball-button-inner"></div>
+                    </div>
+                  </div>
+                  <div class="pokeball-half pokeball-bottom"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reveal Overlay -->
+          <div class="arena-reveal hidden" id="arena-reveal">
+            <div class="reveal-burst" aria-hidden="true"></div>
+            <div class="reveal-pokeball open" id="reveal-pokeball">
+              <div class="pokeball-half pokeball-top reveal-top"></div>
+              <div class="pokeball-band reveal-band"></div>
+              <div class="pokeball-half pokeball-bottom reveal-bottom"></div>
+              <div class="reveal-light" aria-hidden="true"></div>
+            </div>
+            <div class="capture-result" id="capture-result">
+              <p class="capture-tag">Capturado!</p>
+              <img class="capture-pokemon-img" id="capture-pokemon-img" src="" alt="" />
+              <h3 class="capture-pokemon-name" id="capture-pokemon-name"></h3>
+              <p class="capture-trainer-label">Treinador sorteado</p>
+              <p class="capture-trainer-name" id="capture-trainer-name"></p>
+              <p class="capture-datetime" id="capture-datetime"></p>
+              <button type="button" class="btn-primary btn-dismiss-reveal" id="btn-dismiss-reveal">Continuar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </main>
+
+  </div>
+
+  <!-- Modal de Edição do Estudante -->
+  <div id="studentModal" class="modal-overlay">
+    <div class="modal-card">
+      <header class="modal-header">
+        <p class="modal-subtitle">Editar Estado</p>
+        <h2 id="modalStudentName" class="modal-title">Nome do Aluno</h2>
+      </header>
+
+      <footer class="modal-footer">
+        <button id="markAsDrawnBtn" class="btn-primary w-full">
+          <iconify-icon icon="material-symbols:check-circle"></iconify-icon>
+          Marcar como Sorteado
+        </button>
+        <button id="resetStudentBtn" class="btn-primary w-full !bg-red-600/20 !text-white !border-red-500/30">
+          <iconify-icon icon="material-symbols:refresh"></iconify-icon>
+          Resetar Sorteio
+        </button>
+        <button id="closeModalBtn" class="btn-secondary w-full">
+          Cancelar
+        </button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Celebration Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Core do Sorteio -->
+  <script src="pokemon-arena.js"></script>
+  <script src="sorteio.js"></script>
+
+</body>
+</html>
+
+</body>
+</html>
