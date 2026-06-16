@@ -22,6 +22,7 @@
  /.nuxt/
  /.vercel/
  /.netlify/
+ .venv/
  
  # Caches
  .cache/
