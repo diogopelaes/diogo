@@ -367,14 +367,15 @@ input[type="date"]:focus{border-color:#f5a623}
       <!-- Row 1: Quick filters -->
       <div class="filter-row-1">
         <div class="chips-scroll">
-          <button class="filter-chip live-chip" id="chip-live" onclick="setQuickFilter('live')">
+          <button class="filter-chip live-chip" id="chip-live" onclick="setLiveFilter()">
             <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#ef4444;margin-right:4px;animation:pulse-dot 1.2s infinite"></span>Ao Vivo
           </button>
-          <button class="filter-chip active" id="chip-today" onclick="setQuickFilter('today')">Hoje</button>
-          <button class="filter-chip" id="chip-tomorrow" onclick="setQuickFilter('tomorrow')">Amanhã</button>
-          <div class="mobile-break"></div>
-          <button class="filter-chip" id="chip-all" onclick="setQuickFilter('all')">Todos</button>
-          <button class="filter-chip" id="chip-brazil" onclick="setQuickFilter('brazil')"><img src="assets/flags/bra.svg" alt="Brasil" style="width:1.2em;height:1.2em;vertical-align:middle;margin-right:4px;display:inline-block">Brasil</button>
+          <button class="filter-chip" id="btn-prev-day" onclick="navigateDay(-1)" title="Dia Anterior" style="padding: 5px 12px; display: inline-flex; align-items: center; justify-content: center;">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="filter-chip" id="btn-next-day" onclick="navigateDay(1)" title="Próximo Dia" style="padding: 5px 12px; display: inline-flex; align-items: center; justify-content: center;">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
         </div>
       </div>
       <!-- Row 2: Selects & Date -->
@@ -517,8 +518,8 @@ const ROUND_PHASE = {
 // ═══════════════════════════════════════════════════
 let matches = [];
 let activeTab = 'matches';
-let quickFilter = 'today'; // default: today/next day
-let dateFilter = '';
+let quickFilter = ''; // default to no quick filter
+let dateFilter = '';  // set dynamically on load
 let refreshTimer = null;
 let progressTimer = null;
 let countdown = REFRESH_SECS;
@@ -531,6 +532,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   populateSelectors();
   // Default date filter to today
   const todayStr = todayBSBString();
+  dateFilter = todayStr;
   document.getElementById('datePicker').value = todayStr;
   render();
   renderStandings();
@@ -540,9 +542,12 @@ window.addEventListener('DOMContentLoaded', async () => {
 });
 
 function todayBSBString() {
-  const now = new Date();
-  const bsb = new Date(now.toLocaleString('en-US', { timeZone: 'America/Sao_Paulo' }));
-  return bsb.toISOString().split('T')[0];
+  return new Intl.DateTimeFormat('fr-CA', {
+    timeZone: 'America/Sao_Paulo',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).format(new Date());
 }
 
 function loadFromSeed() {
@@ -609,21 +614,27 @@ function formatDateBSB(dt) {
 
 function getDateBSBStr(dt) {
   if (!dt) return '';
-  const d = new Date(dt.toLocaleString('en-US', { timeZone:'America/Sao_Paulo' }));
-  return d.toISOString().split('T')[0];
+  return new Intl.DateTimeFormat('fr-CA', {
+    timeZone: 'America/Sao_Paulo',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).format(dt);
 }
 
 function isToday(dt) {
   return getDateBSBStr(dt) === todayBSBString();
 }
 
+function getTomorrowBSBStr() {
+  const todayB = todayBSBString();
+  const [y, m, d] = todayB.split('-').map(Number);
+  const nextDay = new Date(Date.UTC(y, m - 1, d + 1));
+  return nextDay.toISOString().split('T')[0];
+}
+
 function isTomorrow(dt) {
-  const tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  const tStr = tomorrow.toLocaleDateString('en-US',{timeZone:'America/Sao_Paulo',year:'numeric',month:'2-digit',day:'2-digit'});
-  const [m2,d2,y2] = tStr.split('/');
-  const tISO = `${y2}-${m2}-${d2}`;
-  return getDateBSBStr(dt) === tISO;
+  return getDateBSBStr(dt) === getTomorrowBSBStr();
 }
 
 // ═══════════════════════════════════════════════════
@@ -782,35 +793,43 @@ function switchTab(tab) {
 // ═══════════════════════════════════════════════════
 // FILTERS
 // ═══════════════════════════════════════════════════
-function setQuickFilter(f) {
-  quickFilter = f;
+function setLiveFilter() {
+  quickFilter = 'live';
   dateFilter = '';
-  document.getElementById('datePicker').value = '';
-  ['live','today','tomorrow','all','brazil'].forEach(id => {
-    document.getElementById(`chip-${id}`)?.classList.toggle('active', id === f);
-  });
+  const picker = document.getElementById('datePicker');
+  if (picker) picker.value = '';
+  document.getElementById('chip-live')?.classList.add('active');
   render();
 }
 
 function setDateFilter(val) {
   dateFilter = val;
   quickFilter = '';
-  ['live','today','tomorrow','all','brazil'].forEach(id => {
-    document.getElementById(`chip-${id}`)?.classList.remove('active');
-  });
+  const picker = document.getElementById('datePicker');
+  if (picker) picker.value = val;
+  document.getElementById('chip-live')?.classList.remove('active');
   render();
 }
 
 function clearFilters() {
-  quickFilter = 'all';
-  dateFilter = '';
-  document.getElementById('datePicker').value = '';
+  quickFilter = '';
+  dateFilter = todayBSBString();
+  const picker = document.getElementById('datePicker');
+  if (picker) picker.value = dateFilter;
   document.getElementById('phaseSel').value = '';
   document.getElementById('teamSel').value = '';
   document.getElementById('groupSel').value = '';
-  ['live','today','tomorrow','brazil'].forEach(id => document.getElementById(`chip-${id}`)?.classList.remove('active'));
-  document.getElementById('chip-all')?.classList.add('active');
+  document.getElementById('chip-live')?.classList.remove('active');
   render();
+}
+
+function navigateDay(offset) {
+  let baseDateStr = dateFilter || todayBSBString();
+  const [y, m, d] = baseDateStr.split('-').map(Number);
+  const baseDate = new Date(Date.UTC(y, m - 1, d));
+  baseDate.setUTCDate(baseDate.getUTCDate() + offset);
+  const newDateStr = baseDate.toISOString().split('T')[0];
+  setDateFilter(newDateStr);
 }
 
 function getFiltered() {
@@ -822,12 +841,6 @@ function getFiltered() {
     // Quick filter
     if (quickFilter === 'live') {
       if (!['IN_PLAY','PAUSED','EXTRA_TIME','PENALTY_SHOOTOUT'].includes(m.status)) return false;
-    } else if (quickFilter === 'today') {
-      if (!isToday(m.kickoffBSB)) return false;
-    } else if (quickFilter === 'tomorrow') {
-      if (!isTomorrow(m.kickoffBSB)) return false;
-    } else if (quickFilter === 'brazil') {
-      if (m.team1 !== 'Brazil' && m.team2 !== 'Brazil') return false;
     }
 
     // Date filter
@@ -854,27 +867,6 @@ function getFiltered() {
   });
 }
 
-// Smart default: show today if there are games, else show next day with games
-function getSmartDefault() {
-  // Check if there are games today
-  const todayGames = matches.filter(m => isToday(m.kickoffBSB));
-  if (todayGames.length > 0) return 'today';
-  // Find next day with games
-  const now = new Date();
-  const upcoming = matches.filter(m => m.kickoffBSB && m.kickoffBSB > now && m.status === 'SCHEDULED');
-  if (upcoming.length === 0) return 'all';
-  upcoming.sort((a,b) => a.kickoffBSB - b.kickoffBSB);
-  const nextDate = getDateBSBStr(upcoming[0].kickoffBSB);
-  // Check if that's tomorrow
-  const tomorrowGames = upcoming.filter(m => isTomorrow(m.kickoffBSB));
-  if (tomorrowGames.length > 0) return 'tomorrow';
-  // Set date filter to next game date
-  dateFilter = nextDate;
-  document.getElementById('datePicker').value = nextDate;
-  quickFilter = '';
-  return '_date';
-}
-
 // ═══════════════════════════════════════════════════
 // RENDER MATCHES
 // ═══════════════════════════════════════════════════
@@ -885,14 +877,6 @@ function render() {
   const filtered = getFiltered();
 
   if (filtered.length === 0) {
-    // If today filter and no games, try to show next day
-    if (quickFilter === 'today') {
-      const smart = getSmartDefault();
-      if (smart !== 'today' && smart !== '_date') {
-        setQuickFilter(smart);
-        return;
-      }
-    }
     container.innerHTML = `<div class="empty"><i class="fa-solid fa-calendar-xmark"></i><div style="color:#4a5568;font-size:.85rem">Nenhum jogo encontrado para este filtro.</div></div>`;
     return;
   }
@@ -1159,15 +1143,7 @@ function renderStandings() {
   container.innerHTML = html || '<div class="empty"><i class="fa-solid fa-circle-info"></i><div>Nenhum dado disponível</div></div>';
 }
 
-// Initial smart filter on first load
-window.addEventListener('DOMContentLoaded', () => {
-  setTimeout(() => {
-    const smart = getSmartDefault();
-    if (smart === 'today' || smart === 'tomorrow' || smart === 'all') {
-      setQuickFilter(smart);
-    }
-  }, 100);
-});
+
 </script>
 </body>
 </html>
