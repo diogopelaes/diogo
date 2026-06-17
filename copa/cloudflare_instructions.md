@@ -78,18 +78,28 @@ async function handleRequest(request) {
 
 ### 3. Pegar a URL do seu Worker
 1. Volte para a página inicial do Worker no painel do Cloudflare.
-2. Você verá a **URL pública** gerada abaixo de **Routes** (exemplo: `https://copa2026-proxy.seu-subdominio.workers.dev`).
+2. Você verá a **URL pública** gerada abaixo de **Routes** (exemplo: `https://copa2026-proxy.diogopelaes.workers.dev`).
 3. Copie essa URL.
 
 ---
 
-## 🛠️ Configurar no seu arquivo `copa2026.html`
+## 🛠️ Configurar no seu arquivo `index.html`
 
-Abra o arquivo [copa2026.html](file:///c:/Projects/diogo/copa/copa2026.html) e, na seção de **CONFIG** no início da tag `<script>`, edite a constante `PROXY_PROD` inserindo a URL copiada do Worker:
+Abra o arquivo [index.html](file:///c:/Projects/diogo/copa/index.html) e confirme se na seção de **CONFIG** no início da tag `<script>`, a constante `PROXY_PROD` está com a URL do seu Worker:
 
 ```javascript
-const PROXY_PROD  = 'https://copa2026-proxy.seu-subdominio.workers.dev';
+const PROXY_PROD  = 'https://copa2026-proxy.diogopelaes.workers.dev';
 ```
+
+---
+
+## 🌐 Usando o seu domínio customizado (`diogo.mat.br/copa`)
+
+Como o seu site está hospedado no GitHub Pages sob o domínio customizado `diogo.mat.br/copa`, **não há necessidade de configurações extras**!
+
+- O Cloudflare Worker rodará de forma independente no endereço `https://copa2026-proxy.diogopelaes.workers.dev`.
+- O código do Worker que você implantou está configurado com `Access-Control-Allow-Origin: '*'`. Isso significa que ele aceita requisições de **qualquer domínio**, incluindo o seu domínio customizado `diogo.mat.br`.
+- Portanto, assim que você fizer o upload do seu código (incluindo o `index.html`, pasta `assets`, etc.) para o repositório do seu GitHub, o site em `diogo.mat.br/copa` funcionará imediatamente sem problemas de CORS!
 
 ### 🧠 Como funciona depois de configurado:
 - **Localmente**: O código detecta se você está em `localhost` ou `127.0.0.1` e usa o proxy python local (`http://localhost:8765`).
