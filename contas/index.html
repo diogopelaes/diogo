@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contas com Pokémon | CEMEP</title>
+  <meta name="description" content="Treine multiplicação e divisão com seu Pokémon favorito! Jogo educativo para crianças." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div class="preloader-overlay" id="preloader">
+    <div class="spinner-large"></div>
+    <p>Buscando seu Pokémon...</p>
+  </div>
+
+  <div class="container">
+
+    <!-- Header -->
+    <header>
+      <h1>Contas com Pokémon</h1>
+    </header>
+
+    <!-- Stage Indicator -->
+    <div class="stage-indicator">
+      <div class="stage-dot active" id="stage-dot-1"></div>
+      <div class="stage-line"></div>
+      <div class="stage-dot" id="stage-dot-2"></div>
+    </div>
+    <p class="stage-label" id="stage-label">Etapa <span>1 de 2</span> — Multiplicação ×</p>
+
+    <!-- Game Area -->
+    <div id="game-area">
+
+      <!-- Score cards -->
+      <div class="score-row">
+        <div class="score-card">
+          <div class="score-card-label">✅ Acertos</div>
+          <div class="score-card-value" id="score-correct">0</div>
+        </div>
+        <div class="score-card">
+          <div class="score-card-label">❌ Erros</div>
+          <div class="score-card-value" id="score-wrong">0</div>
+        </div>
+      </div>
+
+      <!-- Progress -->
+      <div class="progress-wrap">
+        <div class="progress-info">
+          <span>Progresso</span>
+          <span id="progress-text">0/10</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+        </div>
+      </div>
+
+      <!-- Question dots -->
+      <div class="dots-row" id="dots-row"></div>
+
+      <!-- Question Card -->
+      <div class="question-card" id="question-card">
+        
+        <!-- Main content of the card: Pokémon on left, Question on right -->
+        <div class="card-grid">
+          
+          <!-- Left side: Pokémon Buddy -->
+          <div id="pokemon-section" class="pokemon-buddy-col" title="Clique para trocar de Pokémon!">
+            <img id="pokemon-img" src="" alt="Pokémon parceiro" />
+            <div id="pokemon-info">
+              <div id="pokemon-name">Carregando...</div>
+              <div id="pokemon-hp-bar">
+                <div id="pokemon-hp-fill"></div>
+              </div>
+              <span class="change-pokemon-hint">🔄 Trocar</span>
+            </div>
+          </div>
+
+          <!-- Right side: Meta, Message and Math Equation -->
+          <div class="question-interaction-col">
+            <div class="meta-row">
+              <div class="difficulty-badge" id="difficulty-badge">⭐ Fácil</div>
+              <div class="question-number" id="question-number">Questão 1 de 10</div>
+            </div>
+
+            <!-- Pokémon Speech Bubble (Points left to the Pokémon) -->
+            <div class="pokemon-speech-bubble">
+              <p id="pokemon-message">Buscando seu parceiro...</p>
+            </div>
+
+            <!-- Math Equation -->
+            <div class="question-text" id="question-text">Carregando...</div>
+          </div>
+
+        </div>
+
+        <!-- Bottom section: Actions and feedback -->
+        <div class="card-footer-actions">
+          <div class="answer-section">
+            <input
+              type="number"
+              id="answer-input"
+              class="answer-input"
+              placeholder="Sua resposta"
+              step="any"
+              autocomplete="off"
+            />
+            <button id="btn-verify" class="btn-verify">✔ Verificar</button>
+          </div>
+
+          <div class="feedback" id="feedback">
+            <span class="feedback-icon" id="feedback-icon">🎉</span>
+            <span id="feedback-text"></span>
+          </div>
+
+          <button id="btn-next" class="btn-next">Próxima →</button>
+        </div>
+
+      </div>
+
+    </div><!-- /#game-area -->
+
+    <!-- Final Screen -->
+    <div id="final-screen">
+      <img id="final-pokemon-img" src="" alt="Pokémon" />
+      <div class="final-title" id="final-title">🏆 Incrível!</div>
+      <div class="final-subtitle" id="final-message">Você completou o desafio!</div>
+
+      <div class="final-stats">
+        <div class="final-stat">
+          <div class="final-stat-value" id="final-correct">0</div>
+          <div class="final-stat-label">✅ Acertos</div>
+        </div>
+        <div class="final-stat">
+          <div class="final-stat-value" id="final-wrong">0</div>
+          <div class="final-stat-label">❌ Erros</div>
+        </div>
+        <div class="final-stat">
+          <div class="final-stat-value" id="final-pct">0%</div>
+          <div class="final-stat-label">🎯 Aproveitamento</div>
+        </div>
+      </div>
+
+      <button id="btn-restart" class="btn-restart">🔄 Jogar de Novo!</button>
+    </div>
+
+  </div><!-- /.container -->
+
+  <script src="script.js"></script>
+</body>
+</html>
