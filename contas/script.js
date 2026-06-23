@@ -31,6 +31,76 @@ const MESSAGES = {
   ],
 };
 
+// ── Web Audio Synth Sounds ─────────────────────
+let audioCtx = null;
+
+function initAudio() {
+  if (audioCtx) return;
+  audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+}
+
+function playSound(type) {
+  initAudio();
+  if (!audioCtx) return;
+  
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume();
+  }
+
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+
+  const now = audioCtx.currentTime;
+
+  if (type === 'success') {
+    // Retro level-up sound (C5 -> E5 -> G5)
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(523.25, now); // C5
+    osc.frequency.setValueAtTime(659.25, now + 0.08); // E5
+    osc.frequency.setValueAtTime(783.99, now + 0.16); // G5
+    gain.gain.setValueAtTime(0.12, now);
+    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.35);
+    osc.start(now);
+    osc.stop(now + 0.4);
+  } else if (type === 'wrong') {
+    // Descending sad buzz
+    osc.type = 'sawtooth';
+    osc.frequency.setValueAtTime(140, now);
+    osc.frequency.linearRampToValueAtTime(90, now + 0.3);
+    gain.gain.setValueAtTime(0.12, now);
+    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+    osc.start(now);
+    osc.stop(now + 0.32);
+  } else if (type === 'click') {
+    // Subtly cute pop
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(450, now);
+    gain.gain.setValueAtTime(0.05, now);
+    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.08);
+    osc.start(now);
+    osc.stop(now + 0.09);
+  } else if (type === 'victory') {
+    // Upbeat retro melody
+    osc.type = 'triangle';
+    const notes = [523.25, 659.25, 783.99, 1046.50];
+    notes.forEach((freq, idx) => {
+      osc.frequency.setValueAtTime(freq, now + idx * 0.12);
+    });
+    gain.gain.setValueAtTime(0.12, now);
+    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.55);
+    osc.start(now);
+    osc.stop(now + 0.6);
+  }
+}
+
+// ── Brazilian Formatting Helper ────────────────
+function formatBR(num) {
+  if (num === undefined || num === null) return "";
+  return num.toString().replace(".", ",");
+}
+
 // ── Difficulty levels ──────────────────────────
 // Each level: { label, gen() → { a, b, op, answer, display } }
 const DIFFICULTY_LEVELS = [
@@ -88,13 +158,13 @@ const DIFFICULTY_LEVELS = [
       const a = parseFloat((rand(10, 99) + rand(1, 9) / 10).toFixed(1));
       const b = rand(2, 9);
       const ans = parseFloat((a * b).toFixed(2));
-      return { a, b, op: "×", answer: ans, display: `${a} × ${b}` };
+      return { a, b, op: "×", answer: ans, display: `${formatBR(a)} × ${formatBR(b)}` };
     },
     genDiv() {
       const b = rand(2, 9);
       const answer = parseFloat((rand(10, 99) + rand(1, 9) / 10).toFixed(1));
       const a = parseFloat((b * answer).toFixed(2));
-      return { a, b, op: "÷", answer, display: `${a} ÷ ${b}` };
+      return { a, b, op: "÷", answer, display: `${formatBR(a)} ÷ ${formatBR(b)}` };
     },
   },
 ];
@@ -130,6 +200,14 @@ function generateQuestions(stage) {
   return questions;
 }
 
+// ── Animation Trigger Helper ───────────────────
+function triggerAnim(el, className) {
+  if (!el) return;
+  el.classList.remove(className);
+  void el.offsetWidth; // trigger reflow
+  el.classList.add(className);
+}
+
 // ── State ──────────────────────────────────────
 let state = {
   stage: "mult",      // "mult" | "div"
@@ -163,9 +241,7 @@ const elQText = $("question-text");
 const elAnswerInput = $("answer-input");
 const elBtnVerify = $("btn-verify");
 const elBtnNext = $("btn-next");
-const elFeedback = $("feedback");
-const elFeedbackIcon = $("feedback-icon");
-const elFeedbackText = $("feedback-text");
+const elSpeechBubble = $("pokemon-speech-bubble");
 const elCard = $("question-card");
 const elFinalScreen = $("final-screen");
 const elGameArea = $("game-area");
@@ -231,10 +307,24 @@ function updateHpBar() {
 
 // ── Click pokemon to change it ─────────────────
 $("pokemon-section").addEventListener("click", async () => {
+  playSound('click');
   const poke = await fetchRandomPokemon();
   setPokemon(poke);
   pokeBounce();
-  setPokeMessage("Olá! Sou " + poke.name + "! Vamos nessa! 💪");
+  
+  if (!state.verified) {
+    const currentQ = state.questions[state.current];
+    const levelIndex = DIFFICULTY_LEVELS.findIndex(d => d.label === currentQ.level);
+    const d = DIFFICULTY_LEVELS[levelIndex >= 0 ? levelIndex : 0];
+    const newQ = state.stage === "mult" ? d.genMult() : d.genDiv();
+    newQ.level = d.label;
+    state.questions[state.current] = newQ;
+
+    const greeting = `Olá! Sou ${poke.name}! Preparei uma nova conta para você! ⚡`;
+    showQuestion(greeting);
+  } else {
+    setPokeMessage(`Olá! Sou ${poke.name}! Vamos para a próxima! 🚀`);
+  }
 });
 
 // ── Build dots ─────────────────────────────────
@@ -246,6 +336,16 @@ function buildDots() {
     dot.id = `q-dot-${i}`;
     elDotsRow.appendChild(dot);
   }
+}
+
+// ── Confetti for single correct answer ──────────
+function launchSingleConfetti() {
+  if (typeof confetti === "undefined") return;
+  confetti({
+    particleCount: 55,
+    spread: 60,
+    origin: { y: 0.65 }
+  });
 }
 
 function updateDots() {
@@ -262,7 +362,7 @@ function updateDots() {
 }
 
 // ── Display question ───────────────────────────
-function showQuestion() {
+function showQuestion(customMsg) {
   const q = state.questions[state.current];
   const total = state.questions.length;
 
@@ -272,23 +372,35 @@ function showQuestion() {
     `<span class="operation-symbol">${s}</span>`
   ) + ' <span class="operation-symbol">=</span> ?';
 
+  triggerAnim(elQText, "slide-in-anim");
+
+  elAnswerInput.disabled = false;
   elAnswerInput.value = "";
-  elAnswerInput.focus();
-  elFeedback.className = "feedback";
+  setTimeout(() => elAnswerInput.focus(), 10);
+  
+  if (elSpeechBubble) {
+    elSpeechBubble.className = "pokemon-speech-bubble";
+    triggerAnim(elSpeechBubble, "slide-in-anim");
+  }
+
+  elBtnVerify.style.display = "block";
+  elBtnVerify.disabled = false;
   elBtnNext.style.display = "none";
   elCard.className = "question-card";
   state.verified = false;
-  elBtnVerify.disabled = false;
-  elAnswerInput.disabled = false;
 
   updateProgress();
   updateDots();
   updateHpBar();
 
-  // Poke message for stage changes
-  if (state.current === 0) {
+  // Poke message for stage changes or custom greetings
+  if (customMsg) {
+    setPokeMessage(customMsg);
+  } else if (state.current === 0) {
     const msgs = state.stage === "mult" ? MESSAGES.intro_mult : MESSAGES.intro_div;
     setPokeMessage(pick(msgs));
+  } else {
+    setPokeMessage("Vamos responder essa! Você consegue! 💪");
   }
 }
 
@@ -309,13 +421,14 @@ function verify() {
     elAnswerInput.focus();
     elAnswerInput.style.borderColor = "var(--warning)";
     setTimeout(() => (elAnswerInput.style.borderColor = ""), 800);
+    playSound('wrong');
     return;
   }
 
   const q = state.questions[state.current];
   const correct = Math.abs(roundAnswer(given) - roundAnswer(q.answer)) < 0.011;
   state.verified = true;
-  elBtnVerify.disabled = true;
+  elBtnVerify.style.display = "none";
   elAnswerInput.disabled = true;
 
   if (correct) {
@@ -323,19 +436,27 @@ function verify() {
     state.totalCorrect++;
     state.answeredFlags[state.current] = true;
     elCard.classList.add("correct");
-    elFeedback.className = "feedback correct-fb show";
-    elFeedbackIcon.textContent = "🎉";
-    elFeedbackText.textContent = pick(MESSAGES.correct);
+    if (elSpeechBubble) {
+      elSpeechBubble.classList.add("bubble-correct");
+      triggerAnim(elSpeechBubble, "slide-in-anim");
+    }
     pokeBounce();
     setPokeMessage(pick(MESSAGES.correct));
+    playSound('success');
+    launchSingleConfetti();
+    triggerAnim(elScoreCorrect, "pulse-anim");
   } else {
     state.totalWrong++;
     state.answeredFlags[state.current] = false;
     elCard.classList.add("wrong");
-    elFeedback.className = "feedback wrong-fb show";
-    elFeedbackIcon.textContent = "💙";
-    elFeedbackText.textContent = `${pick(MESSAGES.wrong)} (Era: ${q.answer})`;
-    setPokeMessage(pick(MESSAGES.wrong));
+    if (elSpeechBubble) {
+      elSpeechBubble.classList.add("bubble-wrong");
+      triggerAnim(elSpeechBubble, "slide-in-anim");
+    }
+    const wrongMsg = `${pick(MESSAGES.wrong)} (Era: ${formatBR(q.answer)})`;
+    setPokeMessage(wrongMsg);
+    playSound('wrong');
+    triggerAnim(elScoreWrong, "pulse-anim");
   }
 
   updateDots();
@@ -343,7 +464,6 @@ function verify() {
   updateProgress();
 
   elBtnNext.style.display = "block";
-  setTimeout(() => elBtnNext.scrollIntoView({ behavior: "smooth", block: "nearest" }), 50);
   elBtnNext.textContent =
     state.current < 9
       ? (state.stage === "mult" && state.current === 9) ? "Ir para Divisão →" : "Próxima →"
@@ -352,6 +472,7 @@ function verify() {
 
 // ── Next question / stage ──────────────────────
 function next() {
+  playSound('click');
   state.current++;
 
   if (state.current >= 10) {
@@ -393,6 +514,7 @@ function startStage(stage) {
 function showFinal() {
   elGameArea.style.display = "none";
   elFinalScreen.className = "show";
+  playSound('victory');
 
   const total = 20;
   const correct = state.totalCorrect;
@@ -456,6 +578,7 @@ function launchConfetti(pct) {
 
 // ── Restart ────────────────────────────────────
 function restart() {
+  playSound('click');
   state.totalCorrect = 0;
   state.totalWrong = 0;
   elFinalScreen.className = "";
@@ -464,16 +587,45 @@ function restart() {
 }
 
 // ── Event listeners ────────────────────────────
-elBtnVerify.addEventListener("click", verify);
+elBtnVerify.addEventListener("click", () => {
+  playSound('click');
+  verify();
+});
 elBtnNext.addEventListener("click", next);
 $("btn-restart").addEventListener("click", restart);
 
 elAnswerInput.addEventListener("keydown", e => {
   if (e.key === "Enter") {
-    if (!state.verified) verify();
-    else next();
+    if (!state.verified) {
+      playSound('click');
+      verify();
+    }
   }
 });
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Enter" && state.verified) {
+    if (elFinalScreen.classList.contains("show")) {
+      restart();
+    } else {
+      next();
+    }
+    return;
+  }
+
+  // Se a conta não foi respondida e o foco não está no input, digita automaticamente
+  if (!state.verified && document.activeElement !== elAnswerInput) {
+    if (/^[0-9.,-]$/.test(e.key)) {
+      e.preventDefault();
+      elAnswerInput.focus();
+      elAnswerInput.value += e.key;
+    }
+  }
+});
+
+// ── Document audio unlock ──────────────────────
+document.addEventListener("click", initAudio, { once: true });
+document.addEventListener("keydown", initAudio, { once: true });
 
 // ── Init ───────────────────────────────────────
 async function init() {

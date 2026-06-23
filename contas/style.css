@@ -147,6 +147,7 @@ h1 {
 }
 
 .score-card-value {
+  display: inline-block;
   font-family: "Outfit", sans-serif;
   font-size: 1.4rem;
   font-weight: 900;
@@ -225,33 +226,25 @@ h1 {
 .question-card {
   background: var(--card-bg-dark);
   backdrop-filter: blur(16px);
-  border: 1px solid var(--border-dark);
+  border: 2px solid var(--border-dark);
   border-radius: 1.5rem;
   padding: 1.5rem;
   margin-bottom: 1rem;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
 }
 
-.question-card::before {
-  content: '';
-  position: absolute;
-  top: -2px; left: -2px; right: -2px; bottom: -2px;
-  background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
-  border-radius: 1.5rem;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+/* Clean border indicator for answer state */
+.question-card.correct {
+  border-color: var(--success);
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.35), 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
-
-.question-card.correct::before { opacity: 1; }
-.question-card.correct { border-color: transparent; }
 
 .question-card.wrong {
   border-color: var(--error);
-  box-shadow: 0 0 0 2px rgba(239,68,68,0.3), 0 25px 50px -12px rgba(0,0,0,0.5);
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.35), 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   animation: shake 0.4s ease;
 }
 
@@ -269,7 +262,7 @@ h1 {
   grid-template-columns: 140px 1fr;
   gap: 1.25rem;
   align-items: start;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 /* ── Pokémon Buddy (Left Side Column) ── */
@@ -395,6 +388,7 @@ h1 {
   color: #e0e7ff;
   font-weight: 500;
   line-height: 1.4;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
   animation: bubbleAppear 0.3s ease;
 }
 
@@ -415,6 +409,26 @@ h1 {
   border-left: 1px solid rgba(99, 102, 241, 0.3);
   border-bottom: 1px solid rgba(99, 102, 241, 0.3);
   transform: rotate(45deg);
+  transition: border-color 0.3s ease;
+}
+
+/* Custom Speech Bubble borders for feedback states */
+.pokemon-speech-bubble.bubble-correct {
+  border-color: var(--success);
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.2);
+}
+.pokemon-speech-bubble.bubble-correct::before {
+  border-left-color: var(--success);
+  border-bottom-color: var(--success);
+}
+
+.pokemon-speech-bubble.bubble-wrong {
+  border-color: var(--error);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.2);
+}
+.pokemon-speech-bubble.bubble-wrong::before {
+  border-left-color: var(--error);
+  border-bottom-color: var(--error);
 }
 
 /* ── Question Text ── */
@@ -458,11 +472,7 @@ h1 {
   outline: none;
   transition: all 0.2s ease;
   text-align: center;
-  -moz-appearance: textfield;
 }
-
-.answer-input::-webkit-inner-spin-button,
-.answer-input::-webkit-outer-spin-button { -webkit-appearance: none; }
 
 .answer-input:focus {
   border-color: var(--primary);
@@ -494,60 +504,26 @@ h1 {
 .btn-verify:active { transform: translateY(0); }
 
 .btn-next {
-  width: 100%;
   background: linear-gradient(135deg, #22c55e, #16a34a);
   color: white;
   border: none;
   border-radius: 1rem;
-  padding: 0.85rem;
+  padding: 0.75rem 1.35rem;
   font-family: "Outfit", sans-serif;
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 800;
   cursor: pointer;
-  margin-top: 0.75rem;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   box-shadow: 0 4px 15px rgba(34,197,94,0.4);
   display: none;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
 }
 
 .btn-next:hover {
-  transform: translateY(-3px) scale(1.02);
+  transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(34,197,94,0.5);
 }
-
-/* ── Feedback ── */
-.feedback {
-  padding: 0.75rem 1.1rem;
-  border-radius: 1rem;
-  font-weight: 700;
-  font-size: 0.92rem;
-  display: none;
-  align-items: center;
-  gap: 0.6rem;
-  margin-top: 0.75rem;
-  animation: feedbackSlide 0.3s ease;
-}
-
-@keyframes feedbackSlide {
-  from { opacity: 0; transform: translateY(-8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.feedback.show { display: flex; }
-
-.feedback.correct-fb {
-  background: rgba(34,197,94,0.15);
-  border: 1px solid rgba(34,197,94,0.4);
-  color: #86efac;
-}
-
-.feedback.wrong-fb {
-  background: rgba(239,68,68,0.15);
-  border: 1px solid rgba(239,68,68,0.4);
-  color: #fca5a5;
-}
-
-.feedback-icon { font-size: 1.25rem; }
 
 /* ── Final screen ── */
 #final-screen {
@@ -684,6 +660,26 @@ h1 {
   letter-spacing: 0.05em;
 }
 
+/* ── Animation classes for JS triggers ── */
+.pulse-anim {
+  animation: valuePulse 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes valuePulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+
+.slide-in-anim {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* ── Responsive ── */
 @media (max-width: 520px) {
   .card-grid {
@@ -720,6 +716,20 @@ h1 {
     border-right: 1px solid rgba(99, 102, 241, 0.3);
     transform: rotate(-45deg);
   }
+
+  .pokemon-speech-bubble.bubble-correct::before {
+    border-top-color: var(--success);
+    border-right-color: var(--success);
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+  }
+
+  .pokemon-speech-bubble.bubble-wrong::before {
+    border-top-color: var(--error);
+    border-right-color: var(--error);
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+  }
   
   .question-text {
     font-size: 2.2rem;
@@ -731,6 +741,10 @@ h1 {
   }
   
   .btn-verify {
+    width: 100%;
+  }
+
+  .btn-next {
     width: 100%;
   }
 }

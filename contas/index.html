@@ -90,7 +90,7 @@
             </div>
 
             <!-- Pokémon Speech Bubble (Points left to the Pokémon) -->
-            <div class="pokemon-speech-bubble">
+            <div class="pokemon-speech-bubble" id="pokemon-speech-bubble">
               <p id="pokemon-message">Buscando seu parceiro...</p>
             </div>
 
@@ -100,26 +100,21 @@
 
         </div>
 
-        <!-- Bottom section: Actions and feedback -->
+        <!-- Bottom section: Actions -->
         <div class="card-footer-actions">
           <div class="answer-section">
             <input
-              type="number"
+              type="text"
+              inputmode="decimal"
+              pattern="[0-9,.]*"
               id="answer-input"
               class="answer-input"
               placeholder="Sua resposta"
-              step="any"
               autocomplete="off"
             />
             <button id="btn-verify" class="btn-verify">✔ Verificar</button>
+            <button id="btn-next" class="btn-next">Próxima →</button>
           </div>
-
-          <div class="feedback" id="feedback">
-            <span class="feedback-icon" id="feedback-icon">🎉</span>
-            <span id="feedback-text"></span>
-          </div>
-
-          <button id="btn-next" class="btn-next">Próxima →</button>
         </div>
 
       </div>
