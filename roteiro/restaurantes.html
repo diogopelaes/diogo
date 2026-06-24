@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurantes — Califórnia 2026</title>
+    <link rel="icon" type="image/png" href="./turismo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+    <style>
+        /* ===== TEMA ===== */
+        :root {
+            --bg-body: #f6f8fa;
+            --bg-card: #ffffff;
+            --text-primary: #2d3748;
+            --text-secondary: #5e6e82;
+            --border-color: #e6edf5;
+            --primary-color: #4f6b8c;
+            --primary-hover: #3d536e;
+            --shadow: 0 6px 16px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.03);
+            --shadow-hover: 0 12px 32px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
+            --accent-bg: #f0f7f4;
+            --accent-border: #c2e0d1;
+            --accent-text: #3b7a57;
+        }
+        [data-theme="dark"] {
+            --bg-body: #151c2c;
+            --bg-card: #1d2636;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --border-color: #2b364a;
+            --primary-color: #8fa3c2;
+            --primary-hover: #a3b7d6;
+            --shadow: 0 8px 24px rgba(0,0,0,0.2);
+            --shadow-hover: 0 16px 40px rgba(0,0,0,0.3);
+            --accent-bg: #15261d;
+            --accent-border: #355c46;
+            --accent-text: #a2d4b6;
+        }
+
+        * { box-sizing: border-box; transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px 12px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container { max-width: 960px; margin: 0 auto; }
+
+        /* ===== HEADER ===== */
+        header {
+            text-align: center;
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .nav-back {
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 99px;
+            cursor: pointer;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow);
+            text-decoration: none;
+        }
+        .nav-back:hover { border-color: var(--primary-color); color: var(--primary-color); }
+
+        .theme-toggle {
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 99px;
+            cursor: pointer;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow);
+        }
+        .theme-toggle:hover { border-color: var(--primary-color); background: color-mix(in srgb, var(--primary-color) 4%, var(--bg-card)); }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 10px 0 4px;
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        .sub-header {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        /* ===== INTRO CARD ===== */
+        .intro-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 28px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        .intro-card i { color: var(--primary-color); font-size: 1.2rem; flex-shrink: 0; }
+
+        /* ===== GRID DE RESTAURANTES ===== */
+        .restaurants-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .restaurant-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+        .restaurant-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-color);
+        }
+
+        .card-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            gap: 12px;
+        }
+
+        .card-top {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .restaurant-map-link {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0;
+            line-height: 1.2;
+            transition: color 0.2s ease;
+        }
+        .restaurant-map-link:hover {
+            color: var(--primary-color);
+        }
+        .restaurant-map-link i {
+            color: #ea4335;
+            font-size: 1rem;
+            transition: transform 0.2s ease;
+            opacity: 0.85;
+        }
+        .restaurant-map-link:hover i {
+            transform: scale(1.15);
+            opacity: 1;
+        }
+
+        .card-type {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        .card-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            margin: 0;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 4px;
+        }
+        .tag {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 99px;
+            background: color-mix(in srgb, var(--primary-color) 8%, var(--bg-card));
+            color: var(--primary-color);
+            border: 1px solid color-mix(in srgb, var(--primary-color) 20%, var(--border-color));
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.6rem; }
+            .theme-toggle { position: static; margin: 0 auto 12px; width: fit-content; }
+            .nav-back { position: static; margin: 0 auto 12px; width: fit-content; }
+            header { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+            .restaurants-grid { grid-template-columns: 1fr; }
+            body { padding: 12px 8px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <a href="./index.html" class="nav-back">
+            <i class="fa-solid fa-arrow-left"></i> Roteiro
+        </a>
+        <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
+            <i class="fa-solid fa-moon"></i> Modo Escuro
+        </button>
+        <h1>🍔 Restaurantes</h1>
+        <div class="sub-header">Guia de alimentação — Los Angeles 2026</div>
+    </header>
+
+    <div class="restaurants-grid">
+
+        <!-- In-N-Out Burger -->
+        <div class="restaurant-card">
+            <div class="card-body">
+                <div class="card-top">
+                    <a href="https://www.google.com/maps/search/?api=1&query=In-N-Out+Burger+Los+Angeles" target="_blank" rel="noopener noreferrer" class="restaurant-map-link">
+                        <i class="fa-solid fa-location-dot"></i> In-N-Out Burger
+                    </a>
+                    <p class="card-type">Hambúrgueres Americanos</p>
+                </div>
+                <p class="card-desc">Ícone californiano. Double-Double com queijo e o famoso "Animal Style" são obrigatórios. Frescor garantido — nunca congelam a carne.</p>
+                <div class="card-tags">
+                    <span class="tag">Clássico CA</span>
+                    <span class="tag">Rápido</span>
+                    <span class="tag">Barato</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panda Express -->
+        <div class="restaurant-card">
+            <div class="card-body">
+                <div class="card-top">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Panda+Express+Los+Angeles" target="_blank" rel="noopener noreferrer" class="restaurant-map-link">
+                        <i class="fa-solid fa-location-dot"></i> Panda Express
+                    </a>
+                    <p class="card-type">Culinária Chinesa Americana</p>
+                </div>
+                <p class="card-desc">Frango laranja, Chow Mein e Beijing Beef são os favoritos. Opções rápidas, preço acessível e sempre fresquinho nas travessas.</p>
+                <div class="card-tags">
+                    <span class="tag">Rápido</span>
+                    <span class="tag">Família</span>
+                    <span class="tag">Barato</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- IHOP -->
+        <div class="restaurant-card">
+            <div class="card-body">
+                <div class="card-top">
+                    <a href="https://www.google.com/maps/search/?api=1&query=IHOP+Los+Angeles" target="_blank" rel="noopener noreferrer" class="restaurant-map-link">
+                        <i class="fa-solid fa-location-dot"></i> IHOP
+                    </a>
+                    <p class="card-type">Café da Manhã & Brunch</p>
+                </div>
+                <p class="card-desc">International House of Pancakes. Panquecas gigantes, waffles, ovos e bacon. Ideal para o café da manhã americano clássico com as crianças.</p>
+                <div class="card-tags">
+                    <span class="tag">Café da Manhã</span>
+                    <span class="tag">Família</span>
+                    <span class="tag">Brunch</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Denny's -->
+        <div class="restaurant-card">
+            <div class="card-body">
+                <div class="card-top">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Denny%27s+Los+Angeles" target="_blank" rel="noopener noreferrer" class="restaurant-map-link">
+                        <i class="fa-solid fa-location-dot"></i> Denny's
+                    </a>
+                    <p class="card-type">Diner Americano 24h</p>
+                </div>
+                <p class="card-desc">Clássico diner americano aberto 24 horas. Grand Slam breakfast é a pedida. Ótimo custo-benefício para toda hora do dia.</p>
+                <div class="card-tags">
+                    <span class="tag">24 Horas</span>
+                    <span class="tag">Café da Manhã</span>
+                    <span class="tag">Barato</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- The Cheesecake Factory -->
+        <div class="restaurant-card">
+            <div class="card-body">
+                <div class="card-top">
+                    <a href="https://www.google.com/maps/search/?api=1&query=The+Cheesecake+Factory+Los+Angeles" target="_blank" rel="noopener noreferrer" class="restaurant-map-link">
+                        <i class="fa-solid fa-location-dot"></i> The Cheesecake Factory
+                    </a>
+                    <p class="card-type">Restaurante Casual Americano</p>
+                </div>
+                <p class="card-desc">Menu enorme com pratos generosos. Os cheesecakes (mais de 30 sabores!) são o grande atrativo. Experiência completa e ambiente sofisticado.</p>
+                <div class="card-tags">
+                    <span class="tag">Completo</span>
+                    <span class="tag">Sobremesa</span>
+                    <span class="tag">Médio</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chick-fil-A -->
+        <div class="restaurant-card">
+            <div class="card-body">
+                <div class="card-top">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Chick-fil-A+Los+Angeles" target="_blank" rel="noopener noreferrer" class="restaurant-map-link">
+                        <i class="fa-solid fa-location-dot"></i> Chick-fil-A
+                    </a>
+                    <p class="card-type">Frango Empanado Americano</p>
+                </div>
+                <p class="card-desc">O melhor frango frito dos EUA segundo muitos americanos. O Spicy Deluxe e os Nuggets são vício. Atendimento famoso pela simpatia.</p>
+                <div class="card-tags">
+                    <span class="tag">Frango</span>
+                    <span class="tag">Rápido</span>
+                    <span class="tag">Família</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chipotle Mexican Grill -->
+        <div class="restaurant-card">
+            <div class="card-body">
+                <div class="card-top">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Chipotle+Mexican+Grill+Los+Angeles" target="_blank" rel="noopener noreferrer" class="restaurant-map-link">
+                        <i class="fa-solid fa-location-dot"></i> Chipotle Mexican Grill
+                    </a>
+                    <p class="card-type">Culinária Mexicana Fast-Casual</p>
+                </div>
+                <p class="card-desc">Burritos, bowls e tacos montados na hora com ingredientes frescos. O Burrito Bowl com guacamole é a pedida. Opção saudável e saborosa.</p>
+                <div class="card-tags">
+                    <span class="tag">Mexicano</span>
+                    <span class="tag">Saudável</span>
+                    <span class="tag">Rápido</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Raising Cane's -->
+        <div class="restaurant-card">
+            <div class="card-body">
+                <div class="card-top">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Raising+Cane%27s+Los+Angeles" target="_blank" rel="noopener noreferrer" class="restaurant-map-link">
+                        <i class="fa-solid fa-location-dot"></i> Raising Cane's
+                    </a>
+                    <p class="card-type">Tiras de Frango Empanado</p>
+                </div>
+                <p class="card-desc">Cardápio simples e perfeito: só faz tiras de frango — e faz muito bem. O molho Cane's é segredo da casa. Sucesso enorme com crianças.</p>
+                <div class="card-tags">
+                    <span class="tag">Frango</span>
+                    <span class="tag">Kids Friendly</span>
+                    <span class="tag">Rápido</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <p><small>© 2026 Assistente Pessoal de Viagem. Todos os direitos reservados.</small></p>
+</footer>
+
+<script>
+    function updateThemeButton() {
+        const themeBtn = document.getElementById('themeBtn');
+        if (!themeBtn) return;
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+            themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i> Modo Claro';
+        } else {
+            themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i> Modo Escuro';
+        }
+    }
+
+    function toggleTheme() {
+        const html = document.documentElement;
+        const newTheme = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeButton();
+    }
+
+    window.onload = updateThemeButton;
+</script>
+</body>
+</html>

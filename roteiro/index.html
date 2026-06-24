@@ -123,6 +123,31 @@
             letter-spacing: -0.5px;
         }
 
+        .restaurants-link {
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 99px;
+            cursor: pointer;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow);
+            text-decoration: none;
+        }
+
+        .restaurants-link:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            background: color-mix(in srgb, var(--primary-color) 4%, var(--bg-card));
+        }
+
         .sub-header {
             color: var(--text-secondary);
             font-size: 1rem;
@@ -521,6 +546,7 @@
         @media (max-width: 600px) {
             h1 { font-size: 1.6rem; }
             .theme-toggle { position: static; margin: 0 auto 12px; width: fit-content; }
+            .restaurants-link { position: static; margin: 0 auto 12px; width: fit-content; display: flex; }
             .day-header { flex-direction: column; align-items: flex-start; }
             .dashboard-grid { grid-template-columns: 1fr; }
             body { padding: 12px 8px; }
@@ -562,6 +588,9 @@
 
 <div class="container">
     <header>
+        <a href="./restaurantes.html" class="restaurants-link">
+            <i class="fa-solid fa-hamburger"></i> Restaurantes
+        </a>
         <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
             <i class="fa-solid fa-moon"></i> Modo Escuro
         </button>
@@ -777,7 +806,7 @@
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-bag-shopping"></i></div>
-                    <div class="detail-content"><strong>Compras</strong>Citadel Outlets <a href="https://www.google.com/maps/search/?api=1&query=Citadel+Outlets+Commerce+CA" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Citadel Outlets no Google Maps"><i class="fa-solid fa-location-dot"></i></a> — grande outlet a caminho, ótimo para compras com desconto em marcas premium.</div>
+                    <div class="detail-content"><strong>Compras</strong>Target <a href="https://maps.app.goo.gl/QiEwn2pPHBVEPMLXA" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Target no Google Maps"><i class="fa-solid fa-location-dot"></i></a> e Westfield Century City <a href="https://maps.app.goo.gl/FsTVh75iVEvdNhKL8" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Westfield Century City no Google Maps"><i class="fa-solid fa-location-dot"></i></a> — compras em mall premium com ótimas opções de lojas e alimentação.</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-hamburger"></i></div>
@@ -1123,8 +1152,12 @@
             <div class="phrase">"Dia de compras no Citadel Outlets e visita ao Griffith Observatory no fim de tarde para curtir o pôr do sol e telescópios."</div>
             <div class="details-grid">
                 <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <div class="detail-content"><strong>Manhã (Opcional)</strong>Visita rápida ao campus da UCLA <a href="https://www.google.com/maps/search/?api=1&query=UCLA+Campus+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver UCLA no Google Maps"><i class="fa-solid fa-location-dot"></i></a> — caminhada pelas áreas verdes, arquitetura universitária americana e parada na UCLA Store <a href="https://www.google.com/maps/search/?api=1&query=UCLA+Store+Westwood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver UCLA Store no Google Maps"><i class="fa-solid fa-location-dot"></i></a> para souvenirs. Próximo à casa da Diana. <em style="color: var(--text-secondary); font-size: 0.85em;">(⏱ 1h30–2h — atividade flexível, pode ser reduzida ou removida se o dia ficar carregado)</em></div>
+                </div>
+                <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-tags"></i></div>
-                    <div class="detail-content"><strong>Manhã/Tarde</strong>Compras no Citadel Outlets <a href="https://www.google.com/maps/search/?api=1&query=Citadel+Outlets+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Citadel Outlets no Google Maps"><i class="fa-solid fa-location-dot"></i></a>.</div>
+                    <div class="detail-content"><strong>Tarde</strong>Compras no Citadel Outlets <a href="https://www.google.com/maps/search/?api=1&query=Citadel+Outlets+Los+Angeles" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Citadel Outlets no Google Maps"><i class="fa-solid fa-location-dot"></i></a>.</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon"><i class="fa-solid fa-user-astronaut"></i></div>
