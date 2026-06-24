@@ -6,7 +6,8 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
     <title>Questionário de Regimento Escolar</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Matriz de Decisões para construção do Regimento Escolar do CEMEP." />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,12 +16,9 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap"
       rel="stylesheet"
     />
-
     <!-- Google Material Symbols -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-
-    <link rel="stylesheet" href="style.css" />
-
+    <link rel="stylesheet" href="style.css?v=1.0.3" />
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
   </head>
@@ -32,63 +30,43 @@
         <p class="subtitle" id="main-subtitle"></p>
       </header>
 
-      <!-- Control Panel (Progress & File IO) -->
-      <div class="control-panel">
-        <div class="progress-container">
-          <span class="progress-text" id="progress-text">Progresso Geral: 0% (0/176)</span>
-          <div class="progress-bar-bg">
-            <div class="progress-bar-fill" id="progress-bar-fill"></div>
-          </div>
-        </div>
-        <div class="actions-row">
-          <button class="btn btn-primary" id="btn-export">
-            <i data-lucide="download"></i>
-            Gerar resposta.md
-          </button>
-          
-          <div class="file-input-wrapper">
-            <button class="btn btn-secondary">
-              <i data-lucide="upload"></i>
-              Carregar respostas.md
-            </button>
-            <input type="file" id="btn-import" accept=".md" />
-          </div>
-
-          <button class="btn btn-danger" id="btn-clear" style="margin-left: auto;">
-            <i data-lucide="trash-2"></i>
-            Limpar Respostas
-          </button>
-        </div>
-      </div>
-
       <!-- Loading Fallback -->
       <div class="loading-screen" id="loading-screen">
         <div class="spinner-large"></div>
-        <p>Carregando perguntas e organizando questionário...</p>
+        <p>Carregando questionário...</p>
       </div>
 
       <!-- HOME VIEW -->
       <div id="view-home" style="display: none;" class="view-fade">
+
         <!-- Info Rules (Deve/Não deve abordar) -->
-        <div class="info-section" id="info-section">
-          <!-- Will be dynamically populated from perguntas.json -->
-        </div>
+        <div class="info-section" id="info-section"></div>
 
         <!-- Welcome Action Card -->
         <div class="action-card">
           <div class="action-card-content">
             <h2>Pronto para iniciar?</h2>
             <p>Responda às perguntas detalhadas para subsidiar a elaboração do Regimento Escolar da sua instituição.</p>
+
             <div class="welcome-buttons">
-              <button class="btn btn-start" id="btn-start-fresh">
+              <!-- Single dynamic button: changes between Iniciar / Continuar -->
+              <button class="btn btn-start" id="btn-action-main">
                 <i data-lucide="play"></i>
                 Iniciar Questionário
               </button>
-              <button class="btn btn-resume" id="btn-resume" style="display: none;">
-                <i data-lucide="play-circle"></i>
-                Continuar respondendo
-              </button>
+
+              <!-- File Import -->
+              <div class="file-input-wrapper">
+                <button class="btn btn-secondary" id="btn-import-trigger">
+                  <i data-lucide="upload"></i>
+                  Carregar respostas.md
+                </button>
+                <input type="file" id="btn-import" accept=".md" />
+              </div>
             </div>
+
+            <!-- Import feedback message -->
+            <p class="import-status" id="import-status" style="display: none;"></p>
           </div>
         </div>
 
@@ -97,80 +75,7 @@
           <h3>Resultado Esperado</h3>
           <p id="outro-text"></p>
         </div>
-      </div>
 
-      <!-- QUESTION WIZARD VIEW -->
-      <div id="view-question" style="display: none;" class="view-fade">
-        <div class="question-wizard-card">
-          <!-- Wizard Header (Block name + progress) -->
-          <div class="wizard-header">
-            <span class="block-indicator" id="wizard-block-title">BLOCO 1</span>
-            <span class="block-progress-badge" id="wizard-block-progress">Pergunta 1 de 10</span>
-          </div>
-
-          <!-- Wizard Body (Question + Options + Textarea) -->
-          <div class="wizard-body">
-            <h2 class="question-text" id="wizard-question-text">Carregando pergunta...</h2>
-            
-            <div class="options-wrapper">
-              <div class="options-title">Selecione uma decisão:</div>
-              <div class="options-container" id="wizard-options-container">
-                <!-- Radio options dynamically generated here -->
-              </div>
-            </div>
-
-            <div class="textarea-wrapper">
-              <div class="textarea-title" id="wizard-textarea-title">Justificativa ou Resposta Livre (Opcional):</div>
-              <textarea 
-                id="wizard-textarea" 
-                class="wizard-input" 
-                placeholder="Digite sua justificativa ou decisão personalizada aqui... (Pressione Ctrl + Enter para salvar e avançar)"
-              ></textarea>
-              <div class="input-status-indicator" id="wizard-status-indicator">
-                <span class="status-dot"></span>
-                <span class="status-label">Não respondida</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Wizard Footer (Navigation controls) -->
-          <div class="wizard-footer">
-            <button class="btn btn-secondary" id="btn-nav-home">
-              <i data-lucide="home"></i>
-              Voltar ao Menu
-            </button>
-            <div class="nav-arrows">
-              <button class="btn btn-secondary" id="btn-nav-prev">
-                <i data-lucide="arrow-left"></i>
-                Anterior
-              </button>
-              <button class="btn btn-primary" id="btn-nav-next">
-                Próximo
-                <i data-lucide="arrow-right"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Collapsible Navigation Grid (Question Map) -->
-        <div class="navigation-map-section">
-          <button class="map-toggle-btn" id="btn-toggle-map">
-            <i data-lucide="grid"></i>
-            <span>Mapa de Questões (Navegação Direta)</span>
-            <span class="material-symbols-outlined map-chevron" id="map-chevron">expand_more</span>
-          </button>
-          
-          <div class="map-container" id="map-container">
-            <div class="map-legend">
-              <div class="legend-item"><span class="legend-dot unanswered"></span><span>Não respondida</span></div>
-              <div class="legend-item"><span class="legend-dot answered"></span><span>Respondida</span></div>
-              <div class="legend-item"><span class="legend-dot current"></span><span>Atual</span></div>
-            </div>
-            <div class="question-grid" id="question-grid">
-              <!-- Grid dots (1 to 176) will be generated here -->
-            </div>
-          </div>
-        </div>
       </div>
 
       <footer id="main-footer">
@@ -185,6 +90,6 @@
       <span id="toast-message">Mensagem</span>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=1.0.3"></script>
   </body>
 </html>

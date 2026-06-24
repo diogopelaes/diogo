@@ -35,16 +35,214 @@ body {
   transition: background-color 0.3s ease;
 }
 
+/* Wizard page removes default body padding (navbar handles spacing) */
+body.wizard-page {
+  padding: 0;
+  display: block;
+  align-items: unset;
+}
+
 .container {
   max-width: 1000px;
   margin: 0 auto;
   width: 100%;
 }
 
+/* ============================================================
+   WIZARD NAVBAR — Fixed top bar
+   ============================================================ */
+.wizard-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: rgba(9, 9, 11, 0.95);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-dark);
+  height: 52px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1.25rem;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+.navbar-title {
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+
+.navbar-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 0;
+}
+
+.navbar-center .progress-text {
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text-dark);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.navbar-center .progress-count {
+  font-size: 0.75rem;
+  color: var(--text-muted-dark);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.navbar-center .progress-bar-bg {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  overflow: hidden;
+  min-width: 60px;
+}
+
+.navbar-center .progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #6366f1, #818cf8);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+/* Icon-only navbar buttons */
+.btn-icon {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.6rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-dark);
+  color: var(--text-muted-dark);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  gap: 0;
+}
+
+.btn-icon i, .btn-icon svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.btn-icon:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-dark);
+  transform: none;
+}
+
+.btn-icon-danger {
+  color: #fca5a5;
+  border-color: rgba(239, 68, 68, 0.15);
+  background: rgba(239, 68, 68, 0.04);
+}
+
+.btn-icon-danger:hover {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: var(--danger);
+  color: white;
+}
+
+/* Map toggle button with chevron */
+.navbar-map-btn {
+  width: auto;
+  padding: 0 0.6rem;
+  gap: 0.25rem;
+}
+
+.navbar-map-btn .map-chevron {
+  font-size: 16px;
+  color: var(--text-muted-dark);
+  transition: transform 0.25s ease;
+  line-height: 1;
+}
+
+.navbar-map-btn.active .map-chevron {
+  transform: rotate(180deg);
+  color: var(--primary);
+}
+
+/* ============================================================
+   NAVBAR MAP PANEL — Dropdown below navbar
+   ============================================================ */
+.navbar-map-panel {
+  display: none;
+  position: fixed;
+  top: 52px;
+  left: 0;
+  right: 0;
+  z-index: 190;
+  background: rgba(12, 12, 15, 0.97);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-dark);
+  padding: 0.85rem 1.25rem 1rem 1.25rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  animation: mapSlideDown 0.2s ease;
+}
+
+.navbar-map-panel.open {
+  display: block;
+}
+
+@keyframes mapSlideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   WIZARD CONTENT — page body below navbar
+   ============================================================ */
+.wizard-content {
+  margin-top: 52px; /* navbar height */
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.5rem 1rem 2rem 1rem;
+  width: 100%;
+}
+
+
 header {
   text-align: center;
   margin-bottom: 2rem;
   margin-top: 1rem;
+}
+
+header.compact {
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
 }
 
 h1 {
@@ -59,12 +257,21 @@ h1 {
   margin-bottom: 0.75rem;
 }
 
+header.compact h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+
 .subtitle {
   font-size: 1.1rem;
   color: var(--text-muted-dark);
   font-weight: 500;
   max-width: 800px;
   margin: 0 auto;
+}
+
+header.compact .subtitle {
+  display: none;
 }
 
 /* Transitions */
@@ -303,6 +510,38 @@ h1 {
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.welcome-buttons .btn {
+  padding: 0.8rem 1.75rem;
+  font-size: 1rem;
+  border-radius: 0.85rem;
+  height: 52px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.import-status {
+  font-size: 0.9rem;
+  margin-top: 0.75rem;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.import-status.success {
+  color: var(--success);
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.import-status.error {
+  color: #fca5a5;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
 }
 
 .btn-start {
@@ -369,6 +608,7 @@ h1 {
   flex-direction: column;
   gap: 1.75rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  scroll-margin-top: 180px;
 }
 
 .wizard-header {
@@ -447,6 +687,7 @@ h1 {
   cursor: pointer;
   transition: all 0.2s ease;
   user-select: none;
+  scroll-margin-top: 180px;
 }
 
 .option-card:hover {
@@ -582,6 +823,28 @@ h1 {
   margin-bottom: 4rem;
 }
 
+.control-panel .navigation-map-section {
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--border-dark);
+  border-radius: 0;
+  margin-bottom: 0;
+  margin-top: 0.5rem;
+}
+
+.control-panel .map-toggle-btn {
+  padding: 0.75rem 0 0 0;
+}
+
+.control-panel .map-container {
+  padding: 0;
+}
+
+.control-panel .navigation-map-section.active .map-container {
+  padding: 1rem 0 0.5rem 0;
+  border-top: 1px solid var(--border-dark);
+}
+
 .map-toggle-btn {
   background: none;
   border: none;
@@ -615,17 +878,13 @@ h1 {
 }
 
 .map-container {
-  display: grid;
-  grid-template-rows: 0fr;
+  display: none;
   opacity: 0;
-  transition: grid-template-rows 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.3s ease,
-              padding 0.3s ease;
   padding: 0 1.5rem;
 }
 
 .navigation-map-section.active .map-container {
-  grid-template-rows: 1fr;
+  display: grid;
   opacity: 1;
   padding: 1rem 1.5rem 1.75rem 1.5rem;
   border-top: 1px solid var(--border-dark);
@@ -762,12 +1021,16 @@ h1 {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
   z-index: 1000;
   transform: translateY(150%);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
   font-size: 0.85rem;
 }
 
 .notification-toast.show {
   transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .notification-toast.success {
@@ -793,40 +1056,420 @@ footer {
   width: 100%;
 }
 
-/* Responsive Grid Changes */
+/* ============================================================
+   RESPONSIVE — Tablet (≤ 900px)
+   ============================================================ */
 @media (max-width: 900px) {
+  /* Home: info cards em coluna única */
   .info-section {
     grid-template-columns: 1fr;
   }
+
+  /* Navbar: reduz gap */
+  .wizard-navbar {
+    gap: 0.6rem;
+    padding: 0 0.85rem;
+  }
+
+  /* Oculta título na navbar em tablets medianos */
+  .navbar-title {
+    font-size: 0.85rem;
+  }
 }
 
+/* ============================================================
+   RESPONSIVE — Mobile (≤ 640px)
+   ============================================================ */
 @media (max-width: 640px) {
+
+  /* --- BODY / CONTAINER --- */
   body {
-    padding: 1rem 0.5rem;
+    padding: 1rem 0.75rem;
   }
+
+  body.wizard-page {
+    padding: 0;
+  }
+
+  .container {
+    padding: 0 0.25rem;
+  }
+
+  /* --- TIPOGRAFIA --- */
   h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
-  .control-panel {
-    top: 0.5rem;
-    padding: 1rem;
+
+  .subtitle {
+    font-size: 0.95rem;
   }
-  .question-wizard-card {
-    padding: 1.5rem;
-    gap: 1.25rem;
+
+  /* -------------------------------------------------------
+     WIZARD NAVBAR — mobile
+  ------------------------------------------------------- */
+  .wizard-navbar {
+    height: 48px;
+    padding: 0 0.5rem;
+    gap: 0.4rem;
   }
-  .question-text {
-    font-size: 1.2rem;
+
+  .navbar-left {
+    gap: 0.4rem;
   }
-  .wizard-input {
-    min-height: 130px;
-    padding: 0.85rem;
+
+  .navbar-right {
+    gap: 0.3rem;
   }
-  .question-grid {
-    grid-template-columns: repeat(auto-fill, minmax(28px, 1fr));
+
+  /* Oculta o título do regimento na navbar — espaço muito apertado */
+  .navbar-title {
+    display: none;
+  }
+
+  /* Ajusta botões de ícone para toque (44px mínimo) */
+  .btn-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .navbar-map-btn {
+    width: auto;
+    padding: 0 0.55rem;
+  }
+
+  /* Barra de progresso: mostra % e count, oculta label "Progresso" */
+  .navbar-center {
     gap: 0.35rem;
   }
-  .grid-dot {
+
+  .navbar-center .progress-text {
     font-size: 0.75rem;
   }
+
+  .navbar-center .progress-count {
+    font-size: 0.7rem;
+  }
+
+  .navbar-center .progress-bar-bg {
+    min-width: 40px;
+    height: 4px;
+  }
+
+  /* Painel do mapa: ajusta topo para nova altura da navbar */
+  .navbar-map-panel {
+    top: 48px;
+    padding: 0.75rem;
+    max-height: 55vh;
+    overflow-y: auto;
+  }
+
+  /* Dots do mapa menores em mobile */
+  .question-grid {
+    grid-template-columns: repeat(auto-fill, minmax(28px, 1fr));
+    gap: 0.3rem;
+  }
+
+  .grid-dot {
+    font-size: 0.7rem;
+    border-radius: 5px;
+  }
+
+  /* Legenda do mapa em linha compacta */
+  .map-legend {
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  /* -------------------------------------------------------
+     WIZARD CONTENT — ajusta margem da navbar
+  ------------------------------------------------------- */
+  .wizard-content {
+    margin-top: 48px;
+    padding: 1rem 0.75rem 5rem 0.75rem; /* padding bottom extra para footer fixo */
+  }
+
+  /* -------------------------------------------------------
+     QUESTION WIZARD CARD — mobile
+  ------------------------------------------------------- */
+  .question-wizard-card {
+    padding: 1.25rem;
+    gap: 1.25rem;
+    border-radius: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .question-text {
+    font-size: 1.15rem;
+    line-height: 1.45;
+  }
+
+  .wizard-header {
+    padding-bottom: 0.75rem;
+  }
+
+  .block-indicator {
+    font-size: 0.8rem;
+  }
+
+  .block-progress-badge {
+    font-size: 0.72rem;
+    padding: 0.2rem 0.55rem;
+  }
+
+  /* -------------------------------------------------------
+     OPÇÕES — touch targets maiores em mobile
+  ------------------------------------------------------- */
+  .option-card {
+    padding: 0.9rem 1rem;
+    border-radius: 0.65rem;
+    gap: 0.65rem;
+  }
+
+  .option-indicator {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  .option-text {
+    font-size: 0.88rem;
+    line-height: 1.4;
+  }
+
+  /* -------------------------------------------------------
+     TEXTAREA
+  ------------------------------------------------------- */
+  .wizard-input {
+    min-height: 110px;
+    padding: 0.85rem;
+    font-size: 0.95rem;
+  }
+
+  /* -------------------------------------------------------
+     WIZARD FOOTER — empilha botões em mobile
+  ------------------------------------------------------- */
+  .wizard-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    padding-top: 1rem;
+  }
+
+  .footer-left-group {
+    flex-direction: column;
+    gap: 0.5rem !important;
+  }
+
+  .nav-arrows {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .nav-arrows .btn {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .footer-left-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* -------------------------------------------------------
+     HOME PAGE — index.html
+  ------------------------------------------------------- */
+  header {
+    margin-bottom: 1.25rem;
+  }
+
+  .info-card {
+    padding: 1.25rem 1.1rem;
+    border-radius: 1.1rem;
+  }
+
+  .info-card h3 {
+    font-size: 1rem;
+  }
+
+  .info-card li {
+    font-size: 0.85rem;
+  }
+
+  .action-card {
+    padding: 1.5rem 1.1rem;
+    border-radius: 1.1rem;
+  }
+
+  .action-card h2 {
+    font-size: 1.35rem;
+  }
+
+  .action-card p {
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  /* Botões da home em coluna, largura total */
+  .welcome-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .welcome-buttons .btn,
+  .welcome-buttons .file-input-wrapper,
+  .welcome-buttons .file-input-wrapper .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .welcome-buttons .btn {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.95rem;
+    border-radius: 0.8rem;
+    height: 48px;
+  }
+
+  /* -------------------------------------------------------
+     TOAST — posiciona no topo em mobile (evita teclado)
+  ------------------------------------------------------- */
+  .notification-toast {
+    bottom: auto;
+    top: 0;
+    right: 0.75rem;
+    left: 0.75rem;
+    transform: translateY(-150%);
+    font-size: 0.82rem;
+    padding: 0.65rem 1rem;
+  }
+
+  .notification-toast.show {
+    transform: translateY(56px);
+  }
+
+  /* -------------------------------------------------------
+     MODAL — mobile
+  ------------------------------------------------------- */
+  .modal-card {
+    padding: 1.5rem;
+    border-radius: 1rem;
+    gap: 1.1rem;
+  }
+
+  .modal-header h3 {
+    font-size: 1.15rem;
+  }
+
+  .modal-footer {
+    flex-direction: column-reverse;
+    gap: 0.5rem;
+  }
+
+  .modal-footer .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — Very small (≤ 400px)
+   ============================================================ */
+@media (max-width: 400px) {
+  .question-text {
+    font-size: 1.05rem;
+  }
+
+  .question-grid {
+    grid-template-columns: repeat(auto-fill, minmax(24px, 1fr));
+    gap: 0.25rem;
+  }
+
+  .grid-dot {
+    font-size: 0.65rem;
+    border-radius: 4px;
+  }
+
+  .navbar-center .progress-count {
+    display: none; /* Exibe só % em telas muito pequenas */
+  }
+}
+
+
+/* Custom Confirmation Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  transition: all 0.3s ease;
+}
+
+.modal-card {
+  background: #18181b; /* Zinc 900 */
+  border: 1px solid var(--border-dark);
+  border-radius: 1.25rem;
+  padding: 2rem;
+  max-width: 450px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  animation: modalEntrance 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalEntrance {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.modal-header h3 {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.modal-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.modal-icon.danger {
+  color: var(--danger);
+}
+
+.modal-icon.warning {
+  color: var(--warning);
+}
+
+.modal-body p {
+  color: var(--text-muted-dark);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  border-top: 1px solid var(--border-dark);
+  padding-top: 1.25rem;
+  margin-top: 0.25rem;
 }

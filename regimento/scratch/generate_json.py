@@ -4,7 +4,7 @@ import os
 # Define details of Matriz de Decisões
 data = {
     "titulo": "Matriz de Decisões para Construção do Regimento Escolar do CEMEP",
-    "descricao": "Este questionário foi concebido para servir como instrumento de tomada de decisões da Comissão de Revisão do Regimento Escolar do CEMEP. Cada resposta deve resultar diretamente em um ou mais artigos do futuro Regimento Escolar.",
+    "descricao": "",
     "deve_abordar": [
         "Estrutura de governança e órgãos colegiados",
         "Atribuições administrativas e pedagógicas da equipe gestora",
