@@ -531,7 +531,7 @@
     },
     {
       "id": 5,
-      "titulo": "BLOCO 5 — SISTEMA DE AVALIAÇÃO",
+      "titulo": "BLOCO 5 — SISTEMA DE AVALIAÇÃO E NOTAS",
       "perguntas": [
         {
           "num": 54,
@@ -562,6 +562,24 @@
         },
         {
           "num": 57,
+          "texto": "Como serão aplicados os critérios de arredondamento de notas fracionárias?",
+          "opcoes": [
+            "Arredondamento matemático padrão (frações de 0,5 ou mais são elevadas; menores são mantidas)",
+            "Arredondamento sempre para cima a partir de qualquer fração de 0,5 (ex: 5,5 -> 6,0)",
+            "Sem arredondamento automático; notas fracionárias mantidas, cabendo decisão ao Conselho de Classe na média final"
+          ]
+        },
+        {
+          "num": 58,
+          "texto": "Quantas casas decimais deverão ser utilizadas no registro das notas?",
+          "opcoes": [
+            "Apenas uma casa decimal (ex: 7,5 ou 8,3)",
+            "Notas exclusivamente inteiras de 0 a 10 (ou 0 a 100) sem decimais",
+            "Duas casas decimais para maior precisão (ex: 7,25 ou 8,33)"
+          ]
+        },
+        {
+          "num": 59,
           "texto": "Quantos períodos avaliativos existirão?",
           "opcoes": [
             "4 períodos letivos (Bimestres)",
@@ -570,7 +588,61 @@
           ]
         },
         {
-          "num": 58,
+          "num": 60,
+          "texto": "Qual a quantidade mínima de instrumentos avaliativos por período letivo?",
+          "opcoes": [
+            "Pelo menos 2 instrumentos de tipos diferentes por período letivo (ex: uma prova e um trabalho)",
+            "Pelo menos 3 instrumentos de tipos diferentes por período letivo",
+            "Sem quantidade mínima obrigatória (critério e flexibilidade total do professor)"
+          ]
+        },
+        {
+          "num": 61,
+          "texto": "Quais tipos de instrumentos de avaliação poderão ser utilizados no processo?",
+          "opcoes": [
+            "Provas escritas individuais combinadas com trabalhos, seminários e projetos práticos",
+            "Portfólios, autoavaliação e atividades práticas como formas principais de aferição",
+            "Todos os tipos anteriores de forma integrada, combinando avaliações formais e formativas"
+          ]
+        },
+        {
+          "num": 62,
+          "texto": "Como será a distribuição dos pesos e valores das avaliações?",
+          "opcoes": [
+            "Distribuição unificada e padronizada pela escola (ex: Prova peso 6, Trabalhos peso 4)",
+            "Autonomia do professor para definir pesos e valores na sua disciplina",
+            "Padronizada por área do conhecimento (Disciplinas Técnicas vs. Disciplinas Propedêuticas)"
+          ]
+        },
+        {
+          "num": 63,
+          "texto": "Qual o nível de autonomia do professor na escolha dos formatos e detalhes das avaliações?",
+          "opcoes": [
+            "Autonomia total (o professor define datas, formatos e critérios individuais)",
+            "Autonomia parcial (segue o calendário da coordenação, mas define formatos e critérios individuais)",
+            "Padronização rígida (formatos, critérios e calendário comuns definidos pela equipe pedagógica)"
+          ]
+        },
+        {
+          "num": 64,
+          "texto": "Como serão avaliadas as disciplinas de caráter prático, laboratorial ou de oficinas?",
+          "opcoes": [
+            "Regras idênticas às disciplinas teóricas (mesma escala e mesmos instrumentos)",
+            "Critérios diferenciados baseados em relatórios, desempenho prático e portfólio de atividades",
+            "Avaliação contínua sem provas teóricas formais, focada em projetos e práticas profissionais"
+          ]
+        },
+        {
+          "num": 65,
+          "texto": "Haverá uma semana dedicada exclusivamente à realização de avaliações (semana de provas)?",
+          "opcoes": [
+            "Sim, calendário unificado sem aulas regulares durante a semana de provas",
+            "Não, as avaliações devem ser diluídas ao longo do período durante as aulas normais",
+            "Modelo híbrido (provas unificadas em horários específicos, mantendo as aulas letivas)"
+          ]
+        },
+        {
+          "num": 66,
           "texto": "Como serão registrados os resultados?",
           "opcoes": [
             "No diário de classe digital integrado ao sistema da secretaria",
@@ -579,7 +651,7 @@
           ]
         },
         {
-          "num": 59,
+          "num": 67,
           "texto": "Quem valida os registros?",
           "opcoes": [
             "O Coordenador Pedagógico e o Diretor da Escola",
@@ -588,7 +660,7 @@
           ]
         },
         {
-          "num": 60,
+          "num": 68,
           "texto": "Como serão corrigidos erros?",
           "opcoes": [
             "Mediante solicitação formal do professor e retificação da secretaria",
@@ -597,7 +669,7 @@
           ]
         },
         {
-          "num": 61,
+          "num": 69,
           "texto": "Como será garantida transparência ao estudante?",
           "opcoes": [
             "Acesso em tempo real ao boletim online e devolução de provas",
@@ -606,7 +678,7 @@
           ]
         },
         {
-          "num": 62,
+          "num": 70,
           "texto": "Como será garantido acesso às avaliações?",
           "opcoes": [
             "Visualização das provas corrigidas em sala com feedback do professor",
@@ -621,7 +693,7 @@
       "titulo": "BLOCO 6 — RECUPERAÇÃO DA APRENDIZAGEM",
       "perguntas": [
         {
-          "num": 63,
+          "num": 71,
           "texto": "Haverá recuperação contínua?",
           "opcoes": [
             "Sim, realizada no decorrer das aulas ordinárias diariamente",
@@ -630,7 +702,7 @@
           ]
         },
         {
-          "num": 64,
+          "num": 72,
           "texto": "Haverá recuperação paralela?",
           "opcoes": [
             "Sim, realizada ao final de cada ciclo/bimestre letivo",
@@ -639,7 +711,7 @@
           ]
         },
         {
-          "num": 65,
+          "num": 73,
           "texto": "Haverá recuperação final?",
           "opcoes": [
             "Sim, ofertada ao final do ano letivo aos alunos retidos",
@@ -648,7 +720,7 @@
           ]
         },
         {
-          "num": 66,
+          "num": 74,
           "texto": "Haverá recuperação intensiva?",
           "opcoes": [
             "Sim, focada em habilidades essenciais em períodos curtos de férias/sábados",
@@ -657,7 +729,7 @@
           ]
         },
         {
-          "num": 67,
+          "num": 75,
           "texto": "Quais critérios de participação?",
           "opcoes": [
             "Estudante com média/conceito abaixo do mínimo no período letivo",
@@ -666,7 +738,7 @@
           ]
         },
         {
-          "num": 68,
+          "num": 76,
           "texto": "Como serão registrados os resultados?",
           "opcoes": [
             "Lançamento de nova nota/conceito no sistema substituindo a anterior",
@@ -675,7 +747,7 @@
           ]
         },
         {
-          "num": 69,
+          "num": 77,
           "texto": "Como os resultados substituirão avaliações anteriores?",
           "opcoes": [
             "Prevalência da maior nota obtida pelo estudante no período",
@@ -684,7 +756,7 @@
           ]
         },
         {
-          "num": 70,
+          "num": 78,
           "texto": "Quem definirá os procedimentos?",
           "opcoes": [
             "A Coordenação Pedagógica em conjunto com os Professores",
@@ -699,7 +771,7 @@
       "titulo": "BLOCO 7 — APROVAÇÃO E RETENÇÃO",
       "perguntas": [
         {
-          "num": 71,
+          "num": 79,
           "texto": "Quais critérios para aprovação?",
           "opcoes": [
             "Frequência mínima de 75% e média final igual ou superior a 6,0",
@@ -708,7 +780,7 @@
           ]
         },
         {
-          "num": 72,
+          "num": 80,
           "texto": "Quais critérios para retenção?",
           "opcoes": [
             "Média final inferior a 6,0 em mais de 3 disciplinas após recuperação",
@@ -717,7 +789,7 @@
           ]
         },
         {
-          "num": 73,
+          "num": 81,
           "texto": "A frequência terá peso decisório?",
           "opcoes": [
             "Sim, fator eliminatório absoluto (mínimo de 75%)",
@@ -726,7 +798,7 @@
           ]
         },
         {
-          "num": 74,
+          "num": 82,
           "texto": "O Conselho de Classe poderá rever situações excepcionais?",
           "opcoes": [
             "Sim, analisando aspectos socioemocionais, de inclusão e histórico do aluno",
@@ -735,7 +807,7 @@
           ]
         },
         {
-          "num": 75,
+          "num": 83,
           "texto": "Como serão tratadas situações limítrofes?",
           "opcoes": [
             "Encaminhamento automático para conselho de classe deliberativo especial",
@@ -744,7 +816,7 @@
           ]
         },
         {
-          "num": 76,
+          "num": 84,
           "texto": "Haverá progressão parcial?",
           "opcoes": [
             "Sim, para o aluno cursar o ano seguinte com pendências do anterior",
@@ -753,7 +825,7 @@
           ]
         },
         {
-          "num": 77,
+          "num": 85,
           "texto": "Haverá dependência?",
           "opcoes": [
             "Sim, com turmas especiais no contra-turno",
@@ -762,7 +834,7 @@
           ]
         },
         {
-          "num": 78,
+          "num": 86,
           "texto": "Como ocorrerá comunicação dos resultados?",
           "opcoes": [
             "Publicação digital no portal e reuniões de entrega de boletins",
@@ -777,7 +849,7 @@
       "titulo": "BLOCO 8 — RECONSIDERAÇÃO E RECURSO",
       "perguntas": [
         {
-          "num": 79,
+          "num": 87,
           "texto": "Haverá pedido de reconsideração?",
           "opcoes": [
             "Sim, em primeira instância para a Direção/Conselho de Classe",
@@ -786,7 +858,7 @@
           ]
         },
         {
-          "num": 80,
+          "num": 88,
           "texto": "Quem poderá solicitar?",
           "opcoes": [
             "O estudante (maior de idade) ou seus pais/responsáveis legais",
@@ -795,7 +867,7 @@
           ]
         },
         {
-          "num": 81,
+          "num": 89,
           "texto": "Qual prazo?",
           "opcoes": [
             "Até 5 dias úteis após a publicação oficial dos resultados",
@@ -804,7 +876,7 @@
           ]
         },
         {
-          "num": 82,
+          "num": 90,
           "texto": "Quem analisará?",
           "opcoes": [
             "A Direção Pedagógica ouvidos os professores da disciplina",
@@ -813,7 +885,7 @@
           ]
         },
         {
-          "num": 83,
+          "num": 91,
           "texto": "Haverá recurso?",
           "opcoes": [
             "Sim, em segunda instância para a Diretoria de Ensino / Mantenedora",
@@ -822,7 +894,7 @@
           ]
         },
         {
-          "num": 84,
+          "num": 92,
           "texto": "Qual prazo?",
           "opcoes": [
             "Até 5 dias úteis após ciência da decisão de reconsideração",
@@ -831,7 +903,7 @@
           ]
         },
         {
-          "num": 85,
+          "num": 93,
           "texto": "Qual instância julgará?",
           "opcoes": [
             "A Diretoria de Ensino / Órgão Colegiado Superior da Mantenedora",
@@ -840,7 +912,7 @@
           ]
         },
         {
-          "num": 86,
+          "num": 94,
           "texto": "Quais documentos deverão instruir o processo?",
           "opcoes": [
             "Histórico de notas, plano de recuperação e provas físicas aplicadas",
@@ -849,7 +921,7 @@
           ]
         },
         {
-          "num": 87,
+          "num": 95,
           "texto": "Como será dada ciência da decisão?",
           "opcoes": [
             "Por notificação oficial escrita entregue sob assinatura ou e-mail oficial",
@@ -864,7 +936,7 @@
       "titulo": "BLOCO 9 — DIREITOS DOS ESTUDANTES",
       "perguntas": [
         {
-          "num": 88,
+          "num": 96,
           "texto": "Quais direitos deverão constar expressamente?",
           "opcoes": [
             "Acesso a ensino de qualidade e professores qualificados",
@@ -874,7 +946,7 @@
           ]
         },
         {
-          "num": 89,
+          "num": 97,
           "texto": "Direito à informação?",
           "opcoes": [
             "Sim, com direito a cronogramas de provas, conteúdos e critérios claros",
@@ -883,7 +955,7 @@
           ]
         },
         {
-          "num": 90,
+          "num": 98,
           "texto": "Direito ao contraditório?",
           "opcoes": [
             "Sim, com garantia de escuta antes da aplicação de medidas disciplinares",
@@ -892,7 +964,7 @@
           ]
         },
         {
-          "num": 91,
+          "num": 99,
           "texto": "Direito à ampla defesa?",
           "opcoes": [
             "Sim, permitindo ao estudante apresentar provas e testemunhas",
@@ -901,7 +973,7 @@
           ]
         },
         {
-          "num": 92,
+          "num": 100,
           "texto": "Direito à participação estudantil?",
           "opcoes": [
             "Sim, assegurando direito à organização de Grêmio e chapas livres",
@@ -910,7 +982,7 @@
           ]
         },
         {
-          "num": 93,
+          "num": 101,
           "texto": "Direito de acesso aos registros escolares?",
           "opcoes": [
             "Sim, a qualquer tempo mediante solicitação oficial à secretaria",
@@ -919,7 +991,7 @@
           ]
         },
         {
-          "num": 94,
+          "num": 102,
           "texto": "Direito de uso dos espaços institucionais?",
           "opcoes": [
             "Sim, incluindo biblioteca, quadras e laboratórios sob agendamento",
@@ -928,7 +1000,7 @@
           ]
         },
         {
-          "num": 95,
+          "num": 103,
           "texto": "Direito à inclusão?",
           "opcoes": [
             "Sim, garantindo adaptações de currículo e metodologias para PCDs",
@@ -937,7 +1009,7 @@
           ]
         },
         {
-          "num": 96,
+          "num": 104,
           "texto": "Direito à acessibilidade?",
           "opcoes": [
             "Sim, com acessibilidade arquitetônica, atitudinal e digital",
@@ -946,7 +1018,7 @@
           ]
         },
         {
-          "num": 97,
+          "num": 105,
           "texto": "Direito à proteção contra discriminação?",
           "opcoes": [
             "Sim, com proibição expressa de atitudes de racismo, homofobia e capacitismo",
@@ -955,7 +1027,7 @@
           ]
         },
         {
-          "num": 98,
+          "num": 106,
           "texto": "Direito à proteção de dados pessoais?",
           "opcoes": [
             "Sim, proteção de dados e privacidade em conformidade com a LGPD",
@@ -970,7 +1042,7 @@
       "titulo": "BLOCO 10 — DEVERES DOS ESTUDANTES",
       "perguntas": [
         {
-          "num": 99,
+          "num": 107,
           "texto": "Quais deveres deverão constar expressamente?",
           "opcoes": [
             "Comparecer pontualmente às aulas e trazer o material pedagógico",
@@ -980,7 +1052,7 @@
           ]
         },
         {
-          "num": 100,
+          "num": 108,
           "texto": "Quais responsabilidades acadêmicas?",
           "opcoes": [
             "Frequência regular mínima, realização de tarefas e avaliações",
@@ -989,7 +1061,7 @@
           ]
         },
         {
-          "num": 101,
+          "num": 109,
           "texto": "Quais responsabilidades disciplinares?",
           "opcoes": [
             "Seguir as normas internas de conduta e horários estabelecidos",
@@ -998,7 +1070,7 @@
           ]
         },
         {
-          "num": 102,
+          "num": 110,
           "texto": "Quais responsabilidades patrimoniais?",
           "opcoes": [
             "Indenizar a escola em caso de destruição dolosa de patrimônio",
@@ -1007,7 +1079,7 @@
           ]
         },
         {
-          "num": 103,
+          "num": 111,
           "texto": "Quais responsabilidades digitais?",
           "opcoes": [
             "Uso ético de equipamentos e redes Wi-Fi institucionais",
@@ -1016,7 +1088,7 @@
           ]
         },
         {
-          "num": 104,
+          "num": 112,
           "texto": "Quais responsabilidades relacionadas à convivência?",
           "opcoes": [
             "Promover conduta colaborativa, respeitando as diferenças de todos",
@@ -1031,7 +1103,7 @@
       "titulo": "BLOCO 11 — DIREITOS E DEVERES DAS FAMÍLIAS",
       "perguntas": [
         {
-          "num": 105,
+          "num": 113,
           "texto": "Quais direitos deverão constar?",
           "opcoes": [
             "Ser informado sobre frequência, notas e comportamento do aluno",
@@ -1041,7 +1113,7 @@
           ]
         },
         {
-          "num": 106,
+          "num": 114,
           "texto": "Quais deveres deverão constar?",
           "opcoes": [
             "Garantir a frequência diária e pontualidade do estudante",
@@ -1051,7 +1123,7 @@
           ]
         },
         {
-          "num": 107,
+          "num": 115,
           "texto": "Como ocorrerá acompanhamento escolar?",
           "opcoes": [
             "Através do portal acadêmico digital e reuniões bimestrais de pais",
@@ -1060,7 +1132,7 @@
           ]
         },
         {
-          "num": 108,
+          "num": 116,
           "texto": "Como ocorrerão comunicações oficiais?",
           "opcoes": [
             "Por comunicados digitais no sistema oficial e avisos escritos",
@@ -1069,7 +1141,7 @@
           ]
         },
         {
-          "num": 109,
+          "num": 117,
           "texto": "Como ocorrerá participação em reuniões?",
           "opcoes": [
             "Participação presencial obrigatória a cada final de período letivo",
@@ -1078,7 +1150,7 @@
           ]
         },
         {
-          "num": 110,
+          "num": 118,
           "texto": "Como ocorrerá participação nos colegiados?",
           "opcoes": [
             "Por meio de candidaturas e eleições para membros da APM e Conselho",
@@ -1093,7 +1165,7 @@
       "titulo": "BLOCO 12 — DIREITOS E DEVERES DOS PROFISSIONAIS",
       "perguntas": [
         {
-          "num": 111,
+          "num": 119,
           "texto": "Quais deveres funcionais deverão constar?",
           "opcoes": [
             "Cumprimento de carga horária e pontualidade nas aulas",
@@ -1103,7 +1175,7 @@
           ]
         },
         {
-          "num": 112,
+          "num": 120,
           "texto": "Quais deveres relativos aos registros escolares?",
           "opcoes": [
             "Lançamento correto e tempestivo de notas, conceitos e faltas no diário",
@@ -1112,7 +1184,7 @@
           ]
         },
         {
-          "num": 113,
+          "num": 121,
           "texto": "Quais deveres relativos à avaliação?",
           "opcoes": [
             "Planejamento de avaliações alinhadas aos objetivos de aprendizagem",
@@ -1122,7 +1194,7 @@
           ]
         },
         {
-          "num": 114,
+          "num": 122,
           "texto": "Quais deveres relativos à frequência?",
           "opcoes": [
             "Lançamento diário de presença/falta e acompanhamento de evasão",
@@ -1131,7 +1203,7 @@
           ]
         },
         {
-          "num": 115,
+          "num": 123,
           "texto": "Quais deveres relativos à segurança?",
           "opcoes": [
             "Zelar pela integridade física dos alunos em sala e espaços comuns",
@@ -1141,7 +1213,7 @@
           ]
         },
         {
-          "num": 116,
+          "num": 124,
           "texto": "Quais deveres relativos à proteção de dados?",
           "opcoes": [
             "Sigilo absoluto sobre notas, histórico e dados de saúde dos alunos",
@@ -1157,7 +1229,7 @@
       "titulo": "BLOCO 13 — CONVIVÊNCIA ESCOLAR",
       "perguntas": [
         {
-          "num": 117,
+          "num": 125,
           "texto": "Quais princípios orientarão a convivência?",
           "opcoes": [
             "Respeito mútuo, solidariedade e valorização da diversidade",
@@ -1166,7 +1238,7 @@
           ]
         },
         {
-          "num": 118,
+          "num": 126,
           "texto": "Quais condutas serão consideradas inadequadas?",
           "opcoes": [
             "Agressões verbais ou físicas, preconceito e discriminação de qualquer tipo",
@@ -1176,7 +1248,7 @@
           ]
         },
         {
-          "num": 119,
+          "num": 127,
           "texto": "Como serão tratados conflitos interpessoais?",
           "opcoes": [
             "Através de conversas de mediação conduzidas pela coordenação",
@@ -1185,7 +1257,7 @@
           ]
         },
         {
-          "num": 120,
+          "num": 128,
           "texto": "Como serão tratados atos de desrespeito?",
           "opcoes": [
             "Advertência oral imediata e, se persistente, encaminhamento escrito",
@@ -1194,7 +1266,7 @@
           ]
         },
         {
-          "num": 121,
+          "num": 129,
           "texto": "Como serão tratados atos discriminatórios?",
           "opcoes": [
             "Abertura imediata de processo de apuração e suspensão temporária",
@@ -1203,7 +1275,7 @@
           ]
         },
         {
-          "num": 122,
+          "num": 130,
           "texto": "Como serão tratados atos de violência?",
           "opcoes": [
             "Separação dos envolvidos, comunicação à família e à polícia em caso grave",
@@ -1212,7 +1284,7 @@
           ]
         },
         {
-          "num": 123,
+          "num": 131,
           "texto": "Como serão tratados casos de bullying?",
           "opcoes": [
             "Programa permanente de combate ao bullying, palestras e escuta",
@@ -1221,7 +1293,7 @@
           ]
         },
         {
-          "num": 124,
+          "num": 132,
           "texto": "Como serão tratados casos de cyberbullying?",
           "opcoes": [
             "Investigação interna com apoio de prints e denúncias documentadas",
@@ -1230,7 +1302,7 @@
           ]
         },
         {
-          "num": 125,
+          "num": 133,
           "texto": "Como serão tratados danos ao patrimônio?",
           "opcoes": [
             "Reparação financeira ou material do dano pelo aluno ou responsável",
@@ -1239,7 +1311,7 @@
           ]
         },
         {
-          "num": 126,
+          "num": 134,
           "texto": "Como serão tratadas denúncias?",
           "opcoes": [
             "Por canal de denúncias anônimo ou formal escrito na secretaria",
@@ -1254,7 +1326,7 @@
       "titulo": "BLOCO 14 — MEDIDAS EDUCATIVAS E DISCIPLINARES",
       "perguntas": [
         {
-          "num": 127,
+          "num": 135,
           "texto": "Quais medidas educativas existirão?",
           "opcoes": [
             "Medidas preventivas, advertência verbal, escrita e suspensão",
@@ -1263,7 +1335,7 @@
           ]
         },
         {
-          "num": 128,
+          "num": 136,
           "texto": "Haverá advertência verbal?",
           "opcoes": [
             "Sim, aplicada pelo professor em sala ou inspetor nos pátios",
@@ -1272,7 +1344,7 @@
           ]
         },
         {
-          "num": 129,
+          "num": 137,
           "texto": "Haverá advertência escrita?",
           "opcoes": [
             "Sim, aplicada pelo coordenador pedagógico ou diretor",
@@ -1281,7 +1353,7 @@
           ]
         },
         {
-          "num": 130,
+          "num": 138,
           "texto": "Haverá termo de compromisso?",
           "opcoes": [
             "Sim, assinado pelo aluno e responsáveis em reuniões de conciliação",
@@ -1290,7 +1362,7 @@
           ]
         },
         {
-          "num": 131,
+          "num": 139,
           "texto": "Haverá encaminhamento restaurativo?",
           "opcoes": [
             "Sim, por meio de práticas restaurativas para reparar danos à convivência",
@@ -1299,7 +1371,7 @@
           ]
         },
         {
-          "num": 132,
+          "num": 140,
           "texto": "Haverá suspensão?",
           "opcoes": [
             "Sim, limitada a no máximo 3 dias letivos",
@@ -1308,7 +1380,7 @@
           ]
         },
         {
-          "num": 133,
+          "num": 141,
           "texto": "Em quais situações?",
           "opcoes": [
             "Reincidência de faltas graves ou agressão física comprovada",
@@ -1317,7 +1389,7 @@
           ]
         },
         {
-          "num": 134,
+          "num": 142,
           "texto": "Quem poderá aplicar cada medida?",
           "opcoes": [
             "O Diretor da Escola e, em sua ausência, o Vice-Diretor",
@@ -1326,7 +1398,7 @@
           ]
         },
         {
-          "num": 135,
+          "num": 143,
           "texto": "Como serão registradas?",
           "opcoes": [
             "Em prontuário físico e digital reservado do aluno na secretaria",
@@ -1335,7 +1407,7 @@
           ]
         },
         {
-          "num": 136,
+          "num": 144,
           "texto": "Como será garantido contraditório?",
           "opcoes": [
             "Ouvindo o estudante e coletando sua versão em termo por escrito",
@@ -1344,7 +1416,7 @@
           ]
         },
         {
-          "num": 137,
+          "num": 145,
           "texto": "Como será garantida ampla defesa?",
           "opcoes": [
             "Prazo de 3 dias úteis para os pais apresentarem defesa escrita",
@@ -1359,7 +1431,7 @@
       "titulo": "BLOCO 15 — TECNOLOGIA E INTELIGÊNCIA ARTIFICIAL",
       "perguntas": [
         {
-          "num": 138,
+          "num": 146,
           "texto": "Como será regulamentado o uso de celulares?",
           "opcoes": [
             "Proibido durante as aulas, exceto com autorização para uso pedagógico",
@@ -1368,7 +1440,7 @@
           ]
         },
         {
-          "num": 139,
+          "num": 147,
           "texto": "Como será regulamentado o uso de notebooks?",
           "opcoes": [
             "Apenas com fins pedagógicos autorizados pelo professor regente",
@@ -1377,7 +1449,7 @@
           ]
         },
         {
-          "num": 140,
+          "num": 148,
           "texto": "Como será regulamentado o uso da internet?",
           "opcoes": [
             "Restrito para pesquisas acadêmicas com bloqueio de redes sociais e jogos",
@@ -1386,7 +1458,7 @@
           ]
         },
         {
-          "num": 141,
+          "num": 149,
           "texto": "Como será regulamentado o uso de contas institucionais?",
           "opcoes": [
             "Exclusivo para fins acadêmicos e comunicações com a escola",
@@ -1395,7 +1467,7 @@
           ]
         },
         {
-          "num": 142,
+          "num": 150,
           "texto": "Como será regulamentado o uso de Inteligência Artificial?",
           "opcoes": [
             "Permitido sob orientação do professor como ferramenta de apoio",
@@ -1404,7 +1476,7 @@
           ]
         },
         {
-          "num": 143,
+          "num": 151,
           "texto": "O uso de IA deverá ser declarado?",
           "opcoes": [
             "Sim, o aluno deve citar a IA nos trabalhos de pesquisa (fontes)",
@@ -1413,7 +1485,7 @@
           ]
         },
         {
-          "num": 144,
+          "num": 152,
           "texto": "Em quais situações o uso será proibido?",
           "opcoes": [
             "Em provas presenciais de avaliação e exames oficiais da escola",
@@ -1422,7 +1494,7 @@
           ]
         },
         {
-          "num": 145,
+          "num": 153,
           "texto": "Como será caracterizada fraude acadêmica?",
           "opcoes": [
             "Cópia de trabalhos, cola em exames e uso não autorizado de IA",
@@ -1431,7 +1503,7 @@
           ]
         },
         {
-          "num": 146,
+          "num": 154,
           "texto": "Como será caracterizado plágio?",
           "opcoes": [
             "Cópia integral ou parcial de obra de terceiros sem citação de fonte",
@@ -1440,7 +1512,7 @@
           ]
         },
         {
-          "num": 147,
+          "num": 155,
           "texto": "Como será tratado uso indevido de imagens?",
           "opcoes": [
             "Advertência escrita e suspensão da conta institucional",
@@ -1449,7 +1521,7 @@
           ]
         },
         {
-          "num": 148,
+          "num": 156,
           "texto": "Como será tratado uso indevido de gravações?",
           "opcoes": [
             "Proibido gravar aulas sem autorização prévia por escrito do docente",
@@ -1464,7 +1536,7 @@
       "titulo": "BLOCO 16 — EDUCAÇÃO ESPECIAL E ACESSIBILIDADE",
       "perguntas": [
         {
-          "num": 149,
+          "num": 157,
           "texto": "Como serão garantidas condições de acesso?",
           "opcoes": [
             "Vagas reservadas, adaptações físicas de salas e rampas",
@@ -1473,7 +1545,7 @@
           ]
         },
         {
-          "num": 150,
+          "num": 158,
           "texto": "Como serão garantidas condições de permanência?",
           "opcoes": [
             "Atendimento Educacional Especializado (AEE) no contra-turno",
@@ -1482,7 +1554,7 @@
           ]
         },
         {
-          "num": 151,
+          "num": 159,
           "texto": "Como serão formalizadas adaptações razoáveis?",
           "opcoes": [
             "Por meio do Plano de Desenvolvimento Individualizado (PDI)",
@@ -1491,7 +1563,7 @@
           ]
         },
         {
-          "num": 152,
+          "num": 160,
           "texto": "Como ocorrerão registros específicos?",
           "opcoes": [
             "Em diário de classe próprio do AEE e pasta de prontuário especial",
@@ -1500,7 +1572,7 @@
           ]
         },
         {
-          "num": 153,
+          "num": 161,
           "texto": "Como ocorrerá articulação entre profissionais?",
           "opcoes": [
             "Reuniões mensais entre professores regentes e professor do AEE",
@@ -1509,7 +1581,7 @@
           ]
         },
         {
-          "num": 154,
+          "num": 162,
           "texto": "Como será garantida acessibilidade comunicacional?",
           "opcoes": [
             "Material em braile, audiodescrição e softwares leitores de tela",
@@ -1518,7 +1590,7 @@
           ]
         },
         {
-          "num": 155,
+          "num": 163,
           "texto": "Como será garantida acessibilidade digital?",
           "opcoes": [
             "Plataformas institucionais acessíveis em conformidade com o e-MAG",
@@ -1533,7 +1605,7 @@
       "titulo": "BLOCO 17 — USO DOS ESPAÇOS ESCOLARES",
       "perguntas": [
         {
-          "num": 156,
+          "num": 164,
           "texto": "Quais regras da biblioteca?",
           "opcoes": [
             "Silêncio obrigatório, cadastro para empréstimos e devolução pontual",
@@ -1542,7 +1614,7 @@
           ]
         },
         {
-          "num": 157,
+          "num": 165,
           "texto": "Quais regras dos laboratórios?",
           "opcoes": [
             "Uso obrigatório de jaleco, proibição de entrada sem professor e regras de descarte",
@@ -1551,7 +1623,7 @@
           ]
         },
         {
-          "num": 158,
+          "num": 166,
           "texto": "Quais regras das quadras?",
           "opcoes": [
             "Uso restrito para aulas de Educação Física e eventos escolares autorizados",
@@ -1560,7 +1632,7 @@
           ]
         },
         {
-          "num": 159,
+          "num": 167,
           "texto": "Quais regras dos espaços comuns?",
           "opcoes": [
             "Proibição de correr nos corredores e obstruir rotas de fuga",
@@ -1569,7 +1641,7 @@
           ]
         },
         {
-          "num": 160,
+          "num": 168,
           "texto": "Quais regras dos equipamentos institucionais?",
           "opcoes": [
             "Responsabilidade direta pelo zelo de computadores e projetores",
@@ -1578,7 +1650,7 @@
           ]
         },
         {
-          "num": 161,
+          "num": 169,
           "texto": "Como serão tratados danos e perdas?",
           "opcoes": [
             "Identificação do responsável, emissão de boletim interno e reposição",
@@ -1593,7 +1665,7 @@
       "titulo": "BLOCO 18 — SEGURANÇA ESCOLAR",
       "perguntas": [
         {
-          "num": 162,
+          "num": 170,
           "texto": "Como ocorrerá controle de acesso?",
           "opcoes": [
             "Portaria com controle de crachá digital ou biometria",
@@ -1602,7 +1674,7 @@
           ]
         },
         {
-          "num": 163,
+          "num": 171,
           "texto": "Como ocorrerá identificação de visitantes?",
           "opcoes": [
             "Registro na portaria com documento físico, foto e crachá de visitante",
@@ -1611,7 +1683,7 @@
           ]
         },
         {
-          "num": 164,
+          "num": 172,
           "texto": "Como ocorrerá saída antecipada de estudantes?",
           "opcoes": [
             "Apenas com autorização expressa por escrito ou presencial dos responsáveis",
@@ -1620,7 +1692,7 @@
           ]
         },
         {
-          "num": 165,
+          "num": 173,
           "texto": "Como ocorrerão atendimentos emergenciais?",
           "opcoes": [
             "Acionamento imediato do SAMU e aviso simultâneo aos responsáveis",
@@ -1629,7 +1701,7 @@
           ]
         },
         {
-          "num": 166,
+          "num": 174,
           "texto": "Como serão registrados acidentes?",
           "opcoes": [
             "Emissão do Boletim de Acidente Escolar (BAE) com registro de testemunhas",
@@ -1638,7 +1710,7 @@
           ]
         },
         {
-          "num": 167,
+          "num": 175,
           "texto": "Como ocorrerá comunicação com responsáveis?",
           "opcoes": [
             "Por telefone imediato em caso de emergência ou e-mail oficial",
@@ -1647,7 +1719,7 @@
           ]
         },
         {
-          "num": 168,
+          "num": 176,
           "texto": "Quais protocolos mínimos de segurança existirão?",
           "opcoes": [
             "Treinamento anual de brigada de incêndio e evacuação rápida",
@@ -1662,7 +1734,7 @@
       "titulo": "BLOCO 19 — DOCUMENTAÇÃO ESCOLAR",
       "perguntas": [
         {
-          "num": 169,
+          "num": 177,
           "texto": "Quais documentos escolares serão obrigatórios?",
           "opcoes": [
             "Prontuário do aluno, histórico escolar e atas de resultados finais",
@@ -1671,7 +1743,7 @@
           ]
         },
         {
-          "num": 170,
+          "num": 178,
           "texto": "Quais registros terão caráter permanente?",
           "opcoes": [
             "Prontuário do aluno (dados pessoais e notas) e atas de conselho",
@@ -1680,7 +1752,7 @@
           ]
         },
         {
-          "num": 171,
+          "num": 179,
           "texto": "Como ocorrerá guarda documental?",
           "opcoes": [
             "Em arquivo físico centralizado chaveado e backup em nuvem criptografado",
@@ -1689,7 +1761,7 @@
           ]
         },
         {
-          "num": 172,
+          "num": 180,
           "texto": "Como ocorrerá arquivamento digital?",
           "opcoes": [
             "Sistema GED institucional com assinaturas digitais padrão ICP-Brasil",
@@ -1698,7 +1770,7 @@
           ]
         },
         {
-          "num": 173,
+          "num": 181,
           "texto": "Como ocorrerá emissão de documentos?",
           "opcoes": [
             "Pela secretaria escolar com assinatura do Diretor e Secretário",
@@ -1707,7 +1779,7 @@
           ]
         },
         {
-          "num": 174,
+          "num": 182,
           "texto": "Como ocorrerá correção de registros?",
           "opcoes": [
             "Mediante processo de retificação documental instruído e assinado pelo Diretor",
@@ -1716,7 +1788,7 @@
           ]
         },
         {
-          "num": 175,
+          "num": 183,
           "texto": "Como ocorrerá eliminação documental autorizada?",
           "opcoes": [
             "Criação de comissão de descarte de documentos sob tabela de temporalidade",
@@ -1731,7 +1803,7 @@
       "titulo": "BLOCO 20 — ALTERAÇÃO DO REGIMENTO",
       "perguntas": [
         {
-          "num": 176,
+          "num": 184,
           "texto": "Quem poderá propor alterações?",
           "opcoes": [
             "A Direção da Escola ou um terço (1/3) dos membros do Conselho Escolar",
@@ -1740,7 +1812,7 @@
           ]
         },
         {
-          "num": 177,
+          "num": 185,
           "texto": "Quem analisará propostas?",
           "opcoes": [
             "Uma comissão especial de revisão eleita no Conselho Escolar",
@@ -1749,7 +1821,7 @@
           ]
         },
         {
-          "num": 178,
+          "num": 186,
           "texto": "Quem aprovará alterações?",
           "opcoes": [
             "O Conselho Escolar por voto majoritário e homologação do Diretor",
@@ -1758,7 +1830,7 @@
           ]
         },
         {
-          "num": 179,
+          "num": 187,
           "texto": "Qual quórum será exigido?",
           "opcoes": [
             "Dois terços (2/3) dos votos dos membros do Conselho Escolar",
@@ -1767,7 +1839,7 @@
           ]
         },
         {
-          "num": 180,
+          "num": 188,
           "texto": "Como ocorrerá divulgação?",
           "opcoes": [
             "Publicação no site oficial do CEMEP, mural físico e reuniões com pais",
@@ -1776,7 +1848,7 @@
           ]
         },
         {
-          "num": 181,
+          "num": 189,
           "texto": "Quando alterações entrarão em vigor?",
           "opcoes": [
             "No início do ano letivo subsequente ao de sua aprovação",

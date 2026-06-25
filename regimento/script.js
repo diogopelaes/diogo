@@ -317,24 +317,48 @@ if (isWizardPage) {
   }
 
   function buildNavigationGrid() {
-    const questionGrid = document.getElementById("question-grid");
-    questionGrid.innerHTML = "";
+    const container = document.getElementById("map-blocks-container");
+    if (!container) return;
+    container.innerHTML = "";
 
-    flatQuestions.forEach((q, index) => {
-      const gridDot = document.createElement("button");
-      gridDot.className = "grid-dot unanswered";
-      gridDot.id = `grid-dot-${index}`;
-      gridDot.textContent = q.num;
-      gridDot.title = `${q.num}. ${q.texto}`;
-      gridDot.addEventListener("click", () => {
-        goToQuestion(index);
-        // Fecha o painel dropdown do mapa ao navegar para uma questão
-        const mapPanel = document.getElementById("navbar-map-panel");
-        const btnToggleMap = document.getElementById("btn-toggle-map");
-        if (mapPanel) mapPanel.classList.remove("open");
-        if (btnToggleMap) btnToggleMap.classList.remove("active");
+    let linearIndex = 0;
+
+    questionsData.blocos.forEach(bloco => {
+      const mapBlock = document.createElement("div");
+      mapBlock.className = "map-block";
+
+      const blockTitle = document.createElement("h4");
+      blockTitle.className = "map-block-title";
+      blockTitle.textContent = bloco.titulo;
+      blockTitle.title = bloco.titulo;
+      mapBlock.appendChild(blockTitle);
+
+      const blockGrid = document.createElement("div");
+      blockGrid.className = "map-block-grid";
+
+      bloco.perguntas.forEach(q => {
+        const gridDot = document.createElement("button");
+        gridDot.className = "grid-dot unanswered";
+        
+        const idx = linearIndex;
+        gridDot.id = `grid-dot-${idx}`;
+        gridDot.textContent = q.num;
+        gridDot.title = `${q.num}. ${q.texto}`;
+        
+        gridDot.addEventListener("click", () => {
+          goToQuestion(idx);
+          const mapPanel = document.getElementById("navbar-map-panel");
+          const btnToggleMap = document.getElementById("btn-toggle-map");
+          if (mapPanel) mapPanel.classList.remove("open");
+          if (btnToggleMap) btnToggleMap.classList.remove("active");
+        });
+
+        blockGrid.appendChild(gridDot);
+        linearIndex++;
       });
-      questionGrid.appendChild(gridDot);
+
+      mapBlock.appendChild(blockGrid);
+      container.appendChild(mapBlock);
     });
   }
 

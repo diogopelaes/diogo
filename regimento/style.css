@@ -210,6 +210,8 @@ body.wizard-page {
   padding: 0.85rem 1.25rem 1rem 1.25rem;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   animation: mapSlideDown 0.2s ease;
+  max-height: calc(100vh - 60px);
+  overflow-y: auto;
 }
 
 .navbar-map-panel.open {
@@ -928,14 +930,44 @@ header.compact .subtitle {
   border: 1px solid var(--primary);
 }
 
-.question-grid {
+.map-blocks-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(36px, 1fr));
-  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 0.5rem;
   width: 100%;
-  overflow: hidden;
 }
 
+.map-block {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 0.75rem;
+  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.map-block-title {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--primary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 0.35rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.map-block-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
+  gap: 0.35rem;
+}
+
+/* Bolinhas de grid um pouco mais compactas para o novo layout de blocos */
 .grid-dot {
   aspect-ratio: 1;
   display: flex;
@@ -943,12 +975,15 @@ header.compact .subtitle {
   justify-content: center;
   font-family: "Outfit", sans-serif;
   font-weight: 700;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s ease;
   border: 1px solid transparent;
+  width: 100%;
+  height: 100%;
 }
+
 
 .grid-dot.unanswered {
   background: rgba(255, 255, 255, 0.04);

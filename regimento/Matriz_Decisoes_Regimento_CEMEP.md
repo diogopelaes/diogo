@@ -101,211 +101,219 @@ Para cada questão registrar:
 
 ---
 
-# BLOCO 5 — SISTEMA DE AVALIAÇÃO
+# BLOCO 5 — SISTEMA DE AVALIAÇÃO E NOTAS
 
 54. O sistema será por nota, conceito ou ambos?
 55. Qual escala será utilizada?
 56. Qual média mínima para aprovação?
-57. Quantos períodos avaliativos existirão?
-58. Como serão registrados os resultados?
-59. Quem valida os registros?
-60. Como serão corrigidos erros?
-61. Como será garantida transparência ao estudante?
-62. Como será garantido acesso às avaliações?
+57. Como serão aplicados os critérios de arredondamento de notas fracionárias?
+58. Quantas casas decimais deverão ser utilizadas no registro das notas?
+59. Quantos períodos avaliativos existirão?
+60. Qual a quantidade mínima de instrumentos avaliativos por período letivo?
+61. Quais tipos de instrumentos de avaliação poderão ser utilizados no processo?
+62. Como será a distribuição dos pesos e valores das avaliações?
+63. Qual o nível de autonomia do professor na escolha dos formatos e detalhes das avaliações?
+64. Como serão avaliadas as disciplinas de caráter prático, laboratorial ou de oficinas?
+65. Haverá uma semana dedicada exclusivamente à realização de avaliações (semana de provas)?
+66. Como serão registrados os resultados?
+67. Quem valida os registros?
+68. Como serão corrigidos erros?
+69. Como será garantida transparência ao estudante?
+70. Como será garantido acesso às avaliações?
 
 ---
 
 # BLOCO 6 — RECUPERAÇÃO DA APRENDIZAGEM
 
-63. Haverá recuperação contínua?
-64. Haverá recuperação paralela?
-65. Haverá recuperação final?
-66. Haverá recuperação intensiva?
-67. Quais critérios de participação?
-68. Como serão registrados os resultados?
-69. Como os resultados substituirão avaliações anteriores?
-70. Quem definirá os procedimentos?
+71. Haverá recuperação contínua?
+72. Haverá recuperação paralela?
+73. Haverá recuperação final?
+74. Haverá recuperação intensiva?
+75. Quais critérios de participação?
+76. Como serão registrados os resultados?
+77. Como os resultados substituirão avaliações anteriores?
+78. Quem definirá os procedimentos?
 
 ---
 
 # BLOCO 7 — APROVAÇÃO E RETENÇÃO
 
-71. Quais critérios para aprovação?
-72. Quais critérios para retenção?
-73. A frequência terá peso decisório?
-74. O Conselho de Classe poderá rever situações excepcionais?
-75. Como serão tratadas situações limítrofes?
-76. Haverá progressão parcial?
-77. Haverá dependência?
-78. Como ocorrerá comunicação dos resultados?
+79. Quais critérios para aprovação?
+80. Quais critérios para retenção?
+81. A frequência terá peso decisório?
+82. O Conselho de Classe poderá rever situações excepcionais?
+83. Como serão tratadas situações limítrofes?
+84. Haverá progressão parcial?
+85. Haverá dependência?
+86. Como ocorrerá comunicação dos resultados?
 
 ---
 
 # BLOCO 8 — RECONSIDERAÇÃO E RECURSO
 
-79. Haverá pedido de reconsideração?
-80. Quem poderá solicitar?
-81. Qual prazo?
-82. Quem analisará?
-83. Haverá recurso?
-84. Qual prazo?
-85. Qual instância julgará?
-86. Quais documentos deverão instruir o processo?
-87. Como será dada ciência da decisão?
+87. Haverá pedido de reconsideração?
+88. Quem poderá solicitar?
+89. Qual prazo?
+90. Quem analisará?
+91. Haverá recurso?
+92. Qual prazo?
+93. Qual instância julgará?
+94. Quais documentos deverão instruir o processo?
+95. Como será dada ciência da decisão?
 
 ---
 
 # BLOCO 9 — DIREITOS DOS ESTUDANTES
 
-88. Quais direitos deverão constar expressamente?
-89. Direito à informação?
-90. Direito ao contraditório?
-91. Direito à ampla defesa?
-92. Direito à participação estudantil?
-93. Direito de acesso aos registros escolares?
-94. Direito de uso dos espaços institucionais?
-95. Direito à inclusão?
-96. Direito à acessibilidade?
-97. Direito à proteção contra discriminação?
-98. Direito à proteção de dados pessoais?
+96. Quais direitos deverão constar expressamente?
+97. Direito à informação?
+98. Direito ao contraditório?
+99. Direito à ampla defesa?
+100. Direito à participação estudantil?
+101. Direito de acesso aos registros escolares?
+102. Direito de uso dos espaços institucionais?
+103. Direito à inclusão?
+104. Direito à acessibilidade?
+105. Direito à proteção contra discriminação?
+106. Direito à proteção de dados pessoais?
 
 ---
 
 # BLOCO 10 — DEVERES DOS ESTUDANTES
 
-99. Quais deveres deverão constar expressamente?
-100. Quais responsabilidades acadêmicas?
-101. Quais responsabilidades disciplinares?
-102. Quais responsabilidades patrimoniais?
-103. Quais responsabilidades digitais?
-104. Quais responsabilidades relacionadas à convivência?
+107. Quais deveres deverão constar expressamente?
+108. Quais responsabilidades acadêmicas?
+109. Quais responsabilidades disciplinares?
+110. Quais responsabilidades patrimoniais?
+111. Quais responsabilidades digitais?
+112. Quais responsabilidades relacionadas à convivência?
 
 ---
 
 # BLOCO 11 — DIREITOS E DEVERES DAS FAMÍLIAS
 
-105. Quais direitos deverão constar?
-106. Quais deveres deverão constar?
-107. Como ocorrerá acompanhamento escolar?
-108. Como ocorrerão comunicações oficiais?
-109. Como ocorrerá participação em reuniões?
-110. Como ocorrerá participação nos colegiados?
+113. Quais direitos deverão constar?
+114. Quais deveres deverão constar?
+115. Como ocorrerá acompanhamento escolar?
+116. Como ocorrerão comunicações oficiais?
+117. Como ocorrerá participação em reuniões?
+118. Como ocorrerá participação nos colegiados?
 
 ---
 
 # BLOCO 12 — DIREITOS E DEVERES DOS PROFISSIONAIS
 
-111. Quais deveres funcionais deverão constar?
-112. Quais deveres relativos aos registros escolares?
-113. Quais deveres relativos à avaliação?
-114. Quais deveres relativos à frequência?
-115. Quais deveres relativos à segurança?
-116. Quais deveres relativos à proteção de dados?
+119. Quais deveres funcionais deverão constar?
+120. Quais deveres relativos aos registros escolares?
+121. Quais deveres relativos à avaliação?
+122. Quais deveres relativos à frequência?
+123. Quais deveres relativos à segurança?
+124. Quais deveres relativos à proteção de dados?
 
 ---
 
 # BLOCO 13 — CONVIVÊNCIA ESCOLAR
 
-117. Quais princípios orientarão a convivência?
-118. Quais condutas serão consideradas inadequadas?
-119. Como serão tratados conflitos interpessoais?
-120. Como serão tratados atos de desrespeito?
-121. Como serão tratados atos discriminatórios?
-122. Como serão tratados atos de violência?
-123. Como serão tratados casos de bullying?
-124. Como serão tratados casos de cyberbullying?
-125. Como serão tratados danos ao patrimônio?
-126. Como serão tratadas denúncias?
+125. Quais princípios orientarão a convivência?
+126. Quais condutas serão consideradas inadequadas?
+127. Como serão tratados conflitos interpessoais?
+128. Como serão tratados atos de desrespeito?
+129. Como serão tratados atos discriminatórios?
+130. Como serão tratados atos de violência?
+131. Como serão tratados casos de bullying?
+132. Como serão tratados casos de cyberbullying?
+133. Como serão tratados danos ao patrimônio?
+134. Como serão tratadas denúncias?
 
 ---
 
 # BLOCO 14 — MEDIDAS EDUCATIVAS E DISCIPLINARES
 
-127. Quais medidas educativas existirão?
-128. Haverá advertência verbal?
-129. Haverá advertência escrita?
-130. Haverá termo de compromisso?
-131. Haverá encaminhamento restaurativo?
-132. Haverá suspensão?
-133. Em quais situações?
-134. Quem poderá aplicar cada medida?
-135. Como serão registradas?
-136. Como será garantido contraditório?
-137. Como será garantida ampla defesa?
+135. Quais medidas educativas existirão?
+136. Haverá advertência verbal?
+137. Haverá advertência escrita?
+138. Haverá termo de compromisso?
+139. Haverá encaminhamento restaurativo?
+140. Haverá suspensão?
+141. Em quais situações?
+142. Quem poderá aplicar cada medida?
+143. Como serão registradas?
+144. Como será garantido contraditório?
+145. Como será garantida ampla defesa?
 
 ---
 
 # BLOCO 15 — TECNOLOGIA E INTELIGÊNCIA ARTIFICIAL
 
-138. Como será regulamentado o uso de celulares?
-139. Como será regulamentado o uso de notebooks?
-140. Como será regulamentado o uso da internet?
-141. Como será regulamentado o uso de contas institucionais?
-142. Como será regulamentado o uso de Inteligência Artificial?
-143. O uso de IA deverá ser declarado?
-144. Em quais situações o uso será proibido?
-145. Como será caracterizada fraude acadêmica?
-146. Como será caracterizado plágio?
-147. Como será tratado uso indevido de imagens?
-148. Como será tratado uso indevido de gravações?
+146. Como será regulamentado o uso de celulares?
+147. Como será regulamentado o uso de notebooks?
+148. Como será regulamentado o uso da internet?
+149. Como será regulamentado o uso de contas institucionais?
+150. Como será regulamentado o uso de Inteligência Artificial?
+151. O uso de IA deverá ser declarado?
+152. Em quais situações o uso será proibido?
+153. Como será caracterizada fraude acadêmica?
+154. Como será caracterizado plágio?
+155. Como será tratado uso indevido de imagens?
+156. Como será tratado uso indevido de gravações?
 
 ---
 
 # BLOCO 16 — EDUCAÇÃO ESPECIAL E ACESSIBILIDADE
 
-149. Como serão garantidas condições de acesso?
-150. Como serão garantidas condições de permanência?
-151. Como serão formalizadas adaptações razoáveis?
-152. Como ocorrerão registros específicos?
-153. Como ocorrerá articulação entre profissionais?
-154. Como será garantida acessibilidade comunicacional?
-155. Como será garantida acessibilidade digital?
+157. Como serão garantidas condições de acesso?
+158. Como serão garantidas condições de permanência?
+159. Como serão formalizadas adaptações razoáveis?
+160. Como ocorrerão registros específicos?
+161. Como ocorrerá articulação entre profissionais?
+162. Como será garantida acessibilidade comunicacional?
+163. Como será garantida acessibilidade digital?
 
 ---
 
 # BLOCO 17 — USO DOS ESPAÇOS ESCOLARES
 
-156. Quais regras da biblioteca?
-157. Quais regras dos laboratórios?
-158. Quais regras das quadras?
-159. Quais regras dos espaços comuns?
-160. Quais regras dos equipamentos institucionais?
-161. Como serão tratados danos e perdas?
+164. Quais regras da biblioteca?
+165. Quais regras dos laboratórios?
+166. Quais regras das quadras?
+167. Quais regras dos espaços comuns?
+168. Quais regras dos equipamentos institucionais?
+169. Como serão tratados danos e perdas?
 
 ---
 
 # BLOCO 18 — SEGURANÇA ESCOLAR
 
-162. Como ocorrerá controle de acesso?
-163. Como ocorrerá identificação de visitantes?
-164. Como ocorrerá saída antecipada de estudantes?
-165. Como ocorrerão atendimentos emergenciais?
-166. Como serão registrados acidentes?
-167. Como ocorrerá comunicação com responsáveis?
-168. Quais protocolos mínimos de segurança existirão?
+170. Como ocorrerá controle de acesso?
+171. Como ocorrerá identificação de visitantes?
+172. Como ocorrerá saída antecipada de estudantes?
+173. Como ocorrerão atendimentos emergenciais?
+174. Como serão registrados acidentes?
+175. Como ocorrerá comunicação com responsáveis?
+176. Quais protocolos mínimos de segurança existirão?
 
 ---
 
 # BLOCO 19 — DOCUMENTAÇÃO ESCOLAR
 
-169. Quais documentos escolares serão obrigatórios?
-170. Quais registros terão caráter permanente?
-171. Como ocorrerá guarda documental?
-172. Como ocorrerá arquivamento digital?
-173. Como ocorrerá emissão de documentos?
-174. Como ocorrerá correção de registros?
-175. Como ocorrerá eliminação documental autorizada?
+177. Quais documentos escolares serão obrigatórios?
+178. Quais registros terão caráter permanente?
+179. Como ocorrerá guarda documental?
+180. Como ocorrerá arquivamento digital?
+181. Como ocorrerá emissão de documentos?
+182. Como ocorrerá correção de registros?
+183. Como ocorrerá eliminação documental autorizada?
 
 ---
 
 # BLOCO 20 — ALTERAÇÃO DO REGIMENTO
 
-176. Quem poderá propor alterações?
-177. Quem analisará propostas?
-178. Quem aprovará alterações?
-179. Qual quórum será exigido?
-180. Como ocorrerá divulgação?
-181. Quando alterações entrarão em vigor?
+184. Quem poderá propor alterações?
+185. Quem analisará propostas?
+186. Quem aprovará alterações?
+187. Qual quórum será exigido?
+188. Como ocorrerá divulgação?
+189. Quando alterações entrarão em vigor?
 
 ---
 
