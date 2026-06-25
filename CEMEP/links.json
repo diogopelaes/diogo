@@ -48,6 +48,14 @@
         "ext":  ".pdf"
     },
     {
+        "name":  "Aula Rec - 1ª Série - 2º Bim",
+        "fullName":  "Aula Rec - 1ª Série - 2º Bim.pdf",
+        "path":  "aulas/1serie/Aula Rec - 1ª Série - 2º Bim.pdf",
+        "category":  "aulas",
+        "series":  "1serie",
+        "ext":  ".pdf"
+    },
+    {
         "name":  "Aula 01 - 2ª Série - 2º Bim",
         "fullName":  "Aula 01 - 2ª Série - 2º Bim.pdf",
         "path":  "aulas/2serie/Aula 01 - 2ª Série - 2º Bim.pdf",
@@ -173,6 +181,14 @@
         "path":  "listas/2serie/pesquisa_num_e.pdf",
         "category":  "listas",
         "series":  "2serie",
+        "ext":  ".pdf"
+    },
+    {
+        "name":  "lista_3Y_2Bim2026",
+        "fullName":  "lista_3Y_2Bim2026.pdf",
+        "path":  "listas/3serie/lista_3Y_2Bim2026.pdf",
+        "category":  "listas",
+        "series":  "3serie",
         "ext":  ".pdf"
     }
 ]
