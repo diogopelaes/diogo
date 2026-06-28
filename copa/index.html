@@ -452,19 +452,21 @@ const SEED = {"name":"World Cup 2026","matches":[{"round":"Matchday 1","date":"2
 // ═══════════════════════════════════════════════════
 const FD_TO_OFB = {
   'Mexico':'Mexico','South Africa':'South Africa','Korea Republic':'South Korea',
-  'Czechia':'Czech Republic','Canada':'Canada','Bosnia-Herzegovina':'Bosnia & Herzegovina',
+  'Czechia':'Czech Republic','Czech Republic':'Czech Republic','Canada':'Canada',
+  'Bosnia-Herzegovina':'Bosnia & Herzegovina','Bosnia and Herzegovina':'Bosnia & Herzegovina',
   'Qatar':'Qatar','Switzerland':'Switzerland','Brazil':'Brazil','Morocco':'Morocco',
   'Haiti':'Haiti','Scotland':'Scotland','USA':'USA','Paraguay':'Paraguay',
   'United States':'USA','Cape Verde Islands':'Cape Verde','Congo DR':'DR Congo',
+  'DR Congo':'DR Congo','Democratic Republic of the Congo':'DR Congo',
   'Ivory Coast':'Ivory Coast','South Korea':'South Korea','Turkey':'Turkey',
   'Australia':'Australia','Türkiye':'Turkey','Germany':'Germany','Curaçao':'Curaçao',
-  "Côte d'Ivoire":'Ivory Coast','Ecuador':'Ecuador','Netherlands':'Netherlands',
+  'Curacao':'Curaçao',"Côte d'Ivoire":'Ivory Coast','Ecuador':'Ecuador','Netherlands':'Netherlands',
   'Japan':'Japan','Sweden':'Sweden','Tunisia':'Tunisia','Belgium':'Belgium',
-  'Egypt':'Egypt','Iran':'Iran','New Zealand':'New Zealand','Spain':'Spain',
+  'Egypt':'Egypt','Iran':'Iran','IR Iran':'Iran','New Zealand':'New Zealand','Spain':'Spain',
   'Cape Verde':'Cape Verde','Saudi Arabia':'Saudi Arabia','Uruguay':'Uruguay',
   'France':'France','Senegal':'Senegal','Iraq':'Iraq','Norway':'Norway',
   'Argentina':'Argentina','Algeria':'Algeria','Austria':'Austria','Jordan':'Jordan',
-  'Portugal':'Portugal','DR Congo':'DR Congo','Uzbekistan':'Uzbekistan','Colombia':'Colombia',
+  'Portugal':'Portugal','Uzbekistan':'Uzbekistan','Colombia':'Colombia',
   'England':'England','Croatia':'Croatia','Ghana':'Ghana','Panama':'Panama',
 };
 
@@ -660,61 +662,83 @@ async function fetchLive() {
 }
 
 function mergeLiveData(fdMatches) {
+  if (!Array.isArray(fdMatches)) return;
+
   fdMatches.forEach(fdm => {
     const t1raw = fdm.homeTeam?.name || '';
     const t2raw = fdm.awayTeam?.name || '';
     const t1 = FD_TO_OFB[t1raw] || t1raw;
     const t2 = FD_TO_OFB[t2raw] || t2raw;
-    const dateStr = fdm.utcDate?.split('T')[0];
 
-    // Try find by match number first (for knockouts)
-    let idx = -1;
-    if (fdm.matchday) {
-      idx = matches.findIndex(x => x.date === dateStr && x.team1 === t1 && x.team2 === t2);
-    }
-    if (idx < 0) idx = matches.findIndex(x => x.team1 === t1 && x.team2 === t2);
+    if (!t1 && !t2) return;
 
-    // For knockouts: try to find by date if teams were TBD
-    if (idx < 0 && t1 && t2) {
-      idx = matches.findIndex(x =>
-        x.date === dateStr &&
-        (x.team1 === t1 || x.team2 === t2)
-      );
+    // 1. Try finding exact match by team names (in either order)
+    let idx = matches.findIndex(x => 
+      (x.team1 === t1 && x.team2 === t2) || (x.team1 === t2 && x.team2 === t1)
+    );
+
+    let isReversed = false;
+    if (idx >= 0) {
+      isReversed = (matches[idx].team1 === t2 && matches[idx].team2 === t1);
+    } else {
+      // 2. For knockouts where teams might be TBD in seed: match by match number or round/date
+      if (fdm.stage && fdm.stage !== 'GROUP_STAGE') {
+        const targetRound = stageToRound(fdm.stage);
+        const fdmDateStr = fdm.utcDate ? new Date(fdm.utcDate).toISOString().split('T')[0] : null;
+        idx = matches.findIndex(x => x.round === targetRound && (x.team1?.match(/^[123WL]/) || x.team2?.match(/^[123WL]/)) && x.date === fdmDateStr);
+      }
     }
 
     if (idx < 0) {
-      // Add knockout match once teams are known
-      matches.push({
-        id: `${dateStr}_${t1}_${t2}`,
-        num: null,
-        round: stageToRound(fdm.stage),
-        group: fdm.group || null,
-        date: dateStr,
-        kickoffBSB: new Date(fdm.utcDate),
-        team1: t1 || fdm.homeTeam?.name,
-        team2: t2 || fdm.awayTeam?.name,
-        team1Resolved: t1 || null,
-        team2Resolved: t2 || null,
-        ground: fdm.venue || '',
-        score: buildScore(fdm),
-        goals1: [], goals2: [],
-        status: fdm.status,
-        minute: fdm.minute || null,
-        source: 'live',
-      });
+      // Only push a new match if it's a knockout match not present in seed
+      if (fdm.stage && fdm.stage !== 'GROUP_STAGE') {
+        const parsedScore = buildScore(fdm, false);
+        const { goals1, goals2 } = extractGoals(fdm, false);
+        matches.push({
+          id: `${fdm.utcDate}_${t1}_${t2}`,
+          num: null,
+          round: stageToRound(fdm.stage),
+          group: fdm.group || null,
+          date: fdm.utcDate?.split('T')[0],
+          kickoffBSB: fdm.utcDate ? new Date(fdm.utcDate) : null,
+          team1: t1 || fdm.homeTeam?.name,
+          team2: t2 || fdm.awayTeam?.name,
+          team1Resolved: t1 || null,
+          team2Resolved: t2 || null,
+          ground: fdm.venue || '',
+          score: parsedScore,
+          goals1: goals1 || [],
+          goals2: goals2 || [],
+          status: fdm.status,
+          minute: fdm.minute || null,
+          source: 'live',
+        });
+      }
       return;
     }
 
     const m = matches[idx];
     m.status = fdm.status;
     m.minute = fdm.minute || null;
-    m.score = buildScore(fdm);
+
+    const newScore = buildScore(fdm, isReversed);
+    if (newScore) m.score = newScore;
+
+    const { goals1, goals2 } = extractGoals(fdm, isReversed);
+    if (goals1) m.goals1 = goals1;
+    if (goals2) m.goals2 = goals2;
+
     m.source = 'live';
     if (fdm.utcDate) m.kickoffBSB = new Date(fdm.utcDate);
 
-    // Update team names for knockouts if now known
-    if (t1 && !t1.match(/^[123WL]/)) { m.team1 = t1; m.team1Resolved = t1; }
-    if (t2 && !t2.match(/^[123WL]/)) { m.team2 = t2; m.team2Resolved = t2; }
+    // Update team names if they were placeholder TBDs
+    if (isReversed) {
+      if (t2 && (!m.team1 || m.team1.match(/^[123WL]/))) { m.team1 = t2; m.team1Resolved = t2; }
+      if (t1 && (!m.team2 || m.team2.match(/^[123WL]/))) { m.team2 = t1; m.team2Resolved = t1; }
+    } else {
+      if (t1 && (!m.team1 || m.team1.match(/^[123WL]/))) { m.team1 = t1; m.team1Resolved = t1; }
+      if (t2 && (!m.team2 || m.team2.match(/^[123WL]/))) { m.team2 = t2; m.team2Resolved = t2; }
+    }
   });
 }
 
@@ -727,19 +751,56 @@ function stageToRound(stage) {
   return map[stage] || stage;
 }
 
-function buildScore(fdm) {
+function extractPair(periodObj, isReversed) {
+  if (!periodObj) return null;
+  const h = periodObj.home ?? periodObj.homeTeam;
+  const a = periodObj.away ?? periodObj.awayTeam;
+  if (h == null || a == null) return null;
+  return isReversed ? [a, h] : [h, a];
+}
+
+function buildScore(fdm, isReversed = false) {
   const s = fdm.score;
   if (!s) return null;
-  const ft = s.fullTime;
-  const ht = s.halfTime;
-  const et = s.extraTime;
-  const p  = s.penalties;
-  if (ft?.home == null) return null;
-  const out = { ft: [ft.home, ft.away] };
-  if (ht?.home != null) out.ht = [ht.home, ht.away];
-  if (et?.home != null) out.et = [et.home, et.away];
-  if (p?.home  != null) out.p  = [p.home, p.away];
+  const ft = extractPair(s.fullTime, isReversed);
+  if (!ft) return null;
+  const out = { ft };
+  const ht = extractPair(s.halfTime, isReversed);
+  if (ht) out.ht = ht;
+  const et = extractPair(s.extraTime, isReversed);
+  if (et) out.et = et;
+  const p = extractPair(s.penalties, isReversed);
+  if (p) out.p = p;
   return out;
+}
+
+function extractGoals(fdm, isReversed = false) {
+  if (!fdm.goals || !Array.isArray(fdm.goals) || fdm.goals.length === 0) {
+    return { goals1: null, goals2: null };
+  }
+  const goals1 = [];
+  const goals2 = [];
+  const t1raw = fdm.homeTeam?.name || '';
+  const homeTeamName = FD_TO_OFB[t1raw] || t1raw;
+
+  fdm.goals.forEach(g => {
+    const scorerName = g.scorer?.name || 'Gol';
+    const min = g.minute ? String(g.minute) + (g.extraTime ? `+${g.extraTime}` : '') : '';
+    const goalObj = {
+      name: scorerName,
+      minute: min,
+      penalty: g.type === 'PENALTY',
+      owngoal: g.type === 'OWN_GOAL'
+    };
+    const isHomeGoal = g.team?.name ? (FD_TO_OFB[g.team.name] || g.team.name) === homeTeamName : true;
+    
+    if (isHomeGoal) {
+      if (isReversed) goals2.push(goalObj); else goals1.push(goalObj);
+    } else {
+      if (isReversed) goals1.push(goalObj); else goals2.push(goalObj);
+    }
+  });
+  return { goals1, goals2 };
 }
 
 // ═══════════════════════════════════════════════════
