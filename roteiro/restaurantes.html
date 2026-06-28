@@ -241,10 +241,45 @@
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 600px) {
-            h1 { font-size: 1.6rem; }
-            .theme-toggle { position: static; margin: 0 auto 12px; width: fit-content; }
-            .nav-back { position: static; margin: 0 auto 12px; width: fit-content; }
-            header { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+            header {
+                min-height: 82px;
+                padding: 4px 50px 0;
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+                margin: 0 0 4px;
+            }
+
+            .sub-header { margin: 0; }
+
+            .nav-back,
+            .theme-toggle {
+                top: 0;
+                width: 42px;
+                height: 42px;
+                min-height: 42px;
+                padding: 0;
+                margin: 0;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0;
+                font-size: 0;
+                line-height: 1;
+            }
+
+            .nav-back { left: 0; }
+            .theme-toggle { right: 0; }
+
+            .nav-back i,
+            .theme-toggle i {
+                font-size: 1rem;
+                line-height: 1;
+            }
+
             .restaurants-grid { grid-template-columns: 1fr; }
             body { padding: 12px 8px; }
         }
@@ -405,6 +440,58 @@
                     <span class="tag">Frango</span>
                     <span class="tag">Kids Friendly</span>
                     <span class="tag">Rápido</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Roscoe's House of Chicken 'N Waffles -->
+        <div class="restaurant-card">
+            <div class="card-body">
+                <div class="card-top">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Roscoe%27s+House+of+Chicken+%27N+Waffles+Los+Angeles"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="restaurant-map-link">
+                        <i class="fa-solid fa-location-dot"></i> Roscoe's House of Chicken 'N Waffles
+                    </a>
+                    <p class="card-type">Clássico de Los Angeles</p>
+                </div>
+
+                <p class="card-desc">
+                    Um dos restaurantes mais tradicionais de Los Angeles. Famoso pela combinação
+                    de frango frito crocante com waffles, um prato típico da culinária americana
+                    que vale a experiência durante a viagem.
+                </p>
+
+                <div class="card-tags">
+                    <span class="tag">Tradicional</span>
+                    <span class="tag">Los Angeles</span>
+                    <span class="tag">Chicken & Waffles</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Randy's Donuts -->
+        <div class="restaurant-card">
+            <div class="card-body">
+                <div class="card-top">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Randy%27s+Donuts+Los+Angeles"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="restaurant-map-link">
+                        <i class="fa-solid fa-location-dot"></i> Randy's Donuts
+                    </a>
+                    <p class="card-type">Donuts</p>
+                </div>
+
+                <p class="card-desc">
+                    A donut shop mais famosa de Los Angeles, reconhecida pelo enorme donut sobre o prédio. Uma parada clássica para experimentar donuts americanos e tirar fotos.
+                </p>
+
+                <div class="card-tags">
+                    <span class="tag">Donuts</span>
+                    <span class="tag">Clássico LA</span>
+                    <span class="tag">Sobremesa</span>
                 </div>
             </div>
         </div>

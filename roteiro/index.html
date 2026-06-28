@@ -92,6 +92,22 @@
             position: relative;
         }
 
+        .header-links {
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .mobile-menu-toggle,
+        .mobile-menu-close,
+        .mobile-menu-title,
+        .mobile-menu-overlay {
+            display: none;
+        }
+
         .theme-toggle {
             position: absolute;
             right: 0;
@@ -146,6 +162,10 @@
             border-color: var(--primary-color);
             color: var(--primary-color);
             background: color-mix(in srgb, var(--primary-color) 4%, var(--bg-card));
+        }
+
+        .header-links .restaurants-link {
+            position: static;
         }
 
         .sub-header {
@@ -544,9 +564,141 @@
            MEDIA QUERIES (OTIMIZAÇÃO MOBILE EXTREMA)
            ========================================================================== */
         @media (max-width: 600px) {
-            h1 { font-size: 1.6rem; }
-            .theme-toggle { position: static; margin: 0 auto 12px; width: fit-content; }
-            .restaurants-link { position: static; margin: 0 auto 12px; width: fit-content; display: flex; }
+            header {
+                min-height: 82px;
+                padding: 4px 50px 0;
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+                margin: 0 0 4px;
+                text-align: center;
+            }
+
+            .sub-header {
+                margin: 0;
+                text-align: center;
+            }
+
+            .mobile-menu-toggle {
+                position: absolute;
+                left: 0;
+                top: 0;
+                background: var(--bg-card);
+                border: 1px solid var(--border-color);
+                color: var(--text-primary);
+                width: 42px;
+                height: 42px;
+                border-radius: 10px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: var(--shadow);
+                font-size: 1rem;
+            }
+
+            .header-links {
+                position: fixed;
+                inset: 0 auto 0 0;
+                z-index: 30;
+                width: min(82vw, 320px);
+                padding: 18px 16px;
+                background: var(--bg-card);
+                border-right: 1px solid var(--border-color);
+                box-shadow: 18px 0 36px rgba(0, 0, 0, 0.14);
+                transform: translateX(-105%);
+                transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .restaurants-link {
+                justify-content: flex-start;
+                width: 100%;
+                min-height: 46px;
+                padding: 12px 14px;
+                margin: 0;
+                border-radius: 10px;
+                white-space: nowrap;
+                box-shadow: none;
+            }
+
+            .theme-toggle {
+                position: absolute;
+                right: 0;
+                top: 0;
+                align-items: center;
+                justify-content: center;
+                width: 42px;
+                height: 42px;
+                min-height: 42px;
+                padding: 0;
+                margin: 0;
+                gap: 0;
+                border-radius: 10px;
+                font-size: 0;
+                line-height: 1;
+            }
+
+            .theme-toggle i {
+                font-size: 1rem;
+                line-height: 1;
+            }
+
+            .mobile-menu-title {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                color: var(--primary-color);
+                font-size: 0.8rem;
+                font-weight: 800;
+                letter-spacing: 0.5px;
+                margin-bottom: 4px;
+                text-transform: uppercase;
+            }
+
+            .mobile-menu-close {
+                position: absolute;
+                right: 12px;
+                top: 12px;
+                width: 36px;
+                height: 36px;
+                border: 1px solid var(--border-color);
+                border-radius: 10px;
+                background: color-mix(in srgb, var(--text-primary) 2%, var(--bg-card));
+                color: var(--text-primary);
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .mobile-menu-overlay {
+                position: fixed;
+                inset: 0;
+                z-index: 20;
+                background: rgba(15, 23, 42, 0.42);
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.25s ease;
+            }
+
+            body.mobile-menu-open {
+                overflow: hidden;
+            }
+
+            body.mobile-menu-open .header-links {
+                transform: translateX(0);
+            }
+
+            body.mobile-menu-open .mobile-menu-overlay {
+                opacity: 1;
+                pointer-events: auto;
+            }
+
             .day-header { flex-direction: column; align-items: flex-start; }
             .dashboard-grid { grid-template-columns: 1fr; }
             body { padding: 12px 8px; }
@@ -588,15 +740,28 @@
 
 <div class="container">
     <header>
-        <a href="./restaurantes.html" class="restaurants-link">
-            <i class="fa-solid fa-hamburger"></i> Restaurantes
-        </a>
+        <button class="mobile-menu-toggle" type="button" onclick="toggleMobileMenu(true)" aria-label="Abrir menu" aria-controls="mobileMenu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="header-links" id="mobileMenu" aria-label="Menu de navegação">
+            <div class="mobile-menu-title"><i class="fa-solid fa-map-location-dot"></i> Navegação</div>
+            <button class="mobile-menu-close" type="button" onclick="toggleMobileMenu(false)" aria-label="Fechar menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <a href="./restaurantes.html" class="restaurants-link">
+                <i class="fa-solid fa-hamburger"></i> Restaurantes
+            </a>
+            <a href="./mercados.html" class="restaurants-link">
+                <i class="fa-solid fa-cart-shopping"></i> Mercados
+            </a>
+        </div>
         <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
             <i class="fa-solid fa-moon"></i> Modo Escuro
         </button>
         <h1>Califórnia 2026</h1>
         <div class="sub-header">Roteiro Inteligente</div>
     </header>
+    <div class="mobile-menu-overlay" onclick="toggleMobileMenu(false)" aria-hidden="true"></div>
 
     <!-- Dashboard de Widgets -->
     <div class="dashboard-grid">
@@ -715,38 +880,28 @@
 
     <!-- Planejamento de Ingressos -->
     <div class="calendar-section" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; margin-bottom: 24px; box-shadow: var(--shadow);">
-        <h3 style="margin: 0 0 16px 0; font-size: 0.9rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px;">
-            <i class="fa-solid fa-ticket-simple" style="color: var(--primary-color);"></i> Cronograma de Compra de Ingressos
-        </h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 12px;">
-            <div style="border-left: 4px solid #ef4444; padding: 12px; background: color-mix(in srgb, #ef4444 6%, var(--bg-card)); border-radius: 0 8px 8px 0;">
-                <h4 style="margin: 0 0 8px 0; color: #ef4444; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; gap: 6px;">
-                    <i class="fa-solid fa-circle-exclamation"></i> Comprar Agora
-                </h4>
-                <ul style="margin: 0; padding-left: 20px; font-size: 0.85rem; line-height: 1.5; color: var(--text-primary);">
-                    <li><a href="https://disneyland.disney.go.com/admission/tickets/" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: underline; font-weight: 600;">Disneyland Park</a> (Visita em 14/07)</li>
-                    <li><a href="https://www.universalstudioshollywood.com/web/en/us/tickets-and-packages" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: underline; font-weight: 600;">Universal Studios Hollywood</a> (2 dias: 20/07 e 23/07)</li>
-                    <li><a href="https://www.discoverycube.org/los-angeles/" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: underline; font-weight: 600;">Discovery Cube Los Angeles</a> (Visita em 13/07)</li>
-                    <li><a href="https://www.petersen.org/" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: underline; font-weight: 600;">Petersen Automotive Museum</a> (Visita em 12/07)</li>
-                </ul>
+        <h3 style="margin:0 0 16px 0;"><i class="fa-solid fa-ticket-simple" style="color:var(--primary-color);"></i> Cronograma de Compra de Ingressos</h3>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
+
+            <div>
+                <label><input type="checkbox" class="ticket-check" id="ticket-1"> Disneyland Park (14/07)</label><br><br>
+                <label><input type="checkbox" class="ticket-check" id="ticket-2"> Universal Studios Hollywood (20 e 23/07)</label><br><br>
+                <label><input type="checkbox" class="ticket-check" id="ticket-3"> Discovery Cube Los Angeles (13/07)</label><br><br>
+                <label><input type="checkbox" class="ticket-check" id="ticket-4"> Petersen Automotive Museum (12/07)</label>
             </div>
-            <div style="border-left: 4px solid #d97706; padding: 12px; background: color-mix(in srgb, #d97706 6%, var(--bg-card)); border-radius: 0 8px 8px 0;">
-                <h4 style="margin: 0 0 8px 0; color: #d97706; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; gap: 6px;">
-                    <i class="fa-solid fa-clock"></i> Comprar em 1 a 2 semanas antes
-                </h4>
-                <ul style="margin: 0; padding-left: 20px; font-size: 0.85rem; line-height: 1.5; color: var(--text-primary);">
-                    <li><a href="https://www.aquariumofpacific.org/visit/tickets" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: underline; font-weight: 600;">Aquarium of the Pacific</a> (Visita em 21/07)</li>
-                    <li><a href="https://nhm.org/visit" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: underline; font-weight: 600;">Natural History Museum</a> (Visita em 16/07)</li>
-                    <li><a href="https://pacificbattleship.com/" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: underline; font-weight: 600;">Battleship USS Iowa Museum</a> (Visita em 22/07)</li>
-                    <li><a href="https://californiasciencecenter.org/visit" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: underline; font-weight: 600;">California Science Center</a> (Reserva Endeavour - Visita em 16/07)</li>
-                </ul>
+
+            <div>
+                <label><input type="checkbox" class="ticket-check" id="ticket-5"> Aquarium of the Pacific (21/07)</label><br><br>
+                <label><input type="checkbox" class="ticket-check" id="ticket-6"> Natural History Museum (16/07)</label><br><br>
+                <label><input type="checkbox" class="ticket-check" id="ticket-7"> Battleship USS Iowa Museum (22/07)</label><br><br>
+                <label><input type="checkbox" class="ticket-check" id="ticket-8"> California Science Center / Endeavour (16/07)</label>
             </div>
+
         </div>
-        <div style="padding: 10px 12px; background: color-mix(in srgb, var(--primary-color) 6%, var(--bg-card)); border: 1px solid var(--border-color); border-radius: 8px; font-size: 0.8rem; line-height: 1.4; color: var(--text-primary); display: flex; align-items: flex-start; gap: 8px;">
-            <i class="fa-solid fa-circle-info" style="color: var(--primary-color); margin-top: 2px;"></i>
-            <span>
-                <strong>Ordem prática sugerida:</strong> Compre os parques temáticos (Disney e Universal) de forma imediata para assegurar as reservas de data. Próximo ao final de junho ou início de julho, compre os ingressos das demais atrações educativas (Aquarium, Natural History, USS Iowa e Petersen).
-            </span>
+
+        <div style="margin-top:16px;padding:10px 12px;background:color-mix(in srgb,var(--primary-color) 6%,var(--bg-card));border:1px solid var(--border-color);border-radius:8px;font-size:.8rem;">
+            Marque cada atração conforme os ingressos forem sendo comprados.
         </div>
     </div>
 
@@ -1349,6 +1504,35 @@
         updateThemeButton();
     }
 
+    function toggleMobileMenu(forceOpen) {
+        const shouldOpen = typeof forceOpen === 'boolean'
+            ? forceOpen
+            : !document.body.classList.contains('mobile-menu-open');
+
+        document.body.classList.toggle('mobile-menu-open', shouldOpen);
+        const menuBtn = document.querySelector('.mobile-menu-toggle');
+        if (menuBtn) {
+            menuBtn.setAttribute('aria-expanded', String(shouldOpen));
+        }
+    }
+
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+            toggleMobileMenu(false);
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuBtn = document.querySelector('.mobile-menu-toggle');
+        if (menuBtn) {
+            menuBtn.setAttribute('aria-expanded', 'false');
+        }
+
+        document.querySelectorAll('.header-links a').forEach(link => {
+            link.addEventListener('click', () => toggleMobileMenu(false));
+        });
+    });
+
     // Filtragem por Categorias
     function filterCategory(category, button) {
         // Atualiza botões ativos
@@ -1381,6 +1565,19 @@
         updateDashboard();
         updateThemeButton();
     };
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".ticket-check").forEach(cb => {
+    const key = "ticket_" + cb.id;
+    cb.checked = localStorage.getItem(key) === "true";
+    cb.addEventListener("change", () => {
+      localStorage.setItem(key, cb.checked);
+    });
+  });
+});
 </script>
 
 </body>

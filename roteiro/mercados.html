@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mercados — Califórnia 2026</title>
+<link rel="icon" type="image/png" href="./turismo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script>
+const savedTheme=localStorage.getItem('theme')||'light';
+document.documentElement.setAttribute('data-theme',savedTheme);
+</script>
+<style>
+:root{--bg-body:#f6f8fa;--bg-card:#fff;--text-primary:#2d3748;--text-secondary:#5e6e82;--border:#e6edf5;--primary:#4f6b8c;--shadow:0 6px 16px rgba(0,0,0,.04)}
+[data-theme=dark]{--bg-body:#151c2c;--bg-card:#1d2636;--text-primary:#e2e8f0;--text-secondary:#94a3b8;--border:#2b364a;--primary:#8fa3c2}
+*{box-sizing:border-box;transition:.25s}
+body{margin:0;padding:20px 12px;background:var(--bg-body);font-family:'Plus Jakarta Sans',sans-serif;color:var(--text-primary)}
+.container{max-width:960px;margin:auto}
+header{text-align:center;position:relative;margin-bottom:28px}
+.nav-back,.theme-toggle{position:absolute;top:0;background:var(--bg-card);border:1px solid var(--border);padding:8px 16px;border-radius:99px;text-decoration:none;color:var(--text-primary);box-shadow:var(--shadow);font-weight:600}
+.nav-back{left:0}.theme-toggle{right:0;cursor:pointer}
+h1{color:var(--primary)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:var(--shadow)}
+.card h2{margin:0;font-size:1.2rem}
+.card a{text-decoration:none;color:var(--text-primary)}
+.card a:hover{color:var(--primary)}
+.type{font-size:.75rem;color:var(--text-secondary);text-transform:uppercase;margin:6px 0 12px}
+.desc{font-size:.9rem;color:var(--text-secondary);line-height:1.5}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.tag{font-size:.7rem;font-weight:700;padding:3px 9px;border-radius:99px;background:color-mix(in srgb,var(--primary) 8%,var(--bg-card));color:var(--primary);border:1px solid color-mix(in srgb,var(--primary) 20%,var(--border));text-transform:uppercase}
+@media(max-width:600px){header{min-height:82px;padding:4px 50px 0;text-align:center}h1{font-size:1.6rem;margin:0 0 4px}.nav-back,.theme-toggle{top:0;width:42px;height:42px;min-height:42px;padding:0;margin:0;border-radius:10px;display:flex;align-items:center;justify-content:center;gap:0;font-size:0;line-height:1}.nav-back{left:0}.theme-toggle{right:0}.nav-back i,.theme-toggle i{font-size:1rem;line-height:1}.grid{grid-template-columns:1fr}body{padding:12px 8px}}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<a href="./index.html" class="nav-back"><i class="fa-solid fa-arrow-left"></i> Roteiro</a>
+<button class="theme-toggle" onclick="toggleTheme()" id="themeBtn"></button>
+<h1>🛒 Mercados</h1>
+<div style="color:var(--text-secondary)">Supermercados — Los Angeles 2026</div>
+</header>
+
+<div class="grid">
+
+<div class="card">
+<a href="https://www.google.com/maps/search/?api=1&query=Walmart+Los+Angeles" target="_blank"><h2><i class="fa-solid fa-location-dot" style="color:#ea4335"></i> Walmart</h2></a>
+<div class="type">Supercenter</div>
+<div class="desc">Grande variedade de alimentos, roupas, eletrônicos, higiene e itens para viagem.</div>
+<div class="tags"><span class="tag">Muito barato</span><span class="tag">Tudo em um lugar</span><span class="tag">24h (algumas lojas)</span></div>
+</div>
+<div class="card">
+<a href="https://www.google.com/maps/search/?api=1&query=Target+Los+Angeles" target="_blank"><h2><i class="fa-solid fa-location-dot" style="color:#ea4335"></i> Target</h2></a>
+<div class="type">Loja de Departamento</div>
+<div class="desc">Excelente para alimentos, roupas, eletrônicos, brinquedos e produtos de higiene.</div>
+<div class="tags"><span class="tag">Completo</span><span class="tag">Turista</span><span class="tag">Qualidade</span></div>
+</div>
+<div class="card">
+<a href="https://www.google.com/maps/search/?api=1&query=Costco+Los+Angeles" target="_blank"><h2><i class="fa-solid fa-location-dot" style="color:#ea4335"></i> Costco</h2></a>
+<div class="type">Atacado</div>
+<div class="desc">Ideal para compras em grande quantidade, snacks, bebidas e o famoso Food Court.</div>
+<div class="tags"><span class="tag">Economia</span><span class="tag">Food Court</span><span class="tag">Volume</span></div>
+</div>
+<div class="card">
+<a href="https://www.google.com/maps/search/?api=1&query=Ralphs+Los+Angeles" target="_blank"><h2><i class="fa-solid fa-location-dot" style="color:#ea4335"></i> Ralphs</h2></a>
+<div class="type">Supermercado</div>
+<div class="desc">Rede tradicional muito comum em Los Angeles, ótima para compras do dia a dia.</div>
+<div class="tags"><span class="tag">Conveniência</span><span class="tag">Alimentos</span><span class="tag">Padaria</span></div>
+</div>
+<div class="card">
+<a href="https://www.google.com/maps/search/?api=1&query=Whole+Foods+Market+Los+Angeles" target="_blank"><h2><i class="fa-solid fa-location-dot" style="color:#ea4335"></i> Whole Foods Market</h2></a>
+<div class="type">Orgânicos</div>
+<div class="desc">Rede premium com alimentos naturais, orgânicos e produtos de alta qualidade.</div>
+<div class="tags"><span class="tag">Premium</span><span class="tag">Orgânicos</span><span class="tag">Saudável</span></div>
+</div>
+</div></div>
+<script>
+function updateThemeButton(){const b=document.getElementById('themeBtn');if(document.documentElement.getAttribute('data-theme')==='dark'){b.innerHTML='<i class="fa-solid fa-sun"></i> Modo Claro'}else{b.innerHTML='<i class="fa-solid fa-moon"></i> Modo Escuro'}}
+function toggleTheme(){const h=document.documentElement;const n=h.getAttribute('data-theme')==='light'?'dark':'light';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);updateThemeButton()}
+window.onload=updateThemeButton;
+</script>
+</body></html>
