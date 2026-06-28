@@ -484,6 +484,146 @@
             opacity: 0.85;
         }
 
+        .tickets-accordion {
+            overflow: hidden;
+        }
+
+        .tickets-accordion summary {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tickets-accordion summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .tickets-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tickets-title i,
+        .tickets-chevron {
+            color: var(--primary-color);
+        }
+
+        .tickets-chevron {
+            transition: transform 0.2s ease;
+        }
+
+        .tickets-accordion[open] .tickets-chevron {
+            transform: rotate(180deg);
+        }
+
+        .tickets-panel {
+            margin-top: 16px;
+        }
+
+        .tickets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 10px;
+        }
+
+        .ticket-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-height: 44px;
+            padding: 10px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: color-mix(in srgb, var(--text-primary) 2%, var(--bg-card));
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .ticket-option:hover {
+            border-color: var(--primary-color);
+            background: color-mix(in srgb, var(--primary-color) 5%, var(--bg-card));
+        }
+
+        .ticket-check {
+            appearance: none;
+            -webkit-appearance: none;
+            flex: 0 0 auto;
+            width: 18px;
+            height: 18px;
+            margin: 0;
+            border: 2px solid color-mix(in srgb, var(--primary-color) 60%, var(--border-color));
+            border-radius: 4px;
+            background: var(--bg-card);
+            cursor: pointer;
+            display: grid;
+            place-content: center;
+        }
+
+        .ticket-check::before {
+            content: "";
+            width: 9px;
+            height: 9px;
+            border-radius: 2px;
+            background: var(--primary-color);
+            transform: scale(0);
+            transition: transform 0.15s ease;
+        }
+
+        .ticket-check:checked::before {
+            transform: scale(1);
+        }
+
+        .ticket-check:focus-visible {
+            outline: 2px solid color-mix(in srgb, var(--primary-color) 55%, transparent);
+            outline-offset: 2px;
+        }
+
+        .ticket-check:checked + span {
+            color: var(--text-secondary);
+            text-decoration: line-through;
+        }
+
+        .tickets-note {
+            margin-top: 16px;
+            padding: 10px 12px;
+            background: color-mix(in srgb, var(--primary-color) 6%, var(--bg-card));
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        [data-theme="dark"] .ticket-option {
+            background: color-mix(in srgb, var(--primary-color) 6%, var(--bg-card));
+            border-color: color-mix(in srgb, var(--primary-color) 18%, var(--border-color));
+        }
+
+        [data-theme="dark"] .ticket-option:hover {
+            background: color-mix(in srgb, var(--primary-color) 12%, var(--bg-card));
+            border-color: var(--primary-color);
+        }
+
+        [data-theme="dark"] .ticket-check {
+            background: #111827;
+            border-color: color-mix(in srgb, var(--primary-color) 45%, var(--border-color));
+        }
+
+        [data-theme="dark"] .ticket-check::before {
+            background: #8fa3c2;
+        }
+
         .map-link {
             color: var(--text-secondary);
             margin-left: 6px;
@@ -733,6 +873,10 @@
                 font-size: 0.7rem;
                 margin-top: 2px;
             }
+
+            .tickets-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -879,31 +1023,29 @@
     </div>
 
     <!-- Planejamento de Ingressos -->
-    <div class="calendar-section" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; margin-bottom: 24px; box-shadow: var(--shadow);">
-        <h3 style="margin:0 0 16px 0;"><i class="fa-solid fa-ticket-simple" style="color:var(--primary-color);"></i> Cronograma de Compra de Ingressos</h3>
+    <details class="calendar-section tickets-accordion">
+        <summary>
+            <span class="tickets-title"><i class="fa-solid fa-ticket-simple"></i> Ingressos</span>
+            <i class="fa-solid fa-chevron-down tickets-chevron" aria-hidden="true"></i>
+        </summary>
 
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
-
-            <div>
-                <label><input type="checkbox" class="ticket-check" id="ticket-1"> Disneyland Park (14/07)</label><br><br>
-                <label><input type="checkbox" class="ticket-check" id="ticket-2"> Universal Studios Hollywood (20 e 23/07)</label><br><br>
-                <label><input type="checkbox" class="ticket-check" id="ticket-3"> Discovery Cube Los Angeles (13/07)</label><br><br>
-                <label><input type="checkbox" class="ticket-check" id="ticket-4"> Petersen Automotive Museum (12/07)</label>
+        <div class="tickets-panel">
+            <div class="tickets-grid">
+                <label class="ticket-option"><input type="checkbox" class="ticket-check" id="ticket-1"><span>Disneyland Park (14/07)</span></label>
+                <label class="ticket-option"><input type="checkbox" class="ticket-check" id="ticket-2"><span>Universal Studios Hollywood (20 e 23/07)</span></label>
+                <label class="ticket-option"><input type="checkbox" class="ticket-check" id="ticket-3"><span>Discovery Cube Los Angeles (13/07)</span></label>
+                <label class="ticket-option"><input type="checkbox" class="ticket-check" id="ticket-4"><span>Petersen Automotive Museum (12/07)</span></label>
+                <label class="ticket-option"><input type="checkbox" class="ticket-check" id="ticket-5"><span>Aquarium of the Pacific (21/07)</span></label>
+                <label class="ticket-option"><input type="checkbox" class="ticket-check" id="ticket-6"><span>Natural History Museum (16/07)</span></label>
+                <label class="ticket-option"><input type="checkbox" class="ticket-check" id="ticket-7"><span>Battleship USS Iowa Museum (22/07)</span></label>
+                <label class="ticket-option"><input type="checkbox" class="ticket-check" id="ticket-8"><span>California Science Center / Endeavour (16/07)</span></label>
             </div>
 
-            <div>
-                <label><input type="checkbox" class="ticket-check" id="ticket-5"> Aquarium of the Pacific (21/07)</label><br><br>
-                <label><input type="checkbox" class="ticket-check" id="ticket-6"> Natural History Museum (16/07)</label><br><br>
-                <label><input type="checkbox" class="ticket-check" id="ticket-7"> Battleship USS Iowa Museum (22/07)</label><br><br>
-                <label><input type="checkbox" class="ticket-check" id="ticket-8"> California Science Center / Endeavour (16/07)</label>
+            <div class="tickets-note">
+                Marque cada atração conforme os ingressos forem sendo comprados.
             </div>
-
         </div>
-
-        <div style="margin-top:16px;padding:10px 12px;background:color-mix(in srgb,var(--primary-color) 6%,var(--bg-card));border:1px solid var(--border-color);border-radius:8px;font-size:.8rem;">
-            Marque cada atração conforme os ingressos forem sendo comprados.
-        </div>
-    </div>
+    </details>
 
     <!-- Filtros de Categorias (Layout Grid Responsivo) -->
     <div class="filters-section">
