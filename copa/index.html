@@ -681,11 +681,15 @@ function mergeLiveData(fdMatches) {
     if (idx >= 0) {
       isReversed = (matches[idx].team1 === t2 && matches[idx].team2 === t1);
     } else {
-      // 2. For knockouts where teams might be TBD in seed: match by match number or round/date
+      // 2. For knockouts where teams might be TBD in seed: match by round and Brasilia kickoff date
       if (fdm.stage && fdm.stage !== 'GROUP_STAGE') {
         const targetRound = stageToRound(fdm.stage);
-        const fdmDateStr = fdm.utcDate ? new Date(fdm.utcDate).toISOString().split('T')[0] : null;
-        idx = matches.findIndex(x => x.round === targetRound && (x.team1?.match(/^[123WL]/) || x.team2?.match(/^[123WL]/)) && x.date === fdmDateStr);
+        const fdmBSBDate = fdm.utcDate ? getDateBSBStr(new Date(fdm.utcDate)) : null;
+        idx = matches.findIndex(x => 
+          x.round === targetRound && 
+          (x.team1?.match(/^[123WL]/) || x.team2?.match(/^[123WL]/)) && 
+          (x.kickoffBSB ? getDateBSBStr(x.kickoffBSB) === fdmBSBDate : x.date === fdmBSBDate)
+        );
       }
     }
 
