@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Disneyland — Califórnia 2026</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./turismo.png">
+    <!-- Fontes Modernas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Icones FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+    
+    <style>
+        /* ===== VARIÁVEIS DE TEMA ===== */
+        :root {
+            --bg-body: #f6f8fa;
+            --bg-card: #ffffff;
+            --text-primary: #2d3748;
+            --text-secondary: #5e6e82;
+            --border-color: #e6edf5;
+            --primary-color: #4f6b8c;
+            --primary-hover: #3d536e;
+            --shadow: 0 6px 16px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.03);
+            --accent-bg: #f0f7f4;
+            --accent-border: #c2e0d1;
+            --accent-text: #3b7a57;
+            --warning-bg: #fffbeb;
+            --warning-border: #fef3c7;
+            --warning-text: #b45309;
+            --ok-color: #10b981;
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #151c2c;
+            --bg-card: #1d2636;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --border-color: #2b364a;
+            --primary-color: #8fa3c2;
+            --primary-hover: #a3b7d6;
+            --shadow: 0 8px 24px rgba(0,0,0,0.2);
+            --accent-bg: #15261d;
+            --accent-border: #355c46;
+            --accent-text: #a2d4b6;
+            --warning-bg: #2d2216;
+            --warning-border: #5f3e1d;
+            --warning-text: #fde047;
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            margin: 0;
+            padding-bottom: 86px; /* espaço para a barra inferior */
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 16px 12px;
+        }
+
+        /* ===== HEADER FIXO ===== */
+        header {
+            position: sticky;
+            top: 0;
+            background: color-mix(in srgb, var(--bg-body) 92%, transparent);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 14px 16px;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .header-content {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .nav-back {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 99px;
+            cursor: pointer;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow);
+            text-decoration: none;
+        }
+
+        .nav-back:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .theme-toggle {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 99px;
+            cursor: pointer;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--primary-color);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0 0 2px 0;
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        /* ===== SEÇÕES / TABS ===== */
+        section {
+            display: none;
+        }
+
+        section.active {
+            display: block;
+            animation: fadeIn 0.25s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== CARDS E LAYOUT ===== */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .card h2 {
+            margin: 0 0 14px 0;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* ===== TIMELINE ===== */
+        .timeline {
+            border-left: 2px solid var(--border-color);
+            padding-left: 20px;
+            margin-left: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .timeline-item {
+            position: relative;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 2px solid var(--primary-color);
+        }
+
+        .time {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+        /* ===== CHECKLISTS ===== */
+        .check {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+
+        .check:hover {
+            border-color: var(--primary-color);
+        }
+
+        .check input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--accent-text);
+            cursor: pointer;
+            margin: 0;
+        }
+
+        .check label {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            cursor: pointer;
+            flex: 1;
+            display: block;
+        }
+
+        /* ===== AREAS ===== */
+        .area {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 20px 0 10px 0;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* ===== NOTE / ANUNCIO ===== */
+        .note {
+            background: var(--accent-bg);
+            border: 1px solid var(--accent-border);
+            color: var(--accent-text);
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 0.85rem;
+            margin-left: 6px;
+        }
+
+        /* ===== ALIMENTAÇÃO LIST ===== */
+        #food ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #food li {
+            padding: 12px 14px;
+            background: color-mix(in srgb, var(--text-primary) 1.5%, var(--bg-card));
+            border-radius: 10px;
+            margin-bottom: 8px;
+            border: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        #food li b {
+            color: var(--text-primary);
+        }
+
+        #food li span.stars {
+            margin-left: 4px;
+        }
+
+        /* ===== NAV / MENU INFERIOR ===== */
+        nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: color-mix(in srgb, var(--bg-card) 92%, transparent);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            z-index: 100;
+            box-shadow: 0 -4px 16px rgba(0,0,0,0.03);
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+
+        nav button {
+            flex: 1;
+            padding: 10px 4px;
+            margin: 6px 4px;
+            border-radius: 12px;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            font-family: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            transition: all 0.25s ease;
+        }
+
+        nav button i {
+            font-size: 1.15rem;
+            transition: transform 0.2s;
+        }
+
+        nav button.active {
+            color: var(--primary-color);
+            background: color-mix(in srgb, var(--primary-color) 8%, var(--bg-card));
+        }
+
+        nav button:hover i {
+            transform: translateY(-1px);
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 600px) {
+            header {
+                padding: 12px 8px;
+            }
+
+            .nav-back, .theme-toggle {
+                width: 38px;
+                height: 38px;
+                padding: 0;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0;
+            }
+
+            .nav-back i, .theme-toggle i {
+                font-size: 0.95rem;
+            }
+
+            h1 {
+                font-size: 1.15rem;
+            }
+
+            .subtitle {
+                font-size: 0.75rem;
+            }
+
+            body {
+                padding-bottom: 76px;
+            }
+
+            nav button {
+                padding: 6px 2px;
+                margin: 4px 2px;
+                font-size: 0.7rem;
+            }
+
+            nav button i {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <a href="./index.html" class="nav-back">
+            <i class="fa-solid fa-arrow-left"></i> Roteiro
+        </a>
+        <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
+            <i class="fa-solid fa-moon"></i> Modo Escuro
+        </button>
+        <h1>🏰 Disneyland</h1>
+        <div class="subtitle">Diogo • Michelly • Lívia — 14/07</div>
+    </div>
+</header>
+
+<div class="container">
+    <!-- SEÇÃO PLANO -->
+    <section id="plano" class="active">
+        <div class="card">
+            <h2><i class="fa-solid fa-bullseye"></i> Próxima Ação</h2>
+            <div id="nextAction" class="note"></div>
+        </div>
+
+        <div class="card">
+            <h2><i class="fa-solid fa-clock"></i> Timeline do Dia</h2>
+            <div class="timeline">
+                <div class="timeline-item"><span class="time">06:20</span>Sair de casa</div>
+                <div class="timeline-item"><span class="time">07:30</span>Chegar ao estacionamento</div>
+                <div class="timeline-item"><span class="time">08:00</span><b>Rise of the Resistance</b></div>
+                <div class="timeline-item"><span class="time">08:40</span>Millennium Falcon</div>
+                <div class="timeline-item"><span class="time">09:00</span>Fantasyland</div>
+                <div class="timeline-item"><span class="time">11:45</span>Almoço</div>
+                <div class="timeline-item"><span class="time">20:30</span>Posicionar para os fogos</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO LL -->
+    <section id="ll">
+        <div class="card" style="background: var(--accent-bg); border-color: var(--accent-border); color: var(--accent-text);">
+            <h2><i class="fa-solid fa-bolt" style="color: var(--accent-text);"></i> Regra de Ouro</h2>
+            <p style="margin: 0; font-size: 0.95rem; line-height: 1.5;">Assim que escanear uma Lightning Lane na entrada da atração, <b>reserve imediatamente a próxima no app</b> para maximizar o dia.</p>
+        </div>
+        
+        <div class="check"><input type="checkbox" id="ll0"><label for="ll0">1. Indiana Jones</label></div>
+        <div class="check"><input type="checkbox" id="ll1"><label for="ll1">2. Space Mountain</label></div>
+        <div class="check"><input type="checkbox" id="ll2"><label for="ll2">3. Haunted Mansion</label></div>
+        <div class="check"><input type="checkbox" id="ll3"><label for="ll3">4. Big Thunder Mountain</label></div>
+        <div class="check"><input type="checkbox" id="ll4"><label for="ll4">5. Matterhorn</label></div>
+        <div class="check"><input type="checkbox" id="ll5"><label for="ll5">6. Buzz Lightyear</label></div>
+        <div class="check"><input type="checkbox" id="ll6"><label for="ll6">7. Mickey & Minnie's Runaway Railway</label></div>
+        <div class="check"><input type="checkbox" id="ll7"><label for="ll7">8. Roger Rabbit</label></div>
+    </section>
+
+    <!-- SEÇÃO ATRAÇÕES -->
+    <section id="atr">
+        <div class="card">
+            <h2><i class="fa-solid fa-mountain"></i> Atrações Planejadas</h2>
+            
+            <div class="area">Galaxy's Edge</div>
+            <div class="check"><input id="a0" type="checkbox"><label for="a0">Rise of the Resistance <span class="stars">★★★★★</span></label></div>
+            <div class="check"><input id="a1" type="checkbox"><label for="a1">Millennium Falcon <span class="stars">★★★★☆</span></label></div>
+            
+            <div class="area">Fantasyland</div>
+            <div class="check"><input id="a2" type="checkbox"><label for="a2">Peter Pan's Flight <span class="stars">★★★★★</span></label></div>
+            <div class="check"><input id="a3" type="checkbox"><label for="a3">Alice in Wonderland <span class="stars">★★★★☆</span></label></div>
+            <div class="check"><input id="a4" type="checkbox"><label for="a4">Mr. Toad's Wild Ride <span class="stars">★★★★☆</span></label></div>
+            <div class="check"><input id="a5" type="checkbox"><label for="a5">Pinocchio's Daring Journey <span class="stars">★★★☆☆</span></label></div>
+            <div class="check"><input id="a6" type="checkbox"><label for="a6">Snow White's Enchanted Wish <span class="stars">★★★☆☆</span></label></div>
+            
+            <div class="area">Tomorrowland</div>
+            <div class="check"><input id="a7" type="checkbox"><label for="a7">Space Mountain <span class="stars">★★★★★</span></label></div>
+            <div class="check"><input id="a8" type="checkbox"><label for="a8">Buzz Lightyear Astro Blasters <span class="stars">★★★★☆</span></label></div>
+            <div class="check"><input id="a9" type="checkbox"><label for="a9">Star Tours <span class="stars">★★★★☆</span></label></div>
+            
+            <div class="area">Adventureland</div>
+            <div class="check"><input id="a10" type="checkbox"><label for="a10">Indiana Jones Adventure <span class="stars">★★★★★</span></label></div>
+            <div class="check"><input id="a11" type="checkbox"><label for="a11">Jungle Cruise <span class="stars">★★★☆☆</span></label></div>
+            
+            <div class="area">New Orleans Square</div>
+            <div class="check"><input id="a12" type="checkbox"><label for="a12">Pirates of the Caribbean <span class="stars">★★★★★</span></label></div>
+            <div class="check"><input id="a13" type="checkbox"><label for="a13">Haunted Mansion <span class="stars">★★★★★</span></label></div>
+            
+            <div class="area">Frontierland</div>
+            <div class="check"><input id="a14" type="checkbox"><label for="a14">Big Thunder Mountain Railroad <span class="stars">★★★★★</span></label></div>
+            
+            <div class="area">Mickey's Toontown</div>
+            <div class="check"><input id="a15" type="checkbox"><label for="a15">Runaway Railway <span class="stars">★★★★★</span></label></div>
+            <div class="check"><input id="a16" type="checkbox"><label for="a16">Mickey's House <span class="stars">★★★★☆</span></label></div>
+            <div class="check"><input id="a17" type="checkbox"><label for="a17">Minnie's House <span class="stars">★★★★☆</span></label></div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO COMER -->
+    <section id="food">
+        <div class="card">
+            <h2><i class="fa-solid fa-hamburger"></i> Alimentação Recomendada</h2>
+            
+            <div class="area">Galaxy's Edge (Star Wars)</div>
+            <ul>
+                <li><b>Docking Bay 7 Food and Cargo</b> <span class="stars">★★★★★</span><br>Melhor opção de almoço, refeições rápidas porém muito completas e saborosas.</li>
+                <li><b>Ronto Roasters</b> <span class="stars">★★★★☆</span><br>Excelente para um wrap rápido ou lanche no meio da tarde.</li>
+            </ul>
+
+            <div class="area">Main Street U.S.A.</div>
+            <ul>
+                <li><b>Plaza Inn</b> <span class="stars">★★★★★</span><br>Famoso e generoso prato de frango frito tradicional da Disney.</li>
+                <li><b>Jolly Holiday Bakery Cafe</b> <span class="stars">★★★★★</span><br>Sanduíches deliciosos, doces finos e excelente café da manhã/tarde.</li>
+            </ul>
+
+            <div class="area">Fantasyland</div>
+            <ul>
+                <li><b>Red Rose Taverne</b> <span class="stars">★★⭐⭐☆</span><br>Hambúrgueres e flatbreads temáticos baseados em A Bela e a Fera.</li>
+            </ul>
+
+            <div class="area">Tomorrowland</div>
+            <ul>
+                <li><b>Galactic Grill</b> <span class="stars">★★★☆☆</span><br>Hambúrgueres, wraps e saladas clássicas de fast food.</li>
+            </ul>
+
+            <div class="area">New Orleans Square</div>
+            <ul>
+                <li><b>Tiana's Palace</b> <span class="stars">★★★★★</span><br>Especialidades inspiradas na culinária de New Orleans (Cajun/Creole).</li>
+                <li><b>Cafe Orleans</b> <span class="stars">★★★★☆</span><br>Serviço de mesa (necessita reserva), famoso pelo sanduíche Monte Cristo.</li>
+            </ul>
+
+            <div class="area">Frontierland</div>
+            <ul>
+                <li><b>Rancho del Zocalo Restaurante</b> <span class="stars">★★★★☆</span><br>Comida mexicana em porções bem servidas sob pátio sombreado.</li>
+            </ul>
+
+            <div class="area">Bayou Country</div>
+            <ul>
+                <li><b>Hungry Bear Barbecue Jamboree</b> <span class="stars">★★★★☆</span><br>Pratos de churrasco estilo americano (BBQ) ao ar livre.</li>
+            </ul>
+        </div>
+
+        <div class="card" style="background: var(--warning-bg); border-color: var(--warning-border); color: var(--warning-text);">
+            <h2><i class="fa-solid fa-triangle-exclamation" style="color: var(--warning-text);"></i> Dicas Importantes</h2>
+            <ul style="margin:0; padding-left:20px; list-style:disc;">
+                <li style="background:none; border:none; padding:0; margin-bottom:6px; color:var(--warning-text);"><b>Mobile Order:</b> Faça o pedido pelo app oficial com antecedência para evitar longas filas.</li>
+                <li style="background:none; border:none; padding:0; margin-bottom:0; color:var(--warning-text);"><b>Horários:</b> Planeje almoçar um pouco mais cedo (ex: 11:30) ou mais tarde (ex: 14:00) para fugir do pico.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SEÇÃO ITENS -->
+    <section id="check">
+        <div class="card">
+            <h2><i class="fa-solid fa-check-double"></i> Checklist para o Parque</h2>
+            <div class="check"><input id="c0" type="checkbox"><label for="c0">Ingressos vinculados no app oficial</label></div>
+            <div class="check"><input id="c1" type="checkbox"><label for="c1">Power bank (carregador portátil) 100% carregado</label></div>
+            <div class="check"><input id="c2" type="checkbox"><label for="c2">Cabos para os celulares</label></div>
+            <div class="check"><input id="c3" type="checkbox"><label for="c3">Garrafas de água (recarregáveis)</label></div>
+            <div class="check"><input id="c4" type="checkbox"><label for="c4">Protetor solar e óculos de sol</label></div>
+            <div class="check"><input id="c5" type="checkbox"><label for="c5">Bonés ou chapéus</label></div>
+            <div class="check"><input id="c6" type="checkbox"><label for="c6">App Disneyland instalado e com login ativo</label></div>
+        </div>
+    </section>
+</div>
+
+<!-- BARRA DE NAVEGAÇÃO INFERIOR -->
+<nav>
+    <button id="btn-plano" class="active" onclick="showSection('plano', this)">
+        <i class="fa-solid fa-route"></i>
+        <span>Plano</span>
+    </button>
+    <button id="btn-ll" onclick="showSection('ll', this)">
+        <i class="fa-solid fa-bolt"></i>
+        <span>LL</span>
+    </button>
+    <button id="btn-atr" onclick="showSection('atr', this)">
+        <i class="fa-solid fa-mountain"></i>
+        <span>Atrações</span>
+    </button>
+    <button id="btn-food" onclick="showSection('food', this)">
+        <i class="fa-solid fa-hamburger"></i>
+        <span>Comer</span>
+    </button>
+    <button id="btn-check" onclick="showSection('check', this)">
+        <i class="fa-solid fa-check-double"></i>
+        <span>Itens</span>
+    </button>
+</nav>
+
+<script>
+    // Gerenciador de Abas (Tabs)
+    function showSection(sectionId, buttonElement) {
+        document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+        document.getElementById(sectionId).classList.add("active");
+        
+        document.querySelectorAll("nav button").forEach(b => b.classList.remove("active"));
+        buttonElement.classList.add("active");
+        
+        // Rola suavemente até o topo ao trocar de aba no celular
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Persistência de estado via LocalStorage
+    document.querySelectorAll("input[type=checkbox]").forEach(c => {
+        let k = "dland_" + c.id;
+        c.checked = localStorage.getItem(k) === "1";
+        c.onchange = () => {
+            localStorage.setItem(k, c.checked ? "1" : "0");
+            updateNextAction();
+        }
+    });
+
+    const seq = [
+        "Entrar no parque e ir direto para Rise of the Resistance.",
+        "Reservar a LL de Indiana Jones no aplicativo.",
+        "Reservar a LL de Space Mountain após escanear/vencer Indiana Jones.",
+        "Reservar a LL de Haunted Mansion.",
+        "Reservar a LL de Big Thunder Mountain.",
+        "Reservar a LL de Matterhorn.",
+        "Reservar a LL de Buzz Lightyear.",
+        "Reservar a LL de Runaway Railway.",
+        "Aproveitar as atrações sem LL e filas menores após o show de fogos."
+    ];
+
+    function updateNextAction() {
+        let done = 0;
+        ["ll0", "ll1", "ll2", "ll3", "ll4", "ll5", "ll6", "ll7"].forEach(id => {
+            if (document.getElementById(id).checked) done++;
+        });
+        const element = document.getElementById("nextAction");
+        if (element) {
+            element.innerHTML = seq[Math.min(done, seq.length - 1)];
+        }
+    }
+
+    // Gerenciador de tema
+    function updateThemeButton() {
+        const b = document.getElementById('themeBtn');
+        if (!b) return;
+        if (document.documentElement.getAttribute('data-theme') === 'dark') {
+            b.innerHTML = '<i class="fa-solid fa-sun"></i>';
+        } else {
+            b.innerHTML = '<i class="fa-solid fa-moon"></i>';
+        }
+    }
+
+    function toggleTheme() {
+        const h = document.documentElement;
+        const n = h.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        h.setAttribute('data-theme', n);
+        localStorage.setItem('theme', n);
+        updateThemeButton();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        updateThemeButton();
+        updateNextAction();
+    });
+</script>
+</body>
+</html>

@@ -90,15 +90,18 @@
             text-align: center;
             margin-bottom: 24px;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .header-links {
-            position: absolute;
-            left: 0;
-            top: 0;
             display: flex;
-            flex-direction: column;
-            gap: 8px;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
         }
 
         .mobile-menu-toggle,
@@ -708,6 +711,7 @@
                 min-height: 82px;
                 padding: 4px 50px 0;
                 text-align: center;
+                display: block;
             }
 
             h1 {
@@ -887,11 +891,22 @@
         <button class="mobile-menu-toggle" type="button" onclick="toggleMobileMenu(true)" aria-label="Abrir menu" aria-controls="mobileMenu">
             <i class="fa-solid fa-bars"></i>
         </button>
+        <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
+            <i class="fa-solid fa-moon"></i> Modo Escuro
+        </button>
+        <h1>Califórnia 2026</h1>
+        <div class="sub-header">Roteiro Inteligente</div>
         <div class="header-links" id="mobileMenu" aria-label="Menu de navegação">
             <div class="mobile-menu-title"><i class="fa-solid fa-map-location-dot"></i> Navegação</div>
             <button class="mobile-menu-close" type="button" onclick="toggleMobileMenu(false)" aria-label="Fechar menu">
                 <i class="fa-solid fa-xmark"></i>
             </button>
+            <a href="./disneyland.html" class="restaurants-link">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> Disneyland
+            </a>
+            <a href="./universal.html" class="restaurants-link">
+                <i class="fa-solid fa-clapperboard"></i> Universal
+            </a>
             <a href="./restaurantes.html" class="restaurants-link">
                 <i class="fa-solid fa-hamburger"></i> Restaurantes
             </a>
@@ -899,11 +914,6 @@
                 <i class="fa-solid fa-cart-shopping"></i> Mercados
             </a>
         </div>
-        <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
-            <i class="fa-solid fa-moon"></i> Modo Escuro
-        </button>
-        <h1>Califórnia 2026</h1>
-        <div class="sub-header">Roteiro Inteligente</div>
     </header>
     <div class="mobile-menu-overlay" onclick="toggleMobileMenu(false)" aria-hidden="true"></div>
 
