@@ -240,18 +240,66 @@
             margin-bottom: 10px;
             cursor: pointer;
             box-shadow: var(--shadow);
+            transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease, opacity 0.15s ease;
         }
 
         .check:hover {
             border-color: var(--primary-color);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .check:active {
+            transform: translateY(0);
         }
 
         .check input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            accent-color: var(--accent-text);
+            appearance: none;
+            -webkit-appearance: none;
+            width: 22px;
+            height: 22px;
+            border: 2px solid var(--primary-color);
+            border-radius: 6px;
+            background-color: var(--bg-card);
             cursor: pointer;
             margin: 0;
+            display: grid;
+            place-content: center;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .check input[type="checkbox"]::before {
+            content: "\f00c"; /* FontAwesome check icon */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            font-size: 0.75rem;
+            color: #ffffff;
+            transform: scale(0);
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .check input[type="checkbox"]:checked {
+            background-color: var(--ok-color);
+            border-color: var(--ok-color);
+            box-shadow: 0 0 0 3px color-mix(in srgb, var(--ok-color) 20%, transparent);
+        }
+
+        .check input[type="checkbox"]:checked::before {
+            transform: scale(1);
+        }
+
+        .check:has(input[type="checkbox"]:checked) {
+            background-color: color-mix(in srgb, var(--bg-body) 40%, var(--bg-card));
+            border-color: color-mix(in srgb, var(--border-color) 80%, transparent);
+            opacity: 0.85;
+        }
+
+        .check:has(input[type="checkbox"]:checked) label {
+            color: var(--text-secondary);
+            text-decoration: line-through;
+            text-decoration-color: color-mix(in srgb, var(--text-secondary) 50%, transparent);
         }
 
         .check label {
@@ -260,7 +308,29 @@
             color: var(--text-primary);
             cursor: pointer;
             flex: 1;
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        /* ===== MAP LINK STYLING ===== */
+        .map-link {
+            color: var(--text-secondary);
+            margin-left: 6px;
+            font-size: 0.85rem;
+            text-decoration: none;
+            opacity: 0.6;
+            transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .map-link:hover {
+            opacity: 1;
+            transform: scale(1.15);
+            color: #ea4335;
         }
 
         /* ===== AREAS ===== */
@@ -450,17 +520,26 @@
         <div class="card">
             <h2><i class="fa-solid fa-clock"></i> Timeline do Dia (Early Access)</h2>
             <div class="timeline">
-                <div class="timeline-item"><span class="time">06:15</span>Sair de casa</div>
-                <div class="timeline-item"><span class="time">06:35</span>Chegar ao estacionamento</div>
-                <div class="timeline-item"><span class="time">07:30</span>Fila da entrada do parque</div>
-                <div class="timeline-item"><span class="time">08:00</span><b>Mario Kart: Bowser's Challenge</b></div>
-                <div class="timeline-item"><span class="time">08:20</span>Comprar a Power-Up Band</div>
-                <div class="timeline-item"><span class="time">08:30</span>Fazer os Key Challenges na área da Nintendo</div>
-                <div class="timeline-item"><span class="time">09:15</span>Enfrentar o Bowser Jr. (Shadow Showdown)</div>
-                <div class="timeline-item"><span class="time">09:45</span>Fotos com personagens da Nintendo</div>
-                <div class="timeline-item"><span class="time">10:15</span>Jurassic World – The Ride</div>
-                <div class="timeline-item"><span class="time">11:00</span>🍄 Almoço no Toadstool Cafe (reservar antes!)</div>
-                <div class="timeline-item"><span class="time">12:00+</span>Mundo de Harry Potter &rarr; Studio Tour &rarr; Simpsons</div>
+                <div class="timeline-item"><span class="time">06:00</span>Sair de casa</div>
+                <div class="timeline-item"><span class="time">07:00</span>Chegar ao estacionamento (45–60 min antes) <a href="https://maps.google.com/?q=Universal+Studios+Hollywood+Parking" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Estacionamento no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">07:30</span>Fila da entrada do parque <a href="https://maps.google.com/?q=Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Entrada no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">08:00</span><b>Entrada / Ir direto para Super Nintendo World</b> (Lower Lot)</div>
+                <div class="timeline-item"><span class="time">08:05</span>Comprar Power-Up Bands (1-UP Factory) e conectar ao app <a href="https://maps.google.com/?q=1-UP+Factory+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver 1-UP Factory no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">08:15</span><b>Mario Kart: Bowser’s Challenge</b> <a href="https://maps.google.com/?q=Mario+Kart+Bowser+Challenge+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Mario Kart no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">09:00</span>Fazer os minigames (Key Challenges - coletar 3 chaves)</div>
+                <div class="timeline-item"><span class="time">09:45</span>Enfrentar Bowser Jr. Shadow Showdown</div>
+                <div class="timeline-item"><span class="time">10:15</span><b>Jurassic World – The Ride</b> <a href="https://maps.google.com/?q=Jurassic+World+The+Ride+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Jurassic World no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">11:00</span>🍄 <b>Almoço no Toadstool Cafe</b> (Fazer reserva virtual logo cedo!) <a href="https://maps.google.com/?q=Toadstool+Cafe+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Toadstool Cafe no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">12:00</span><b>Revenge of the Mummy – The Ride</b> <a href="https://maps.google.com/?q=Revenge+of+the+Mummy+The+Ride+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Revenge of the Mummy no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">12:45</span>Subir para a Upper Lot (Starway) e comprar copos Coca-Cola Freestyle</div>
+                <div class="timeline-item"><span class="time">13:00</span><b>Studio Tour</b> (Duração: ~60 min) <a href="https://maps.google.com/?q=Studio+Tour+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Studio Tour no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">14:30</span><b>Harry Potter and the Forbidden Journey</b> <a href="https://maps.google.com/?q=Harry+Potter+and+the+Forbidden+Journey+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Forbidden Journey no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">15:15</span>Flight of the Hippogriff (se fila pequena) <a href="https://maps.google.com/?q=Flight+of+the+Hippogriff+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Flight of the Hippogriff no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">15:45</span><b>The Secret Life of Pets: Off the Leash</b> <a href="https://maps.google.com/?q=The+Secret+Life+of+Pets+Off+the+Leash+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Secret Life of Pets no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">16:30</span><b>The Simpsons Ride</b> <a href="https://maps.google.com/?q=The+Simpsons+Ride+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Simpsons Ride no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">17:15</span><b>Despicable Me Minion Mayhem</b> <a href="https://maps.google.com/?q=Despicable+Me+Minion+Mayhem+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Minion Mayhem no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">18:00</span>Assistir ao show <b>WaterWorld</b> (chegar 20 min antes!) <a href="https://maps.google.com/?q=WaterWorld+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver WaterWorld no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">19:00+</span>Compras de lembranças e repetir favoritas</div>
             </div>
         </div>
     </section>
@@ -469,18 +548,140 @@
     <section id="prio">
         <div class="card">
             <h2><i class="fa-solid fa-star"></i> Ordem Ideal de Execução</h2>
-            <div class="check"><input id="p0" type="checkbox"><label for="p0">1. Entrar no parque e ir direto para o Mario Kart</label></div>
-            <div class="check"><input id="p1" type="checkbox"><label for="p1">2. Comprar a Power-Up Band</label></div>
-            <div class="check"><input id="p2" type="checkbox"><label for="p2">3. Reservar/confirmar almoço no Toadstool Cafe</label></div>
-            <div class="check"><input id="p3" type="checkbox"><label for="p3">4. Completar os Key Challenges na área da Nintendo</label></div>
-            <div class="check"><input id="p4" type="checkbox"><label for="p4">5. Bowser Jr. Shadow Showdown</label></div>
-            <div class="check"><input id="p5" type="checkbox"><label for="p5">6. Jurassic World – The Ride</label></div>
-            <div class="check"><input id="p6" type="checkbox"><label for="p6">7. Tirar fotos com Blue e o Baby Raptor</label></div>
-            <div class="check"><input id="p7" type="checkbox"><label for="p7">8. Almoçar no Toadstool Cafe</label></div>
-            <div class="check"><input id="p8" type="checkbox"><label for="p8">9. Ir para a área do Harry Potter</label></div>
-            <div class="check"><input id="p9" type="checkbox"><label for="p9">10. Fazer o clássico Studio Tour</label></div>
-            <div class="check"><input id="p10" type="checkbox"><label for="p10">11. Ir no brinquedo dos Transformers</label></div>
-            <div class="check"><input id="p11" type="checkbox"><label for="p11">12. Passear na área dos Simpsons e comer o Donut gigante</label></div>
+            
+            <div class="check">
+                <input id="p0" type="checkbox">
+                <label for="p0">
+                    <span>1. Chegar 45–60 min antes da abertura (Estacionamento)</span>
+                    <a href="https://maps.google.com/?q=Universal+Studios+Hollywood+Parking" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p1" type="checkbox">
+                <label for="p1">
+                    <span>2. Entrar e ir direto para a Super Nintendo World (Lower Lot)</span>
+                    <a href="https://maps.google.com/?q=Super+Nintendo+World+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p2" type="checkbox">
+                <label for="p2">
+                    <span>3. Comprar 2 Power-Up Bands na 1-UP Factory e conectar ao app</span>
+                    <a href="https://maps.google.com/?q=1-UP+Factory+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p3" type="checkbox">
+                <label for="p3">
+                    <span>4. Fazer reserva virtual do Toadstool Cafe no app assim que possível</span>
+                    <a href="https://maps.google.com/?q=Toadstool+Cafe+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p4" type="checkbox">
+                <label for="p4">
+                    <span>5. Jogar Mario Kart: Bowser’s Challenge (Nintendo World)</span>
+                    <a href="https://maps.google.com/?q=Mario+Kart+Bowser+Challenge+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p5" type="checkbox">
+                <label for="p5">
+                    <span>6. Completar os minigames para coletar as 3 chaves (Nintendo World)</span>
+                    <a href="https://maps.google.com/?q=Super+Nintendo+World+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p6" type="checkbox">
+                <label for="p6">
+                    <span>7. Enfrentar Bowser Jr. Shadow Showdown (Nintendo World)</span>
+                    <a href="https://maps.google.com/?q=Super+Nintendo+World+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p7" type="checkbox">
+                <label for="p7">
+                    <span>8. Almoçar no Toadstool Cafe (Super Nintendo World)</span>
+                    <a href="https://maps.google.com/?q=Toadstool+Cafe+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p8" type="checkbox">
+                <label for="p8">
+                    <span>9. Fazer Jurassic World – The Ride (Lower Lot)</span>
+                    <a href="https://maps.google.com/?q=Jurassic+World+The+Ride+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p9" type="checkbox">
+                <label for="p9">
+                    <span>10. Fazer Revenge of the Mummy – The Ride (Lower Lot)</span>
+                    <a href="https://maps.google.com/?q=Revenge+of+the+Mummy+The+Ride+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p10" type="checkbox">
+                <label for="p10">
+                    <span>11. Subir para Upper Lot e comprar 2 Copos Recarregáveis (Freestyle)</span>
+                    <a href="https://maps.google.com/?q=Universal+Studios+Hollywood+Upper+Lot" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p11" type="checkbox">
+                <label for="p11">
+                    <span>12. Fazer o clássico Studio Tour (Upper Lot)</span>
+                    <a href="https://maps.google.com/?q=Studio+Tour+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p12" type="checkbox">
+                <label for="p12">
+                    <span>13. Fazer Harry Potter and the Forbidden Journey (Upper Lot)</span>
+                    <a href="https://maps.google.com/?q=Harry+Potter+and+the+Forbidden+Journey+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p13" type="checkbox">
+                <label for="p13">
+                    <span>14. Flight of the Hippogriff (se fila pequena) (Upper Lot)</span>
+                    <a href="https://maps.google.com/?q=Flight+of+the+Hippogriff+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p14" type="checkbox">
+                <label for="p14">
+                    <span>15. The Secret Life of Pets: Off the Leash (Upper Lot)</span>
+                    <a href="https://maps.google.com/?q=The+Secret+Life+of+Pets+Off+the+Leash+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p15" type="checkbox">
+                <label for="p15">
+                    <span>16. The Simpsons Ride (Upper Lot)</span>
+                    <a href="https://maps.google.com/?q=The+Simpsons+Ride+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p16" type="checkbox">
+                <label for="p16">
+                    <span>17. Despicable Me Minion Mayhem (Upper Lot)</span>
+                    <a href="https://maps.google.com/?q=Despicable+Me+Minion+Mayhem+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p17" type="checkbox">
+                <label for="p17">
+                    <span>18. Assistir ao show WaterWorld (chegar 20 min antes) (Upper Lot)</span>
+                    <a href="https://maps.google.com/?q=WaterWorld+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p18" type="checkbox">
+                <label for="p18">
+                    <span>19. Final do dia: Comprar lembranças e repetir favoritas</span>
+                    <a href="https://maps.google.com/?q=Universal+Studio+Store+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
         </div>
     </section>
 
@@ -489,26 +690,135 @@
         <div class="card">
             <h2><i class="fa-solid fa-mountain"></i> Atrações Planejadas</h2>
             
-            <div class="area">Super Nintendo World 🍄</div>
-            <div class="check"><input id="a0" type="checkbox"><label for="a0">Mario Kart: Bowser's Challenge <span class="stars">★★★★★</span></label></div>
-            <div class="check"><input id="a1" type="checkbox"><label for="a1">Bowser Jr. Shadow Showdown <span class="stars">★★★★★</span></label></div>
-            <div class="check"><input id="a2" type="checkbox"><label for="a2">Encontrar Mario <span class="stars">★★★★☆</span></label></div>
-            <div class="check"><input id="a3" type="checkbox"><label for="a3">Encontrar Luigi <span class="stars">★★★★☆</span></label></div>
-            <div class="check"><input id="a4" type="checkbox"><label for="a4">Completar todos os Key Challenges <span class="stars">★★★★★</span></label></div>
+            <div class="area">Lower Lot (Área Baixa) 👇</div>
+            <div class="check">
+                <input id="a0" type="checkbox">
+                <label for="a0">
+                    <span>Mario Kart: Bowser's Challenge <span class="stars">★★★★★</span></span>
+                    <a href="https://maps.google.com/?q=Mario+Kart+Bowser+Challenge+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a4" type="checkbox">
+                <label for="a4">
+                    <span>Completar Key Challenges (Nintendo) <span class="stars">★★★★★</span></span>
+                    <a href="https://maps.google.com/?q=Super+Nintendo+World+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a1" type="checkbox">
+                <label for="a1">
+                    <span>Bowser Jr. Shadow Showdown <span class="stars">★★★★★</span></span>
+                    <a href="https://maps.google.com/?q=Super+Nintendo+World+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a5" type="checkbox">
+                <label for="a5">
+                    <span>Jurassic World – The Ride <span class="stars">★★★★★</span></span>
+                    <a href="https://maps.google.com/?q=Jurassic+World+The+Ride+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a12" type="checkbox">
+                <label for="a12">
+                    <span>Revenge of the Mummy – The Ride <span class="stars">★★★★☆</span></span>
+                    <a href="https://maps.google.com/?q=Revenge+of+the+Mummy+The+Ride+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a11" type="checkbox">
+                <label for="a11">
+                    <span>Transformers: The Ride-3D <span class="stars">★★★★☆</span></span>
+                    <a href="https://maps.google.com/?q=Transformers+The+Ride+3D+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a6" type="checkbox">
+                <label for="a6">
+                    <span>Encontro com a Velociraptor Blue <span class="stars">★★★★☆</span></span>
+                    <a href="https://maps.google.com/?q=Universal+Studios+Hollywood+Jurassic+Park+Area" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a7" type="checkbox">
+                <label for="a7">
+                    <span>Encontro com o Baby Raptor <span class="stars">★★★★☆</span></span>
+                    <a href="https://maps.google.com/?q=Universal+Studios+Hollywood+Jurassic+Park+Area" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a8" type="checkbox">
+                <label for="a8">
+                    <span>Foto com o Indominus Rex animatrônico <span class="stars">★★★★☆</span></span>
+                    <a href="https://maps.google.com/?q=Universal+Studios+Hollywood+Jurassic+Park+Area" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
             
-            <div class="area">Jurassic Park Area 🦖</div>
-            <div class="check"><input id="a5" type="checkbox"><label for="a5">Jurassic World – The Ride <span class="stars">★★★★★</span></label></div>
-            <div class="check"><input id="a6" type="checkbox"><label for="a6">Encontro com a Velociraptor Blue <span class="stars">★★★★☆</span></label></div>
-            <div class="check"><input id="a7" type="checkbox"><label for="a7">Encontro com o Baby Raptor <span class="stars">★★★★☆</span></label></div>
-            <div class="check"><input id="a8" type="checkbox"><label for="a8">Foto com o Indominus Rex animatrônico <span class="stars">★★★★☆</span></label></div>
-            
-            <div class="area">Outras Áreas do Parque ⚡</div>
-            <div class="check"><input id="a9" type="checkbox"><label for="a9">Harry Potter and the Forbidden Journey <span class="stars">★★★★★</span></label></div>
-            <div class="check"><input id="a10" type="checkbox"><label for="a10">The World-Famous Studio Tour <span class="stars">★★★★★</span></label></div>
-            <div class="check"><input id="a11" type="checkbox"><label for="a11">Transformers: The Ride-3D <span class="stars">★★★★☆</span></label></div>
-            <div class="check"><input id="a12" type="checkbox"><label for="a12">Revenge of the Mummy – The Ride <span class="stars">★★★★☆</span></label></div>
-            <div class="check"><input id="a13" type="checkbox"><label for="a13">The Simpsons Ride <span class="stars">★★★★☆</span></label></div>
-            <div class="check"><input id="a14" type="checkbox"><label for="a14">WaterWorld (Show Acrobático) <span class="stars">★★★★★</span></label></div>
+            <div class="area">Upper Lot (Área Alta) 👆</div>
+            <div class="check">
+                <input id="a10" type="checkbox">
+                <label for="a10">
+                    <span>The World-Famous Studio Tour <span class="stars">★★★★★</span></span>
+                    <a href="https://maps.google.com/?q=Studio+Tour+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a9" type="checkbox">
+                <label for="a9">
+                    <span>Harry Potter and the Forbidden Journey <span class="stars">★★★★★</span></span>
+                    <a href="https://maps.google.com/?q=Harry+Potter+and+the+Forbidden+Journey+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a18" type="checkbox">
+                <label for="a18">
+                    <span>Flight of the Hippogriff <span class="stars">★★★☆☆</span></span>
+                    <a href="https://maps.google.com/?q=Flight+of+the+Hippogriff+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a19" type="checkbox">
+                <label for="a19">
+                    <span>The Secret Life of Pets: Off the Leash <span class="stars">★★★★☆</span></span>
+                    <a href="https://maps.google.com/?q=The+Secret+Life+of+Pets+Off+the+Leash+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a13" type="checkbox">
+                <label for="a13">
+                    <span>The Simpsons Ride <span class="stars">★★★★☆</span></span>
+                    <a href="https://maps.google.com/?q=The+Simpsons+Ride+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a20" type="checkbox">
+                <label for="a20">
+                    <span>Despicable Me Minion Mayhem <span class="stars">★★★★☆</span></span>
+                    <a href="https://maps.google.com/?q=Despicable+Me+Minion+Mayhem+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a14" type="checkbox">
+                <label for="a14">
+                    <span>WaterWorld (Show Acrobático) <span class="stars">★★★★★</span></span>
+                    <a href="https://maps.google.com/?q=WaterWorld+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a2" type="checkbox">
+                <label for="a2">
+                    <span>Encontrar Mario (Nintendo World) <span class="stars">★★★★☆</span></span>
+                    <a href="https://maps.google.com/?q=Super+Nintendo+World+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a3" type="checkbox">
+                <label for="a3">
+                    <span>Encontrar Luigi (Nintendo World) <span class="stars">★★★★☆</span></span>
+                    <a href="https://maps.google.com/?q=Super+Nintendo+World+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
         </div>
     </section>
 
@@ -517,26 +827,55 @@
         <div class="card">
             <h2><i class="fa-solid fa-hamburger"></i> Alimentação Recomendada</h2>
             
-            <div class="area">Super Nintendo World 🍄</div>
+            <div class="area">Lower Lot (Área Baixa) 👇</div>
             <ul>
-                <li><b>Toadstool Cafe</b> <span class="stars">★★★★★</span><br>Almoço temático planejado para as 11:00. Comida deliciosa e experiência super imersiva. Requer reserva logo cedo!</li>
+                <li style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;">
+                    <div>
+                        <b>Toadstool Cafe (Super Nintendo World)</b> <span class="stars">★★★★★</span><br>
+                        Almoço temático planejado para as 11:00. Comida deliciosa e experiência super imersiva. Requer reserva virtual pelo app logo cedo!
+                    </div>
+                    <a href="https://maps.google.com/?q=Toadstool+Cafe+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </li>
+                <li style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-top: 8px;">
+                    <div>
+                        <b>Jurassic Cafe (Jurassic Land)</b> <span class="stars">★★★☆☆</span><br>
+                        Refeições de inspiração costarriquenha (arroz, feijão, carnes grelhadas e wraps).
+                    </div>
+                    <a href="https://maps.google.com/?q=Jurassic+Cafe+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </li>
             </ul>
 
-            <div class="area">Wizarding World of Harry Potter ⚡</div>
+            <div class="area">Upper Lot (Área Alta) 👆</div>
             <ul>
-                <li><b>Three Broomsticks (Três Vassouras)</b> <span class="stars">★★★★★</span><br>Pratos britânicos tradicionais em ambiente medieval rústico.</li>
-                <li><b>Butterbeer (Cerveja Amanteigada)</b> <span class="stars">★★★★★</span><br>Parada obrigatória para experimentar a bebida icônica (com ou sem gás/congelada).</li>
+                <li style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;">
+                    <div>
+                        <b>Three Broomsticks (Wizarding World of Harry Potter)</b> <span class="stars">★★★★★</span><br>
+                        Pratos britânicos tradicionais em ambiente medieval rústico. Cerveja Amanteigada (Butterbeer) é parada obrigatória!
+                    </div>
+                    <a href="https://maps.google.com/?q=Three+Broomsticks+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </li>
+                <li style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-top: 8px;">
+                    <div>
+                        <b>Krusty Burger (Springfield)</b> <span class="stars">★★★★☆</span><br>
+                        Hambúrgueres clássicos gigantes baseados na lanchonete da série.
+                    </div>
+                    <a href="https://maps.google.com/?q=Krusty+Burger+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </li>
+                <li style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-top: 8px;">
+                    <div>
+                        <b>Lard Lad Donuts (Springfield)</b> <span class="stars">★★★★★</span><br>
+                        O icônico donut rosa gigante dos Simpsons, ótimo para dividir com toda a família.
+                    </div>
+                    <a href="https://maps.google.com/?q=Lard+Lad+Donuts+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </li>
             </ul>
+        </div>
 
-            <div class="area">Jurassic Land 🦖</div>
-            <ul>
-                <li><b>Jurassic Cafe</b> <span class="stars">★★★☆☆</span><br>Refeições de inspiração costarriquenha (arroz, feijão, carnes grelhadas e wraps).</li>
-            </ul>
-
-            <div class="area">Springfield (Simpsons) donut</div>
-            <ul>
-                <li><b>Krusty Burger</b> <span class="stars">★★★★☆</span><br>Hambúrgueres clássicos gigantes baseados na lanchonete da série.</li>
-                <li><b>Lard Lad Donuts</b> <span class="stars">★★★★★</span><br>O icônico donut rosa gigante dos Simpsons, ótimo para dividir com toda a família.</li>
+        <div class="card" style="background: var(--warning-bg); border-color: var(--warning-border); color: var(--warning-text);">
+            <h2><i class="fa-solid fa-triangle-exclamation" style="color: var(--warning-text);"></i> Dicas Importantes</h2>
+            <ul style="margin:0; padding-left:20px; list-style:disc;">
+                <li style="background:none; border:none; padding:0; margin-bottom:6px; color:var(--warning-text);"><b>Mobile Order:</b> Faça o pedido pelo app oficial com antecedência para evitar longas filas.</li>
+                <li style="background:none; border:none; padding:0; margin-bottom:0; color:var(--warning-text);"><b>Bebidas:</b> Compre os copos recarregáveis Coca-Cola Freestyle para ter bebidas liberadas o dia todo.</li>
             </ul>
         </div>
     </section>
@@ -545,26 +884,14 @@
     <section id="check">
         <div class="card">
             <h2><i class="fa-solid fa-check-double"></i> Checklist para o Parque</h2>
-            <div class="check"><input id="c0" type="checkbox"><label for="c0">Ingressos comprados no app oficial</label></div>
-            <div class="check"><input id="c1" type="checkbox"><label for="c1">Early Access Ticket (Acesso Antecipado)</label></div>
-            <div class="check"><input id="c2" type="checkbox"><label for="c2">Link de reserva do Toadstool Cafe salvo</label></div>
+            <div class="check"><input id="c0" type="checkbox"><label for="c0">Ingressos vinculados no app oficial</label></div>
+            <div class="check"><input id="c1" type="checkbox"><label for="c1">Early Access Ticket (Acesso Antecipado à Nintendo)</label></div>
             <div class="check"><input id="c3" type="checkbox"><label for="c3">Power bank (carregador portátil) 100% carregado</label></div>
             <div class="check"><input id="c4" type="checkbox"><label for="c4">Cabos para os celulares</label></div>
             <div class="check"><input id="c5" type="checkbox"><label for="c5">Garrafas de água (recarregáveis)</label></div>
             <div class="check"><input id="c6" type="checkbox"><label for="c6">Bonés ou chapéus</label></div>
             <div class="check"><input id="c7" type="checkbox"><label for="c7">Protetor solar e óculos de sol</label></div>
-            <div class="check"><input id="c8" type="checkbox"><label for="c8">App Universal Studios Hollywood instalado com login</label></div>
-            <div class="check"><input id="c9" type="checkbox"><label for="c9">Comprar Power-Up Band na entrada da área da Nintendo</label></div>
-            
-            <p style="margin-top: 24px; text-align: center;">
-                <a href="https://www.universalstudioshollywood.com/" target="_blank" rel="noopener noreferrer">
-                    Site Oficial <i class="fa-solid fa-up-right-from-square" style="font-size:0.8rem; margin-left:4px;"></i>
-                </a>
-                <span style="margin: 0 10px; color: var(--border-color);">|</span>
-                <a href="https://maps.google.com/?q=Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer">
-                    Google Maps <i class="fa-solid fa-map-location-dot" style="font-size:0.8rem; margin-left:4px;"></i>
-                </a>
-            </p>
+            <div class="check"><input id="c8" type="checkbox"><label for="c8">App Universal Studios Hollywood instalado com login ativo</label></div>
         </div>
     </section>
 </div>
@@ -616,29 +943,37 @@
     });
 
     const seq = [
-        "Ir direto para Mario Kart.",
-        "Comprar a Power-Up Band.",
-        "Reservar/confirmar o Toadstool Cafe.",
-        "Completar os Key Challenges.",
-        "Enfrentar Bowser Jr.",
-        "Ir para Jurassic World.",
-        "Encontrar Blue e Baby Raptor.",
-        "Almoçar no Toadstool Cafe.",
-        "Seguir para Harry Potter.",
-        "Fazer Studio Tour.",
-        "Transformers.",
-        "Aproveitar Simpsons e repetir Nintendo/Jurassic se houver tempo."
+        "Chegue ao parque 45-60 min antes da abertura. Vá direto para a Super Nintendo World.",
+        "Compre 2 Power-Up Bands na loja 1-UP Factory (Nintendo) e conecte ao app.",
+        "Faça a reserva virtual do Toadstool Cafe pelo app da Universal assim que possível.",
+        "Divirta-se jogando Mario Kart: Bowser’s Challenge.",
+        "Complete os minigames da Nintendo para coletar as 3 chaves necessárias.",
+        "Enfrente Bowser Jr. no Shadow Showdown com as chaves coletadas.",
+        "Aproveite o almoço temático no Toadstool Cafe.",
+        "Siga para Jurassic World – The Ride e prepare-se para se molhar.",
+        "Faça Revenge of the Mummy – The Ride (Lower Lot).",
+        "Suba para a Upper Lot pela Starway e compre 2 Copos Recarregáveis Coca-Cola Freestyle.",
+        "Embarque no clássico Studio Tour (duração aprox. 60 minutos).",
+        "Entre no mundo de Harry Potter e faça Forbidden Journey.",
+        "Faça Flight of the Hippogriff se a fila estiver pequena.",
+        "Aproveite The Secret Life of Pets: Off the Leash.",
+        "Aproveite The Simpsons Ride.",
+        "Aproveite Despicable Me Minion Mayhem.",
+        "Assista ao show acrobático WaterWorld (chegue 20 min antes do horário do show).",
+        "Compre lembranças de final do dia e repita suas atrações favoritas com filas menores.",
+        "Dia na Universal finalizado com sucesso! Aproveite a saída pelo CityWalk."
     ];
 
     function updateNextAction() {
-        let d = 0;
-        for (let i = 0; i < 12; i++) {
-            const el = document.getElementById("p" + i);
-            if (el && el.checked) d++;
-        }
-        const nextEl = document.getElementById("next");
-        if (nextEl) {
-            nextEl.innerHTML = seq[Math.min(d, seq.length - 1)];
+        let done = 0;
+        // Seleciona todos os checkboxes da aba Prioridades na ordem em que aparecem no DOM
+        const checkboxes = document.querySelectorAll("#prio input[type=checkbox]");
+        checkboxes.forEach(c => {
+            if (c.checked) done++;
+        });
+        const element = document.getElementById("next");
+        if (element) {
+            element.innerHTML = seq[Math.min(done, seq.length - 1)];
         }
     }
 

@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Guia Conexão — Miami ➔ LAX</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./turismo.png">
+    <!-- Fontes Modernas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Icones FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+    
+    <style>
+        /* ===== VARIÁVEIS DE TEMA ===== */
+        :root {
+            --bg-body: #f6f8fa;
+            --bg-card: #ffffff;
+            --text-primary: #2d3748;
+            --text-secondary: #5e6e82;
+            --border-color: #e6edf5;
+            --primary-color: #4f6b8c;
+            --primary-hover: #3d536e;
+            --shadow: 0 6px 16px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.03);
+            --accent-bg: #f0f7f4;
+            --accent-border: #c2e0d1;
+            --accent-text: #3b7a57;
+            --warning-bg: #fffbeb;
+            --warning-border: #fef3c7;
+            --warning-text: #b45309;
+            --ok-color: #10b981;
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #151c2c;
+            --bg-card: #1d2636;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --border-color: #2b364a;
+            --primary-color: #8fa3c2;
+            --primary-hover: #a3b7d6;
+            --shadow: 0 8px 24px rgba(0,0,0,0.2);
+            --accent-bg: #15261d;
+            --accent-border: #355c46;
+            --accent-text: #a2d4b6;
+            --warning-bg: #2d2216;
+            --warning-border: #5f3e1d;
+            --warning-text: #fde047;
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            margin: 0;
+            padding-bottom: 86px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 16px 12px;
+        }
+
+        /* ===== HEADER FIXO ===== */
+        header {
+            position: sticky;
+            top: 0;
+            background: color-mix(in srgb, var(--bg-body) 92%, transparent);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 14px 16px;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .header-content {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .nav-back {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 99px;
+            cursor: pointer;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow);
+            text-decoration: none;
+        }
+
+        .nav-back:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .theme-toggle {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 99px;
+            cursor: pointer;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--primary-color);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0 0 2px 0;
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        /* ===== SEÇÕES / TABS ===== */
+        section {
+            display: none;
+        }
+
+        section.active {
+            display: block;
+            animation: fadeIn 0.25s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== CARDS E LAYOUT ===== */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .card h2 {
+            margin: 0 0 14px 0;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* ===== TIMELINE ===== */
+        .timeline {
+            border-left: 2px solid var(--border-color);
+            padding-left: 20px;
+            margin-left: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .timeline-item {
+            position: relative;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 2px solid var(--primary-color);
+        }
+
+        .time {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+        /* ===== CHECKLISTS PERSONALIZADOS ===== */
+        .check {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease, opacity 0.15s ease;
+        }
+
+        .check:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .check:active {
+            transform: translateY(0);
+        }
+
+        .check input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 22px;
+            height: 22px;
+            border: 2px solid var(--primary-color);
+            border-radius: 6px;
+            background-color: var(--bg-card);
+            cursor: pointer;
+            margin: 0;
+            display: grid;
+            place-content: center;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .check input[type="checkbox"]::before {
+            content: "\f00c"; /* FontAwesome check icon */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            font-size: 0.75rem;
+            color: #ffffff;
+            transform: scale(0);
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .check input[type="checkbox"]:checked {
+            background-color: var(--ok-color);
+            border-color: var(--ok-color);
+            box-shadow: 0 0 0 3px color-mix(in srgb, var(--ok-color) 20%, transparent);
+        }
+
+        .check input[type="checkbox"]:checked::before {
+            transform: scale(1);
+        }
+
+        .check:has(input[type="checkbox"]:checked) {
+            background-color: color-mix(in srgb, var(--bg-body) 40%, var(--bg-card));
+            border-color: color-mix(in srgb, var(--border-color) 80%, transparent);
+            opacity: 0.85;
+        }
+
+        .check:has(input[type="checkbox"]:checked) label {
+            color: var(--text-secondary);
+            text-decoration: line-through;
+            text-decoration-color: color-mix(in srgb, var(--text-secondary) 50%, transparent);
+        }
+
+        .check label {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            cursor: pointer;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .map-link {
+            color: var(--text-secondary);
+            margin-left: 6px;
+            font-size: 0.85rem;
+            text-decoration: none;
+            opacity: 0.6;
+            transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .map-link:hover {
+            opacity: 1;
+            transform: scale(1.15);
+            color: #ea4335;
+        }
+
+        /* ===== AREAS / TITLES IN CARD ===== */
+        .area {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 20px 0 10px 0;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* ===== INFO NOTE / ALERTS ===== */
+        .note {
+            background: var(--accent-bg);
+            border: 1px solid var(--accent-border);
+            color: var(--accent-text);
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .warning-box {
+            background: var(--warning-bg);
+            border: 1px solid var(--warning-border);
+            color: var(--warning-text);
+            padding: 14px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+
+        .warning-box h3 {
+            margin: 0 0 8px 0;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--warning-text);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .warning-box ul {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .info-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 16px 0;
+        }
+
+        .info-list li {
+            padding: 12px 14px;
+            background: color-mix(in srgb, var(--text-primary) 1.5%, var(--bg-card));
+            border-radius: 10px;
+            margin-bottom: 8px;
+            border: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .info-list li b {
+            color: var(--text-primary);
+        }
+
+        /* ===== NAV / MENU INFERIOR ===== */
+        nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: color-mix(in srgb, var(--bg-card) 92%, transparent);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            z-index: 100;
+            box-shadow: 0 -4px 16px rgba(0,0,0,0.03);
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+
+        nav button {
+            flex: 1;
+            padding: 10px 4px;
+            margin: 6px 4px;
+            border-radius: 12px;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            font-family: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            transition: all 0.25s ease;
+        }
+
+        nav button i {
+            font-size: 1.15rem;
+            transition: transform 0.2s;
+        }
+
+        nav button.active {
+            color: var(--primary-color);
+            background: color-mix(in srgb, var(--primary-color) 8%, var(--bg-card));
+        }
+
+        nav button:hover i {
+            transform: translateY(-1px);
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 600px) {
+            header {
+                padding: 12px 8px;
+            }
+
+            .nav-back, .theme-toggle {
+                width: 38px;
+                height: 38px;
+                padding: 0;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0;
+            }
+
+            .nav-back i, .theme-toggle i {
+                font-size: 0.95rem;
+            }
+
+            h1 {
+                font-size: 1.15rem;
+            }
+
+            .subtitle {
+                font-size: 0.75rem;
+            }
+
+            body {
+                padding-bottom: 76px;
+            }
+
+            nav button {
+                padding: 6px 2px;
+                margin: 4px 2px;
+                font-size: 0.7rem;
+            }
+
+            nav button i {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <a href="./index.html" class="nav-back">
+            <i class="fa-solid fa-arrow-left"></i> Roteiro
+        </a>
+        <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
+            <i class="fa-solid fa-moon"></i> Modo Escuro
+        </button>
+        <h1>🛫 Conexão Miami ➔ LAX</h1>
+        <div class="subtitle">Diogo • Michelly • Lívia • Edilene — Guia de Trânsito</div>
+    </div>
+</header>
+
+<div class="container">
+    <!-- SEÇÃO PLANO -->
+    <section id="plano" class="active">
+        <div class="card">
+            <h2><i class="fa-solid fa-bullseye"></i> Próxima Ação</h2>
+            <div id="next" class="note"></div>
+        </div>
+
+        <div class="card">
+            <h2><i class="fa-solid fa-plane-arrival"></i> Cronograma de Trânsito Previsto</h2>
+            <div class="timeline">
+                <div class="timeline-item"><span class="time">17:25</span>Chegada em Miami (MIA) <a href="https://www.google.com/maps/search/?api=1&query=Miami+International+Airport" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Aeroporto de Miami no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">17:25–17:35</span>Caminhar rápido em direção à imigração (*Immigration*)</div>
+                <div class="timeline-item"><span class="time">17:35–18:20</span>Fila e passagem pelo controle de passaportes (família unida)</div>
+                <div class="timeline-item"><span class="time">18:20–18:35</span>Retirar a mala despachada da Edilene na esteira (*Baggage Claim*)</div>
+                <div class="timeline-item"><span class="time">18:35–18:45</span>Passar pela alfândega e recolocar a mala na esteira de conexão (*Connecting flights*)</div>
+                <div class="timeline-item"><span class="time">18:45–19:05</span>Passar pela segurança do TSA e confirmar portão nos monitores</div>
+                <div class="timeline-item"><span class="time">19:05–19:17</span>Dirigir-se ao portão de embarque (Gate)</div>
+                <div class="timeline-item"><span class="time">19:17</span><b>Decolagem do Voo Delta para Los Angeles (LAX)</b></div>
+                <div class="timeline-item"><span class="time">21:49</span>Chegada no Aeroporto de Los Angeles (LAX) <a href="https://www.google.com/maps/search/?api=1&query=Los+Angeles+International+Airport" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Aeroporto LAX no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">22:00</span>Coleta das malas na esteira (*Baggage Claim*)</div>
+                <div class="timeline-item"><span class="time">22:20</span>Embarcar no ônibus de traslado gratuito (Shuttle) da SIXT <a href="https://www.google.com/maps/search/?api=1&query=SIXT+Rent+A+Car+Los+Angeles+Airport" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver SIXT no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">22:35–23:00</span>Retirada do carro no balcão da SIXT e início da viagem para o destino final</div>
+                <div class="timeline-item"><span class="time">23:30</span>Chegada na residência da Diana Pereira</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO PASSOS (PRIORIDADES) -->
+    <section id="prio">
+        <div class="card">
+            <h2><i class="fa-solid fa-clipboard-list"></i> Passos Recomendados na Conexão</h2>
+            
+            <div class="check">
+                <input id="p0" type="checkbox">
+                <label for="p0">
+                    <span>1. Desembarcar e seguir placas "Passport Control" ou "Immigration"</span>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p1" type="checkbox">
+                <label for="p1">
+                    <span>2. Passar na Imigração juntos como família (responder apenas o perguntado)</span>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p2" type="checkbox">
+                <label for="p2">
+                    <span>3. Seguir placas "Baggage Claim" e retirar apenas a mala da Edilene</span>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p3" type="checkbox">
+                <label for="p3">
+                    <span>4. Passar pela Alfândega (Customs) com as malas</span>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p4" type="checkbox">
+                <label for="p4">
+                    <span>5. Seguir placas "Connecting Flights" / "Connecting Baggage Drop" (NÃO saia do aeroporto!)</span>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p5" type="checkbox">
+                <label for="p5">
+                    <span>6. Reentregar a mala de conexão na esteira indicada pelos funcionários</span>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p6" type="checkbox">
+                <label for="p6">
+                    <span>7. Passar pela segurança (TSA) usando passaporte e cartão de embarque</span>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p7" type="checkbox">
+                <label for="p7">
+                    <span>8. Checar monitores de voo, confirmar portão e embarcar para Los Angeles (LAX)</span>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p8" type="checkbox">
+                <label for="p8">
+                    <span>9. No LAX: seguir placas "Baggage Claim", recolher malas e ir para a área externa</span>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p9" type="checkbox">
+                <label for="p9">
+                    <span>10. Pegar ônibus gratuito laranja e preto da SIXT (área "Rental Car Shuttles")</span>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p10" type="checkbox">
+                <label for="p10">
+                    <span>11. No balcão da SIXT: apresentar CNH/Passaporte da Michelly e retirar o carro</span>
+                </label>
+            </div>
+            <div class="check">
+                <input id="p11" type="checkbox">
+                <label for="p11">
+                    <span>12. Dirigir com GPS até a residência da Diana Pereira (Destino Final)</span>
+                    <span>
+                        <a href="https://www.google.com/maps/search/?api=1&query=11828+Henley+Ln,+Los+Angeles,+CA+90077,+USA" target="_blank" rel="noopener noreferrer" class="map-link" title="Abrir no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                        <a href="https://waze.com/ul?q=11828+Henley+Ln,+Los+Angeles,+CA+90077&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link" title="Abrir no Waze"><i class="fa-brands fa-waze"></i></a>
+                    </span>
+                </label>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO IMIGRAÇÃO & ALFÂNDEGA -->
+    <section id="imigracao">
+        <div class="card">
+            <h2><i class="fa-solid fa-passport"></i> Imigração & Alfândega em Miami</h2>
+            
+            <div class="area">Documentos em mãos 📂</div>
+            <div class="check"><input id="i0" type="checkbox"><label for="i0">Passaportes de todos</label></div>
+            <div class="check"><input id="i1" type="checkbox"><label for="i1">Vistos Americanos válidos</label></div>
+            <div class="check"><input id="i2" type="checkbox"><label for="i2">Endereço da hospedagem em Los Angeles impresso/salvo</label></div>
+            <div class="check"><input id="i3" type="checkbox"><label for="i3">Passagem de volta / E-ticket de retorno</label></div>
+
+            <div class="area">Instruções para a Entrevista 💬</div>
+            <ul class="info-list">
+                <li><b>Respostas Chave:</b>
+                    <br>• Motivo da viagem: <b>Turismo</b> (<i>"Tourism"</i>)
+                    <br>• Tempo de estadia: <b>17 dias</b> (<i>"Seventeen days"</i>)
+                    <br>• Hospedagem: <b>Casa da irmã em Los Angeles</b> (<i>"My sister's house in Los Angeles"</i>)
+                </li>
+                <li><b>Perguntas Comuns:</b>
+                    <br>• <i>"What is the purpose of your visit?"</i> (Motivo)
+                    <br>• <i>"How long are you staying?"</i> (Duração)
+                    <br>• <i>"Where will you be staying?"</i> (Hospedagem)
+                    <br>• <i>"Who is paying for the trip?"</i> (Quem paga - responder: "Myself")
+                </li>
+            </ul>
+
+            <div class="area">Reentrega da Mala de Conexão 🧳</div>
+            <div class="warning-box">
+                <h3><i class="fa-solid fa-triangle-exclamation"></i> Como Reentregar a Mala de Conexão</h3>
+                <ul style="padding-left: 20px;">
+                    <li>Retire a mala despachada da Edilene na esteira de bagagem em Miami.</li>
+                    <li>Passe pela alfândega normalmente seguindo a placa <b>Connecting Flights</b>.</li>
+                    <li><b>NÃO SAIA DO AEROPORTO</b>. Fique na área interna seguindo as placas de conexões.</li>
+                    <li>Procure a esteira com funcionários marcada como <b>Connecting Baggage Drop</b>.</li>
+                    <li>Se perguntarem <i>"Connecting?"</i>, responda: <b>"Yes, Los Angeles"</b> e coloque a mala na esteira. Ela irá direto para o avião da Delta.</li>
+                </ul>
+            </div>
+
+            <div class="warning-box" style="background: var(--bg-body); border-color: var(--border-color); color: var(--text-secondary);">
+                <h3 style="color: var(--text-primary);"><i class="fa-solid fa-ban" style="color: var(--text-secondary);"></i> O que NÃO fazer na conexão</h3>
+                <ul style="padding-left: 20px;">
+                    <li>NÃO faça check-in novamente.</li>
+                    <li>NÃO pese as malas de novo.</li>
+                    <li>NÃO imprima nova etiqueta de bagagem.</li>
+                    <li>NÃO procure por balcão de atendimento da Delta em Miami para redespachar (só coloque na esteira de conexões).</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO TRASLADO & CARRO -->
+    <section id="sixt">
+        <div class="card">
+            <h2><i class="fa-solid fa-car"></i> Retirada do Carro no LAX (SIXT)</h2>
+            
+            <div class="area">Ônibus de Transfer da Locadora 🚌</div>
+            <ul class="info-list">
+                <li>Siga as placas <b>Ground Transportation</b> e depois <b>Rental Car Shuttles</b> na saída do terminal do LAX.</li>
+                <li>Procure pelo ônibus grande, todo caracterizado nas cores <b>laranja e preta</b> com o logotipo da <b>SIXT</b>.</li>
+                <li>O traslado é gratuito e contínuo.</li>
+                <li><b>Caso precise perguntar na calçada:</b>
+                    <br>• <i>"Where is the SIXT shuttle?"</i> (Onde fica o ônibus da SIXT?)
+                    <br>• <i>"Is this the shuttle to SIXT?"</i> (Este é o ônibus para a SIXT?)
+                </li>
+            </ul>
+
+            <div class="area">Documentos Necessários no Balcão 🪪</div>
+            <div class="check"><input id="s0" type="checkbox"><label for="s0">Passaporte da condutora (Michelly)</label></div>
+            <div class="check"><input id="s1" type="checkbox"><label for="s1">CNH Física da Michelly</label></div>
+            <div class="check"><input id="s2" type="checkbox"><label for="s2">Cartão de Crédito físico utilizado na reserva (titularidade da Michelly)</label></div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DESTINO -->
+    <section id="destino">
+        <div class="card">
+            <h2><i class="fa-solid fa-house-chimney"></i> Hospedagem e Destino Final</h2>
+            
+            <div class="area">Residência da Diana Pereira 📍</div>
+            <ul class="info-list" style="margin-bottom: 24px;">
+                <li><b>Endereço:</b><br>11828 Henley Ln<br>Los Angeles, CA 90077<br>Estados Unidos</li>
+                <li><b>Telefone:</b><br>+1 (310) 448-3777</li>
+            </ul>
+
+            <p style="text-align: center; margin: 0; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <a href="https://www.google.com/maps/search/?api=1&query=11828+Henley+Ln,+Los+Angeles,+CA+90077,+USA" target="_blank" rel="noopener noreferrer" class="map-link" style="font-size: 1.15rem; font-weight: 700; color: var(--primary-color); opacity: 1; text-decoration: none;">
+                    <i class="fa-solid fa-map-location-dot" style="font-size: 1.4rem; margin-right: 8px;"></i>
+                    Google Maps
+                </a>
+                <a href="https://waze.com/ul?q=11828+Henley+Ln,+Los+Angeles,+CA+90077&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link" style="font-size: 1.15rem; font-weight: 700; color: var(--primary-color); opacity: 1; text-decoration: none;">
+                    <i class="fa-brands fa-waze" style="font-size: 1.4rem; margin-right: 8px;"></i>
+                    Waze
+                </a>
+            </p>
+        </div>
+    </section>
+</div>
+
+<!-- BARRA DE NAVEGAÇÃO INFERIOR -->
+<nav>
+    <button id="btn-plano" class="active" onclick="showSection('plano', this)">
+        <i class="fa-solid fa-route"></i>
+        <span>Rota</span>
+    </button>
+    <button id="btn-prio" onclick="showSection('prio', this)">
+        <i class="fa-solid fa-clipboard-list"></i>
+        <span>Passos</span>
+    </button>
+    <button id="btn-imigracao" onclick="showSection('imigracao', this)">
+        <i class="fa-solid fa-passport"></i>
+        <span>Conexão</span>
+    </button>
+    <button id="btn-sixt" onclick="showSection('sixt', this)">
+        <i class="fa-solid fa-car"></i>
+        <span>SIXT</span>
+    </button>
+    <button id="btn-destino" onclick="showSection('destino', this)">
+        <i class="fa-solid fa-house-chimney"></i>
+        <span>Destino</span>
+    </button>
+</nav>
+
+<script>
+    // Gerenciador de Abas (Tabs)
+    function showSection(sectionId, buttonElement) {
+        document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+        document.getElementById(sectionId).classList.add("active");
+        
+        document.querySelectorAll("nav button").forEach(b => b.classList.remove("active"));
+        buttonElement.classList.add("active");
+        
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Persistência de estado via LocalStorage usando chaves idênticas do arquivo original
+    document.querySelectorAll("input").forEach(e => {
+        let k = "conn20_" + e.id;
+        e.checked = localStorage.getItem(k) === "1";
+        e.onchange = () => {
+            localStorage.setItem(k, e.checked ? "1" : "0");
+            updateNextAction();
+        }
+    });
+
+    const seq = [
+        "Desembarque em Miami e siga as placas Passport Control / Immigration.",
+        "Passe pela imigração juntos. Responda apenas o que for perguntado.",
+        "Siga até a esteira e retire a mala despachada da Edilene.",
+        "Passe pela alfândega seguindo a indicação Connecting Flights.",
+        "Localize a esteira de reentrega (Connecting Baggage Drop) sem sair do aeroporto.",
+        "Coloque a mala da Edilene na esteira indicada pelos funcionários.",
+        "Passe novamente pelo raio-X de segurança (TSA) com seus pertences de mão.",
+        "Procure os monitores de voo, confirme seu portão e embarque para Los Angeles.",
+        "No LAX, recolha todas as bagagens na esteira e siga para a saída.",
+        "Procure a calçada de Rental Car Shuttles e embarque no ônibus gratuito da SIXT.",
+        "Apresente passaporte, CNH e cartão de crédito da Michelly na SIXT e retire o carro.",
+        "Dirija com atenção e GPS até o destino final na casa da Diana.",
+        "Seja muito bem-vindo a Los Angeles! Aproveite a estadia!"
+    ];
+
+    function updateNextAction() {
+        let done = 0;
+        const checkboxes = document.querySelectorAll("#prio input[type=checkbox]");
+        checkboxes.forEach(c => {
+            if (c.checked) done++;
+        });
+        const element = document.getElementById("next");
+        if (element) {
+            element.innerHTML = seq[Math.min(done, seq.length - 1)];
+        }
+    }
+
+    // Gerenciador de tema
+    function updateThemeButton() {
+        const b = document.getElementById('themeBtn');
+        if (!b) return;
+        if (document.documentElement.getAttribute('data-theme') === 'dark') {
+            b.innerHTML = '<i class="fa-solid fa-sun"></i>';
+        } else {
+            b.innerHTML = '<i class="fa-solid fa-moon"></i>';
+        }
+    }
+
+    function toggleTheme() {
+        const h = document.documentElement;
+        const n = h.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        h.setAttribute('data-theme', n);
+        localStorage.setItem('theme', n);
+        updateThemeButton();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        updateThemeButton();
+        updateNextAction();
+    });
+</script>
+</body>
+</html>
