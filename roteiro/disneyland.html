@@ -240,18 +240,66 @@
             margin-bottom: 10px;
             cursor: pointer;
             box-shadow: var(--shadow);
+            transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease, opacity 0.15s ease;
         }
 
         .check:hover {
             border-color: var(--primary-color);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .check:active {
+            transform: translateY(0);
         }
 
         .check input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            accent-color: var(--accent-text);
+            appearance: none;
+            -webkit-appearance: none;
+            width: 22px;
+            height: 22px;
+            border: 2px solid var(--primary-color);
+            border-radius: 6px;
+            background-color: var(--bg-card);
             cursor: pointer;
             margin: 0;
+            display: grid;
+            place-content: center;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .check input[type="checkbox"]::before {
+            content: "\f00c"; /* FontAwesome check icon */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            font-size: 0.75rem;
+            color: #ffffff;
+            transform: scale(0);
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .check input[type="checkbox"]:checked {
+            background-color: var(--ok-color);
+            border-color: var(--ok-color);
+            box-shadow: 0 0 0 3px color-mix(in srgb, var(--ok-color) 20%, transparent);
+        }
+
+        .check input[type="checkbox"]:checked::before {
+            transform: scale(1);
+        }
+
+        .check:has(input[type="checkbox"]:checked) {
+            background-color: color-mix(in srgb, var(--bg-body) 40%, var(--bg-card));
+            border-color: color-mix(in srgb, var(--border-color) 80%, transparent);
+            opacity: 0.85;
+        }
+
+        .check:has(input[type="checkbox"]:checked) label {
+            color: var(--text-secondary);
+            text-decoration: line-through;
+            text-decoration-color: color-mix(in srgb, var(--text-secondary) 50%, transparent);
         }
 
         .check label {
@@ -260,7 +308,29 @@
             color: var(--text-primary);
             cursor: pointer;
             flex: 1;
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        /* ===== MAP LINK STYLING ===== */
+        .map-link {
+            color: var(--text-secondary);
+            margin-left: 6px;
+            font-size: 0.85rem;
+            text-decoration: none;
+            opacity: 0.6;
+            transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .map-link:hover {
+            opacity: 1;
+            transform: scale(1.15);
+            color: #ea4335;
         }
 
         /* ===== AREAS ===== */
@@ -439,13 +509,24 @@
         <div class="card">
             <h2><i class="fa-solid fa-clock"></i> Timeline do Dia</h2>
             <div class="timeline">
-                <div class="timeline-item"><span class="time">06:20</span>Sair de casa</div>
-                <div class="timeline-item"><span class="time">07:30</span>Chegar ao estacionamento</div>
-                <div class="timeline-item"><span class="time">08:00</span><b>Rise of the Resistance</b></div>
-                <div class="timeline-item"><span class="time">08:40</span>Millennium Falcon</div>
-                <div class="timeline-item"><span class="time">09:00</span>Fantasyland</div>
-                <div class="timeline-item"><span class="time">11:45</span>Almoço</div>
-                <div class="timeline-item"><span class="time">20:30</span>Posicionar para os fogos</div>
+                <div class="timeline-item"><span class="time">06:00</span>Sair de casa</div>
+                <div class="timeline-item"><span class="time">07:15</span>Chegar ao estacionamento <a href="https://www.google.com/maps/search/?api=1&query=Mickey+and+Friends+Parking+Structure+Disneyland" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Estacionamento Mickey & Friends no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">08:00</span><b>Entrada no parque (Rope Drop)</b> <a href="https://www.google.com/maps/search/?api=1&query=Disneyland+Park+Anaheim" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Disneyland Park no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">08:05</span><b>Rise of the Resistance</b> (Standby / Galaxy's Edge) <a href="https://www.google.com/maps/search/?api=1&query=Star+Wars+Rise+of+the+Resistance+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Rise of the Resistance no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">08:40</span><b>Millennium Falcon: Smugglers Run</b> (LL / Galaxy's Edge) <a href="https://www.google.com/maps/search/?api=1&query=Millennium+Falcon+Smugglers+Run+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Millennium Falcon no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">09:20</span><b>Big Thunder Mountain Railroad</b> (LL ou Standby / Frontierland) <a href="https://www.google.com/maps/search/?api=1&query=Big+Thunder+Mountain+Railroad+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Big Thunder Mountain no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">10:00</span><b>Pirates of the Caribbean</b> (Standby / New Orleans Square) <a href="https://www.google.com/maps/search/?api=1&query=Pirates+of+the+Caribbean+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Pirates of the Caribbean no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">10:45</span>Haunted Mansion (LL / New Orleans Square) <a href="https://www.google.com/maps/search/?api=1&query=Haunted+Mansion+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Haunted Mansion no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">11:30</span><b>Indiana Jones Adventure</b> (LL / Adventureland) <a href="https://www.google.com/maps/search/?api=1&query=Indiana+Jones+Adventure+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Indiana Jones no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">12:15</span>Almoço (Tiana's Palace / Rancho del Zocalo) <a href="https://www.google.com/maps/search/?api=1&query=Tianas+Palace+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Tiana's Palace no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">13:00</span>Jungle Cruise (Standby / Adventureland) <a href="https://www.google.com/maps/search/?api=1&query=Jungle+Cruise+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Jungle Cruise no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">13:45</span>Fantasyland (brinquedos clássicos de fila menor) <a href="https://www.google.com/maps/search/?api=1&query=Red+Rose+Taverne+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Fantasyland (Red Rose Taverne) no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">15:00</span>Runaway Railway + Toontown (LL) <a href="https://www.google.com/maps/search/?api=1&query=Mickey+Minnie+Runaway+Railway+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Runaway Railway no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">16:30</span>Matterhorn Bobsleds (LL / Fantasyland) <a href="https://www.google.com/maps/search/?api=1&query=Matterhorn+Bobsleds+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Matterhorn no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">17:30</span><b>Space Mountain</b> (LL / Tomorrowland) <a href="https://www.google.com/maps/search/?api=1&query=Space+Mountain+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Space Mountain no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">19:00</span>Jantar (Plaza Inn / Cafe Orleans) <a href="https://www.google.com/maps/search/?api=1&query=Plaza+Inn+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Plaza Inn no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">20:30</span>Posicionar para os fogos (Sleeping Beauty Castle) <a href="https://www.google.com/maps/search/?api=1&query=Sleeping+Beauty+Castle+Disneyland" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Castelo no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">21:30</span>Show de Fogos (Together Forever)</div>
             </div>
         </div>
     </section>
@@ -457,14 +538,41 @@
             <p style="margin: 0; font-size: 0.95rem; line-height: 1.5;">Assim que escanear uma Lightning Lane na entrada da atração, <b>reserve imediatamente a próxima no app</b> para maximizar o dia.</p>
         </div>
         
-        <div class="check"><input type="checkbox" id="ll0"><label for="ll0">1. Indiana Jones</label></div>
-        <div class="check"><input type="checkbox" id="ll1"><label for="ll1">2. Space Mountain</label></div>
-        <div class="check"><input type="checkbox" id="ll2"><label for="ll2">3. Haunted Mansion</label></div>
-        <div class="check"><input type="checkbox" id="ll3"><label for="ll3">4. Big Thunder Mountain</label></div>
-        <div class="check"><input type="checkbox" id="ll4"><label for="ll4">5. Matterhorn</label></div>
-        <div class="check"><input type="checkbox" id="ll5"><label for="ll5">6. Buzz Lightyear</label></div>
-        <div class="check"><input type="checkbox" id="ll6"><label for="ll6">7. Mickey & Minnie's Runaway Railway</label></div>
-        <div class="check"><input type="checkbox" id="ll7"><label for="ll7">8. Roger Rabbit</label></div>
+        <div class="check">
+            <input type="checkbox" id="ll8">
+            <label for="ll8">
+                <span>1. Millennium Falcon: Smugglers Run — Galaxy's Edge</span>
+                <a href="https://www.google.com/maps/search/?api=1&query=Millennium+Falcon+Smugglers+Run+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+            </label>
+        </div>
+        <div class="check">
+            <input type="checkbox" id="ll3">
+            <label for="ll3">
+                <span>2. Big Thunder Mountain Railroad — Frontierland</span>
+                <a href="https://www.google.com/maps/search/?api=1&query=Big+Thunder+Mountain+Railroad+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+            </label>
+        </div>
+        <div class="check">
+            <input type="checkbox" id="ll2">
+            <label for="ll2">
+                <span>3. Haunted Mansion — New Orleans Square</span>
+                <a href="https://www.google.com/maps/search/?api=1&query=Haunted+Mansion+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+            </label>
+        </div>
+        <div class="check">
+            <input type="checkbox" id="ll0">
+            <label for="ll0">
+                <span>4. Indiana Jones Adventure — Adventureland</span>
+                <a href="https://www.google.com/maps/search/?api=1&query=Indiana+Jones+Adventure+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+            </label>
+        </div>
+        <div class="check">
+            <input type="checkbox" id="ll6">
+            <label for="ll6">
+                <span>5. Mickey & Minnie's Runaway Railway — Mickey's Toontown</span>
+                <a href="https://www.google.com/maps/search/?api=1&query=Mickey+Minnie+Runaway+Railway+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+            </label>
+        </div>
     </section>
 
     <!-- SEÇÃO ATRAÇÕES -->
@@ -472,37 +580,159 @@
         <div class="card">
             <h2><i class="fa-solid fa-mountain"></i> Atrações Planejadas</h2>
             
-            <div class="area">Galaxy's Edge</div>
-            <div class="check"><input id="a0" type="checkbox"><label for="a0">Rise of the Resistance <span class="stars">★★★★★</span></label></div>
-            <div class="check"><input id="a1" type="checkbox"><label for="a1">Millennium Falcon <span class="stars">★★★★☆</span></label></div>
-            
-            <div class="area">Fantasyland</div>
-            <div class="check"><input id="a2" type="checkbox"><label for="a2">Peter Pan's Flight <span class="stars">★★★★★</span></label></div>
-            <div class="check"><input id="a3" type="checkbox"><label for="a3">Alice in Wonderland <span class="stars">★★★★☆</span></label></div>
-            <div class="check"><input id="a4" type="checkbox"><label for="a4">Mr. Toad's Wild Ride <span class="stars">★★★★☆</span></label></div>
-            <div class="check"><input id="a5" type="checkbox"><label for="a5">Pinocchio's Daring Journey <span class="stars">★★★☆☆</span></label></div>
-            <div class="check"><input id="a6" type="checkbox"><label for="a6">Snow White's Enchanted Wish <span class="stars">★★★☆☆</span></label></div>
-            
-            <div class="area">Tomorrowland</div>
-            <div class="check"><input id="a7" type="checkbox"><label for="a7">Space Mountain <span class="stars">★★★★★</span></label></div>
-            <div class="check"><input id="a8" type="checkbox"><label for="a8">Buzz Lightyear Astro Blasters <span class="stars">★★★★☆</span></label></div>
-            <div class="check"><input id="a9" type="checkbox"><label for="a9">Star Tours <span class="stars">★★★★☆</span></label></div>
-            
-            <div class="area">Adventureland</div>
-            <div class="check"><input id="a10" type="checkbox"><label for="a10">Indiana Jones Adventure <span class="stars">★★★★★</span></label></div>
-            <div class="check"><input id="a11" type="checkbox"><label for="a11">Jungle Cruise <span class="stars">★★★☆☆</span></label></div>
-            
-            <div class="area">New Orleans Square</div>
-            <div class="check"><input id="a12" type="checkbox"><label for="a12">Pirates of the Caribbean <span class="stars">★★★★★</span></label></div>
-            <div class="check"><input id="a13" type="checkbox"><label for="a13">Haunted Mansion <span class="stars">★★★★★</span></label></div>
+            <div class="area">Star Wars: Galaxy's Edge</div>
+            <div class="check">
+                <input id="a0" type="checkbox">
+                <label for="a0">
+                    <span>Rise of the Resistance <span class="stars">★★★★★</span></span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Star+Wars+Rise+of+the+Resistance+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a1" type="checkbox">
+                <label for="a1">
+                    <span>Millennium Falcon: Smugglers Run <span class="stars">★★★★☆</span></span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Millennium+Falcon+Smugglers+Run+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
             
             <div class="area">Frontierland</div>
-            <div class="check"><input id="a14" type="checkbox"><label for="a14">Big Thunder Mountain Railroad <span class="stars">★★★★★</span></label></div>
+            <div class="check">
+                <input id="a14" type="checkbox">
+                <label for="a14">
+                    <span>Big Thunder Mountain Railroad <span class="stars">★★★★★</span></span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Big+Thunder+Mountain+Railroad+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            
+            <div class="area">New Orleans Square</div>
+            <div class="check">
+                <input id="a12" type="checkbox">
+                <label for="a12">
+                    <span>Pirates of the Caribbean <span class="stars">★★★★★</span></span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Pirates+of+the+Caribbean+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a13" type="checkbox">
+                <label id="a13_lbl" for="a13">
+                    <span>Haunted Mansion <span class="stars">★★★★★</span></span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Haunted+Mansion+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            
+            <div class="area">Adventureland</div>
+            <div class="check">
+                <input id="a10" type="checkbox">
+                <label for="a10">
+                    <span>Indiana Jones Adventure <span class="stars">★★★★★</span></span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Indiana+Jones+Adventure+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a11" type="checkbox">
+                <label for="a11">
+                    <span>Jungle Cruise <span class="stars">★★★☆☆</span></span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Jungle+Cruise+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            
+            <div class="area">Fantasyland</div>
+            <div class="check">
+                <input id="a2" type="checkbox">
+                <label for="a2">
+                    <span>Peter Pan's Flight <span class="stars">★★★★★</span></span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Peter+Pan+Flight+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a18" type="checkbox">
+                <label for="a18">
+                    <span>Matterhorn Bobsleds <span class="stars">★★★★★</span></span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Matterhorn+Bobsleds+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a3" type="checkbox">
+                <label for="a3">
+                    <span>Alice in Wonderland <span class="stars">★★★★☆</span></span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Alice+in+Wonderland+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a4" type="checkbox">
+                <label for="a4">
+                    <span>Mr. Toad's Wild Ride <span class="stars">★★★★☆</span></span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Mr+Toad+Wild+Ride+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a5" type="checkbox">
+                <label for="a5">
+                    <span>Pinocchio's Daring Journey <span class="stars">★★★☆☆</span></span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Pinocchio+Daring+Journey+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a6" type="checkbox">
+                <label for="a6">
+                    <span>Snow White's Enchanted Wish <span class="stars">★★★☆☆</span></span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Snow+White+Enchanted+Wish+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
             
             <div class="area">Mickey's Toontown</div>
-            <div class="check"><input id="a15" type="checkbox"><label for="a15">Runaway Railway <span class="stars">★★★★★</span></label></div>
-            <div class="check"><input id="a16" type="checkbox"><label for="a16">Mickey's House <span class="stars">★★★★☆</span></label></div>
-            <div class="check"><input id="a17" type="checkbox"><label for="a17">Minnie's House <span class="stars">★★★★☆</span></label></div>
+            <div class="check">
+                <input id="a15" type="checkbox">
+                <label for="a15">
+                    <span>Runaway Railway <span class="stars">★★★★★</span></span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Mickey+Minnie+Runaway+Railway+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a19" type="checkbox">
+                <label for="a19">
+                    <span>Roger Rabbit's Car Toon Spin <span class="stars">★★★★☆</span></span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Roger+Rabbit+Car+Toon+Spin+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a16" type="checkbox">
+                <label for="a16">
+                    <span>Mickey's House <span class="stars">★★★★☆</span></span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Mickeys+House+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a17" type="checkbox">
+                <label for="a17">
+                    <span>Minnie's House <span class="stars">★★★★☆</span></span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Minnies+House+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+
+            <div class="area">Tomorrowland</div>
+            <div class="check">
+                <input id="a7" type="checkbox">
+                <label for="a7">
+                    <span>Space Mountain <span class="stars">★★★★★</span></span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Space+Mountain+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a8" type="checkbox">
+                <label for="a8">
+                    <span>Buzz Lightyear Astro Blasters <span class="stars">★★★★☆</span></span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Buzz+Lightyear+Astro+Blasters+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
+            <div class="check">
+                <input id="a9" type="checkbox">
+                <label for="a9">
+                    <span>Star Tours — The Adventures Continue <span class="stars">★★★★☆</span></span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Star+Tours+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </label>
+            </div>
         </div>
     </section>
 
@@ -511,42 +741,102 @@
         <div class="card">
             <h2><i class="fa-solid fa-hamburger"></i> Alimentação Recomendada</h2>
             
-            <div class="area">Galaxy's Edge (Star Wars)</div>
+            <div class="area">Star Wars: Galaxy's Edge</div>
             <ul>
-                <li><b>Docking Bay 7 Food and Cargo</b> <span class="stars">★★★★★</span><br>Melhor opção de almoço, refeições rápidas porém muito completas e saborosas.</li>
-                <li><b>Ronto Roasters</b> <span class="stars">★★★★☆</span><br>Excelente para um wrap rápido ou lanche no meio da tarde.</li>
-            </ul>
-
-            <div class="area">Main Street U.S.A.</div>
-            <ul>
-                <li><b>Plaza Inn</b> <span class="stars">★★★★★</span><br>Famoso e generoso prato de frango frito tradicional da Disney.</li>
-                <li><b>Jolly Holiday Bakery Cafe</b> <span class="stars">★★★★★</span><br>Sanduíches deliciosos, doces finos e excelente café da manhã/tarde.</li>
-            </ul>
-
-            <div class="area">Fantasyland</div>
-            <ul>
-                <li><b>Red Rose Taverne</b> <span class="stars">★★⭐⭐☆</span><br>Hambúrgueres e flatbreads temáticos baseados em A Bela e a Fera.</li>
-            </ul>
-
-            <div class="area">Tomorrowland</div>
-            <ul>
-                <li><b>Galactic Grill</b> <span class="stars">★★★☆☆</span><br>Hambúrgueres, wraps e saladas clássicas de fast food.</li>
-            </ul>
-
-            <div class="area">New Orleans Square</div>
-            <ul>
-                <li><b>Tiana's Palace</b> <span class="stars">★★★★★</span><br>Especialidades inspiradas na culinária de New Orleans (Cajun/Creole).</li>
-                <li><b>Cafe Orleans</b> <span class="stars">★★★★☆</span><br>Serviço de mesa (necessita reserva), famoso pelo sanduíche Monte Cristo.</li>
+                <li style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;">
+                    <div>
+                        <b>Docking Bay 7 Food and Cargo</b> <span class="stars">★★★★★</span><br>
+                        Melhor opção de almoço, refeições rápidas porém muito completas e saborosas.
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Docking+Bay+7+Food+and+Cargo+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </li>
+                <li style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-top: 8px;">
+                    <div>
+                        <b>Ronto Roasters</b> <span class="stars">★★★★☆</span><br>
+                        Excelente para um wrap rápido ou lanche no meio da tarde.
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Ronto+Roasters+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </li>
             </ul>
 
             <div class="area">Frontierland</div>
             <ul>
-                <li><b>Rancho del Zocalo Restaurante</b> <span class="stars">★★★★☆</span><br>Comida mexicana em porções bem servidas sob pátio sombreado.</li>
+                <li style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;">
+                    <div>
+                        <b>Rancho del Zocalo Restaurante</b> <span class="stars">★★★★☆</span><br>
+                        Comida mexicana em porções bem servidas sob pátio sombreado.
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Rancho+del+Zocalo+Restaurante+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </li>
             </ul>
 
-            <div class="area">Bayou Country</div>
+            <div class="area">New Orleans Square</div>
             <ul>
-                <li><b>Hungry Bear Barbecue Jamboree</b> <span class="stars">★★★★☆</span><br>Pratos de churrasco estilo americano (BBQ) ao ar livre.</li>
+                <li style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;">
+                    <div>
+                        <b>Tiana's Palace</b> <span class="stars">★★★★★</span><br>
+                        Especialidades inspiradas na culinária de New Orleans (Cajun/Creole).
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Tianas+Palace+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </li>
+                <li style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-top: 8px;">
+                    <div>
+                        <b>Cafe Orleans</b> <span class="stars">★★★★☆</span><br>
+                        Serviço de mesa (necessita reserva), famoso pelo sanduíche Monte Cristo.
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Cafe+Orleans+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </li>
+            </ul>
+
+            <div class="area">Bayou Country (antigo Critter Country)</div>
+            <ul>
+                <li style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;">
+                    <div>
+                        <b>Hungry Bear Barbecue Jamboree</b> <span class="stars">★★★★☆</span><br>
+                        Pratos de churrasco estilo americano (BBQ) ao ar livre.
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Hungry+Bear+Barbecue+Jamboree+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </li>
+            </ul>
+
+            <div class="area">Fantasyland</div>
+            <ul>
+                <li style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;">
+                    <div>
+                        <b>Red Rose Taverne</b> <span class="stars">★★⭐⭐☆</span><br>
+                        Hambúrgueres e flatbreads temáticos baseados em A Bela e a Fera.
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Red+Rose+Taverne+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </li>
+            </ul>
+
+            <div class="area">Tomorrowland</div>
+            <ul>
+                <li style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;">
+                    <div>
+                        <b>Galactic Grill</b> <span class="stars">★★★☆☆</span><br>
+                        Hambúrgueres, wraps e saladas clássicas de fast food.
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Galactic+Grill+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </li>
+            </ul>
+
+            <div class="area">Main Street U.S.A.</div>
+            <ul>
+                <li style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;">
+                    <div>
+                        <b>Plaza Inn</b> <span class="stars">★★★★★</span><br>
+                        Famoso e generoso prato de frango frito tradicional da Disney.
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Plaza+Inn+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </li>
+                <li style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-top: 8px;">
+                    <div>
+                        <b>Jolly Holiday Bakery Cafe</b> <span class="stars">★★★★★</span><br>
+                        Sanduíches deliciosos, doces finos e excelente café da manhã/tarde.
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Jolly+Holiday+Bakery+Cafe+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                </li>
             </ul>
         </div>
 
@@ -622,21 +912,25 @@
     });
 
     const seq = [
-        "Entrar no parque e ir direto para Rise of the Resistance.",
-        "Reservar a LL de Indiana Jones no aplicativo.",
-        "Reservar a LL de Space Mountain após escanear/vencer Indiana Jones.",
-        "Reservar a LL de Haunted Mansion.",
-        "Reservar a LL de Big Thunder Mountain.",
-        "Reservar a LL de Matterhorn.",
-        "Reservar a LL de Buzz Lightyear.",
-        "Reservar a LL de Runaway Railway.",
-        "Aproveitar as atrações sem LL e filas menores após o show de fogos."
+        "Entrar no parque e ir para Star Wars: Galaxy's Edge. Agendar a 1ª Lightning Lane (Millennium Falcon: Smugglers Run).",
+        "Fazer Rise of the Resistance (Standby) e usar a LL de Millennium Falcon. Agendar a LL de Big Thunder Mountain Railroad.",
+        "Ir para Frontierland e usar a LL de Big Thunder Mountain Railroad. Agendar a LL de Haunted Mansion.",
+        "Fazer Pirates of the Caribbean (Standby) e usar a LL de Haunted Mansion. Agendar a LL de Indiana Jones Adventure.",
+        "Ir para Adventureland e usar a LL de Indiana Jones Adventure. Agendar a LL de Mickey & Minnie's Runaway Railway.",
+        "Fazer Jungle Cruise (Standby) e almoçar. Depois, ir para Toontown e usar a LL de Runaway Railway. Agendar a LL de Matterhorn Bobsleds.",
+        "Aproveitar Toontown/Fantasyland e usar a LL de Matterhorn Bobsleds. Agendar a LL de Space Mountain.",
+        "Ir para Tomorrowland e usar a LL de Space Mountain. Agendar a LL de Buzz Lightyear Astro Blasters.",
+        "Usar a LL de Buzz Lightyear. Agendar a LL de Roger Rabbit's Car Toon Spin ou Star Tours.",
+        "Usar a LL de Roger Rabbit / Star Tours. Aproveitar as demais atrações de Tomorrowland/Fantasyland e se preparar para os fogos.",
+        "Todos os agendamentos concluídos! Aproveite a noite, assista aos fogos na Main Street e faça compras."
     ];
 
     function updateNextAction() {
         let done = 0;
-        ["ll0", "ll1", "ll2", "ll3", "ll4", "ll5", "ll6", "ll7"].forEach(id => {
-            if (document.getElementById(id).checked) done++;
+        // Seleciona todos os checkboxes da aba LL na ordem em que aparecem no DOM
+        const checkboxes = document.querySelectorAll("#ll input[type=checkbox]");
+        checkboxes.forEach(c => {
+            if (c.checked) done++;
         });
         const element = document.getElementById("nextAction");
         if (element) {
