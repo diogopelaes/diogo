@@ -495,6 +495,22 @@
                 font-size: 1rem;
             }
         }
+    
+        /* ===== WAZE LINK STYLING ===== */
+        .waze-link {
+            color: var(--text-secondary);
+            opacity: 0.6;
+            transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .waze-link:hover {
+            opacity: 1;
+            transform: scale(1.15);
+            color: #33ccff !important;
+        }
     </style>
 </head>
 <body>
@@ -523,7 +539,7 @@
         <div class="card">
             <h2><i class="fa-solid fa-plane-arrival"></i> Cronograma de Trânsito Previsto</h2>
             <div class="timeline">
-                <div class="timeline-item"><span class="time">17:25</span>Chegada em Miami (MIA) <a href="https://www.google.com/maps/search/?api=1&query=Miami+International+Airport" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Aeroporto de Miami no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">17:25</span>Chegada em Miami (MIA) <a href="https://www.google.com/maps/search/?api=1&query=Miami+International+Airport" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Aeroporto de Miami no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Miami+International+Airport&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
                 <div class="timeline-item"><span class="time">17:25–17:35</span>Caminhar rápido em direção à imigração (*Immigration*)</div>
                 <div class="timeline-item"><span class="time">17:35–18:20</span>Fila e passagem pelo controle de passaportes (família unida)</div>
                 <div class="timeline-item"><span class="time">18:20–18:35</span>Retirar a mala despachada da Edilene na esteira (*Baggage Claim*)</div>
@@ -531,9 +547,9 @@
                 <div class="timeline-item"><span class="time">18:45–19:05</span>Passar pela segurança do TSA e confirmar portão nos monitores</div>
                 <div class="timeline-item"><span class="time">19:05–19:17</span>Dirigir-se ao portão de embarque (Gate)</div>
                 <div class="timeline-item"><span class="time">19:17</span><b>Decolagem do Voo Delta para Los Angeles (LAX)</b></div>
-                <div class="timeline-item"><span class="time">21:49</span>Chegada no Aeroporto de Los Angeles (LAX) <a href="https://www.google.com/maps/search/?api=1&query=Los+Angeles+International+Airport" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Aeroporto LAX no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">21:49</span>Chegada no Aeroporto de Los Angeles (LAX) <a href="https://www.google.com/maps/search/?api=1&query=Los+Angeles+International+Airport" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Aeroporto LAX no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Los+Angeles+International+Airport&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
                 <div class="timeline-item"><span class="time">22:00</span>Coleta das malas na esteira (*Baggage Claim*)</div>
-                <div class="timeline-item"><span class="time">22:20</span>Embarcar no ônibus de traslado gratuito (Shuttle) da SIXT <a href="https://www.google.com/maps/search/?api=1&query=SIXT+Rent+A+Car+Los+Angeles+Airport" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver SIXT no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">22:20</span>Embarcar no ônibus de traslado gratuito (Shuttle) da SIXT <a href="https://www.google.com/maps/search/?api=1&query=SIXT+Rent+A+Car+Los+Angeles+Airport" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver SIXT no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=SIXT+Rent+A+Car+Los+Angeles+Airport&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
                 <div class="timeline-item"><span class="time">22:35–23:00</span>Retirada do carro no balcão da SIXT e início da viagem para o destino final</div>
                 <div class="timeline-item"><span class="time">23:30</span>Chegada na residência da Diana Pereira</div>
             </div>

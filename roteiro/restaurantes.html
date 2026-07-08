@@ -284,6 +284,22 @@
             .restaurants-grid { grid-template-columns: 1fr; }
             body { padding: 12px 8px; }
         }
+    
+        /* ===== WAZE LINK STYLING ===== */
+        .waze-link {
+            color: var(--text-secondary);
+            opacity: 0.6;
+            transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .waze-link:hover {
+            opacity: 1;
+            transform: scale(1.15);
+            color: #33ccff !important;
+        }
     </style>
 </head>
 <body>
@@ -307,7 +323,7 @@
                 <div class="card-top">
                     <a href="https://www.google.com/maps/search/?api=1&query=In-N-Out+Burger+Los+Angeles" target="_blank" rel="noopener noreferrer" class="restaurant-map-link">
                         <i class="fa-solid fa-location-dot"></i> In-N-Out Burger
-                    </a>
+                    </a> <a href="https://waze.com/ul?q=In-N-Out+Burger+Los+Angeles&navigate=yes" target="_blank" rel="noopener noreferrer" class="waze-link" title="Ver no Waze" style="font-size: 1.15rem; margin-left: 8px; vertical-align: middle;"><i class="fa-brands fa-waze"></i></a>
                     <p class="card-type">Hambúrgueres Americanos</p>
                 </div>
                 <p class="card-desc">Ícone californiano. Double-Double com queijo e o famoso "Animal Style" são obrigatórios. Frescor garantido — nunca congelam a carne.</p>
@@ -325,7 +341,7 @@
                 <div class="card-top">
                     <a href="https://www.google.com/maps/search/?api=1&query=Panda+Express+Los+Angeles" target="_blank" rel="noopener noreferrer" class="restaurant-map-link">
                         <i class="fa-solid fa-location-dot"></i> Panda Express
-                    </a>
+                    </a> <a href="https://waze.com/ul?q=Panda+Express+Los+Angeles&navigate=yes" target="_blank" rel="noopener noreferrer" class="waze-link" title="Ver no Waze" style="font-size: 1.15rem; margin-left: 8px; vertical-align: middle;"><i class="fa-brands fa-waze"></i></a>
                     <p class="card-type">Culinária Chinesa Americana</p>
                 </div>
                 <p class="card-desc">Frango laranja, Chow Mein e Beijing Beef são os favoritos. Opções rápidas, preço acessível e sempre fresquinho nas travessas.</p>
@@ -343,7 +359,7 @@
                 <div class="card-top">
                     <a href="https://www.google.com/maps/search/?api=1&query=IHOP+Los+Angeles" target="_blank" rel="noopener noreferrer" class="restaurant-map-link">
                         <i class="fa-solid fa-location-dot"></i> IHOP
-                    </a>
+                    </a> <a href="https://waze.com/ul?q=IHOP+Los+Angeles&navigate=yes" target="_blank" rel="noopener noreferrer" class="waze-link" title="Ver no Waze" style="font-size: 1.15rem; margin-left: 8px; vertical-align: middle;"><i class="fa-brands fa-waze"></i></a>
                     <p class="card-type">Café da Manhã & Brunch</p>
                 </div>
                 <p class="card-desc">International House of Pancakes. Panquecas gigantes, waffles, ovos e bacon. Ideal para o café da manhã americano clássico com as crianças.</p>
@@ -361,7 +377,7 @@
                 <div class="card-top">
                     <a href="https://www.google.com/maps/search/?api=1&query=Denny%27s+Los+Angeles" target="_blank" rel="noopener noreferrer" class="restaurant-map-link">
                         <i class="fa-solid fa-location-dot"></i> Denny's
-                    </a>
+                    </a> <a href="https://waze.com/ul?q=Denny%27s+Los+Angeles&navigate=yes" target="_blank" rel="noopener noreferrer" class="waze-link" title="Ver no Waze" style="font-size: 1.15rem; margin-left: 8px; vertical-align: middle;"><i class="fa-brands fa-waze"></i></a>
                     <p class="card-type">Diner Americano 24h</p>
                 </div>
                 <p class="card-desc">Clássico diner americano aberto 24 horas. Grand Slam breakfast é a pedida. Ótimo custo-benefício para toda hora do dia.</p>
@@ -379,7 +395,7 @@
                 <div class="card-top">
                     <a href="https://www.google.com/maps/search/?api=1&query=The+Cheesecake+Factory+Los+Angeles" target="_blank" rel="noopener noreferrer" class="restaurant-map-link">
                         <i class="fa-solid fa-location-dot"></i> The Cheesecake Factory
-                    </a>
+                    </a> <a href="https://waze.com/ul?q=The+Cheesecake+Factory+Los+Angeles&navigate=yes" target="_blank" rel="noopener noreferrer" class="waze-link" title="Ver no Waze" style="font-size: 1.15rem; margin-left: 8px; vertical-align: middle;"><i class="fa-brands fa-waze"></i></a>
                     <p class="card-type">Restaurante Casual Americano</p>
                 </div>
                 <p class="card-desc">Menu enorme com pratos generosos. Os cheesecakes (mais de 30 sabores!) são o grande atrativo. Experiência completa e ambiente sofisticado.</p>
@@ -397,7 +413,7 @@
                 <div class="card-top">
                     <a href="https://www.google.com/maps/search/?api=1&query=Chick-fil-A+Los+Angeles" target="_blank" rel="noopener noreferrer" class="restaurant-map-link">
                         <i class="fa-solid fa-location-dot"></i> Chick-fil-A
-                    </a>
+                    </a> <a href="https://waze.com/ul?q=Chick-fil-A+Los+Angeles&navigate=yes" target="_blank" rel="noopener noreferrer" class="waze-link" title="Ver no Waze" style="font-size: 1.15rem; margin-left: 8px; vertical-align: middle;"><i class="fa-brands fa-waze"></i></a>
                     <p class="card-type">Frango Empanado Americano</p>
                 </div>
                 <p class="card-desc">O melhor frango frito dos EUA segundo muitos americanos. O Spicy Deluxe e os Nuggets são vício. Atendimento famoso pela simpatia.</p>
@@ -415,7 +431,7 @@
                 <div class="card-top">
                     <a href="https://www.google.com/maps/search/?api=1&query=Chipotle+Mexican+Grill+Los+Angeles" target="_blank" rel="noopener noreferrer" class="restaurant-map-link">
                         <i class="fa-solid fa-location-dot"></i> Chipotle Mexican Grill
-                    </a>
+                    </a> <a href="https://waze.com/ul?q=Chipotle+Mexican+Grill+Los+Angeles&navigate=yes" target="_blank" rel="noopener noreferrer" class="waze-link" title="Ver no Waze" style="font-size: 1.15rem; margin-left: 8px; vertical-align: middle;"><i class="fa-brands fa-waze"></i></a>
                     <p class="card-type">Culinária Mexicana Fast-Casual</p>
                 </div>
                 <p class="card-desc">Burritos, bowls e tacos montados na hora com ingredientes frescos. O Burrito Bowl com guacamole é a pedida. Opção saudável e saborosa.</p>
@@ -433,7 +449,7 @@
                 <div class="card-top">
                     <a href="https://www.google.com/maps/search/?api=1&query=Raising+Cane%27s+Los+Angeles" target="_blank" rel="noopener noreferrer" class="restaurant-map-link">
                         <i class="fa-solid fa-location-dot"></i> Raising Cane's
-                    </a>
+                    </a> <a href="https://waze.com/ul?q=Raising+Cane%27s+Los+Angeles&navigate=yes" target="_blank" rel="noopener noreferrer" class="waze-link" title="Ver no Waze" style="font-size: 1.15rem; margin-left: 8px; vertical-align: middle;"><i class="fa-brands fa-waze"></i></a>
                     <p class="card-type">Tiras de Frango Empanado</p>
                 </div>
                 <p class="card-desc">Cardápio simples e perfeito: só faz tiras de frango — e faz muito bem. O molho Cane's é segredo da casa. Sucesso enorme com crianças.</p>
@@ -454,7 +470,7 @@
                     rel="noopener noreferrer"
                     class="restaurant-map-link">
                         <i class="fa-solid fa-location-dot"></i> Roscoe's House of Chicken 'N Waffles
-                    </a>
+                    </a> <a href="https://waze.com/ul?q=Roscoe%27s+House+of+Chicken+%27N+Waffles+Los+Angeles&navigate=yes" target="_blank" rel="noopener noreferrer" class="waze-link" title="Ver no Waze" style="font-size: 1.15rem; margin-left: 8px; vertical-align: middle;"><i class="fa-brands fa-waze"></i></a>
                     <p class="card-type">Clássico de Los Angeles</p>
                 </div>
 
@@ -481,7 +497,7 @@
                     rel="noopener noreferrer"
                     class="restaurant-map-link">
                         <i class="fa-solid fa-location-dot"></i> Randy's Donuts
-                    </a>
+                    </a> <a href="https://waze.com/ul?q=Randy%27s+Donuts+Los+Angeles&navigate=yes" target="_blank" rel="noopener noreferrer" class="waze-link" title="Ver no Waze" style="font-size: 1.15rem; margin-left: 8px; vertical-align: middle;"><i class="fa-brands fa-waze"></i></a>
                     <p class="card-type">Donuts</p>
                 </div>
 

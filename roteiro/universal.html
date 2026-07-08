@@ -492,6 +492,22 @@
                 font-size: 1rem;
             }
         }
+    
+        /* ===== WAZE LINK STYLING ===== */
+        .waze-link {
+            color: var(--text-secondary);
+            opacity: 0.6;
+            transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .waze-link:hover {
+            opacity: 1;
+            transform: scale(1.15);
+            color: #33ccff !important;
+        }
     </style>
 </head>
 <body>
@@ -521,24 +537,24 @@
             <h2><i class="fa-solid fa-clock"></i> Timeline do Dia (Early Access)</h2>
             <div class="timeline">
                 <div class="timeline-item"><span class="time">06:00</span>Sair de casa</div>
-                <div class="timeline-item"><span class="time">07:00</span>Chegar ao estacionamento (45–60 min antes) <a href="https://maps.google.com/?q=Universal+Studios+Hollywood+Parking" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Estacionamento no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
-                <div class="timeline-item"><span class="time">07:30</span>Fila da entrada do parque <a href="https://maps.google.com/?q=Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Entrada no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">07:00</span>Chegar ao estacionamento (45–60 min antes) <a href="https://maps.google.com/?q=Universal+Studios+Hollywood+Parking" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Estacionamento no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Universal+Studios+Hollywood+Parking&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
+                <div class="timeline-item"><span class="time">07:30</span>Fila da entrada do parque <a href="https://maps.google.com/?q=Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Entrada no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
                 <div class="timeline-item"><span class="time">08:00</span><b>Entrada / Ir direto para Super Nintendo World</b> (Lower Lot)</div>
-                <div class="timeline-item"><span class="time">08:05</span>Comprar Power-Up Bands (1-UP Factory) e conectar ao app <a href="https://maps.google.com/?q=1-UP+Factory+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver 1-UP Factory no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
-                <div class="timeline-item"><span class="time">08:15</span><b>Mario Kart: Bowser’s Challenge</b> <a href="https://maps.google.com/?q=Mario+Kart+Bowser+Challenge+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Mario Kart no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">08:05</span>Comprar Power-Up Bands (1-UP Factory) e conectar ao app <a href="https://maps.google.com/?q=1-UP+Factory+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver 1-UP Factory no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=1-UP+Factory+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
+                <div class="timeline-item"><span class="time">08:15</span><b>Mario Kart: Bowser’s Challenge</b> <a href="https://maps.google.com/?q=Mario+Kart+Bowser+Challenge+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Mario Kart no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Mario+Kart+Bowser+Challenge+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
                 <div class="timeline-item"><span class="time">09:00</span>Fazer os minigames (Key Challenges - coletar 3 chaves)</div>
                 <div class="timeline-item"><span class="time">09:45</span>Enfrentar Bowser Jr. Shadow Showdown</div>
-                <div class="timeline-item"><span class="time">10:15</span><b>Jurassic World – The Ride</b> <a href="https://maps.google.com/?q=Jurassic+World+The+Ride+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Jurassic World no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
-                <div class="timeline-item"><span class="time">11:00</span>🍄 <b>Almoço no Toadstool Cafe</b> (Fazer reserva virtual logo cedo!) <a href="https://maps.google.com/?q=Toadstool+Cafe+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Toadstool Cafe no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
-                <div class="timeline-item"><span class="time">12:00</span><b>Revenge of the Mummy – The Ride</b> <a href="https://maps.google.com/?q=Revenge+of+the+Mummy+The+Ride+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Revenge of the Mummy no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">10:15</span><b>Jurassic World – The Ride</b> <a href="https://maps.google.com/?q=Jurassic+World+The+Ride+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Jurassic World no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Jurassic+World+The+Ride+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
+                <div class="timeline-item"><span class="time">11:00</span>🍄 <b>Almoço no Toadstool Cafe</b> (Fazer reserva virtual logo cedo!) <a href="https://maps.google.com/?q=Toadstool+Cafe+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Toadstool Cafe no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Toadstool+Cafe+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
+                <div class="timeline-item"><span class="time">12:00</span><b>Revenge of the Mummy – The Ride</b> <a href="https://maps.google.com/?q=Revenge+of+the+Mummy+The+Ride+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Revenge of the Mummy no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Revenge+of+the+Mummy+The+Ride+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
                 <div class="timeline-item"><span class="time">12:45</span>Subir para a Upper Lot (Starway) e comprar copos Coca-Cola Freestyle</div>
-                <div class="timeline-item"><span class="time">13:00</span><b>Studio Tour</b> (Duração: ~60 min) <a href="https://maps.google.com/?q=Studio+Tour+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Studio Tour no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
-                <div class="timeline-item"><span class="time">14:30</span><b>Harry Potter and the Forbidden Journey</b> <a href="https://maps.google.com/?q=Harry+Potter+and+the+Forbidden+Journey+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Forbidden Journey no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
-                <div class="timeline-item"><span class="time">15:15</span>Flight of the Hippogriff (se fila pequena) <a href="https://maps.google.com/?q=Flight+of+the+Hippogriff+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Flight of the Hippogriff no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
-                <div class="timeline-item"><span class="time">15:45</span><b>The Secret Life of Pets: Off the Leash</b> <a href="https://maps.google.com/?q=The+Secret+Life+of+Pets+Off+the+Leash+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Secret Life of Pets no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
-                <div class="timeline-item"><span class="time">16:30</span><b>The Simpsons Ride</b> <a href="https://maps.google.com/?q=The+Simpsons+Ride+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Simpsons Ride no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
-                <div class="timeline-item"><span class="time">17:15</span><b>Despicable Me Minion Mayhem</b> <a href="https://maps.google.com/?q=Despicable+Me+Minion+Mayhem+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Minion Mayhem no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
-                <div class="timeline-item"><span class="time">18:00</span>Assistir ao show <b>WaterWorld</b> (chegar 20 min antes!) <a href="https://maps.google.com/?q=WaterWorld+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver WaterWorld no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">13:00</span><b>Studio Tour</b> (Duração: ~60 min) <a href="https://maps.google.com/?q=Studio+Tour+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Studio Tour no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Studio+Tour+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
+                <div class="timeline-item"><span class="time">14:30</span><b>Harry Potter and the Forbidden Journey</b> <a href="https://maps.google.com/?q=Harry+Potter+and+the+Forbidden+Journey+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Forbidden Journey no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Harry+Potter+and+the+Forbidden+Journey+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
+                <div class="timeline-item"><span class="time">15:15</span>Flight of the Hippogriff (se fila pequena) <a href="https://maps.google.com/?q=Flight+of+the+Hippogriff+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Flight of the Hippogriff no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Flight+of+the+Hippogriff+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
+                <div class="timeline-item"><span class="time">15:45</span><b>The Secret Life of Pets: Off the Leash</b> <a href="https://maps.google.com/?q=The+Secret+Life+of+Pets+Off+the+Leash+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Secret Life of Pets no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=The+Secret+Life+of+Pets+Off+the+Leash+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
+                <div class="timeline-item"><span class="time">16:30</span><b>The Simpsons Ride</b> <a href="https://maps.google.com/?q=The+Simpsons+Ride+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Simpsons Ride no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=The+Simpsons+Ride+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
+                <div class="timeline-item"><span class="time">17:15</span><b>Despicable Me Minion Mayhem</b> <a href="https://maps.google.com/?q=Despicable+Me+Minion+Mayhem+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Minion Mayhem no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Despicable+Me+Minion+Mayhem+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
+                <div class="timeline-item"><span class="time">18:00</span>Assistir ao show <b>WaterWorld</b> (chegar 20 min antes!) <a href="https://maps.google.com/?q=WaterWorld+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver WaterWorld no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=WaterWorld+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
                 <div class="timeline-item"><span class="time">19:00+</span>Compras de lembranças e repetir favoritas</div>
             </div>
         </div>
@@ -553,133 +569,133 @@
                 <input id="p0" type="checkbox">
                 <label for="p0">
                     <span>1. Chegar 45–60 min antes da abertura (Estacionamento)</span>
-                    <a href="https://maps.google.com/?q=Universal+Studios+Hollywood+Parking" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Universal+Studios+Hollywood+Parking" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Universal+Studios+Hollywood+Parking&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="p1" type="checkbox">
                 <label for="p1">
                     <span>2. Entrar e ir direto para a Super Nintendo World (Lower Lot)</span>
-                    <a href="https://maps.google.com/?q=Super+Nintendo+World+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Super+Nintendo+World+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Super+Nintendo+World+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="p2" type="checkbox">
                 <label for="p2">
                     <span>3. Comprar 2 Power-Up Bands na 1-UP Factory e conectar ao app</span>
-                    <a href="https://maps.google.com/?q=1-UP+Factory+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=1-UP+Factory+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=1-UP+Factory+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="p3" type="checkbox">
                 <label for="p3">
                     <span>4. Fazer reserva virtual do Toadstool Cafe no app assim que possível</span>
-                    <a href="https://maps.google.com/?q=Toadstool+Cafe+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Toadstool+Cafe+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Toadstool+Cafe+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="p4" type="checkbox">
                 <label for="p4">
                     <span>5. Jogar Mario Kart: Bowser’s Challenge (Nintendo World)</span>
-                    <a href="https://maps.google.com/?q=Mario+Kart+Bowser+Challenge+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Mario+Kart+Bowser+Challenge+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Mario+Kart+Bowser+Challenge+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="p5" type="checkbox">
                 <label for="p5">
                     <span>6. Completar os minigames para coletar as 3 chaves (Nintendo World)</span>
-                    <a href="https://maps.google.com/?q=Super+Nintendo+World+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Super+Nintendo+World+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Super+Nintendo+World+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="p6" type="checkbox">
                 <label for="p6">
                     <span>7. Enfrentar Bowser Jr. Shadow Showdown (Nintendo World)</span>
-                    <a href="https://maps.google.com/?q=Super+Nintendo+World+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Super+Nintendo+World+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Super+Nintendo+World+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="p7" type="checkbox">
                 <label for="p7">
                     <span>8. Almoçar no Toadstool Cafe (Super Nintendo World)</span>
-                    <a href="https://maps.google.com/?q=Toadstool+Cafe+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Toadstool+Cafe+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Toadstool+Cafe+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="p8" type="checkbox">
                 <label for="p8">
                     <span>9. Fazer Jurassic World – The Ride (Lower Lot)</span>
-                    <a href="https://maps.google.com/?q=Jurassic+World+The+Ride+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Jurassic+World+The+Ride+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Jurassic+World+The+Ride+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="p9" type="checkbox">
                 <label for="p9">
                     <span>10. Fazer Revenge of the Mummy – The Ride (Lower Lot)</span>
-                    <a href="https://maps.google.com/?q=Revenge+of+the+Mummy+The+Ride+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Revenge+of+the+Mummy+The+Ride+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Revenge+of+the+Mummy+The+Ride+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="p10" type="checkbox">
                 <label for="p10">
                     <span>11. Subir para Upper Lot e comprar 2 Copos Recarregáveis (Freestyle)</span>
-                    <a href="https://maps.google.com/?q=Universal+Studios+Hollywood+Upper+Lot" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Universal+Studios+Hollywood+Upper+Lot" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Universal+Studios+Hollywood+Upper+Lot&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="p11" type="checkbox">
                 <label for="p11">
                     <span>12. Fazer o clássico Studio Tour (Upper Lot)</span>
-                    <a href="https://maps.google.com/?q=Studio+Tour+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Studio+Tour+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Studio+Tour+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="p12" type="checkbox">
                 <label for="p12">
                     <span>13. Fazer Harry Potter and the Forbidden Journey (Upper Lot)</span>
-                    <a href="https://maps.google.com/?q=Harry+Potter+and+the+Forbidden+Journey+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Harry+Potter+and+the+Forbidden+Journey+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Harry+Potter+and+the+Forbidden+Journey+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="p13" type="checkbox">
                 <label for="p13">
                     <span>14. Flight of the Hippogriff (se fila pequena) (Upper Lot)</span>
-                    <a href="https://maps.google.com/?q=Flight+of+the+Hippogriff+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Flight+of+the+Hippogriff+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Flight+of+the+Hippogriff+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="p14" type="checkbox">
                 <label for="p14">
                     <span>15. The Secret Life of Pets: Off the Leash (Upper Lot)</span>
-                    <a href="https://maps.google.com/?q=The+Secret+Life+of+Pets+Off+the+Leash+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=The+Secret+Life+of+Pets+Off+the+Leash+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=The+Secret+Life+of+Pets+Off+the+Leash+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="p15" type="checkbox">
                 <label for="p15">
                     <span>16. The Simpsons Ride (Upper Lot)</span>
-                    <a href="https://maps.google.com/?q=The+Simpsons+Ride+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=The+Simpsons+Ride+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=The+Simpsons+Ride+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="p16" type="checkbox">
                 <label for="p16">
                     <span>17. Despicable Me Minion Mayhem (Upper Lot)</span>
-                    <a href="https://maps.google.com/?q=Despicable+Me+Minion+Mayhem+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Despicable+Me+Minion+Mayhem+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Despicable+Me+Minion+Mayhem+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="p17" type="checkbox">
                 <label for="p17">
                     <span>18. Assistir ao show WaterWorld (chegar 20 min antes) (Upper Lot)</span>
-                    <a href="https://maps.google.com/?q=WaterWorld+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=WaterWorld+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=WaterWorld+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="p18" type="checkbox">
                 <label for="p18">
                     <span>19. Final do dia: Comprar lembranças e repetir favoritas</span>
-                    <a href="https://maps.google.com/?q=Universal+Studio+Store+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Universal+Studio+Store+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Universal+Studio+Store+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
         </div>
@@ -695,63 +711,63 @@
                 <input id="a0" type="checkbox">
                 <label for="a0">
                     <span>Mario Kart: Bowser's Challenge <span class="stars">★★★★★</span></span>
-                    <a href="https://maps.google.com/?q=Mario+Kart+Bowser+Challenge+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Mario+Kart+Bowser+Challenge+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Mario+Kart+Bowser+Challenge+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a4" type="checkbox">
                 <label for="a4">
                     <span>Completar Key Challenges (Nintendo) <span class="stars">★★★★★</span></span>
-                    <a href="https://maps.google.com/?q=Super+Nintendo+World+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Super+Nintendo+World+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Super+Nintendo+World+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a1" type="checkbox">
                 <label for="a1">
                     <span>Bowser Jr. Shadow Showdown <span class="stars">★★★★★</span></span>
-                    <a href="https://maps.google.com/?q=Super+Nintendo+World+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Super+Nintendo+World+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Super+Nintendo+World+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a5" type="checkbox">
                 <label for="a5">
                     <span>Jurassic World – The Ride <span class="stars">★★★★★</span></span>
-                    <a href="https://maps.google.com/?q=Jurassic+World+The+Ride+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Jurassic+World+The+Ride+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Jurassic+World+The+Ride+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a12" type="checkbox">
                 <label for="a12">
                     <span>Revenge of the Mummy – The Ride <span class="stars">★★★★☆</span></span>
-                    <a href="https://maps.google.com/?q=Revenge+of+the+Mummy+The+Ride+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Revenge+of+the+Mummy+The+Ride+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Revenge+of+the+Mummy+The+Ride+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a11" type="checkbox">
                 <label for="a11">
                     <span>Transformers: The Ride-3D <span class="stars">★★★★☆</span></span>
-                    <a href="https://maps.google.com/?q=Transformers+The+Ride+3D+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Transformers+The+Ride+3D+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Transformers+The+Ride+3D+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a6" type="checkbox">
                 <label for="a6">
                     <span>Encontro com a Velociraptor Blue <span class="stars">★★★★☆</span></span>
-                    <a href="https://maps.google.com/?q=Universal+Studios+Hollywood+Jurassic+Park+Area" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Universal+Studios+Hollywood+Jurassic+Park+Area" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Universal+Studios+Hollywood+Jurassic+Park+Area&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a7" type="checkbox">
                 <label for="a7">
                     <span>Encontro com o Baby Raptor <span class="stars">★★★★☆</span></span>
-                    <a href="https://maps.google.com/?q=Universal+Studios+Hollywood+Jurassic+Park+Area" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Universal+Studios+Hollywood+Jurassic+Park+Area" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Universal+Studios+Hollywood+Jurassic+Park+Area&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a8" type="checkbox">
                 <label for="a8">
                     <span>Foto com o Indominus Rex animatrônico <span class="stars">★★★★☆</span></span>
-                    <a href="https://maps.google.com/?q=Universal+Studios+Hollywood+Jurassic+Park+Area" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Universal+Studios+Hollywood+Jurassic+Park+Area" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Universal+Studios+Hollywood+Jurassic+Park+Area&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             
@@ -760,63 +776,63 @@
                 <input id="a10" type="checkbox">
                 <label for="a10">
                     <span>The World-Famous Studio Tour <span class="stars">★★★★★</span></span>
-                    <a href="https://maps.google.com/?q=Studio+Tour+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Studio+Tour+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Studio+Tour+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a9" type="checkbox">
                 <label for="a9">
                     <span>Harry Potter and the Forbidden Journey <span class="stars">★★★★★</span></span>
-                    <a href="https://maps.google.com/?q=Harry+Potter+and+the+Forbidden+Journey+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Harry+Potter+and+the+Forbidden+Journey+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Harry+Potter+and+the+Forbidden+Journey+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a18" type="checkbox">
                 <label for="a18">
                     <span>Flight of the Hippogriff <span class="stars">★★★☆☆</span></span>
-                    <a href="https://maps.google.com/?q=Flight+of+the+Hippogriff+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Flight+of+the+Hippogriff+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Flight+of+the+Hippogriff+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a19" type="checkbox">
                 <label for="a19">
                     <span>The Secret Life of Pets: Off the Leash <span class="stars">★★★★☆</span></span>
-                    <a href="https://maps.google.com/?q=The+Secret+Life+of+Pets+Off+the+Leash+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=The+Secret+Life+of+Pets+Off+the+Leash+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=The+Secret+Life+of+Pets+Off+the+Leash+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a13" type="checkbox">
                 <label for="a13">
                     <span>The Simpsons Ride <span class="stars">★★★★☆</span></span>
-                    <a href="https://maps.google.com/?q=The+Simpsons+Ride+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=The+Simpsons+Ride+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=The+Simpsons+Ride+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a20" type="checkbox">
                 <label for="a20">
                     <span>Despicable Me Minion Mayhem <span class="stars">★★★★☆</span></span>
-                    <a href="https://maps.google.com/?q=Despicable+Me+Minion+Mayhem+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Despicable+Me+Minion+Mayhem+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Despicable+Me+Minion+Mayhem+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a14" type="checkbox">
                 <label for="a14">
                     <span>WaterWorld (Show Acrobático) <span class="stars">★★★★★</span></span>
-                    <a href="https://maps.google.com/?q=WaterWorld+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=WaterWorld+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=WaterWorld+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a2" type="checkbox">
                 <label for="a2">
                     <span>Encontrar Mario (Nintendo World) <span class="stars">★★★★☆</span></span>
-                    <a href="https://maps.google.com/?q=Super+Nintendo+World+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Super+Nintendo+World+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Super+Nintendo+World+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a3" type="checkbox">
                 <label for="a3">
                     <span>Encontrar Luigi (Nintendo World) <span class="stars">★★★★☆</span></span>
-                    <a href="https://maps.google.com/?q=Super+Nintendo+World+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Super+Nintendo+World+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Super+Nintendo+World+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
         </div>
@@ -834,14 +850,14 @@
                         <b>Toadstool Cafe (Super Nintendo World)</b> <span class="stars">★★★★★</span><br>
                         Almoço temático planejado para as 11:00. Comida deliciosa e experiência super imersiva. Requer reserva virtual pelo app logo cedo!
                     </div>
-                    <a href="https://maps.google.com/?q=Toadstool+Cafe+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Toadstool+Cafe+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Toadstool+Cafe+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </li>
                 <li style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-top: 8px;">
                     <div>
                         <b>Jurassic Cafe (Jurassic Land)</b> <span class="stars">★★★☆☆</span><br>
                         Refeições de inspiração costarriquenha (arroz, feijão, carnes grelhadas e wraps).
                     </div>
-                    <a href="https://maps.google.com/?q=Jurassic+Cafe+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Jurassic+Cafe+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Jurassic+Cafe+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </li>
             </ul>
 
@@ -852,21 +868,21 @@
                         <b>Three Broomsticks (Wizarding World of Harry Potter)</b> <span class="stars">★★★★★</span><br>
                         Pratos britânicos tradicionais em ambiente medieval rústico. Cerveja Amanteigada (Butterbeer) é parada obrigatória!
                     </div>
-                    <a href="https://maps.google.com/?q=Three+Broomsticks+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Three+Broomsticks+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Three+Broomsticks+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </li>
                 <li style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-top: 8px;">
                     <div>
                         <b>Krusty Burger (Springfield)</b> <span class="stars">★★★★☆</span><br>
                         Hambúrgueres clássicos gigantes baseados na lanchonete da série.
                     </div>
-                    <a href="https://maps.google.com/?q=Krusty+Burger+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Krusty+Burger+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Krusty+Burger+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </li>
                 <li style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-top: 8px;">
                     <div>
                         <b>Lard Lad Donuts (Springfield)</b> <span class="stars">★★★★★</span><br>
                         O icônico donut rosa gigante dos Simpsons, ótimo para dividir com toda a família.
                     </div>
-                    <a href="https://maps.google.com/?q=Lard+Lad+Donuts+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://maps.google.com/?q=Lard+Lad+Donuts+Universal+Studios+Hollywood" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Lard+Lad+Donuts+Universal+Studios+Hollywood&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </li>
             </ul>
         </div>

@@ -34,7 +34,23 @@ h1{color:var(--primary)}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
 .tag{font-size:.7rem;font-weight:700;padding:3px 9px;border-radius:99px;background:color-mix(in srgb,var(--primary) 8%,var(--bg-card));color:var(--primary);border:1px solid color-mix(in srgb,var(--primary) 20%,var(--border));text-transform:uppercase}
 @media(max-width:600px){header{min-height:82px;padding:4px 50px 0;text-align:center}h1{font-size:1.6rem;margin:0 0 4px}.nav-back,.theme-toggle{top:0;width:42px;height:42px;min-height:42px;padding:0;margin:0;border-radius:10px;display:flex;align-items:center;justify-content:center;gap:0;font-size:0;line-height:1}.nav-back{left:0}.theme-toggle{right:0}.nav-back i,.theme-toggle i{font-size:1rem;line-height:1}.grid{grid-template-columns:1fr}body{padding:12px 8px}}
-</style>
+
+        /* ===== WAZE LINK STYLING ===== */
+        .waze-link {
+            color: var(--text-secondary);
+            opacity: 0.6;
+            transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .waze-link:hover {
+            opacity: 1;
+            transform: scale(1.15);
+            color: #33ccff !important;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -48,31 +64,31 @@ h1{color:var(--primary)}
 <div class="grid">
 
 <div class="card">
-<a href="https://www.google.com/maps/search/?api=1&query=Walmart+Los+Angeles" target="_blank"><h2><i class="fa-solid fa-location-dot" style="color:#ea4335"></i> Walmart</h2></a>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;"><a href="https://www.google.com/maps/search/?api=1&query=Walmart+Los+Angeles" target="_blank" style="text-decoration: none; color: inherit;"><h2><i class="fa-solid fa-location-dot" style="color:#ea4335"></i> Walmart</h2></a><a href="https://waze.com/ul?q=Walmart+Los+Angeles&navigate=yes" target="_blank" rel="noopener noreferrer" class="waze-link" title="Ver no Waze" style="font-size: 1.3rem;"><i class="fa-brands fa-waze"></i></a></div>
 <div class="type">Supercenter</div>
 <div class="desc">Grande variedade de alimentos, roupas, eletrônicos, higiene e itens para viagem.</div>
 <div class="tags"><span class="tag">Muito barato</span><span class="tag">Tudo em um lugar</span><span class="tag">24h (algumas lojas)</span></div>
 </div>
 <div class="card">
-<a href="https://www.google.com/maps/search/?api=1&query=Target+Los+Angeles" target="_blank"><h2><i class="fa-solid fa-location-dot" style="color:#ea4335"></i> Target</h2></a>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;"><a href="https://www.google.com/maps/search/?api=1&query=Target+Los+Angeles" target="_blank" style="text-decoration: none; color: inherit;"><h2><i class="fa-solid fa-location-dot" style="color:#ea4335"></i> Target</h2></a><a href="https://waze.com/ul?q=Target+Los+Angeles&navigate=yes" target="_blank" rel="noopener noreferrer" class="waze-link" title="Ver no Waze" style="font-size: 1.3rem;"><i class="fa-brands fa-waze"></i></a></div>
 <div class="type">Loja de Departamento</div>
 <div class="desc">Excelente para alimentos, roupas, eletrônicos, brinquedos e produtos de higiene.</div>
 <div class="tags"><span class="tag">Completo</span><span class="tag">Turista</span><span class="tag">Qualidade</span></div>
 </div>
 <div class="card">
-<a href="https://www.google.com/maps/search/?api=1&query=Costco+Los+Angeles" target="_blank"><h2><i class="fa-solid fa-location-dot" style="color:#ea4335"></i> Costco</h2></a>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;"><a href="https://www.google.com/maps/search/?api=1&query=Costco+Los+Angeles" target="_blank" style="text-decoration: none; color: inherit;"><h2><i class="fa-solid fa-location-dot" style="color:#ea4335"></i> Costco</h2></a><a href="https://waze.com/ul?q=Costco+Los+Angeles&navigate=yes" target="_blank" rel="noopener noreferrer" class="waze-link" title="Ver no Waze" style="font-size: 1.3rem;"><i class="fa-brands fa-waze"></i></a></div>
 <div class="type">Atacado</div>
 <div class="desc">Ideal para compras em grande quantidade, snacks, bebidas e o famoso Food Court.</div>
 <div class="tags"><span class="tag">Economia</span><span class="tag">Food Court</span><span class="tag">Volume</span></div>
 </div>
 <div class="card">
-<a href="https://www.google.com/maps/search/?api=1&query=Ralphs+Los+Angeles" target="_blank"><h2><i class="fa-solid fa-location-dot" style="color:#ea4335"></i> Ralphs</h2></a>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;"><a href="https://www.google.com/maps/search/?api=1&query=Ralphs+Los+Angeles" target="_blank" style="text-decoration: none; color: inherit;"><h2><i class="fa-solid fa-location-dot" style="color:#ea4335"></i> Ralphs</h2></a><a href="https://waze.com/ul?q=Ralphs+Los+Angeles&navigate=yes" target="_blank" rel="noopener noreferrer" class="waze-link" title="Ver no Waze" style="font-size: 1.3rem;"><i class="fa-brands fa-waze"></i></a></div>
 <div class="type">Supermercado</div>
 <div class="desc">Rede tradicional muito comum em Los Angeles, ótima para compras do dia a dia.</div>
 <div class="tags"><span class="tag">Conveniência</span><span class="tag">Alimentos</span><span class="tag">Padaria</span></div>
 </div>
 <div class="card">
-<a href="https://www.google.com/maps/search/?api=1&query=Whole+Foods+Market+Los+Angeles" target="_blank"><h2><i class="fa-solid fa-location-dot" style="color:#ea4335"></i> Whole Foods Market</h2></a>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;"><a href="https://www.google.com/maps/search/?api=1&query=Whole+Foods+Market+Los+Angeles" target="_blank" style="text-decoration: none; color: inherit;"><h2><i class="fa-solid fa-location-dot" style="color:#ea4335"></i> Whole Foods Market</h2></a><a href="https://waze.com/ul?q=Whole+Foods+Market+Los+Angeles&navigate=yes" target="_blank" rel="noopener noreferrer" class="waze-link" title="Ver no Waze" style="font-size: 1.3rem;"><i class="fa-brands fa-waze"></i></a></div>
 <div class="type">Orgânicos</div>
 <div class="desc">Rede premium com alimentos naturais, orgânicos e produtos de alta qualidade.</div>
 <div class="tags"><span class="tag">Premium</span><span class="tag">Orgânicos</span><span class="tag">Saudável</span></div>

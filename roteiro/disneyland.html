@@ -481,6 +481,22 @@
                 font-size: 1rem;
             }
         }
+    
+        /* ===== WAZE LINK STYLING ===== */
+        .waze-link {
+            color: var(--text-secondary);
+            opacity: 0.6;
+            transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .waze-link:hover {
+            opacity: 1;
+            transform: scale(1.15);
+            color: #33ccff !important;
+        }
     </style>
 </head>
 <body>
@@ -510,22 +526,22 @@
             <h2><i class="fa-solid fa-clock"></i> Timeline do Dia</h2>
             <div class="timeline">
                 <div class="timeline-item"><span class="time">06:00</span>Sair de casa</div>
-                <div class="timeline-item"><span class="time">07:15</span>Chegar ao estacionamento <a href="https://www.google.com/maps/search/?api=1&query=Mickey+and+Friends+Parking+Structure+Disneyland" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Estacionamento Mickey & Friends no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
-                <div class="timeline-item"><span class="time">08:00</span><b>Entrada no parque (Rope Drop)</b> <a href="https://www.google.com/maps/search/?api=1&query=Disneyland+Park+Anaheim" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Disneyland Park no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
-                <div class="timeline-item"><span class="time">08:05</span><b>Rise of the Resistance</b> (Standby / Galaxy's Edge) <a href="https://www.google.com/maps/search/?api=1&query=Star+Wars+Rise+of+the+Resistance+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Rise of the Resistance no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
-                <div class="timeline-item"><span class="time">08:40</span><b>Millennium Falcon: Smugglers Run</b> (LL / Galaxy's Edge) <a href="https://www.google.com/maps/search/?api=1&query=Millennium+Falcon+Smugglers+Run+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Millennium Falcon no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
-                <div class="timeline-item"><span class="time">09:20</span><b>Big Thunder Mountain Railroad</b> (LL ou Standby / Frontierland) <a href="https://www.google.com/maps/search/?api=1&query=Big+Thunder+Mountain+Railroad+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Big Thunder Mountain no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
-                <div class="timeline-item"><span class="time">10:00</span><b>Pirates of the Caribbean</b> (Standby / New Orleans Square) <a href="https://www.google.com/maps/search/?api=1&query=Pirates+of+the+Caribbean+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Pirates of the Caribbean no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
-                <div class="timeline-item"><span class="time">10:45</span>Haunted Mansion (LL / New Orleans Square) <a href="https://www.google.com/maps/search/?api=1&query=Haunted+Mansion+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Haunted Mansion no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
-                <div class="timeline-item"><span class="time">11:30</span><b>Indiana Jones Adventure</b> (LL / Adventureland) <a href="https://www.google.com/maps/search/?api=1&query=Indiana+Jones+Adventure+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Indiana Jones no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
-                <div class="timeline-item"><span class="time">12:15</span>Almoço (Tiana's Palace / Rancho del Zocalo) <a href="https://www.google.com/maps/search/?api=1&query=Tianas+Palace+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Tiana's Palace no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
-                <div class="timeline-item"><span class="time">13:00</span>Jungle Cruise (Standby / Adventureland) <a href="https://www.google.com/maps/search/?api=1&query=Jungle+Cruise+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Jungle Cruise no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
-                <div class="timeline-item"><span class="time">13:45</span>Fantasyland (brinquedos clássicos de fila menor) <a href="https://www.google.com/maps/search/?api=1&query=Red+Rose+Taverne+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Fantasyland (Red Rose Taverne) no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
-                <div class="timeline-item"><span class="time">15:00</span>Runaway Railway + Toontown (LL) <a href="https://www.google.com/maps/search/?api=1&query=Mickey+Minnie+Runaway+Railway+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Runaway Railway no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
-                <div class="timeline-item"><span class="time">16:30</span>Matterhorn Bobsleds (LL / Fantasyland) <a href="https://www.google.com/maps/search/?api=1&query=Matterhorn+Bobsleds+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Matterhorn no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
-                <div class="timeline-item"><span class="time">17:30</span><b>Space Mountain</b> (LL / Tomorrowland) <a href="https://www.google.com/maps/search/?api=1&query=Space+Mountain+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Space Mountain no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
-                <div class="timeline-item"><span class="time">19:00</span>Jantar (Plaza Inn / Cafe Orleans) <a href="https://www.google.com/maps/search/?api=1&query=Plaza+Inn+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Plaza Inn no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
-                <div class="timeline-item"><span class="time">20:30</span>Posicionar para os fogos (Sleeping Beauty Castle) <a href="https://www.google.com/maps/search/?api=1&query=Sleeping+Beauty+Castle+Disneyland" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Castelo no Google Maps"><i class="fa-solid fa-location-dot"></i></a></div>
+                <div class="timeline-item"><span class="time">07:15</span>Chegar ao estacionamento <a href="https://www.google.com/maps/search/?api=1&query=Mickey+and+Friends+Parking+Structure+Disneyland" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Estacionamento Mickey & Friends no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Mickey+and+Friends+Parking+Structure+Disneyland&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
+                <div class="timeline-item"><span class="time">08:00</span><b>Entrada no parque (Rope Drop)</b> <a href="https://www.google.com/maps/search/?api=1&query=Disneyland+Park+Anaheim" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Disneyland Park no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Disneyland+Park+Anaheim&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
+                <div class="timeline-item"><span class="time">08:05</span><b>Rise of the Resistance</b> (Standby / Galaxy's Edge) <a href="https://www.google.com/maps/search/?api=1&query=Star+Wars+Rise+of+the+Resistance+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Rise of the Resistance no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Star+Wars+Rise+of+the+Resistance+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
+                <div class="timeline-item"><span class="time">08:40</span><b>Millennium Falcon: Smugglers Run</b> (LL / Galaxy's Edge) <a href="https://www.google.com/maps/search/?api=1&query=Millennium+Falcon+Smugglers+Run+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Millennium Falcon no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Millennium+Falcon+Smugglers+Run+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
+                <div class="timeline-item"><span class="time">09:20</span><b>Big Thunder Mountain Railroad</b> (LL ou Standby / Frontierland) <a href="https://www.google.com/maps/search/?api=1&query=Big+Thunder+Mountain+Railroad+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Big Thunder Mountain no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Big+Thunder+Mountain+Railroad+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
+                <div class="timeline-item"><span class="time">10:00</span><b>Pirates of the Caribbean</b> (Standby / New Orleans Square) <a href="https://www.google.com/maps/search/?api=1&query=Pirates+of+the+Caribbean+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Pirates of the Caribbean no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Pirates+of+the+Caribbean+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
+                <div class="timeline-item"><span class="time">10:45</span>Haunted Mansion (LL / New Orleans Square) <a href="https://www.google.com/maps/search/?api=1&query=Haunted+Mansion+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Haunted Mansion no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Haunted+Mansion+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
+                <div class="timeline-item"><span class="time">11:30</span><b>Indiana Jones Adventure</b> (LL / Adventureland) <a href="https://www.google.com/maps/search/?api=1&query=Indiana+Jones+Adventure+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Indiana Jones no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Indiana+Jones+Adventure+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
+                <div class="timeline-item"><span class="time">12:15</span>Almoço (Tiana's Palace / Rancho del Zocalo) <a href="https://www.google.com/maps/search/?api=1&query=Tianas+Palace+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Tiana's Palace no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Tianas+Palace+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
+                <div class="timeline-item"><span class="time">13:00</span>Jungle Cruise (Standby / Adventureland) <a href="https://www.google.com/maps/search/?api=1&query=Jungle+Cruise+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Jungle Cruise no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Jungle+Cruise+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
+                <div class="timeline-item"><span class="time">13:45</span>Fantasyland (brinquedos clássicos de fila menor) <a href="https://www.google.com/maps/search/?api=1&query=Red+Rose+Taverne+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Fantasyland (Red Rose Taverne) no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Red+Rose+Taverne+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
+                <div class="timeline-item"><span class="time">15:00</span>Runaway Railway + Toontown (LL) <a href="https://www.google.com/maps/search/?api=1&query=Mickey+Minnie+Runaway+Railway+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Runaway Railway no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Mickey+Minnie+Runaway+Railway+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
+                <div class="timeline-item"><span class="time">16:30</span>Matterhorn Bobsleds (LL / Fantasyland) <a href="https://www.google.com/maps/search/?api=1&query=Matterhorn+Bobsleds+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Matterhorn no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Matterhorn+Bobsleds+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
+                <div class="timeline-item"><span class="time">17:30</span><b>Space Mountain</b> (LL / Tomorrowland) <a href="https://www.google.com/maps/search/?api=1&query=Space+Mountain+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Space Mountain no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Space+Mountain+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
+                <div class="timeline-item"><span class="time">19:00</span>Jantar (Plaza Inn / Cafe Orleans) <a href="https://www.google.com/maps/search/?api=1&query=Plaza+Inn+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Plaza Inn no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Plaza+Inn+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
+                <div class="timeline-item"><span class="time">20:30</span>Posicionar para os fogos (Sleeping Beauty Castle) <a href="https://www.google.com/maps/search/?api=1&query=Sleeping+Beauty+Castle+Disneyland" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver Castelo no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Sleeping+Beauty+Castle+Disneyland&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a></div>
                 <div class="timeline-item"><span class="time">21:30</span>Show de Fogos (Together Forever)</div>
             </div>
         </div>
@@ -542,35 +558,35 @@
             <input type="checkbox" id="ll8">
             <label for="ll8">
                 <span>1. Millennium Falcon: Smugglers Run — Galaxy's Edge</span>
-                <a href="https://www.google.com/maps/search/?api=1&query=Millennium+Falcon+Smugglers+Run+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Millennium+Falcon+Smugglers+Run+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Millennium+Falcon+Smugglers+Run+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
             </label>
         </div>
         <div class="check">
             <input type="checkbox" id="ll3">
             <label for="ll3">
                 <span>2. Big Thunder Mountain Railroad — Frontierland</span>
-                <a href="https://www.google.com/maps/search/?api=1&query=Big+Thunder+Mountain+Railroad+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Big+Thunder+Mountain+Railroad+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Big+Thunder+Mountain+Railroad+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
             </label>
         </div>
         <div class="check">
             <input type="checkbox" id="ll2">
             <label for="ll2">
                 <span>3. Haunted Mansion — New Orleans Square</span>
-                <a href="https://www.google.com/maps/search/?api=1&query=Haunted+Mansion+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Haunted+Mansion+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Haunted+Mansion+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
             </label>
         </div>
         <div class="check">
             <input type="checkbox" id="ll0">
             <label for="ll0">
                 <span>4. Indiana Jones Adventure — Adventureland</span>
-                <a href="https://www.google.com/maps/search/?api=1&query=Indiana+Jones+Adventure+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Indiana+Jones+Adventure+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Indiana+Jones+Adventure+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
             </label>
         </div>
         <div class="check">
             <input type="checkbox" id="ll6">
             <label for="ll6">
                 <span>5. Mickey & Minnie's Runaway Railway — Mickey's Toontown</span>
-                <a href="https://www.google.com/maps/search/?api=1&query=Mickey+Minnie+Runaway+Railway+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Mickey+Minnie+Runaway+Railway+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Mickey+Minnie+Runaway+Railway+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
             </label>
         </div>
     </section>
@@ -585,14 +601,14 @@
                 <input id="a0" type="checkbox">
                 <label for="a0">
                     <span>Rise of the Resistance <span class="stars">★★★★★</span></span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Star+Wars+Rise+of+the+Resistance+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Star+Wars+Rise+of+the+Resistance+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Star+Wars+Rise+of+the+Resistance+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a1" type="checkbox">
                 <label for="a1">
                     <span>Millennium Falcon: Smugglers Run <span class="stars">★★★★☆</span></span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Millennium+Falcon+Smugglers+Run+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Millennium+Falcon+Smugglers+Run+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Millennium+Falcon+Smugglers+Run+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             
@@ -601,7 +617,7 @@
                 <input id="a14" type="checkbox">
                 <label for="a14">
                     <span>Big Thunder Mountain Railroad <span class="stars">★★★★★</span></span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Big+Thunder+Mountain+Railroad+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Big+Thunder+Mountain+Railroad+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Big+Thunder+Mountain+Railroad+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             
@@ -610,14 +626,14 @@
                 <input id="a12" type="checkbox">
                 <label for="a12">
                     <span>Pirates of the Caribbean <span class="stars">★★★★★</span></span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Pirates+of+the+Caribbean+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Pirates+of+the+Caribbean+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Pirates+of+the+Caribbean+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a13" type="checkbox">
                 <label id="a13_lbl" for="a13">
                     <span>Haunted Mansion <span class="stars">★★★★★</span></span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Haunted+Mansion+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Haunted+Mansion+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Haunted+Mansion+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             
@@ -626,14 +642,14 @@
                 <input id="a10" type="checkbox">
                 <label for="a10">
                     <span>Indiana Jones Adventure <span class="stars">★★★★★</span></span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Indiana+Jones+Adventure+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Indiana+Jones+Adventure+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Indiana+Jones+Adventure+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a11" type="checkbox">
                 <label for="a11">
                     <span>Jungle Cruise <span class="stars">★★★☆☆</span></span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Jungle+Cruise+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Jungle+Cruise+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Jungle+Cruise+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             
@@ -642,42 +658,42 @@
                 <input id="a2" type="checkbox">
                 <label for="a2">
                     <span>Peter Pan's Flight <span class="stars">★★★★★</span></span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Peter+Pan+Flight+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Peter+Pan+Flight+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Peter+Pan+Flight+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a18" type="checkbox">
                 <label for="a18">
                     <span>Matterhorn Bobsleds <span class="stars">★★★★★</span></span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Matterhorn+Bobsleds+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Matterhorn+Bobsleds+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Matterhorn+Bobsleds+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a3" type="checkbox">
                 <label for="a3">
                     <span>Alice in Wonderland <span class="stars">★★★★☆</span></span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Alice+in+Wonderland+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Alice+in+Wonderland+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Alice+in+Wonderland+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a4" type="checkbox">
                 <label for="a4">
                     <span>Mr. Toad's Wild Ride <span class="stars">★★★★☆</span></span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Mr+Toad+Wild+Ride+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Mr+Toad+Wild+Ride+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Mr+Toad+Wild+Ride+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a5" type="checkbox">
                 <label for="a5">
                     <span>Pinocchio's Daring Journey <span class="stars">★★★☆☆</span></span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Pinocchio+Daring+Journey+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Pinocchio+Daring+Journey+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Pinocchio+Daring+Journey+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a6" type="checkbox">
                 <label for="a6">
                     <span>Snow White's Enchanted Wish <span class="stars">★★★☆☆</span></span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Snow+White+Enchanted+Wish+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Snow+White+Enchanted+Wish+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Snow+White+Enchanted+Wish+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             
@@ -686,28 +702,28 @@
                 <input id="a15" type="checkbox">
                 <label for="a15">
                     <span>Runaway Railway <span class="stars">★★★★★</span></span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Mickey+Minnie+Runaway+Railway+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Mickey+Minnie+Runaway+Railway+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Mickey+Minnie+Runaway+Railway+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a19" type="checkbox">
                 <label for="a19">
                     <span>Roger Rabbit's Car Toon Spin <span class="stars">★★★★☆</span></span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Roger+Rabbit+Car+Toon+Spin+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Roger+Rabbit+Car+Toon+Spin+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Roger+Rabbit+Car+Toon+Spin+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a16" type="checkbox">
                 <label for="a16">
                     <span>Mickey's House <span class="stars">★★★★☆</span></span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Mickeys+House+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Mickeys+House+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Mickeys+House+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a17" type="checkbox">
                 <label for="a17">
                     <span>Minnie's House <span class="stars">★★★★☆</span></span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Minnies+House+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Minnies+House+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Minnies+House+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
 
@@ -716,21 +732,21 @@
                 <input id="a7" type="checkbox">
                 <label for="a7">
                     <span>Space Mountain <span class="stars">★★★★★</span></span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Space+Mountain+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Space+Mountain+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Space+Mountain+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a8" type="checkbox">
                 <label for="a8">
                     <span>Buzz Lightyear Astro Blasters <span class="stars">★★★★☆</span></span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Buzz+Lightyear+Astro+Blasters+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Buzz+Lightyear+Astro+Blasters+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Buzz+Lightyear+Astro+Blasters+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
             <div class="check">
                 <input id="a9" type="checkbox">
                 <label for="a9">
                     <span>Star Tours — The Adventures Continue <span class="stars">★★★★☆</span></span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Star+Tours+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Star+Tours+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Star+Tours+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </label>
             </div>
         </div>
@@ -748,14 +764,14 @@
                         <b>Docking Bay 7 Food and Cargo</b> <span class="stars">★★★★★</span><br>
                         Melhor opção de almoço, refeições rápidas porém muito completas e saborosas.
                     </div>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Docking+Bay+7+Food+and+Cargo+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Docking+Bay+7+Food+and+Cargo+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Docking+Bay+7+Food+and+Cargo+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </li>
                 <li style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-top: 8px;">
                     <div>
                         <b>Ronto Roasters</b> <span class="stars">★★★★☆</span><br>
                         Excelente para um wrap rápido ou lanche no meio da tarde.
                     </div>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Ronto+Roasters+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Ronto+Roasters+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Ronto+Roasters+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </li>
             </ul>
 
@@ -766,7 +782,7 @@
                         <b>Rancho del Zocalo Restaurante</b> <span class="stars">★★★★☆</span><br>
                         Comida mexicana em porções bem servidas sob pátio sombreado.
                     </div>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Rancho+del+Zocalo+Restaurante+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Rancho+del+Zocalo+Restaurante+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Rancho+del+Zocalo+Restaurante+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </li>
             </ul>
 
@@ -777,14 +793,14 @@
                         <b>Tiana's Palace</b> <span class="stars">★★★★★</span><br>
                         Especialidades inspiradas na culinária de New Orleans (Cajun/Creole).
                     </div>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Tianas+Palace+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Tianas+Palace+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Tianas+Palace+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </li>
                 <li style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-top: 8px;">
                     <div>
                         <b>Cafe Orleans</b> <span class="stars">★★★★☆</span><br>
                         Serviço de mesa (necessita reserva), famoso pelo sanduíche Monte Cristo.
                     </div>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Cafe+Orleans+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Cafe+Orleans+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Cafe+Orleans+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </li>
             </ul>
 
@@ -795,7 +811,7 @@
                         <b>Hungry Bear Barbecue Jamboree</b> <span class="stars">★★★★☆</span><br>
                         Pratos de churrasco estilo americano (BBQ) ao ar livre.
                     </div>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Hungry+Bear+Barbecue+Jamboree+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Hungry+Bear+Barbecue+Jamboree+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Hungry+Bear+Barbecue+Jamboree+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </li>
             </ul>
 
@@ -806,7 +822,7 @@
                         <b>Red Rose Taverne</b> <span class="stars">★★⭐⭐☆</span><br>
                         Hambúrgueres e flatbreads temáticos baseados em A Bela e a Fera.
                     </div>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Red+Rose+Taverne+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Red+Rose+Taverne+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Red+Rose+Taverne+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </li>
             </ul>
 
@@ -817,7 +833,7 @@
                         <b>Galactic Grill</b> <span class="stars">★★★☆☆</span><br>
                         Hambúrgueres, wraps e saladas clássicas de fast food.
                     </div>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Galactic+Grill+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Galactic+Grill+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Galactic+Grill+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </li>
             </ul>
 
@@ -828,14 +844,14 @@
                         <b>Plaza Inn</b> <span class="stars">★★★★★</span><br>
                         Famoso e generoso prato de frango frito tradicional da Disney.
                     </div>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Plaza+Inn+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Plaza+Inn+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Plaza+Inn+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </li>
                 <li style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-top: 8px;">
                     <div>
                         <b>Jolly Holiday Bakery Cafe</b> <span class="stars">★★★★★</span><br>
                         Sanduíches deliciosos, doces finos e excelente café da manhã/tarde.
                     </div>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Jolly+Holiday+Bakery+Cafe+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Jolly+Holiday+Bakery+Cafe+Disneyland+California" target="_blank" rel="noopener noreferrer" class="map-link" title="Ver no Google Maps"><i class="fa-solid fa-location-dot"></i></a> <a href="https://waze.com/ul?q=Jolly+Holiday+Bakery+Cafe+Disneyland+California&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-link waze-link" title="Ver no Waze"><i class="fa-brands fa-waze"></i></a>
                 </li>
             </ul>
         </div>
