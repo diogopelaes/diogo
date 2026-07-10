@@ -1,72 +1,169 @@
 <!DOCTYPE html>
 <html lang="pt-BR" data-theme="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Calculadora de Gorjeta</title>
-<link rel="icon" type="image/png" href="gorjeta-icon.png">
-<style>
-:root{--bg:#151c2c;--card:#1d2636;--text:#e2e8f0;--muted:#94a3b8;--border:#2b364a;--primary:#8fa3c2;}
-*{box-sizing:border-box}
-body{margin:0;padding:16px;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,sans-serif}
-.container{max-width:520px;margin:auto}
-.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:16px}
-h1{margin:0 0 20px;color:var(--primary)}
-label{display:block;margin-bottom:8px;color:var(--muted);font-weight:600}
-input,select{width:100%;padding:16px;font-size:1.15rem;border-radius:12px;border:1px solid var(--border);background:#111827;color:var(--text);appearance:auto;-webkit-appearance:menulist}
-.row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)}
-.row:last-child{border:none}
-.value{font-size:1.6rem;font-weight:700;color:var(--primary)}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Gorjeta</title>
+
+    <link rel="icon" type="image/png" href="gorjeta-icon.png">
+
+    <style>
+        :root {
+            --bg: #151c2c;
+            --card: #1d2636;
+            --text: #e2e8f0;
+            --muted: #94a3b8;
+            --border: #2b364a;
+            --primary: #8fa3c2;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 16px;
+            background: var(--bg);
+            color: var(--text);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        .container {
+            max-width: 520px;
+            margin: auto;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            margin: 0 0 20px;
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 16px;
+            font-size: 1.15rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: #111827;
+            color: var(--text);
+            appearance: auto;
+            -webkit-appearance: menulist;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .row:last-child {
+            border-bottom: none;
+        }
+
+        .value {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+    </style>
 </head>
+
 <body>
+
 <div class="container">
-<div class="card">
-<h1>Calculadora de Gorjeta</h1>
 
-<label>Valor total da conta (US$)</label>
-<input id="bill" type="number" inputmode="decimal" step="0.01" placeholder="68.13">
+    <div class="card">
+        <h1>Calculadora de Gorjeta</h1>
 
-<div style="height:16px"></div>
+        <label for="bill">Valor total da conta (US$)</label>
+        <input
+            id="bill"
+            type="number"
+            inputmode="decimal"
+            step="0.01"
+            placeholder="68.13"
+        >
 
-<label>Gorjeta</label>
-<select id="tip">
-<option value="20" selected>20%</option>
-<option value="18">18%</option>
-</select>
-</div>
+        <div style="height:16px"></div>
 
-<div class="card">
-<div class="row"><span>Valor da gorjeta</span><span id="tipValue" class="value">$0.00</span></div>
-<div class="row"><span>Total</span><span id="total" class="value">$0.00</span></div>
-</div>
+        <label for="tip">Gorjeta</label>
 
-<div class="card">
-<div class="row"><span>Arredondado para baixo</span><span id="down">$0.00</span></div>
-<div class="row"><span>Arredondado para cima</span><span id="up">$0.00</span></div>
-</div>
+        <select id="tip">
+            <option value="18">18%</option>
+            <option value="20" selected>20%</option>
+            <option value="22">22%</option>
+        </select>
+    </div>
+
+    <div class="card">
+
+        <div class="row">
+            <span>Valor da gorjeta</span>
+            <span id="tipValue" class="value">$0.00</span>
+        </div>
+
+        <div class="row">
+            <span>Total</span>
+            <span id="total" class="value">$0.00</span>
+        </div>
+
+    </div>
+
 </div>
 
 <script>
-const bill=document.getElementById("bill");
-const tip=document.getElementById("tip");
-const fmt=v=>new Intl.NumberFormat("en-US",{style:"currency",currency:"USD"}).format(v);
+const bill = document.getElementById("bill");
+const tip = document.getElementById("tip");
 
-function calc(){
- const subtotal=parseFloat(bill.value)||0;
- const pct=parseFloat(tip.value)/100;
- const tipAmt=subtotal*pct;
- const total=subtotal+tipAmt;
- tipValue.textContent=fmt(tipAmt);
- document.getElementById("total").textContent=fmt(total);
- document.getElementById("down").textContent=fmt(Math.floor(total));
- document.getElementById("up").textContent=fmt(Math.ceil(total));
+const formatCurrency = value =>
+    new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD"
+    }).format(value);
+
+function calculate() {
+
+    const subtotal = parseFloat(bill.value) || 0;
+    const percentage = parseFloat(tip.value) / 100;
+
+    const tipAmount = subtotal * percentage;
+    const total = subtotal + tipAmount;
+
+    document.getElementById("tipValue").textContent =
+        formatCurrency(tipAmount);
+
+    document.getElementById("total").textContent =
+        formatCurrency(total);
 }
-bill.addEventListener("input",calc);
-tip.addEventListener("change",calc);
-bill.addEventListener("focus",()=>bill.select());
-bill.addEventListener("click",()=>bill.select());
-calc();
+
+bill.addEventListener("input", calculate);
+tip.addEventListener("change", calculate);
+
+bill.addEventListener("focus", () => bill.select());
+bill.addEventListener("click", () => bill.select());
+
+calculate();
 </script>
+
 </body>
 </html>
