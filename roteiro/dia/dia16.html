@@ -4,107 +4,189 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Roteiro 16/07 - Six Flags Magic Mountain</title>
+
 <link rel="stylesheet" href="style.css">
 <script src="script.js"></script>
+
 <style>
-.checklist{list-style:none;padding:0;margin:0}
-.checklist li{margin:12px 0}
-.checklist label{display:flex;align-items:center;gap:12px;cursor:pointer}
-.checklist input[type=checkbox]{width:22px;height:22px;accent-color:var(--primary)}
+.checklist{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+.checklist li{
+    margin:12px 0;
+    padding-bottom:10px;
+    border-bottom:1px solid var(--border);
+}
+.checklist label{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    cursor:pointer;
+}
+.checklist input[type=checkbox]{
+    width:22px;
+    height:22px;
+    accent-color:var(--primary);
+}
 </style>
+
 </head>
+
 <body>
 
 <h1>🎢 Six Flags Magic Mountain - 16/07</h1>
 
 <div class="card">
+
 <h2>🚗 Saída</h2>
+
 <b>08:45</b>
-<p>Sair de casa para chegar cedo ao parque.</p>
-<input readonly value="26101 Magic Mountain Pkwy, Valencia, CA 91355" onclick="this.select()">
+
+<p>Sair de casa.</p>
+
+<input
+readonly
+value="26101 Magic Mountain Pkwy, Valencia, CA 91355"
+onclick="this.select()">
+
 <button onclick="cp(this)">📋 Copiar endereço</button>
+
 </div>
 
 <div class="card">
+
 <h2>🅿️ Chegada</h2>
+
 <b>09:40–10:20</b>
-<pre>• Pagar estacionamento
+
+<pre>
+• Pagar estacionamento
 • Fotografar a vaga
 • Abrir Google Wallet
 • Admission Ticket
 • Meal Voucher
-• Fast Lane Ultimate</pre>
+• Fast Lane Ultimate
+</pre>
+
 </div>
 
 <div class="card">
+
 <h2>🎢 Planejamento do dia</h2>
-<pre>10:30 Entrada
-10:35 X2
-11:05 Viper
-11:25 Tatsu
+
+<pre>
+10:30 Entrada
+
+10:35 X2 (Samurai Summit)
+
+11:05 Viper (Samurai Summit)
+
+11:25 Tatsu (Samurai Summit)
 
 12:00 🍔 Refeição
 
-12:40 Wonder Woman
-13:05 Batman
-13:25 Lex Luthor
+12:40 Wonder Woman (DC Universe)
 
-14:00 Twisted Colossus
-14:30 Scream
-14:50 Riddler's Revenge
+13:05 Batman (DC Universe)
+
+13:25 Lex Luthor (DC Universe)
+
+14:00 Twisted Colossus (The Underground)
+
+14:30 Scream (The Underground)
+
+14:50 Riddler's Revenge (The Underground)
 
 15:20 🍔 Refeição
 
-15:50 Full Throttle
-16:15 Goliath
-16:40 West Coast Racers
-17:05 Apocalypse
-17:30 Gold Rusher
-17:45 Ninja
+15:50 Full Throttle (Full Throttle Plaza)
+
+16:15 Goliath (The Underground)
+
+16:40 West Coast Racers (Screampunk District)
+
+17:05 Apocalypse (Screampunk District)
+
+17:30 Gold Rusher (Rapids Camp Crossing)
+
+17:45 Ninja (High Sierra Territory)
 
 18:00 🍔 Refeição
 
 18:30–22:00
-Repetir:
+
+Repetir favoritas
+
 • X2
 • Wonder Woman
 • Twisted Colossus
 • Tatsu
 • West Coast Racers
-• Full Throttle</pre>
+• Full Throttle
+</pre>
+
 </div>
 
 <div class="card">
+
 <h2>★★★★★ Imperdíveis</h2>
+
 <ul class="checklist">
-<li><label><input type="checkbox">X2</label></li>
-<li><label><input type="checkbox">Wonder Woman Flight of Courage</label></li>
-<li><label><input type="checkbox">Twisted Colossus</label></li>
-<li><label><input type="checkbox">Tatsu</label></li>
-<li><label><input type="checkbox">West Coast Racers</label></li>
-<li><label><input type="checkbox">Full Throttle</label></li>
+
+<li><label><input type="checkbox">X2 (Samurai Summit)</label></li>
+
+<li><label><input type="checkbox">Wonder Woman Flight of Courage (DC Universe)</label></li>
+
+<li><label><input type="checkbox">Twisted Colossus (The Underground)</label></li>
+
+<li><label><input type="checkbox">Tatsu (Samurai Summit)</label></li>
+
+<li><label><input type="checkbox">West Coast Racers (Screampunk District)</label></li>
+
+<li><label><input type="checkbox">Full Throttle (Full Throttle Plaza)</label></li>
+
 </ul>
+
 </div>
 
 <div class="card">
+
 <h2>★★★★ Muito boas</h2>
+
 <ul class="checklist">
-<li><label><input type="checkbox">Batman: The Ride</label></li>
-<li><label><input type="checkbox">Riddler's Revenge</label></li>
-<li><label><input type="checkbox">Scream</label></li>
-<li><label><input type="checkbox">Goliath</label></li>
-<li><label><input type="checkbox">Apocalypse</label></li>
+
+<li><label><input type="checkbox">Batman: The Ride (DC Universe)</label></li>
+
+<li><label><input type="checkbox">Riddler's Revenge (The Underground)</label></li>
+
+<li><label><input type="checkbox">Scream (The Underground)</label></li>
+
+<li><label><input type="checkbox">Goliath (The Underground)</label></li>
+
+<li><label><input type="checkbox">Apocalypse (Screampunk District)</label></li>
+
 </ul>
+
 </div>
 
 <div class="card">
+
 <h2>★★★ Se sobrar tempo</h2>
+
 <ul class="checklist">
-<li><label><input type="checkbox">Viper</label></li>
-<li><label><input type="checkbox">Ninja</label></li>
-<li><label><input type="checkbox">Gold Rusher</label></li>
-<li><label><input type="checkbox">Lex Luthor Drop of Doom</label></li>
+
+<li><label><input type="checkbox">Viper (Samurai Summit)</label></li>
+
+<li><label><input type="checkbox">Ninja (High Sierra Territory)</label></li>
+
+<li><label><input type="checkbox">Gold Rusher (Rapids Camp Crossing)</label></li>
+
+<li><label><input type="checkbox">Lex Luthor: Drop of Doom (DC Universe)</label></li>
+
 </ul>
+
 </div>
 
 </body>
