@@ -1,4 +1,6 @@
 :root{
+    color-scheme:light dark;
+
     --bg:#f3f5f7;
     --surface:#ffffff;
     --surface2:#eef3f8;
@@ -504,13 +506,20 @@ input{
 
     appearance:none;
     -webkit-appearance:none;
+    -moz-appearance:none;
+
+    forced-color-adjust:none;
 
     width:24px;
     height:24px;
 
+    margin:0;
+
     border:2px solid var(--primary);
 
     border-radius:7px;
+
+    background:var(--surface);
 
     flex-shrink:0;
 
