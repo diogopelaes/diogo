@@ -1,17 +1,24 @@
-function cp(btn) {
-    const i = btn.parentNode.querySelector("input");
+function cp(button) {
+    const input = button.parentNode.querySelector("input");
 
-    i.select();
-    i.setSelectionRange(0, 99999);
+    if (!input) return;
 
-    document.execCommand("copy");
+    input.select();
+    input.setSelectionRange(0, 99999);
 
-    const t = btn.textContent;
-    btn.textContent = "✅ Copiado";
+    try {
+        document.execCommand("copy");
 
-    setTimeout(() => {
-        btn.textContent = t;
-    }, 1500);
+        const textoOriginal = button.textContent;
+        button.textContent = "✅ Copiado";
+
+        setTimeout(() => {
+            button.textContent = textoOriginal;
+        }, 1500);
+
+    } catch (e) {
+        button.textContent = "Selecione e copie";
+    }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -21,23 +28,29 @@ document.addEventListener("DOMContentLoaded", () => {
         function atualizar() {
 
             // Risca o item da checklist
-            cb.parentElement.classList.toggle("done", cb.checked);
+            const label = cb.closest("label");
 
-            // Risca o item correspondente no planejamento
-            const id = cb.dataset.target;
+            if (label) {
+                label.classList.toggle("done", cb.checked);
+            }
 
-            if (id) {
-                const item = document.getElementById(id);
+            // Risca o item correspondente no Planejamento do Dia
+            const target = cb.dataset.target;
 
-                if (item) {
-                    item.classList.toggle("done", cb.checked);
+            if (target) {
+                const agenda = document.getElementById(target);
+
+                if (agenda) {
+                    agenda.classList.toggle("done", cb.checked);
                 }
             }
         }
 
         cb.addEventListener("change", atualizar);
 
+        // Atualiza ao carregar a página
         atualizar();
+
     });
 
 });
