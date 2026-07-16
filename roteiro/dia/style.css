@@ -1,25 +1,163 @@
 :root{
- --bg:#f3f5f7;--surface:#fff;--surface2:#eef3f8;--text:#1f2937;
- --muted:#5b6472;--primary:#2563eb;--primary-hover:#1d4ed8;
- --border:#d7dde7;--shadow:0 8px 24px rgba(0,0,0,.08)
+    --bg:#f3f5f7;
+    --surface:#ffffff;
+    --surface2:#eef3f8;
+    --text:#1f2937;
+    --muted:#5b6472;
+    --primary:#2563eb;
+    --primary-hover:#1d4ed8;
+    --border:#d7dde7;
+    --shadow:0 8px 24px rgba(0,0,0,.08);
 }
-@media(prefers-color-scheme:dark){
-:root{
- --bg:#0f172a;--surface:#1e293b;--surface2:#273449;--text:#f3f4f6;
- --muted:#cbd5e1;--primary:#60a5fa;--primary-hover:#93c5fd;
- --border:#3b4b63;--shadow:0 8px 24px rgba(0,0,0,.35)
-}}
-*{box-sizing:border-box}
-body{margin:0;padding:20px;font-family:system-ui;background:linear-gradient(180deg,var(--bg),var(--surface2));color:var(--text)}
-h1,.card{max-width:900px;margin:auto}
-h1{margin-bottom:20px}
-.card{background:var(--surface);margin-top:16px;padding:18px;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow)}
-h2{margin-top:0;color:var(--primary)}
-input[type=text]{width:100%;padding:12px;border-radius:10px;border:2px solid var(--border)}
-button{margin-top:10px;padding:12px 18px;border:0;border-radius:10px;background:var(--primary);color:#fff;font-weight:bold}
-.checklist{list-style:none;padding:0}
-.checklist li{margin:10px 0}
-.checklist label{display:flex;gap:10px;align-items:center}
-.agenda-item{display:flex;gap:12px;padding:6px 0;border-bottom:1px dashed var(--border)}
-.hora{width:70px;font-weight:bold;color:var(--primary)}
-.done{text-decoration:line-through;opacity:.5}
+
+@media (prefers-color-scheme: dark){
+    :root{
+        --bg:#0f172a;
+        --surface:#1e293b;
+        --surface2:#273449;
+        --text:#f3f4f6;
+        --muted:#cbd5e1;
+        --primary:#60a5fa;
+        --primary-hover:#93c5fd;
+        --border:#3b4b63;
+        --shadow:0 8px 24px rgba(0,0,0,.35);
+    }
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    padding:20px;
+    font-family:system-ui, Arial, sans-serif;
+    background:linear-gradient(180deg,var(--bg),var(--surface2));
+    color:var(--text);
+}
+
+h1,
+.card{
+    max-width:900px;
+    margin:auto;
+}
+
+h1{
+    margin-bottom:20px;
+}
+
+.card{
+    margin-top:16px;
+    padding:18px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:18px;
+    box-shadow:var(--shadow);
+}
+
+h2{
+    margin:0 0 12px;
+    color:var(--primary);
+}
+
+input[type="text"]{
+    width:100%;
+    padding:12px;
+    border:2px solid var(--border);
+    border-radius:10px;
+    background:var(--surface2);
+    color:var(--text);
+    font-size:15px;
+}
+
+button{
+    margin-top:10px;
+    padding:12px 18px;
+    border:none;
+    border-radius:10px;
+    background:var(--primary);
+    color:#fff;
+    font-weight:700;
+    cursor:pointer;
+    transition:.2s;
+}
+
+button:hover{
+    background:var(--primary-hover);
+}
+
+/* ===========================
+   Planejamento do dia
+   =========================== */
+
+.agenda-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:8px 0;
+    border-bottom:1px dashed var(--border);
+    transition:.2s;
+}
+
+.agenda-item:last-child{
+    border-bottom:none;
+}
+
+.hora{
+    width:70px;
+    flex-shrink:0;
+    font-weight:700;
+    color:var(--primary);
+}
+
+.agenda-item span:last-child{
+    flex:1;
+}
+
+/* ===========================
+   Checklist
+   =========================== */
+
+.checklist{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.checklist li{
+    margin:12px 0;
+}
+
+.checklist label{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    cursor:pointer;
+    user-select:none;
+}
+
+.checklist input[type="checkbox"]{
+    width:22px;
+    height:22px;
+    margin:0;
+    flex-shrink:0;
+    accent-color:var(--primary);
+}
+
+/* ===========================
+   Itens concluídos
+   =========================== */
+
+.checklist label.done{
+    text-decoration:line-through;
+    opacity:.55;
+}
+
+.agenda-item.done{
+    text-decoration:line-through;
+    opacity:.55;
+}
+
+.agenda-item.done .hora{
+    opacity:1;
+}
