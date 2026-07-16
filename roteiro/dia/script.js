@@ -18,3 +18,24 @@ function cp(button) {
         button.textContent = "Selecione e copie";
     }
 }
+
+// Risca automaticamente o texto da atração quando o checkbox é marcado
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".checklist input[type='checkbox']").forEach(cb => {
+
+        const atualizar = () => {
+            const texto = cb.parentElement;
+
+            if (cb.checked) {
+                texto.style.textDecoration = "line-through";
+                texto.style.opacity = "0.6";
+            } else {
+                texto.style.textDecoration = "none";
+                texto.style.opacity = "1";
+            }
+        };
+
+        cb.addEventListener("change", atualizar);
+        atualizar();
+    });
+});
