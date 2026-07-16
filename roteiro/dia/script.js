@@ -1,41 +1,43 @@
-function cp(button) {
-    const input = button.parentNode.querySelector("input");
+function cp(btn) {
+    const i = btn.parentNode.querySelector("input");
 
-    input.select();
-    input.setSelectionRange(0, 99999); // Compatibilidade com dispositivos móveis
+    i.select();
+    i.setSelectionRange(0, 99999);
 
-    try {
-        document.execCommand("copy");
+    document.execCommand("copy");
 
-        const textoOriginal = button.textContent;
-        button.textContent = "✅ Copiado";
+    const t = btn.textContent;
+    btn.textContent = "✅ Copiado";
 
-        setTimeout(() => {
-            button.textContent = textoOriginal;
-        }, 1500);
-
-    } catch (e) {
-        button.textContent = "Selecione e copie";
-    }
+    setTimeout(() => {
+        btn.textContent = t;
+    }, 1500);
 }
 
-// Risca automaticamente o texto da atração quando o checkbox é marcado
 document.addEventListener("DOMContentLoaded", () => {
+
     document.querySelectorAll(".checklist input[type='checkbox']").forEach(cb => {
 
-        const atualizar = () => {
-            const texto = cb.parentElement;
+        function atualizar() {
 
-            if (cb.checked) {
-                texto.style.textDecoration = "line-through";
-                texto.style.opacity = "0.6";
-            } else {
-                texto.style.textDecoration = "none";
-                texto.style.opacity = "1";
+            // Risca o item da checklist
+            cb.parentElement.classList.toggle("done", cb.checked);
+
+            // Risca o item correspondente no planejamento
+            const id = cb.dataset.target;
+
+            if (id) {
+                const item = document.getElementById(id);
+
+                if (item) {
+                    item.classList.toggle("done", cb.checked);
+                }
             }
-        };
+        }
 
         cb.addEventListener("change", atualizar);
+
         atualizar();
     });
+
 });
