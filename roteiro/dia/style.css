@@ -479,9 +479,7 @@ input{
 }
 
 .ride{
-    display:flex;
-    align-items:center;
-    gap:14px;
+    display:block;
 
     padding:14px 16px;
 
@@ -513,7 +511,9 @@ input{
     width:24px;
     height:24px;
 
-    margin:0;
+    margin:0 12px 0 0;
+
+    vertical-align:middle;
 
     border:2px solid var(--primary);
 
@@ -523,7 +523,7 @@ input{
 
     flex-shrink:0;
 
-    display:grid;
+    display:inline-grid;
     place-items:center;
 
     transition:.15s;
@@ -559,23 +559,15 @@ input{
 
 }
 
-.ride-text{
-
-    flex:1;
-
-    line-height:1.35;
-
-}
-
 .ride-time{
 
-    display:block;
+    display:inline-block;
+
+    vertical-align:middle;
 
     color:var(--primary);
 
     font-weight:700;
-
-    margin-bottom:2px;
 
 }
 
@@ -583,11 +575,16 @@ input{
 
     display:block;
 
+    margin-top:8px;
+
     font-size:1rem;
+
+    line-height:1.35;
 
 }
 
-.ride input:checked + .ride-text{
+.ride input:checked ~ .ride-time,
+.ride input:checked ~ .ride-name{
 
     text-decoration:line-through;
 
