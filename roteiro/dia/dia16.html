@@ -1,108 +1,35 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Roteiro 16/07 - Six Flags Magic Mountain</title>
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
-<style>
-.checklist{list-style:none;padding:0;margin:0}
-.checklist li{margin:12px 0}
-.checklist label{display:flex;align-items:center;gap:12px;cursor:pointer}
-.checklist input[type=checkbox]{width:22px;height:22px;accent-color:var(--primary)}
-</style>
-</head>
-<body>
-
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dia16</title><link rel="stylesheet" href="style.css"><script defer src="script.js"></script></head><body>
 <h1>🎢 Six Flags Magic Mountain - 16/07</h1>
-
-<div class="card">
-<h2>🚗 Saída</h2>
-<b>08:45</b>
-<p>Sair de casa para chegar cedo ao parque.</p>
-<input readonly value="26101 Magic Mountain Pkwy, Valencia, CA 91355" onclick="this.select()">
-<button onclick="cp(this)">📋 Copiar endereço</button>
-</div>
-
-<div class="card">
-<h2>🅿️ Chegada</h2>
-<b>09:40–10:20</b>
-<pre>• Pagar estacionamento
-• Fotografar a vaga
-• Abrir Google Wallet
-• Admission Ticket
-• Meal Voucher
-• Fast Lane Ultimate</pre>
-</div>
-
-<div class="card">
-<h2>🎢 Planejamento do dia</h2>
-<pre>10:30 Entrada
-10:35 Wonder Woman
-11:00 Viper
-11:20 Tatsu
-
-12:00 🍔 Refeição
-
-12:40 Batman
-13:00 Lex Luthor
-
-13:30 Twisted Colossus
-14:00 Scream
-14:20 Riddler's Revenge
-
-15:00 🍔 Refeição
-
-15:30 Full Throttle
-15:55 Goliath
-16:20 West Coast Racers
-16:45 Apocalypse
-17:10 Gold Rusher
-17:25 Ninja
-
-18:00 🍔 Refeição
-
-18:30–22:00
-Repetir:
-• Wonder Woman
-• Twisted Colossus
-• Tatsu
-• West Coast Racers
-• Full Throttle</pre>
-</div>
-
-<div class="card">
-<h2>★★★★★ Imperdíveis</h2>
-<ul class="checklist">
-<li><label><input type="checkbox">Wonder Woman Flight of Courage</label></li>
-<li><label><input type="checkbox">Twisted Colossus</label></li>
-<li><label><input type="checkbox">Tatsu</label></li>
-<li><label><input type="checkbox">West Coast Racers</label></li>
-<li><label><input type="checkbox">Full Throttle</label></li>
-</ul>
-</div>
-
-<div class="card">
-<h2>★★★★ Muito boas</h2>
-<ul class="checklist">
-<li><label><input type="checkbox">Batman: The Ride</label></li>
-<li><label><input type="checkbox">Riddler's Revenge</label></li>
-<li><label><input type="checkbox">Scream</label></li>
-<li><label><input type="checkbox">Goliath</label></li>
-<li><label><input type="checkbox">Apocalypse</label></li>
-</ul>
-</div>
-
-<div class="card">
-<h2>★★★ Se sobrar tempo</h2>
-<ul class="checklist">
-<li><label><input type="checkbox">Viper</label></li>
-<li><label><input type="checkbox">Ninja</label></li>
-<li><label><input type="checkbox">Gold Rusher</label></li>
-<li><label><input type="checkbox">Lex Luthor Drop of Doom</label></li>
-</ul>
-</div>
-
-</body>
-</html>
+<div class="card"><h2>Endereço</h2><input type="text" readonly value="26101 Magic Mountain Pkwy, Valencia, CA 91355" onclick="this.select()"><button onclick="cp(this)">📋 Copiar endereço</button></div>
+<div class="card"><h2>Planejamento do dia</h2><div class="agenda-item" id="ww"><span class="hora">10:35</span><span>Wonder Woman Flight of Courage</span></div>
+<div class="agenda-item" id="vip"><span class="hora">11:00</span><span>Viper</span></div>
+<div class="agenda-item" id="tat"><span class="hora">11:20</span><span>Tatsu</span></div>
+<div class="agenda-item" id="meal1"><span class="hora">12:00</span><span>🍔 Refeição</span></div>
+<div class="agenda-item" id="bat"><span class="hora">12:40</span><span>Batman</span></div>
+<div class="agenda-item" id="lex"><span class="hora">13:00</span><span>Lex Luthor</span></div>
+<div class="agenda-item" id="tw"><span class="hora">13:30</span><span>Twisted Colossus</span></div>
+<div class="agenda-item" id="scr"><span class="hora">14:00</span><span>Scream</span></div>
+<div class="agenda-item" id="rid"><span class="hora">14:20</span><span>Riddler's Revenge</span></div>
+<div class="agenda-item" id="meal2"><span class="hora">15:00</span><span>🍔 Refeição</span></div>
+<div class="agenda-item" id="ft"><span class="hora">15:30</span><span>Full Throttle</span></div>
+<div class="agenda-item" id="gol"><span class="hora">15:55</span><span>Goliath</span></div>
+<div class="agenda-item" id="wc"><span class="hora">16:20</span><span>West Coast Racers</span></div>
+<div class="agenda-item" id="apo"><span class="hora">16:45</span><span>Apocalypse</span></div>
+<div class="agenda-item" id="gold"><span class="hora">17:10</span><span>Gold Rusher</span></div>
+<div class="agenda-item" id="nin"><span class="hora">17:25</span><span>Ninja</span></div>
+<div class="agenda-item" id="meal3"><span class="hora">18:00</span><span>🍔 Refeição</span></div></div>
+<div class="card"><h2>Atrações</h2><ul class="checklist"><li><label><input type="checkbox" data-target="ww">Wonder Woman Flight of Courage</label></li>
+<li><label><input type="checkbox" data-target="tw">Twisted Colossus</label></li>
+<li><label><input type="checkbox" data-target="tat">Tatsu</label></li>
+<li><label><input type="checkbox" data-target="wc">West Coast Racers</label></li>
+<li><label><input type="checkbox" data-target="ft">Full Throttle</label></li>
+<li><label><input type="checkbox" data-target="bat">Batman</label></li>
+<li><label><input type="checkbox" data-target="rid">Riddler's Revenge</label></li>
+<li><label><input type="checkbox" data-target="scr">Scream</label></li>
+<li><label><input type="checkbox" data-target="gol">Goliath</label></li>
+<li><label><input type="checkbox" data-target="apo">Apocalypse</label></li>
+<li><label><input type="checkbox" data-target="vip">Viper</label></li>
+<li><label><input type="checkbox" data-target="nin">Ninja</label></li>
+<li><label><input type="checkbox" data-target="gold">Gold Rusher</label></li>
+<li><label><input type="checkbox" data-target="lex">Lex Luthor Drop of Doom</label></li></ul></div>
+</body></html>
