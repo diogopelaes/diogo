@@ -1,105 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Six Flags Magic Mountain - 16/07</title>
+
+<link rel="stylesheet" href="style.css">
+<script defer src="script.js"></script>
+
+</head>
+
+<body>
+
+<header class="hero">
+    <h1>🎢 Six Flags Magic Mountain</h1>
+    <p>16 de Julho • Fast Lane Ultimate + Dining Plan</p>
+</header>
+
+<div class="container">
+
 <div class="card">
-    <h2>Atrações</h2>
 
-    <ul class="checklist">
+<h2>📍 Informações</h2>
 
-        <li>
-            <label>
-                <input type="checkbox" data-target="ww">
-                <span>Wonder Woman Flight of Courage</span>
-            </label>
-        </li>
+<p><strong>Endereço</strong></p>
 
-        <li>
-            <label>
-                <input type="checkbox" data-target="tw">
-                <span>Twisted Colossus</span>
-            </label>
-        </li>
-
-        <li>
-            <label>
-                <input type="checkbox" data-target="tat">
-                <span>Tatsu</span>
-            </label>
-        </li>
-
-        <li>
-            <label>
-                <input type="checkbox" data-target="wc">
-                <span>West Coast Racers</span>
-            </label>
-        </li>
-
-        <li>
-            <label>
-                <input type="checkbox" data-target="ft">
-                <span>Full Throttle</span>
-            </label>
-        </li>
-
-        <li>
-            <label>
-                <input type="checkbox" data-target="bat">
-                <span>Batman</span>
-            </label>
-        </li>
-
-        <li>
-            <label>
-                <input type="checkbox" data-target="rid">
-                <span>Riddler's Revenge</span>
-            </label>
-        </li>
-
-        <li>
-            <label>
-                <input type="checkbox" data-target="scr">
-                <span>Scream</span>
-            </label>
-        </li>
-
-        <li>
-            <label>
-                <input type="checkbox" data-target="gol">
-                <span>Goliath</span>
-            </label>
-        </li>
-
-        <li>
-            <label>
-                <input type="checkbox" data-target="apo">
-                <span>Apocalypse</span>
-            </label>
-        </li>
-
-        <li>
-            <label>
-                <input type="checkbox" data-target="vip">
-                <span>Viper</span>
-            </label>
-        </li>
-
-        <li>
-            <label>
-                <input type="checkbox" data-target="nin">
-                <span>Ninja</span>
-            </label>
-        </li>
-
-        <li>
-            <label>
-                <input type="checkbox" data-target="gold">
-                <span>Gold Rusher</span>
-            </label>
-        </li>
-
-        <li>
-            <label>
-                <input type="checkbox" data-target="lex">
-                <span>Lex Luthor Drop of Doom</span>
-            </label>
-        </li>
-
-    </ul>
+<div class="copy-box">
+    <input
+        type="text"
+        readonly
+        value="26101 Magic Mountain Pkwy, Valencia, CA 91355">
+    <button onclick="cp(this)">📋 Copiar</button>
 </div>
+
+<ul>
+
+<li>🎟 Admission Ticket</li>
+<li>⚡ Fast Lane Ultimate</li>
+<li>🍔 Dining Plan</li>
+<li>📷 Tire foto da vaga do estacionamento.</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>🕒 Planejamento do Dia</h2>
+
+<div class="agenda-item">
+    <span class="hora">08:45</span>
+    <span>🚗 Saída de casa</span>
+</div>
+
+<div class="agenda-item">
+    <span class="hora">09:40</span>
+    <span>🅿️ Estacionamento</span>
+</div>
+
+<div class="agenda-item">
+    <span class="hora">09:50</span>
+    <span>🎟 Entrada no parque</span>
+</div>
+
+<div class="agenda-item">
+    <span class="hora">10:30</span>
+    <span>🚀 Início das atrações</span>
+</div>
+
+<h3>🦸 DC Universe</h3>
+
+<div class="agenda-item" id="ww">
+    <span class="hora">10:35</span>
+    <span>Wonder Woman Flight of Courage</span>
+</div>
+
+<div class="agenda-item" id="batman">
+    <span class="hora">10:50</span>
+    <span>Batman: The Ride</span>
+</div>
+
+<div class="agenda-item" id="lex">
+    <span class="hora">11:05</span>
+    <span>Lex Luthor: Drop of Doom</span>
+</div>
+
+<div class="agenda-item" id="riddler">
+    <span class="hora">11:20</span>
+    <span>Riddler's Revenge</span>
+</div>
+
+<div class="agenda-item">
+    <span class="hora">12:00</span>
+    <span>🍔 Refeição #1</span>
+</div>
+
+<h3>🏭 Screampunk District</h3>
+
+<div class="agenda-item" id="twisted">
+    <span class="hora">12:30</span>
+    <span>Twisted Colossus</span>
+</div>
+
+<div class="agenda-item" id="full">
+    <span class="hora">12:45</span>
+    <span>Full Throttle</span>
+</div>
+
+<div class="agenda-item" id="scream">
+    <span class="hora">13:00</span>
+    <span>Scream</span>
+</div>
+
+<div class="agenda-item">
+    <span class="hora">13:30</span>
+    <span>🍦 Sorvete / Bebida</span>
+</div>
+<h3>🚇 The Underground</h3>
+
+<div class="agenda-item" id="wc">
+    <span class="hora">13:50</span>
+    <span>West Coast Racers</span>
+</div>
+
+<div class="agenda-item" id="apo">
+    <span class="hora">14:10</span>
+    <span>Apocalypse</span>
+</div>
+
+<h3>🏯 Samurai Summit</h3>
+
+<div class="agenda-item" id="tatsu">
+    <span class="hora">14:35</span>
+    <span>Tatsu</span>
+</div>
+
+<div class="agenda-item" id="ninja">
+    <span class="hora">14:55</span>
+    <span>Ninja</span>
+</div>
+
+<div class="agenda-item">
+    <span class="hora">15:30</span>
+    <span>🍔 Refeição #2</span>
+</div>
+
+<h3>🤠 Frontier City</h3>
+
+<div class="agenda-item" id="gold">
+    <span class="hora">16:00</span>
+    <span>Gold Rusher</span>
+</div>
+
+<h3>🎡 The Boardwalk</h3>
+
+<div class="agenda-item" id="viper">
+    <span class="hora">16:20</span>
+    <span>Viper</span>
+</div>
+
+<h3>🐰 Bugs Bunny World</h3>
+
+<div class="agenda-item" id="goliath">
+    <span class="hora">16:45</span>
+    <span>Goliath</span>
+</div>
+
+<div class="agenda-item">
+    <span class="hora">18:00</span>
+    <span>🍔 Refeição #3</span>
+</div>
+
+<h3>⭐ Repetições</h3>
+
+<div class="agenda-item" id="ww2">
+    <span class="hora">18:30</span>
+    <span>Wonder Woman Flight of Courage</span>
+</div>
+
+<div class="agenda-item" id="twisted2">
+    <span class="hora">19:00</span>
+    <span>Twisted Colossus</span>
+</div>
+
+<div class="agenda-item" id="wc2">
+    <span class="hora">19:30</span>
+    <span>West Coast Racers</span>
+</div>
+
+<div class="agenda-item" id="tatsu2">
+    <span class="hora">20:00</span>
+    <span>Tatsu</span>
+</div>
+
+<div class="agenda-item" id="full2">
+    <span class="hora">20:30</span>
+    <span>Full Throttle</span>
+</div>
+
+<div class="agenda-item" id="batman2">
+    <span class="hora">21:00</span>
+    <span>Batman: The Ride</span>
+</div>
+
+<div class="agenda-item">
+    <span class="hora">21:30</span>
+    <span>🛍 Compras</span>
+</div>
+
+<div class="agenda-item">
+    <span class="hora">22:00</span>
+    <span>🚗 Saída do parque</span>
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>✅ Checklist das atrações</h2>
+
+<ul class="checklist">
+
+<li>
+<label>
+<input type="checkbox" data-target="ww">
+<span>Wonder Woman Flight of Courage</span>
+</label>
+</li>
+
+<li>
+<label>
+<input type="checkbox" data-target="batman">
+<span>Batman: The Ride</span>
+</label>
+</li>
+
+<li>
+<label>
+<input type="checkbox" data-target="lex">
+<span>Lex Luthor: Drop of Doom</span>
+</label>
+</li>
+
+<li>
+<label>
+<input type="checkbox" data-target="riddler">
+<span>Riddler's Revenge</span>
+</label>
+</li>
+
+<li>
+<label>
+<input type="checkbox" data-target="twisted">
+<span>Twisted Colossus</span>
+</label>
+</li>
+
+<li>
+<label>
+<input type="checkbox" data-target="full">
+<span>Full Throttle</span>
+</label>
+</li>
+
+<li>
+<label>
+<input type="checkbox" data-target="scream">
+<span>Scream</span>
+</label>
+</li>
+
+<li>
+<label>
+<input type="checkbox" data-target="wc">
+<span>West Coast Racers</span>
+</label>
+</li>
+
+<li>
+<label>
+<input type="checkbox" data-target="apo">
+<span>Apocalypse</span>
+</label>
+</li>
+
+<li>
+<label>
+<input type="checkbox" data-target="tatsu">
+<span>Tatsu</span>
+</label>
+</li>
+
+<li>
+<label>
+<input type="checkbox" data-target="ninja">
+<span>Ninja</span>
+</label>
+</li>
+
+<li>
+<label>
+<input type="checkbox" data-target="gold">
+<span>Gold Rusher</span>
+</label>
+</li>
+
+<li>
+<label>
+<input type="checkbox" data-target="viper">
+<span>Viper</span>
+</label>
+</li>
+
+<li>
+<label>
+<input type="checkbox" data-target="goliath">
+<span>Goliath</span>
+</label>
+</li>
+
+<hr>
+
+<li>
+<label>
+<input type="checkbox" data-target="ww2">
+<span>Repetir Wonder Woman</span>
+</label>
+</li>
+
+<li>
+<label>
+<input type="checkbox" data-target="twisted2">
+<span>Repetir Twisted Colossus</span>
+</label>
+</li>
+
+<li>
+<label>
+<input type="checkbox" data-target="wc2">
+<span>Repetir West Coast Racers</span>
+</label>
+</li>
+
+<li>
+<label>
+<input type="checkbox" data-target="tatsu2">
+<span>Repetir Tatsu</span>
+</label>
+</li>
+
+<li>
+<label>
+<input type="checkbox" data-target="full2">
+<span>Repetir Full Throttle</span>
+</label>
+</li>
+
+<li>
+<label>
+<input type="checkbox" data-target="batman2">
+<span>Repetir Batman: The Ride</span>
+</label>
+</li>
+
+</ul>
+
+</div>
+
+<footer class="card">
+
+<h2>🏆 Prioridade Máxima</h2>
+
+<ol>
+
+<li>Wonder Woman Flight of Courage</li>
+<li>Twisted Colossus</li>
+<li>West Coast Racers</li>
+<li>Tatsu</li>
+<li>Full Throttle</li>
+<li>Batman: The Ride</li>
+<li>Lex Luthor</li>
+<li>Riddler's Revenge</li>
+<li>Goliath</li>
+
+</ol>
+
+<p>
+💡 Se sobrar tempo, repita nesta ordem:
+Wonder Woman → Twisted Colossus → West Coast Racers →
+Tatsu → Full Throttle → Batman.
+</p>
+
+</footer>
+
+</div>
+
+</body>
+</html>
