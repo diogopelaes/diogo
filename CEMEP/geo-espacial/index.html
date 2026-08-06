@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Página de apoio ao estudo de Geometria Espacial com comandos GeoGebra para copiar e colar.">
+  <title>Geometria Espacial – Comandos GeoGebra</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ════════════════ HEADER ════════════════ -->
+<header class="site-header">
+  <div class="header-inner">
+    <h1 class="site-title">Geometria Espacial — <span>Comandos GeoGebra</span></h1>
+    <div class="controls">
+      <div class="search-wrapper">
+        <input type="search" id="search-input" class="search-box" placeholder="Buscar comando ou conceito…" aria-label="Buscar">
+      </div>
+      <span id="search-count" class="search-count"></span>
+      <div class="btn-group">
+        <button class="btn" id="btn-expand">▼ Expandir tudo</button>
+        <button class="btn" id="btn-collapse">▲ Recolher tudo</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ════════════════ TOC ════════════════ -->
+<nav class="toc">
+  <div class="toc-title">Índice</div>
+  <div class="toc-grid">
+    <a class="toc-link" href="#q1"><span class="toc-num">1</span>Conceitos iniciais</a>
+    <a class="toc-link" href="#q2"><span class="toc-num">2</span>Representação e relações básicas</a>
+    <a class="toc-link" href="#q3"><span class="toc-num">3</span>Retas no espaço</a>
+    <a class="toc-link" href="#q4"><span class="toc-num">4</span>Planos no espaço</a>
+    <a class="toc-link" href="#q5"><span class="toc-num">5</span>Reta e plano</a>
+    <a class="toc-link" href="#q6"><span class="toc-num">6</span>Determinação geométrica</a>
+    <a class="toc-link" href="#q7"><span class="toc-num">7</span>Paralelismo e propriedades</a>
+    <a class="toc-link" href="#q8"><span class="toc-num">8</span>Ângulos no espaço</a>
+    <a class="toc-link" href="#q9"><span class="toc-num">9</span>Perpendicularidade</a>
+    <a class="toc-link" href="#q10"><span class="toc-num">10</span>Planos e perpendicularidade</a>
+    <a class="toc-link" href="#q11"><span class="toc-num">11</span>Projeções</a>
+    <a class="toc-link" href="#q12"><span class="toc-num">12</span>Distâncias no espaço</a>
+    <a class="toc-link" href="#q13"><span class="toc-num">13</span>Síntese conceitual</a>
+  </div>
+</nav>
+
+<!-- ════════════════ MAIN ════════════════ -->
+<main class="main-content">
+
+<!-- ════════════════════════════════════════════════════════
+     QUESTÃO 1 – Conceitos iniciais
+     ════════════════════════════════════════════════════════ -->
+<section class="chapter" id="q1">
+  <div class="chapter-header">
+    <span class="chapter-arrow">▶</span>
+    <h2 class="chapter-title">Questão 1 – Conceitos iniciais</h2>
+  </div>
+  <div class="chapter-content"><div class="chapter-body">
+
+    <!-- Item a -->
+    <div class="item" id="q1a">
+      <h3 class="item-title">Item a) Quais são as noções primitivas da geometria espacial?</h3>
+      <p class="observation">As noções primitivas são ponto, reta e plano. Não possuem definição formal, são aceitas intuitivamente. Os comandos abaixo criam exemplos visuais de cada uma.</p>
+      <div class="card"><code class="card-command">A = (1, 2, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (3, 4, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (2, 0, 3)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α = Plano(A, B, C)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+    </div>
+
+    <!-- Item b -->
+    <div class="item" id="q1b">
+      <h3 class="item-title">Item b) O que é um ponto (ex: A, B, C)?</h3>
+      <p class="description">Um ponto é uma noção primitiva que indica posição, sem dimensão. Exemplificamos com pontos no espaço 3D.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (3, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 4, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">D = (0, 0, 5)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+    </div>
+
+    <!-- Item c -->
+    <div class="item" id="q1c">
+      <h3 class="item-title">Item c) O que é uma reta (ex: r, s, t)?</h3>
+      <p class="description">Uma reta é um conjunto infinito de pontos alinhados, sem espessura e sem extremidades. Criamos retas passando por dois pontos.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 3, 2)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (1, 5, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">D = (3, 1, 4)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">s = Reta(C, D)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+    </div>
+
+    <!-- Item d -->
+    <div class="item" id="q1d">
+      <h3 class="item-title">Item d) O que é um plano (ex: α, β, γ)?</h3>
+      <p class="description">Um plano é uma superfície infinita, sem espessura, determinada por três pontos não colineares.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α = Plano(A, B, C)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">D = (1, 1, 3)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">E = (4, 1, 3)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">F = (1, 4, 3)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">β = Plano(D, E, F)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+    </div>
+
+    <!-- Item e -->
+    <div class="item" id="q1e">
+      <h3 class="item-title">Item e) Como se define o "Espaço" (conjunto de pontos)?</h3>
+      <p class="observation">O espaço é o conjunto de todos os pontos. Não se restringe a nenhum plano. Os comandos abaixo criam pontos espalhados por todo o espaço 3D, fora de um único plano, ilustrando a ideia.</p>
+      <div class="card"><code class="card-command">P1 = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">P2 = (3, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">P3 = (0, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">P4 = (0, 0, 3)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">P5 = (2, 2, 2)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">P6 = (-1, 3, 4)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+    </div>
+
+  </div></div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     QUESTÃO 2 – Representação e relações básicas
+     ════════════════════════════════════════════════════════ -->
+<section class="chapter" id="q2">
+  <div class="chapter-header">
+    <span class="chapter-arrow">▶</span>
+    <h2 class="chapter-title">Questão 2 – Representação e relações básicas</h2>
+  </div>
+  <div class="chapter-content"><div class="chapter-body">
+
+    <!-- Item a -->
+    <div class="item" id="q2a">
+      <h3 class="item-title">Item a) Como pontos, retas e planos são representados na matemática?</h3>
+      <p class="description">Pontos são letras maiúsculas, retas são letras minúsculas, planos são letras gregas. Os comandos criam esses elementos para visualização.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (3, 2, 1)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (1, 4, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α = Plano(A, B, C)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+    </div>
+
+    <!-- Item b -->
+    <div class="item" id="q2b">
+      <h3 class="item-title">Item b) O que significa um ponto P pertencer a uma reta r (P ∈ r)?</h3>
+      <p class="description">Um ponto pertence a uma reta quando está sobre ela. Criamos uma reta e mostramos um ponto sobre ela e outro fora.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 4, 4)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">P = (2, 2, 2)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">P está sobre a reta r (P ∈ r) pois é o ponto médio de A e B.</p>
+      <div class="card"><code class="card-command">Q = (1, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">Q não pertence à reta r (Q ∉ r).</p>
+    </div>
+
+    <!-- Item c -->
+    <div class="item" id="q2c">
+      <h3 class="item-title">Item c) O que significa uma reta r estar contida em um plano α (r ⊂ α)?</h3>
+      <p class="description">Uma reta está contida em um plano quando todos os seus pontos pertencem ao plano.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α = Plano(A, B, C)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">A reta r está inteiramente contida no plano α (r ⊂ α), pois A e B estão em α.</p>
+      <div class="card"><code class="card-command">D = (2, 1, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">E = (3, 2, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">s = Reta(D, E)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">A reta s também está contida no plano α (s ⊂ α).</p>
+    </div>
+
+    <!-- Item d -->
+    <div class="item" id="q2d">
+      <h3 class="item-title">Item d) Qual a relação entre pontos não colineares e a determinação de um plano α?</h3>
+      <p class="description">Três pontos não colineares (que não estão na mesma reta) determinam um único plano.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (2, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α = Plano(A, B, C)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">A, B e C não são colineares, logo determinam o plano α de forma única.</p>
+      <div class="card"><code class="card-command">r = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">Se C estivesse sobre r, os três pontos seriam colineares e não determinariam um plano único.</p>
+    </div>
+
+    <!-- Item e -->
+    <div class="item" id="q2e">
+      <h3 class="item-title">Item e) O que significa dizer que retas são coplanares?</h3>
+      <p class="description">Retas coplanares são retas que pertencem a um mesmo plano. Retas paralelas e retas concorrentes são coplanares.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">D = (4, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">s = Reta(C, D)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α = Plano(A, B, C)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">As retas r e s são coplanares pois ambas estão contidas no plano α (z = 0).</p>
+    </div>
+
+  </div></div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     QUESTÃO 3 – Retas no espaço
+     ════════════════════════════════════════════════════════ -->
+<section class="chapter" id="q3">
+  <div class="chapter-header">
+    <span class="chapter-arrow">▶</span>
+    <h2 class="chapter-title">Questão 3 – Retas no espaço</h2>
+  </div>
+  <div class="chapter-content"><div class="chapter-body">
+
+    <!-- Item a -->
+    <div class="item" id="q3a">
+      <h3 class="item-title">Item a) Quando duas retas r e s são paralelas (r ∥ s)?</h3>
+      <p class="description">Duas retas são paralelas quando são coplanares e não possuem ponto em comum.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">D = (4, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">s = Reta(C, D)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">r ∥ s — ambas horizontais, mesma direção, sem ponto comum, contidas no plano z = 0.</p>
+    </div>
+
+    <!-- Item b -->
+    <div class="item" id="q3b">
+      <h3 class="item-title">Item b) Quando duas retas são concorrentes?</h3>
+      <p class="description">Duas retas são concorrentes quando são coplanares e possuem exatamente um ponto em comum.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 4, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">D = (0, 4, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">s = Reta(C, D)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">I = Interseção(r, s)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">As retas r e s são concorrentes e se cruzam no ponto I = (2, 2, 0).</p>
+    </div>
+
+    <!-- Item c -->
+    <div class="item" id="q3c">
+      <h3 class="item-title">Item c) O que são retas paralelas coincidentes?</h3>
+      <p class="description">Retas coincidentes são retas que possuem todos os pontos em comum — são a mesma reta.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (3, 3, 3)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (1, 1, 1)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">D = (2, 2, 2)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">s = Reta(C, D)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">As retas r e s são coincidentes pois C e D pertencem à reta r. São a mesma reta.</p>
+    </div>
+
+    <!-- Item d -->
+    <div class="item" id="q3d">
+      <h3 class="item-title">Item d) O que são retas reversas?</h3>
+      <p class="description">Retas reversas são retas que NÃO são coplanares — não há plano que contenha ambas. Não são paralelas nem concorrentes.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 2, 1)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">D = (0, 2, 4)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">s = Reta(C, D)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">r está no plano z = 0 ao longo do eixo x. s é vertical e está deslocada. Não existe um plano que contenha ambas — são reversas.</p>
+    </div>
+
+    <!-- Item e -->
+    <div class="item" id="q3e">
+      <h3 class="item-title">Item e) Qual a diferença principal entre retas paralelas e reversas em relação a estarem contidas num mesmo plano α?</h3>
+      <p class="description">Paralelas são coplanares (existe plano que as contém). Reversas não são coplanares (nenhum plano as contém simultaneamente). Os comandos abaixo mostram os dois casos.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">D = (4, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">s_par = Reta(C, D)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α = Plano(A, B, C)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">r e s_par são paralelas — ambas no plano α.</p>
+      <div class="card"><code class="card-command">E = (1, 0, 2)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">F = (1, 4, 2)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">s_rev = Reta(E, F)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">r e s_rev são reversas — não há plano que contenha ambas.</p>
+    </div>
+
+  </div></div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     QUESTÃO 4 – Planos no espaço
+     ════════════════════════════════════════════════════════ -->
+<section class="chapter" id="q4">
+  <div class="chapter-header">
+    <span class="chapter-arrow">▶</span>
+    <h2 class="chapter-title">Questão 4 – Planos no espaço</h2>
+  </div>
+  <div class="chapter-content"><div class="chapter-body">
+
+    <!-- Item a -->
+    <div class="item" id="q4a">
+      <h3 class="item-title">Item a) Quando dois planos α e β são paralelos (α ∥ β)?</h3>
+      <p class="description">Dois planos são paralelos quando não possuem nenhum ponto em comum.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α = Plano(A, B, C)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">D = (0, 0, 3)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">E = (4, 0, 3)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">F = (0, 3, 3)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">β = Plano(D, E, F)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">α (z = 0) e β (z = 3) são planos paralelos — não possuem interseção.</p>
+    </div>
+
+    <!-- Item b -->
+    <div class="item" id="q4b">
+      <h3 class="item-title">Item b) Quando dois planos α e β são secantes?</h3>
+      <p class="description">Dois planos são secantes quando possuem pontos em comum, formando uma reta de interseção.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α = Plano(A, B, C)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">D = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">E = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">F = (2, 0, 3)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">β = Plano(D, E, F)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">α e β se cruzam — são planos secantes.</p>
+    </div>
+
+    <!-- Item c -->
+    <div class="item" id="q4c">
+      <h3 class="item-title">Item c) O que é a intersecção α ∩ β entre dois planos secantes?</h3>
+      <p class="description">A intersecção de dois planos secantes é o conjunto de pontos que pertencem a ambos os planos.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 4, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α = Plano(A, B, C)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">D = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">E = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">F = (2, 2, 3)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">β = Plano(D, E, F)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">t = Interseção(α, β)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">t = α ∩ β é a reta de interseção dos planos secantes.</p>
+    </div>
+
+    <!-- Item d -->
+    <div class="item" id="q4d">
+      <h3 class="item-title">Item d) Qual é a forma geométrica resultante dessa intersecção (traço)?</h3>
+      <p class="description">O traço (interseção) de dois planos secantes é sempre uma reta.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 4, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α = Plano(A, B, C)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">D = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">E = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">F = (0, 0, 4)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">β = Plano(D, E, F)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">traço = Interseção(α, β)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">O traço é a reta que passa por A e E — a intersecção é sempre uma reta.</p>
+    </div>
+
+  </div></div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     QUESTÃO 5 – Reta e plano
+     ════════════════════════════════════════════════════════ -->
+<section class="chapter" id="q5">
+  <div class="chapter-header">
+    <span class="chapter-arrow">▶</span>
+    <h2 class="chapter-title">Questão 5 – Reta e plano</h2>
+  </div>
+  <div class="chapter-content"><div class="chapter-body">
+
+    <!-- Item a -->
+    <div class="item" id="q5a">
+      <h3 class="item-title">Item a) Quais são as três posições relativas possíveis de uma reta r em relação a um plano α?</h3>
+      <p class="description">Uma reta pode estar (1) contida no plano, (2) paralela ao plano, ou (3) ser secante ao plano. Os comandos abaixo mostram cada caso.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 4, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α = Plano(A, B, C)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r_contida = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">r_contida ⊂ α — a reta está contida no plano.</p>
+      <div class="card"><code class="card-command">D = (0, 0, 2)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">E = (4, 0, 2)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r_paralela = Reta(D, E)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">r_paralela ∥ α — a reta é paralela ao plano (não o toca).</p>
+      <div class="card"><code class="card-command">F = (2, 2, -2)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">G = (2, 2, 3)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r_secante = Reta(F, G)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">r_secante é secante a α — cruza o plano em exatamente um ponto.</p>
+    </div>
+
+    <!-- Item b -->
+    <div class="item" id="q5b">
+      <h3 class="item-title">Item b) Quando uma reta r está contida em um plano α?</h3>
+      <p class="description">Quando todos os pontos da reta pertencem ao plano.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α = Plano(A, B, C)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">r ⊂ α — todos os pontos de r estão no plano α.</p>
+    </div>
+
+    <!-- Item c -->
+    <div class="item" id="q5c">
+      <h3 class="item-title">Item c) Quando uma reta r é paralela a um plano α (r ∥ α)?</h3>
+      <p class="description">Quando a reta não possui nenhum ponto em comum com o plano e não está contida nele.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α = Plano(A, B, C)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">D = (0, 0, 2)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">E = (4, 0, 2)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(D, E)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">r ∥ α — a reta está a uma distância constante do plano, sem tocá-lo.</p>
+    </div>
+
+    <!-- Item d -->
+    <div class="item" id="q5d">
+      <h3 class="item-title">Item d) Quando uma reta r é secante a um plano α?</h3>
+      <p class="description">Quando a reta possui exatamente um ponto em comum com o plano.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α = Plano(A, B, C)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">D = (2, 1, -3)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">E = (2, 1, 3)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(D, E)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">P = Interseção(r, α)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">r é secante a α — cruza o plano no ponto P.</p>
+    </div>
+
+  </div></div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     QUESTÃO 6 – Determinação geométrica
+     ════════════════════════════════════════════════════════ -->
+<section class="chapter" id="q6">
+  <div class="chapter-header">
+    <span class="chapter-arrow">▶</span>
+    <h2 class="chapter-title">Questão 6 – Determinação geométrica</h2>
+  </div>
+  <div class="chapter-content"><div class="chapter-body">
+
+    <!-- Item a -->
+    <div class="item" id="q6a">
+      <h3 class="item-title">Item a) Quantos pontos distintos são necessários para determinar uma única reta?</h3>
+      <p class="description">Dois pontos distintos determinam uma única reta.</p>
+      <div class="card"><code class="card-command">A = (1, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 3, 2)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">Dois pontos distintos A e B determinam uma única reta r.</p>
+    </div>
+
+    <!-- Item b -->
+    <div class="item" id="q6b">
+      <h3 class="item-title">Item b) Quantos pontos são necessários para determinar um único plano?</h3>
+      <p class="description">Três pontos não colineares determinam um único plano.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (2, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α = Plano(A, B, C)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">Três pontos não colineares A, B e C determinam o plano α de forma única.</p>
+    </div>
+
+    <!-- Item c -->
+    <div class="item" id="q6c">
+      <h3 class="item-title">Item c) Por que a condição de "não colinearidade" é exigida no postulado da determinação de um plano por pontos?</h3>
+      <p class="description">Se os três pontos forem colineares (estiverem na mesma reta), infinitos planos passam por eles — não há unicidade. Os comandos mostram três pontos colineares.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (2, 2, 2)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (4, 4, 4)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">A, B e C estão todos na reta r (são colineares). Infinitos planos passam por essa reta. Não determinam um plano único.</p>
+    </div>
+
+    <!-- Item d -->
+    <div class="item" id="q6d">
+      <h3 class="item-title">Item d) Quais são os quatro modos apresentados de se determinar a posição de um plano no espaço?</h3>
+      <p class="description">(1) Três pontos não colineares, (2) Uma reta e um ponto fora dela, (3) Duas retas concorrentes, (4) Duas retas paralelas.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α1 = Plano(A, B, C)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">Modo 1 — Três pontos não colineares.</p>
+      <div class="card"><code class="card-command">D = (0, 0, 2)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">E = (3, 0, 2)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r1 = Reta(D, E)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">F = (1, 2, 2)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α2 = Plano(D, E, F)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">Modo 2 — Uma reta r1 e um ponto F fora dela determinam o plano α2.</p>
+      <div class="card"><code class="card-command">G = (0, 0, 4)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">H = (3, 0, 4)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r2 = Reta(G, H)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">I = (0, 0, 4)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">J = (0, 3, 4)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r3 = Reta(I, J)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α3 = Plano(G, H, J)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">Modo 3 — Duas retas concorrentes r2 e r3 (cruzam-se em G = I) determinam o plano α3.</p>
+      <div class="card"><code class="card-command">K = (0, 0, 6)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">L = (3, 0, 6)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r4 = Reta(K, L)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">M = (0, 2, 6)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">N = (3, 2, 6)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r5 = Reta(M, N)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α4 = Plano(K, L, M)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">Modo 4 — Duas retas paralelas r4 e r5 determinam o plano α4.</p>
+    </div>
+
+  </div></div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     QUESTÃO 7 – Paralelismo e propriedades
+     ════════════════════════════════════════════════════════ -->
+<section class="chapter" id="q7">
+  <div class="chapter-header">
+    <span class="chapter-arrow">▶</span>
+    <h2 class="chapter-title">Questão 7 – Paralelismo e propriedades</h2>
+  </div>
+  <div class="chapter-content"><div class="chapter-body">
+
+    <!-- Item a -->
+    <div class="item" id="q7a">
+      <h3 class="item-title">Item a) O que diz o postulado das paralelas (ou postulado de Euclides)?</h3>
+      <p class="description">Por um ponto fora de uma reta, passa uma e somente uma reta paralela à reta dada.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">P = (2, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">s = Reta(P, P + (4, 0, 0))</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">s é a única reta que passa por P e é paralela a r — postulado de Euclides.</p>
+    </div>
+
+    <!-- Item b -->
+    <div class="item" id="q7b">
+      <h3 class="item-title">Item b) Dada uma reta r e um ponto P fora dela (P ∉ r), quantas retas paralelas a ela passam por esse ponto?</h3>
+      <p class="description">Exatamente uma reta paralela. Visualizamos a reta e sua paralela pelo ponto.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (5, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">P = (1, 4, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">s = Reta(P, P + (5, 0, 0))</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">Existe uma e somente uma reta s passando por P e paralela a r.</p>
+    </div>
+
+    <!-- Item c -->
+    <div class="item" id="q7c">
+      <h3 class="item-title">Item c) Se uma reta r não está contida em um plano α e é paralela a uma reta s desse plano, o que se pode concluir sobre a relação de r com o plano α?</h3>
+      <p class="description">Então r é paralela ao plano α. Mostramos r fora do plano, paralela a s que está no plano.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α = Plano(A, B, C)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">s = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">s está contida em α.</p>
+      <div class="card"><code class="card-command">D = (0, 0, 3)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">E = (4, 0, 3)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(D, E)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">r ∥ s e r não está contida em α, portanto r ∥ α.</p>
+    </div>
+
+  </div></div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     QUESTÃO 8 – Ângulos no espaço
+     ════════════════════════════════════════════════════════ -->
+<section class="chapter" id="q8">
+  <div class="chapter-header">
+    <span class="chapter-arrow">▶</span>
+    <h2 class="chapter-title">Questão 8 – Ângulos no espaço</h2>
+  </div>
+  <div class="chapter-content"><div class="chapter-body">
+
+    <!-- Item a -->
+    <div class="item" id="q8a">
+      <h3 class="item-title">Item a) Como se define o ângulo entre duas retas concorrentes?</h3>
+      <p class="description">É o menor ângulo formado entre as retas no ponto de interseção.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">D = (3, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">s = Reta(C, D)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">θ = Ângulo(B, A, D)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">θ é o ângulo entre as retas concorrentes r e s no vértice A (= C).</p>
+    </div>
+
+    <!-- Item b -->
+    <div class="item" id="q8b">
+      <h3 class="item-title">Item b) O que são ângulos opostos pelo vértice?</h3>
+      <p class="description">São os ângulos não adjacentes formados por duas retas concorrentes. São congruentes.</p>
+      <div class="card"><code class="card-command">A = (-3, -3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (3, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (-3, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">D = (3, -3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">s = Reta(C, D)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">O = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">θ1 = Ângulo(B, O, C)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">θ2 = Ângulo(A, O, D)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">θ1 e θ2 são ângulos opostos pelo vértice — são congruentes (mesma medida).</p>
+    </div>
+
+    <!-- Item c -->
+    <div class="item" id="q8c">
+      <h3 class="item-title">Item c) Como é definido o ângulo entre duas retas reversas?</h3>
+      <p class="description">Traça-se por um ponto qualquer duas retas paralelas às reversas. O ângulo entre essas retas concorrentes é o ângulo entre as reversas.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (1, 2, 3)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">D = (1, 5, 3)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">s = Reta(C, D)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">r e s são reversas.</p>
+      <div class="card"><code class="card-command">O = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r' = Reta(O, O + (4, 0, 0))</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">s' = Reta(O, O + (0, 3, 0))</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">θ = Ângulo((4, 0, 0), O, (0, 3, 0))</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">θ é o ângulo entre as retas reversas r e s, obtido pelas retas r' e s' paralelas a elas passando por O.</p>
+    </div>
+
+  </div></div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     QUESTÃO 9 – Perpendicularidade
+     ════════════════════════════════════════════════════════ -->
+<section class="chapter" id="q9">
+  <div class="chapter-header">
+    <span class="chapter-arrow">▶</span>
+    <h2 class="chapter-title">Questão 9 – Perpendicularidade</h2>
+  </div>
+  <div class="chapter-content"><div class="chapter-body">
+
+    <!-- Item a -->
+    <div class="item" id="q9a">
+      <h3 class="item-title">Item a) Quando duas retas concorrentes são chamadas de perpendiculares (r ⊥ s)?</h3>
+      <p class="description">Quando o ângulo entre elas é de 90° (um ângulo reto).</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">D = (0, 4, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">s = Reta(C, D)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">θ = Ângulo(B, A, D)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">θ = 90° — as retas r e s são perpendiculares (r ⊥ s).</p>
+    </div>
+
+    <!-- Item b -->
+    <div class="item" id="q9b">
+      <h3 class="item-title">Item b) O que são retas concorrentes oblíquas?</h3>
+      <p class="description">São retas concorrentes que formam ângulos diferentes de 90°.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">D = (3, 2, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">s = Reta(C, D)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">θ = Ângulo(B, A, D)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">θ ≠ 90° — as retas r e s são concorrentes oblíquas.</p>
+    </div>
+
+    <!-- Item c -->
+    <div class="item" id="q9c">
+      <h3 class="item-title">Item c) O que significa dizer que duas retas reversas são ortogonais?</h3>
+      <p class="description">Duas retas reversas são ortogonais quando, ao traçar paralelas a elas por um mesmo ponto, as retas resultantes são perpendiculares (formam 90°).</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (1, 2, 3)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">D = (1, 6, 3)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">s = Reta(C, D)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">r (direção do eixo x) e s (direção do eixo y) são reversas.</p>
+      <div class="card"><code class="card-command">O = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r' = Reta(O, (4, 0, 0))</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">s' = Reta(O, (0, 4, 0))</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">θ = Ângulo((4, 0, 0), O, (0, 4, 0))</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">θ = 90° — as retas reversas r e s são ortogonais.</p>
+    </div>
+
+    <!-- Item d -->
+    <div class="item" id="q9d">
+      <h3 class="item-title">Item d) Quando uma reta secante é considerada perpendicular a um plano (r ⊥ α)?</h3>
+      <p class="description">Quando a reta é perpendicular a todas as retas do plano que passam pelo ponto de interseção.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α = Plano(A, B, C)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">D = (2, 1, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">E = (2, 1, 5)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(D, E)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">P = (2, 1, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">r é perpendicular ao plano α (r ⊥ α). A reta r é vertical e o plano α é horizontal (z = 0).</p>
+      <div class="card"><code class="card-command">s1 = Reta(P, P + (1, 0, 0))</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">s2 = Reta(P, P + (0, 1, 0))</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">r é perpendicular tanto a s1 quanto a s2 (e a qualquer reta do plano que passe por P).</p>
+    </div>
+
+  </div></div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     QUESTÃO 10 – Planos e perpendicularidade
+     ════════════════════════════════════════════════════════ -->
+<section class="chapter" id="q10">
+  <div class="chapter-header">
+    <span class="chapter-arrow">▶</span>
+    <h2 class="chapter-title">Questão 10 – Planos e perpendicularidade</h2>
+  </div>
+  <div class="chapter-content"><div class="chapter-body">
+
+    <!-- Item a -->
+    <div class="item" id="q10a">
+      <h3 class="item-title">Item a) Quando dois planos secantes são considerados perpendiculares (α ⊥ β)?</h3>
+      <p class="description">Quando o ângulo diédrico formado entre eles é de 90°.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 4, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α = Plano(A, B, C)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">D = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">E = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">F = (0, 0, 4)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">β = Plano(D, E, F)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">α (plano xy, z = 0) e β (plano xz, y = 0) são perpendiculares — o ângulo diédrico é 90°.</p>
+    </div>
+
+    <!-- Item b -->
+    <div class="item" id="q10b">
+      <h3 class="item-title">Item b) Quando dois planos secantes são considerados oblíquos?</h3>
+      <p class="description">Quando o ângulo diédrico entre eles é diferente de 90°.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 4, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α = Plano(A, B, C)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">D = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">E = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">F = (2, 2, 3)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">β = Plano(D, E, F)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">α e β são secantes oblíquos — o ângulo diédrico é diferente de 90°.</p>
+    </div>
+
+  </div></div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     QUESTÃO 11 – Projeções
+     ════════════════════════════════════════════════════════ -->
+<section class="chapter" id="q11">
+  <div class="chapter-header">
+    <span class="chapter-arrow">▶</span>
+    <h2 class="chapter-title">Questão 11 – Projeções</h2>
+  </div>
+  <div class="chapter-content"><div class="chapter-body">
+
+    <!-- Item a -->
+    <div class="item" id="q11a">
+      <h3 class="item-title">Item a) O que é a projeção ortogonal de um ponto P sobre um plano α?</h3>
+      <p class="description">É o pé da perpendicular baixada de P até o plano α.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 4, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α = Plano(A, B, C)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">P = (2, 3, 5)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">P' = (2, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">seg = Segmento(P, P')</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">P' é a projeção ortogonal de P sobre α. O segmento PP' é perpendicular ao plano α.</p>
+    </div>
+
+    <!-- Item b -->
+    <div class="item" id="q11b">
+      <h3 class="item-title">Item b) Como se define a projeção ortogonal de uma reta r sobre um plano α?</h3>
+      <p class="description">É o conjunto das projeções ortogonais de todos os pontos da reta sobre o plano.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 4, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α = Plano(A, B, C)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">P = (1, 1, 3)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">Q = (3, 2, 4)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(P, Q)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">P' = (1, 1, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">Q' = (3, 2, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r' = Reta(P', Q')</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">seg1 = Segmento(P, P')</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">seg2 = Segmento(Q, Q')</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">r' é a projeção ortogonal da reta r sobre o plano α. As linhas tracejadas PP' e QQ' são perpendiculares ao plano.</p>
+    </div>
+
+    <!-- Item c -->
+    <div class="item" id="q11c">
+      <h3 class="item-title">Item c) Como se define a projeção ortogonal de um segmento de reta AB sobre um plano α?</h3>
+      <p class="description">É o segmento A'B', onde A' e B' são as projeções ortogonais dos extremos A e B sobre o plano.</p>
+      <div class="card"><code class="card-command">A_orig = (1, 1, 4)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B_orig = (3, 3, 2)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">seg_AB = Segmento(A_orig, B_orig)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">O1 = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">O2 = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">O3 = (0, 4, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α = Plano(O1, O2, O3)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">A' = (1, 1, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B' = (3, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">seg_proj = Segmento(A', B')</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">seg_pA = Segmento(A_orig, A')</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">seg_pB = Segmento(B_orig, B')</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">seg_proj (A'B') é a projeção ortogonal do segmento AB sobre o plano α.</p>
+    </div>
+
+  </div></div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     QUESTÃO 12 – Distâncias no espaço
+     ════════════════════════════════════════════════════════ -->
+<section class="chapter" id="q12">
+  <div class="chapter-header">
+    <span class="chapter-arrow">▶</span>
+    <h2 class="chapter-title">Questão 12 – Distâncias no espaço</h2>
+  </div>
+  <div class="chapter-content"><div class="chapter-body">
+
+    <!-- Item a -->
+    <div class="item" id="q12a">
+      <h3 class="item-title">Item a) Como se define a medida de distância entre dois pontos distintos A e B (dAB)?</h3>
+      <p class="description">É o comprimento do segmento AB.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (3, 4, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">seg = Segmento(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">d = Distância(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">d = 5 — é a medida do segmento AB (comprimento = √(3² + 4²) = 5).</p>
+    </div>
+
+    <!-- Item b -->
+    <div class="item" id="q12b">
+      <h3 class="item-title">Item b) Qual é o caminho de menor medida de comprimento entre dois pontos A e B no espaço?</h3>
+      <p class="description">O segmento de reta AB. É a menor distância entre dois pontos.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (3, 4, 5)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">seg = Segmento(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">d = Distância(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">O segmento de reta AB é o caminho mais curto entre A e B no espaço. d = √(9 + 16 + 25) = √50.</p>
+    </div>
+
+    <!-- Item c -->
+    <div class="item" id="q12c">
+      <h3 class="item-title">Item c) Como é definida a medida de distância de um ponto P a uma reta r?</h3>
+      <p class="description">É o comprimento do segmento perpendicular de P até a reta r (o menor segmento de P à reta).</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (6, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">P = (3, 4, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">P' = (3, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">seg = Segmento(P, P')</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">d = Distância(P, r)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">d = 4 — é a distância perpendicular de P à reta r. P' é o pé da perpendicular.</p>
+    </div>
+
+    <!-- Item d -->
+    <div class="item" id="q12d">
+      <h3 class="item-title">Item d) Como é definida a medida de distância de um ponto P a um plano α?</h3>
+      <p class="description">É o comprimento do segmento perpendicular de P até o plano α.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 4, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α = Plano(A, B, C)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">P = (2, 2, 7)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">P' = (2, 2, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">seg = Segmento(P, P')</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">d = Distância(P, α)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">d = 7 — distância perpendicular de P ao plano α (z = 0).</p>
+    </div>
+
+    <!-- Item e -->
+    <div class="item" id="q12e">
+      <h3 class="item-title">Item e) Como se obtém a medida de distância entre duas retas paralelas r e s?</h3>
+      <p class="description">Escolhe-se um ponto em uma das retas e mede-se a distância perpendicular até a outra reta.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">D = (4, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">s = Reta(C, D)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">P = (2, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">P' = (2, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">seg = Segmento(P, P')</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">d = Distância(r, s)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">d = 3 — distância entre as retas paralelas r e s.</p>
+    </div>
+
+    <!-- Item f -->
+    <div class="item" id="q12f">
+      <h3 class="item-title">Item f) Como é definida a medida de distância entre dois planos paralelos α e β?</h3>
+      <p class="description">Escolhe-se um ponto em um plano e mede-se a distância perpendicular até o outro plano.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 4, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α = Plano(A, B, C)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">D = (0, 0, 5)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">E = (4, 0, 5)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">F = (0, 4, 5)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">β = Plano(D, E, F)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">P = (1, 1, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">P' = (1, 1, 5)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">seg = Segmento(P, P')</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">d = Distância(α, β)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">d = 5 — distância entre os planos paralelos α (z = 0) e β (z = 5).</p>
+    </div>
+
+    <!-- Item g -->
+    <div class="item" id="q12g">
+      <h3 class="item-title">Item g) Como se obtém a medida de distância entre retas reversas r e s?</h3>
+      <p class="description">É o comprimento do segmento perpendicular comum às duas retas (o menor segmento que liga as duas retas, sendo perpendicular a ambas).</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 3, 2)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">D = (0, 6, 2)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">s = Reta(C, D)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">d = Distância(r, s)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">d é a distância entre as retas reversas r e s — é a medida da perpendicular comum (a menor distância entre elas).</p>
+    </div>
+
+  </div></div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     QUESTÃO 13 – Síntese conceitual
+     ════════════════════════════════════════════════════════ -->
+<section class="chapter" id="q13">
+  <div class="chapter-header">
+    <span class="chapter-arrow">▶</span>
+    <h2 class="chapter-title">Questão 13 – Síntese conceitual</h2>
+  </div>
+  <div class="chapter-content"><div class="chapter-body">
+
+    <!-- Item a -->
+    <div class="item" id="q13a">
+      <h3 class="item-title">Item a) Quais são os principais conceitos (noções e proposições primitivas) fundamentais da geometria espacial?</h3>
+      <p class="observation">Esta questão é teórica. Os conceitos fundamentais são: ponto, reta e plano (noções primitivas) e as relações de pertinência e inclusão (proposições primitivas). Os comandos abaixo recapitulam visualmente.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r = Reta(A, B)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α = Plano(A, B, C)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">Ponto A, reta r e plano α — as três noções primitivas da geometria espacial.</p>
+    </div>
+
+    <!-- Item b -->
+    <div class="item" id="q13b">
+      <h3 class="item-title">Item b) Como o paralelismo e a perpendicularidade ajudam a definir as posições relativas estudadas?</h3>
+      <p class="description">Paralelismo e perpendicularidade classificam as relações entre retas e planos. Os comandos mostram retas paralelas, perpendiculares e planos perpendiculares.</p>
+      <div class="card"><code class="card-command">A = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">B = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">C = (0, 3, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">α = Plano(A, B, C)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">r_paralela = Reta((0, 0, 3), (4, 0, 3))</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">r_paralela ∥ α — exemplo de paralelismo reta-plano.</p>
+      <div class="card"><code class="card-command">r_perp = Reta((2, 1, 0), (2, 1, 5))</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">r_perp ⊥ α — exemplo de perpendicularidade reta-plano.</p>
+      <div class="card"><code class="card-command">D = (0, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">E = (4, 0, 0)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">F = (0, 0, 4)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <div class="card"><code class="card-command">β = Plano(D, E, F)</code><button class="copy-btn" aria-label="Copiar comando">📋</button></div>
+      <p class="observation">α ⊥ β — exemplo de perpendicularidade entre planos.</p>
+    </div>
+
+    <!-- Item c -->
+    <div class="item" id="q13c">
+      <h3 class="item-title">Item c) Como esses conceitos geométricos se aplicam nas situações e objetos reais descritos no material?</h3>
+      <p class="observation observation-only">Esta questão é discursiva e não requer comandos GeoGebra. Os conceitos de paralelismo, perpendicularidade, retas reversas e planos se aplicam a objetos reais como: pernas de mesas (retas paralelas ou perpendiculares ao chão), estrutura de espreguiçadeiras (retas concorrentes e ângulos), cantoneiras (planos perpendiculares), varais de chão (retas paralelas).</p>
+    </div>
+
+  </div></div>
+</section>
+
+</main>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer class="site-footer">
+  CEMEP — Geometria Espacial · 2ª Série · Prof. Diogo
+</footer>
+
+<!-- ════════════════ BACK TO TOP ════════════════ -->
+<button id="back-to-top" class="back-to-top" aria-label="Voltar ao topo">↑</button>
+
+<script src="script.js"></script>
+</body>
+</html>
