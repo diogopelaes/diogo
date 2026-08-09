@@ -1112,7 +1112,7 @@ function main() {
       }
 
       answerBtns.forEach(btn => {
-        btn.addEventListener("click", () => handleAnswer(btn.dataset.answer));
+        if (btn) btn.addEventListener("click", () => handleAnswer(btn.dataset.answer));
       });
 
       addEvent("btn-next", "click", next);
