@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comparar Frações com Pokémon | CEMEP</title>
+  <meta name="description" content="Compare frações com seu Pokémon favorito! Jogo educativo gamificado para crianças." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</head>
+<body data-page="comparafracao">
+
+  <!-- Preloader -->
+  <div class="preloader-overlay" id="preloader">
+    <div class="spinner-large"></div>
+    <p>Buscando seu Pokémon...</p>
+  </div>
+
+  <div class="container">
+
+    <!-- Back link -->
+    <a href="index.html" class="back-link">← Voltar ao Menu</a>
+
+    <!-- Header -->
+    <header>
+      <h1>Comparar Frações</h1>
+    </header>
+
+    <!-- Stage Indicator (single stage) -->
+    <div class="stage-indicator">
+      <div class="stage-dot active" id="stage-dot-1"></div>
+    </div>
+    <p class="stage-label" id="stage-label">Etapa <span>1 de 1</span> — Comparação ⚖️</p>
+
+    <!-- Game Area -->
+    <div id="game-area">
+
+      <!-- Score cards -->
+      <div class="score-row">
+        <div class="score-card">
+          <div class="score-card-label">✅ Acertos</div>
+          <div class="score-card-value" id="score-correct">0</div>
+        </div>
+        <div class="score-card">
+          <div class="score-card-label">❌ Erros</div>
+          <div class="score-card-value" id="score-wrong">0</div>
+        </div>
+      </div>
+
+      <!-- Progress -->
+      <div class="progress-wrap">
+        <div class="progress-info">
+          <span>Progresso</span>
+          <span id="progress-text">0/10</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+        </div>
+      </div>
+
+      <!-- Question dots -->
+      <div class="dots-row" id="dots-row"></div>
+
+      <!-- Question Card -->
+      <div class="question-card" id="question-card">
+
+        <!-- Main content: Pokémon on left, Question on right -->
+        <div class="card-grid">
+
+          <!-- Left side: Pokémon Buddy -->
+          <div id="pokemon-section" class="pokemon-buddy-col" title="Clique para trocar de Pokémon!">
+            <img id="pokemon-img" src="" alt="Pokémon parceiro" />
+            <div id="pokemon-info">
+              <div id="pokemon-name">Carregando...</div>
+              <div id="pokemon-hp-bar">
+                <div id="pokemon-hp-fill"></div>
+              </div>
+              <span class="change-pokemon-hint">🔄 Trocar</span>
+            </div>
+          </div>
+
+          <!-- Right side: Meta, Message and Fraction Comparison -->
+          <div class="question-interaction-col">
+            <div class="meta-row">
+              <div class="difficulty-badge" id="difficulty-badge">⭐ Fácil</div>
+              <div class="question-number" id="question-number">Questão 1 de 10</div>
+            </div>
+
+            <!-- Pokémon Speech Bubble -->
+            <div class="pokemon-speech-bubble" id="pokemon-speech-bubble">
+              <p id="pokemon-message">Buscando seu parceiro...</p>
+            </div>
+
+            <!-- Fraction Display -->
+            <div class="question-text" id="question-text">
+              <div class="fraction-display">
+                <div class="fraction-box" id="fraction-a">
+                  <span class="fraction-num" id="frac-a-num">1</span>
+                  <div class="fraction-line"></div>
+                  <span class="fraction-den" id="frac-a-den">2</span>
+                </div>
+                <span class="fraction-vs">?</span>
+                <div class="fraction-box" id="fraction-b">
+                  <span class="fraction-num" id="frac-b-num">3</span>
+                  <div class="fraction-line"></div>
+                  <span class="fraction-den" id="frac-b-den">4</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Visual fraction bars (shown after answer) -->
+            <div class="fraction-visual-row" id="fraction-visual-row" style="display:none;">
+              <div class="fraction-bar-wrap">
+                <div class="fraction-bar"><div class="fraction-bar-fill-a" id="bar-fill-a" style="width:0%"></div></div>
+                <span class="fraction-bar-label" id="bar-label-a"></span>
+              </div>
+              <div class="fraction-bar-wrap">
+                <div class="fraction-bar"><div class="fraction-bar-fill-b" id="bar-fill-b" style="width:0%"></div></div>
+                <span class="fraction-bar-label" id="bar-label-b"></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bottom section: Answer Buttons -->
+        <div class="card-footer-actions">
+          <div class="answer-buttons" id="answer-buttons">
+            <button class="btn-answer" data-answer="<" id="btn-lt">&lt;</button>
+            <button class="btn-answer" data-answer="=" id="btn-eq">=</button>
+            <button class="btn-answer" data-answer=">" id="btn-gt">&gt;</button>
+          </div>
+          <div style="display:flex; justify-content:center; margin-top:0.75rem;">
+            <button id="btn-next" class="btn-next">Próxima →</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div><!-- /#game-area -->
+
+    <!-- Final Screen -->
+    <div id="final-screen">
+      <img id="final-pokemon-img" src="" alt="Pokémon" />
+      <div class="final-title" id="final-title">🏆 Incrível!</div>
+      <div class="final-subtitle" id="final-message">Você completou o desafio!</div>
+
+      <div class="final-stats">
+        <div class="final-stat">
+          <div class="final-stat-value" id="final-correct">0</div>
+          <div class="final-stat-label">✅ Acertos</div>
+        </div>
+        <div class="final-stat">
+          <div class="final-stat-value" id="final-wrong">0</div>
+          <div class="final-stat-label">❌ Erros</div>
+        </div>
+        <div class="final-stat">
+          <div class="final-stat-value" id="final-pct">0%</div>
+          <div class="final-stat-label">🎯 Aproveitamento</div>
+        </div>
+      </div>
+
+      <button id="btn-restart" class="btn-restart">🔄 Jogar de Novo!</button>
+      <div style="margin-top:1rem;">
+        <a href="index.html" class="back-link" style="justify-content:center;">← Voltar ao Menu</a>
+      </div>
+    </div>
+
+  </div><!-- /.container -->
+
+  <script src="script.js"></script>
+</body>
+</html>
