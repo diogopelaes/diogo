@@ -160,6 +160,7 @@ function detectPage() {
 
   const path = window.location.pathname;
   if (path.includes("comparafracao")) return "comparafracao";
+  if (path.includes("divisao")) return "divisao";
   if (path.includes("multiplicacao")) return "multiplicacao";
   return "hub";
 }
@@ -646,6 +647,427 @@ function main() {
         }
 
         startStage("mult");
+      }
+
+      init();
+
+    })();
+    return;
+  }
+
+  // ══════════════════════════════════════════════════
+  //  DIVISÃO PAGE
+  // ══════════════════════════════════════════════════
+  if (PAGE === "divisao") {
+    (function initDivisao() {
+
+      const MESSAGES = {
+        correct: [
+          "Incrível! Você é fera! 🔥",
+          "Perfeito! Continua assim! ⚡",
+          "Mandou bem! Que inteligente! 🌟",
+          "Arrasou! Tô orgulhoso de você! 💪",
+          "Uau! Resposta certa! Bora mais! 🚀",
+          "Sim! Isso aí! Genial! 🧠",
+          "Que resposta! Impressionante! ✨",
+        ],
+        wrong: [
+          "Quase! Tente de novo na próxima! 💙",
+          "Não foi dessa vez, mas você consegue! 🤗",
+          "Errou, mas não desanima! Você é capaz! 💪",
+          "Continue tentando! Fica mais fácil! 😊",
+          "Não tem problema! Aprender faz parte! 🌈",
+        ],
+        intro: [
+          "Ei! Vamos treinar divisão juntos? ➗",
+          "Hora de dividir! Você consegue!",
+          "Boa sorte! Confio em você! ⭐",
+        ],
+      };
+
+      // Gera divisão exata: escolhe quociente e divisor, calcula dividendo
+      // Garante resto zero por construção: dividendo = divisor × quociente
+      const DIFFICULTY_LEVELS = [
+        {
+          label: "⭐ Fácil",
+          gen() {
+            const b = rand(2, 9), answer = rand(2, 9);
+            return { a: b * answer, b, op: "÷", answer, display: `${b * answer} ÷ ${b}` };
+          },
+        },
+        {
+          label: "⭐⭐ Médio",
+          gen() {
+            const b = rand(2, 9), answer = rand(10, 25);
+            return { a: b * answer, b, op: "÷", answer, display: `${b * answer} ÷ ${b}` };
+          },
+        },
+        {
+          label: "⭐⭐⭐ Difícil",
+          gen() {
+            const b = rand(10, 25), answer = rand(10, 25);
+            return { a: b * answer, b, op: "÷", answer, display: `${b * answer} ÷ ${b}` };
+          },
+        },
+        {
+          label: "⭐⭐⭐⭐ Expert",
+          gen() {
+            const b = rand(10, 25), answer = rand(50, 99);
+            return { a: b * answer, b, op: "÷", answer, display: `${b * answer} ÷ ${b}` };
+          },
+        },
+        {
+          label: "⭐⭐⭐⭐⭐ Mestre",
+          gen() {
+            const b = rand(10, 99), answer = rand(100, 999);
+            return { a: b * answer, b, op: "÷", answer, display: `${b * answer} ÷ ${b}` };
+          },
+        },
+      ];
+
+      function generateQuestions() {
+        const questions = [];
+        for (let lvl = 0; lvl < DIFFICULTY_LEVELS.length; lvl++) {
+          for (let j = 0; j < 2; j++) {
+            const d = DIFFICULTY_LEVELS[lvl];
+            const q = d.gen();
+            q.level = d.label;
+            questions.push(q);
+          }
+        }
+        for (let i = questions.length - 1; i > 0; i--) {
+          const j = rand(0, i);
+          [questions[i], questions[j]] = [questions[j], questions[i]];
+        }
+        return questions;
+      }
+
+      let state = {
+        questions: [],
+        current: 0,
+        correctCount: 0,
+        answeredFlags: [],
+        verified: false,
+        pokemon: null,
+        totalCorrect: 0,
+        totalWrong: 0,
+      };
+
+      const $ = id => document.getElementById(id);
+      const elPokeImg    = $("pokemon-img");
+      const elPokeName   = $("pokemon-name");
+      const elPokeMsg    = $("pokemon-message");
+      const elPokeHp     = $("pokemon-hp-fill");
+      const elProgressFill = $("progress-fill");
+      const elProgressText = $("progress-text");
+      const elScoreCorrect = $("score-correct");
+      const elScoreWrong   = $("score-wrong");
+      const elDotsRow    = $("dots-row");
+      const elQNumber    = $("question-number");
+      const elDiffBadge  = $("difficulty-badge");
+      const elQText      = $("question-text");
+      const elAnswerInput = $("answer-input");
+      const elBtnVerify  = $("btn-verify");
+      const elBtnNext    = $("btn-next");
+      const elSpeechBubble = $("pokemon-speech-bubble");
+      const elCard       = $("question-card");
+      const elFinalScreen = $("final-screen");
+      const elGameArea   = $("game-area");
+      const elFinalPoke  = $("final-pokemon-img");
+      const elFinalTitle = $("final-title");
+      const elFinalMsg   = $("final-message");
+      const elFinalCorrect = $("final-correct");
+      const elFinalWrong   = $("final-wrong");
+      const elFinalPct     = $("final-pct");
+
+      function setPokemon(poke) {
+        state.pokemon = poke;
+        if (elPokeImg) elPokeImg.src = poke.sprite;
+        if (elPokeName) elPokeName.textContent = poke.name;
+        if (elFinalPoke) elFinalPoke.src = poke.sprite;
+      }
+
+      function pokeBounce() {
+        if (!elPokeImg) return;
+        elPokeImg.classList.remove("bounce");
+        void elPokeImg.offsetWidth;
+        elPokeImg.classList.add("bounce");
+        setTimeout(() => elPokeImg.classList.remove("bounce"), 700);
+      }
+
+      function setPokeMessage(msg) {
+        if (elPokeMsg) elPokeMsg.textContent = msg;
+      }
+
+      function updateHpBar() {
+        if (!elPokeHp) return;
+        const answered = state.current;
+        const correct = state.correctCount;
+        const pct = answered > 0 ? Math.round((correct / answered) * 100) : 100;
+        elPokeHp.style.width = pct + "%";
+        if (pct >= 70) {
+          elPokeHp.style.background = "linear-gradient(90deg, #22c55e, #86efac)";
+        } else if (pct >= 40) {
+          elPokeHp.style.background = "linear-gradient(90deg, #f59e0b, #fcd34d)";
+        } else {
+          elPokeHp.style.background = "linear-gradient(90deg, #ef4444, #fca5a5)";
+        }
+      }
+
+      addEvent("pokemon-section", "click", async () => {
+        playSound('click');
+        const poke = await fetchRandomPokemon();
+        setPokemon(poke);
+        pokeBounce();
+        if (!state.verified) {
+          const currentQ = state.questions[state.current];
+          const levelIndex = DIFFICULTY_LEVELS.findIndex(d => d.label === currentQ.level);
+          const d = DIFFICULTY_LEVELS[levelIndex >= 0 ? levelIndex : 0];
+          const newQ = d.gen();
+          newQ.level = d.label;
+          state.questions[state.current] = newQ;
+          showQuestion(`Olá! Sou ${poke.name}! Preparei uma nova conta para você! ⚡`);
+        } else {
+          setPokeMessage(`Olá! Sou ${poke.name}! Vamos para a próxima! 🚀`);
+        }
+      });
+
+      function buildDots() {
+        if (!elDotsRow) return;
+        elDotsRow.innerHTML = "";
+        for (let i = 0; i < 10; i++) {
+          const dot = document.createElement("div");
+          dot.className = "q-dot" + (i === 0 ? " current" : "");
+          dot.id = `q-dot-${i}`;
+          elDotsRow.appendChild(dot);
+        }
+      }
+
+      function updateDots() {
+        for (let i = 0; i < 10; i++) {
+          const dot = $(`q-dot-${i}`);
+          if (!dot) continue;
+          dot.className = "q-dot";
+          if (i < state.current) {
+            dot.classList.add(state.answeredFlags[i] ? "answered-correct" : "answered-wrong");
+          } else if (i === state.current) {
+            dot.classList.add("current");
+          }
+        }
+      }
+
+      function showQuestion(customMsg) {
+        const q = state.questions[state.current];
+        const total = state.questions.length;
+
+        if (elQNumber) elQNumber.textContent = `Questão ${state.current + 1} de ${total}`;
+        if (elDiffBadge) elDiffBadge.textContent = q.level;
+        if (elQText) {
+          elQText.innerHTML = q.display.replace(/[×÷]/g, s =>
+            `<span class="operation-symbol">${s}</span>`
+          ) + ' <span class="operation-symbol">=</span> ?';
+          triggerAnim(elQText, "slide-in-anim");
+        }
+
+        if (elAnswerInput) {
+          elAnswerInput.disabled = false;
+          elAnswerInput.value = "";
+          setTimeout(() => elAnswerInput.focus(), 10);
+        }
+
+        if (elSpeechBubble) {
+          elSpeechBubble.className = "pokemon-speech-bubble";
+          triggerAnim(elSpeechBubble, "slide-in-anim");
+        }
+
+        if (elBtnVerify) {
+          elBtnVerify.style.display = "block";
+          elBtnVerify.disabled = false;
+        }
+        if (elBtnNext) elBtnNext.style.display = "none";
+        if (elCard) elCard.className = "question-card";
+        state.verified = false;
+
+        updateProgress();
+        updateDots();
+        updateHpBar();
+
+        if (customMsg) {
+          setPokeMessage(customMsg);
+        } else if (state.current === 0) {
+          setPokeMessage(pick(MESSAGES.intro));
+        } else {
+          setPokeMessage("Vamos responder essa! Você consegue! 💪");
+        }
+      }
+
+      function updateProgress() {
+        const pct = Math.round((state.current / 10) * 100);
+        if (elProgressFill) elProgressFill.style.width = pct + "%";
+        if (elProgressText) elProgressText.textContent = `${state.current}/10`;
+        if (elScoreCorrect) elScoreCorrect.textContent = state.correctCount;
+        if (elScoreWrong) elScoreWrong.textContent = state.current - state.correctCount;
+      }
+
+      function verify() {
+        if (state.verified || !elAnswerInput) return;
+        const raw = elAnswerInput.value.trim().replace(",", ".");
+        const given = parseInt(raw, 10);
+        if (isNaN(given)) {
+          elAnswerInput.focus();
+          elAnswerInput.style.borderColor = "var(--warning)";
+          setTimeout(() => (elAnswerInput.style.borderColor = ""), 800);
+          playSound('wrong');
+          return;
+        }
+
+        const q = state.questions[state.current];
+        const correct = given === q.answer;
+        state.verified = true;
+        if (elBtnVerify) elBtnVerify.style.display = "none";
+        elAnswerInput.disabled = true;
+
+        if (correct) {
+          state.correctCount++;
+          state.totalCorrect++;
+          state.answeredFlags[state.current] = true;
+          if (elCard) elCard.classList.add("correct");
+          if (elSpeechBubble) {
+            elSpeechBubble.classList.add("bubble-correct");
+            triggerAnim(elSpeechBubble, "slide-in-anim");
+          }
+          pokeBounce();
+          setPokeMessage(pick(MESSAGES.correct));
+          playSound('success');
+          launchSingleConfetti();
+          if (elScoreCorrect) triggerAnim(elScoreCorrect, "pulse-anim");
+        } else {
+          state.totalWrong++;
+          state.answeredFlags[state.current] = false;
+          if (elCard) elCard.classList.add("wrong");
+          if (elSpeechBubble) {
+            elSpeechBubble.classList.add("bubble-wrong");
+            triggerAnim(elSpeechBubble, "slide-in-anim");
+          }
+          setPokeMessage(`${pick(MESSAGES.wrong)} (Era: ${q.answer})`);
+          playSound('wrong');
+          if (elScoreWrong) triggerAnim(elScoreWrong, "pulse-anim");
+        }
+
+        updateDots();
+        updateHpBar();
+        updateProgress();
+
+        if (elBtnNext) {
+          elBtnNext.style.display = "block";
+          elBtnNext.textContent =
+            state.current < 9 ? "Próxima →" : "🏆 Ver Resultado!";
+        }
+      }
+
+      function next() {
+        playSound('click');
+        state.current++;
+        if (state.current >= 10) {
+          showFinal();
+          return;
+        }
+        showQuestion();
+      }
+
+      function showFinal() {
+        if (elGameArea) elGameArea.style.display = "none";
+        if (elFinalScreen) elFinalScreen.className = "show";
+        playSound('victory');
+
+        const total = 10;
+        const correct = state.totalCorrect;
+        const wrong = state.totalWrong;
+        const pct = Math.round((correct / total) * 100);
+
+        if (elFinalCorrect) elFinalCorrect.textContent = correct;
+        if (elFinalWrong) elFinalWrong.textContent = wrong;
+        if (elFinalPct) elFinalPct.textContent = pct + "%";
+
+        if (pct >= 90) {
+          if (elFinalTitle) elFinalTitle.textContent = "🏆 Campeão Pokémon!";
+          if (elFinalMsg) elFinalMsg.textContent = `${state.pokemon?.name || "Pikachu"} ficou MUITO orgulhoso de você! Incrível!`;
+        } else if (pct >= 70) {
+          if (elFinalTitle) elFinalTitle.textContent = "⭐ Muito Bem!";
+          if (elFinalMsg) elFinalMsg.textContent = `Excelente desempenho! Continue praticando e você chegará ao topo!`;
+        } else if (pct >= 50) {
+          if (elFinalTitle) elFinalTitle.textContent = "💪 Bom Esforço!";
+          if (elFinalMsg) elFinalMsg.textContent = `Você está no caminho certo! Pratique mais e vai melhorar!`;
+        } else {
+          if (elFinalTitle) elFinalTitle.textContent = "📚 Continue Praticando!";
+          if (elFinalMsg) elFinalMsg.textContent = `Cada erro é uma lição. Tente novamente e você vai melhorar!`;
+        }
+
+        launchConfetti(pct, ["#06b6d4", "#22c55e"]);
+        pokeBounce();
+      }
+
+      function restart() {
+        playSound('click');
+        state.totalCorrect = 0;
+        state.totalWrong = 0;
+        state.current = 0;
+        state.correctCount = 0;
+        state.answeredFlags = [];
+        if (elFinalScreen) elFinalScreen.className = "";
+        if (elGameArea) elGameArea.style.display = "";
+        state.questions = generateQuestions();
+        buildDots();
+        showQuestion();
+      }
+
+      addEvent("btn-verify", "click", () => {
+        playSound('click');
+        verify();
+      });
+      addEvent("btn-next", "click", next);
+      addEvent("btn-restart", "click", restart);
+
+      addEvent("answer-input", "keydown", e => {
+        if (e.key === "Enter") {
+          if (!state.verified) {
+            playSound('click');
+            verify();
+          }
+        }
+      });
+
+      addEvent(document, "keydown", e => {
+        if (e.key === "Enter" && state.verified) {
+          if (elFinalScreen && elFinalScreen.classList.contains("show")) {
+            restart();
+          } else {
+            next();
+          }
+          return;
+        }
+        if (!state.verified && elAnswerInput && document.activeElement !== elAnswerInput) {
+          if (/^[0-9]$/.test(e.key)) {
+            e.preventDefault();
+            elAnswerInput.focus();
+            elAnswerInput.value += e.key;
+          }
+        }
+      });
+
+      async function init() {
+        const poke = await fetchRandomPokemon();
+        setPokemon(poke);
+
+        const preloader = $("preloader");
+        if (preloader) {
+          preloader.classList.add("fade-out");
+          setTimeout(() => preloader.remove(), 700);
+        }
+
+        state.questions = generateQuestions();
+        buildDots();
+        showQuestion();
       }
 
       init();

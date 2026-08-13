@@ -861,6 +861,19 @@ body[data-page="hub"] {
   color: #f9a8d4;
 }
 
+.game-card.div .game-title {
+  background: linear-gradient(135deg, #06b6d4, #22c55e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.game-card.div .game-badge {
+  background: rgba(6,182,212,0.2);
+  border: 1px solid rgba(6,182,212,0.4);
+  color: #67e8f9;
+}
+
 .hub-footer {
   text-align: center;
   margin-top: 2.5rem;
