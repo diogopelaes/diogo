@@ -277,16 +277,13 @@ function main() {
         {
           label: "⭐⭐⭐⭐⭐ Mestre",
           genMult() {
-            const a = parseFloat((rand(10, 99) + rand(1, 9) / 10).toFixed(1));
-            const b = rand(2, 9);
-            const ans = parseFloat((a * b).toFixed(2));
-            return { a, b, op: "×", answer: ans, display: `${formatBR(a)} × ${formatBR(b)}` };
+            const a = rand(100, 999), b = rand(10, 99);
+            return { a, b, op: "×", answer: a * b, display: `${a} × ${b}` };
           },
           genDiv() {
-            const b = rand(2, 9);
-            const answer = parseFloat((rand(10, 99) + rand(1, 9) / 10).toFixed(1));
-            const a = parseFloat((b * answer).toFixed(2));
-            return { a, b, op: "÷", answer, display: `${formatBR(a)} ÷ ${formatBR(b)}` };
+            const b = rand(10, 99), answer = rand(100, 999);
+            const a = b * answer;
+            return { a, b, op: "÷", answer, display: `${a} ÷ ${b}` };
           },
         },
       ];
@@ -469,8 +466,7 @@ function main() {
         if (customMsg) {
           setPokeMessage(customMsg);
         } else if (state.current === 0) {
-          const msgs = state.stage === "mult" ? MESSAGES.intro_mult : MESSAGES.intro_div;
-          setPokeMessage(pick(msgs));
+          setPokeMessage(pick(MESSAGES.intro_mult));
         } else {
           setPokeMessage("Vamos responder essa! Você consegue! 💪");
         }
@@ -537,9 +533,7 @@ function main() {
         if (elBtnNext) {
           elBtnNext.style.display = "block";
           elBtnNext.textContent =
-            state.current < 9
-              ? (state.stage === "mult" && state.current === 9) ? "Ir para Divisão →" : "Próxima →"
-              : state.stage === "mult" ? "🚀 Ir para Divisão!" : "🏆 Ver Resultado!";
+            state.current < 9 ? "Próxima →" : "🏆 Ver Resultado!";
         }
       }
 
@@ -548,32 +542,18 @@ function main() {
         state.current++;
 
         if (state.current >= 10) {
-          if (state.stage === "mult") {
-            startStage("div");
-          } else {
-            showFinal();
-          }
+          showFinal();
           return;
         }
         showQuestion();
       }
 
-      function startStage(stage) {
-        state.stage = stage;
+      function startStage(stage = "mult") {
+        state.stage = "mult";
         state.current = 0;
         state.correctCount = 0;
         state.answeredFlags = [];
-        state.questions = generateQuestions(stage);
-
-        if (stage === "mult") {
-          if (elStage1Dot) elStage1Dot.className = "stage-dot active";
-          if (elStage2Dot) elStage2Dot.className = "stage-dot";
-          if (elStageLabel) elStageLabel.innerHTML = `Etapa <span>1 de 2</span> — Multiplicação ×`;
-        } else {
-          if (elStage1Dot) elStage1Dot.className = "stage-dot done";
-          if (elStage2Dot) elStage2Dot.className = "stage-dot active";
-          if (elStageLabel) elStageLabel.innerHTML = `Etapa <span>2 de 2</span> — Divisão ÷`;
-        }
+        state.questions = generateQuestions("mult");
 
         buildDots();
         showQuestion();
@@ -584,7 +564,7 @@ function main() {
         if (elFinalScreen) elFinalScreen.className = "show";
         playSound('victory');
 
-        const total = 20;
+        const total = 10;
         const correct = state.totalCorrect;
         const wrong = state.totalWrong;
         const pct = Math.round((correct / total) * 100);
