@@ -81,8 +81,14 @@ function playSound(type) {
 // ── Shared: Pokémon API ────────────────────────
 const POKEMON_COUNT = 151;
 
-async function fetchRandomPokemon() {
-  const id = rand(1, POKEMON_COUNT);
+async function fetchRandomPokemon(excludeIds = []) {
+  let id;
+  let attempts = 0;
+  do {
+    id = rand(1, POKEMON_COUNT);
+    attempts++;
+  } while (excludeIds.includes(id) && attempts < 100);
+
   try {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
     const data = await res.json();
@@ -96,6 +102,23 @@ async function fetchRandomPokemon() {
   } catch {
     return { id: 25, name: "pikachu", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png", types: ["electric"] };
   }
+}
+
+async function prepareQuestionPokemon(q, questions) {
+  if (!q.pokemon) {
+    const usedIds = questions.map(item => item && item.pokemon ? item.pokemon.id : null).filter(Boolean);
+    q.pokemon = await fetchRandomPokemon(usedIds);
+  }
+  return q.pokemon;
+}
+
+function preloadAllQuestionsPokemon(questions) {
+  questions.forEach(async (q) => {
+    if (!q.pokemon) {
+      const usedIds = questions.map(item => item && item.pokemon ? item.pokemon.id : null).filter(Boolean);
+      q.pokemon = await fetchRandomPokemon(usedIds);
+    }
+  });
 }
 
 // ── Shared: Animation Trigger Helper ───────────
@@ -385,16 +408,19 @@ function main() {
 
       addEvent("pokemon-section", "click", async () => {
         playSound('click');
-        const poke = await fetchRandomPokemon();
+        const usedIds = state.questions.map(q => q && q.pokemon ? q.pokemon.id : null).filter(Boolean);
+        const poke = await fetchRandomPokemon(usedIds);
+        const currentQ = state.questions[state.current];
+        currentQ.pokemon = poke;
         setPokemon(poke);
         pokeBounce();
 
         if (!state.verified) {
-          const currentQ = state.questions[state.current];
           const levelIndex = DIFFICULTY_LEVELS.findIndex(d => d.label === currentQ.level);
           const d = DIFFICULTY_LEVELS[levelIndex >= 0 ? levelIndex : 0];
-          const newQ = state.stage === "mult" ? d.genMult() : d.genDiv();
+          const newQ = d.genMult();
           newQ.level = d.label;
+          newQ.pokemon = poke;
           state.questions[state.current] = newQ;
 
           const greeting = `Olá! Sou ${poke.name}! Preparei uma nova conta para você! ⚡`;
@@ -428,9 +454,13 @@ function main() {
         }
       }
 
-      function showQuestion(customMsg) {
+      async function showQuestion(customMsg) {
         const q = state.questions[state.current];
         const total = state.questions.length;
+
+        await prepareQuestionPokemon(q, state.questions);
+        setPokemon(q.pokemon);
+        preloadAllQuestionsPokemon(state.questions);
 
         if (elQNumber) elQNumber.textContent = `Questão ${state.current + 1} de ${total}`;
         if (elDiffBadge) elDiffBadge.textContent = q.level;
@@ -513,6 +543,8 @@ function main() {
           playSound('success');
           launchSingleConfetti();
           if (elScoreCorrect) triggerAnim(elScoreCorrect, "pulse-anim");
+          // [POKEDEX] Captura Pokémon ao acertar (passa o Pokémon da questão)
+          if (window.Pokedex) Pokedex.catchPokemon(q.pokemon);
         } else {
           state.totalWrong++;
           state.answeredFlags[state.current] = false;
@@ -598,6 +630,8 @@ function main() {
         state.totalWrong = 0;
         if (elFinalScreen) elFinalScreen.className = "";
         if (elGameArea) elGameArea.style.display = "";
+        // [POKEDEX] Zera Pokédex ao reiniciar
+        if (window.Pokedex) Pokedex.reset();
         startStage("mult");
       }
 
@@ -816,17 +850,23 @@ function main() {
 
       addEvent("pokemon-section", "click", async () => {
         playSound('click');
-        const poke = await fetchRandomPokemon();
+        const usedIds = state.questions.map(q => q && q.pokemon ? q.pokemon.id : null).filter(Boolean);
+        const poke = await fetchRandomPokemon(usedIds);
+        const currentQ = state.questions[state.current];
+        currentQ.pokemon = poke;
         setPokemon(poke);
         pokeBounce();
+
         if (!state.verified) {
-          const currentQ = state.questions[state.current];
           const levelIndex = DIFFICULTY_LEVELS.findIndex(d => d.label === currentQ.level);
           const d = DIFFICULTY_LEVELS[levelIndex >= 0 ? levelIndex : 0];
           const newQ = d.gen();
           newQ.level = d.label;
+          newQ.pokemon = poke;
           state.questions[state.current] = newQ;
-          showQuestion(`Olá! Sou ${poke.name}! Preparei uma nova conta para você! ⚡`);
+
+          const greeting = `Olá! Sou ${poke.name}! Preparei uma nova conta para você! ⚡`;
+          showQuestion(greeting);
         } else {
           setPokeMessage(`Olá! Sou ${poke.name}! Vamos para a próxima! 🚀`);
         }
@@ -856,9 +896,13 @@ function main() {
         }
       }
 
-      function showQuestion(customMsg) {
+      async function showQuestion(customMsg) {
         const q = state.questions[state.current];
         const total = state.questions.length;
+
+        await prepareQuestionPokemon(q, state.questions);
+        setPokemon(q.pokemon);
+        preloadAllQuestionsPokemon(state.questions);
 
         if (elQNumber) elQNumber.textContent = `Questão ${state.current + 1} de ${total}`;
         if (elDiffBadge) elDiffBadge.textContent = q.level;
@@ -941,6 +985,8 @@ function main() {
           playSound('success');
           launchSingleConfetti();
           if (elScoreCorrect) triggerAnim(elScoreCorrect, "pulse-anim");
+          // [POKEDEX] Captura Pokémon ao acertar (passa o Pokémon da questão)
+          if (window.Pokedex) Pokedex.catchPokemon(q.pokemon);
         } else {
           state.totalWrong++;
           state.answeredFlags[state.current] = false;
@@ -1016,6 +1062,8 @@ function main() {
         state.answeredFlags = [];
         if (elFinalScreen) elFinalScreen.className = "";
         if (elGameArea) elGameArea.style.display = "";
+        // [POKEDEX] Zera Pokédex ao reiniciar
+        if (window.Pokedex) Pokedex.reset();
         state.questions = generateQuestions();
         buildDots();
         showQuestion();
@@ -1286,15 +1334,18 @@ function main() {
 
       addEvent("pokemon-section", "click", async () => {
         playSound('click');
-        const poke = await fetchRandomPokemon();
+        const usedIds = state.questions.map(q => q && q.pokemon ? q.pokemon.id : null).filter(Boolean);
+        const poke = await fetchRandomPokemon(usedIds);
+        const currentQ = state.questions[state.current];
+        currentQ.pokemon = poke;
         setPokemon(poke);
         pokeBounce();
 
         if (!state.answered) {
-          const currentQ = state.questions[state.current];
           const levelIndex = DIFFICULTY_LEVELS.findIndex(d => d.label === currentQ.level);
           const d = DIFFICULTY_LEVELS[levelIndex >= 0 ? levelIndex : 0];
           const newQ = d.gen();
+          newQ.pokemon = poke;
           state.questions[state.current] = newQ;
 
           const greeting = `Olá! Sou ${poke.name}! Preparei novas frações para você! ⚖️`;
@@ -1330,9 +1381,13 @@ function main() {
         }
       }
 
-      function showQuestion(customMsg) {
+      async function showQuestion(customMsg) {
         const q = state.questions[state.current];
         const total = state.questions.length;
+
+        await prepareQuestionPokemon(q, state.questions);
+        setPokemon(q.pokemon);
+        preloadAllQuestionsPokemon(state.questions);
 
         if (elQNumber) elQNumber.textContent = `Questão ${state.current + 1} de ${total}`;
         if (elDiffBadge) elDiffBadge.textContent = q.level;
@@ -1416,6 +1471,8 @@ function main() {
           playSound('success');
           launchSingleConfetti();
           if (elScoreCorrect) triggerAnim(elScoreCorrect, "pulse-anim");
+          // [POKEDEX] Captura Pokémon ao acertar (passa o Pokémon da questão)
+          if (window.Pokedex) Pokedex.catchPokemon(q.pokemon);
         } else {
           state.wrongCount++;
           state.answeredFlags[state.current] = false;
@@ -1509,6 +1566,8 @@ function main() {
         state.questions = generateQuestions();
         if (elFinalScreen) elFinalScreen.className = "";
         if (elGameArea) elGameArea.style.display = "";
+        // [POKEDEX] Zera Pokédex ao reiniciar
+        if (window.Pokedex) Pokedex.reset();
         buildDots();
         showQuestion();
       }
