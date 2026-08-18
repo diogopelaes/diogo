@@ -64,6 +64,14 @@
         "ext":  ".pdf"
     },
     {
+        "name":  "Seno_Cos_Circ_Trigo",
+        "fullName":  "Seno_Cos_Circ_Trigo.ggb",
+        "path":  "aulas/3serie/Seno_Cos_Circ_Trigo.ggb",
+        "category":  "aulas",
+        "series":  "3serie",
+        "ext":  ".ggb"
+    },
+    {
         "name":  "roteiro_estudo_Geometria_Espacial",
         "fullName":  "roteiro_estudo_Geometria_Espacial.pdf",
         "path":  "listas/2serie/roteiro_estudo_Geometria_Espacial.pdf",
