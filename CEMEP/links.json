@@ -40,6 +40,14 @@
         "ext":  ".pdf"
     },
     {
+        "name":  "Angulo_Arco_Circ_Trigo",
+        "fullName":  "Angulo_Arco_Circ_Trigo.ggb",
+        "path":  "aulas/3serie/Angulo_Arco_Circ_Trigo.ggb",
+        "category":  "aulas",
+        "series":  "3serie",
+        "ext":  ".ggb"
+    },
+    {
         "name":  "Aula 01 - 3ª Série - 3º Bim",
         "fullName":  "Aula 01 - 3ª Série - 3º Bim.pdf",
         "path":  "aulas/3serie/Aula 01 - 3ª Série - 3º Bim.pdf",
@@ -59,6 +67,14 @@
         "name":  "Aula 03 - 3ª Série - 3º Bim",
         "fullName":  "Aula 03 - 3ª Série - 3º Bim.pdf",
         "path":  "aulas/3serie/Aula 03 - 3ª Série - 3º Bim.pdf",
+        "category":  "aulas",
+        "series":  "3serie",
+        "ext":  ".pdf"
+    },
+    {
+        "name":  "Aula 04 - 3ª Série - 3º Bim.pptx",
+        "fullName":  "Aula 04 - 3ª Série - 3º Bim.pptx.pdf",
+        "path":  "aulas/3serie/Aula 04 - 3ª Série - 3º Bim.pptx.pdf",
         "category":  "aulas",
         "series":  "3serie",
         "ext":  ".pdf"
