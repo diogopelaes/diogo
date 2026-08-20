@@ -1,16 +1,24 @@
 ﻿[
     {
-        "name":  "Aula 01 - 1ª Série - 2º Bim",
-        "fullName":  "Aula 01 - 1ª Série - 2º Bim.pdf",
-        "path":  "aulas/1serie/Aula 01 - 1ª Série - 2º Bim.pdf",
+        "name":  "Aula 01 - 1ª Série - 3º Bim",
+        "fullName":  "Aula 01 - 1ª Série - 3º Bim.pdf",
+        "path":  "aulas/1serie/Aula 01 - 1ª Série - 3º Bim.pdf",
         "category":  "aulas",
         "series":  "1serie",
         "ext":  ".pdf"
     },
     {
-        "name":  "Aula 02 - 1ª Série - 2º Bim",
-        "fullName":  "Aula 02 - 1ª Série - 2º Bim.pdf",
-        "path":  "aulas/1serie/Aula 02 - 1ª Série - 2º Bim.pdf",
+        "name":  "Aula 02 - 1ª Série - 3º Bim",
+        "fullName":  "Aula 02 - 1ª Série - 3º Bim.pdf",
+        "path":  "aulas/1serie/Aula 02 - 1ª Série - 3º Bim.pdf",
+        "category":  "aulas",
+        "series":  "1serie",
+        "ext":  ".pdf"
+    },
+    {
+        "name":  "Aula 03 - 1ª Série - 3º Bim",
+        "fullName":  "Aula 03 - 1ª Série - 3º Bim.pdf",
+        "path":  "aulas/1serie/Aula 03 - 1ª Série - 3º Bim.pdf",
         "category":  "aulas",
         "series":  "1serie",
         "ext":  ".pdf"
@@ -72,9 +80,9 @@
         "ext":  ".pdf"
     },
     {
-        "name":  "Aula 04 - 3ª Série - 3º Bim.pptx",
-        "fullName":  "Aula 04 - 3ª Série - 3º Bim.pptx.pdf",
-        "path":  "aulas/3serie/Aula 04 - 3ª Série - 3º Bim.pptx.pdf",
+        "name":  "Aula 04 - 3ª Série - 3º Bim",
+        "fullName":  "Aula 04 - 3ª Série - 3º Bim.pdf",
+        "path":  "aulas/3serie/Aula 04 - 3ª Série - 3º Bim.pdf",
         "category":  "aulas",
         "series":  "3serie",
         "ext":  ".pdf"
