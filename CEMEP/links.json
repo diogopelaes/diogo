@@ -88,6 +88,14 @@
         "ext":  ".pdf"
     },
     {
+        "name":  "GeoGebra-Windows-Installer-5-4-929-3",
+        "fullName":  "GeoGebra-Windows-Installer-5-4-929-3.exe",
+        "path":  "aulas/3serie/GeoGebra-Windows-Installer-5-4-929-3.exe",
+        "category":  "aulas",
+        "series":  "3serie",
+        "ext":  ".exe"
+    },
+    {
         "name":  "Seno_Cos_Circ_Trigo",
         "fullName":  "Seno_Cos_Circ_Trigo.ggb",
         "path":  "aulas/3serie/Seno_Cos_Circ_Trigo.ggb",
