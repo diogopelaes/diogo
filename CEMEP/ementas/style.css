@@ -1,0 +1,863 @@
+/* ==========================================================================
+   DocsCEMEP - Estilos Principais (Vanilla CSS)
+   ========================================================================== */
+
+:root {
+  /* Paleta de Baixo Contraste — Tons de Cinza Azulado */
+  --bg-main: #10131A;
+  --bg-card: rgba(20, 25, 38, 0.7);
+  --bg-card-hover: rgba(26, 32, 48, 0.85);
+  --bg-surface: #181E2E;
+  --bg-input: rgba(15, 19, 30, 0.8);
+  --bg-table-row: rgba(20, 25, 38, 0.5);
+  --bg-table-row-hover: rgba(30, 37, 56, 0.8);
+  --bg-table-header: rgba(15, 19, 30, 0.9);
+
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-row: rgba(255, 255, 255, 0.04);
+  --border-focus: rgba(99, 140, 220, 0.55);
+  --border-hover: rgba(99, 140, 220, 0.25);
+
+  --text-primary: #CDD5E0;
+  --text-secondary: #7B8BA0;
+  --text-muted: #4E5A6E;
+  --text-heading: #E2E8F0;
+  --text-highlight: #7EB3E8;
+
+  --accent-primary: #3B68C4;
+  --accent-primary-hover: #2F57A8;
+  --accent-cyan: #4A9CC4;
+  --accent-emerald: #3D9E7E;
+  --accent-amber: #B8883A;
+  --accent-rose: #B84E5E;
+
+  --badge-ementa-bg: rgba(59, 104, 196, 0.12);
+  --badge-ementa-text: #7EB3E8;
+  --badge-ementa-border: rgba(126, 179, 232, 0.2);
+
+  --badge-plano-bg: rgba(61, 158, 126, 0.12);
+  --badge-plano-text: #5BBFA0;
+  --badge-plano-border: rgba(91, 191, 160, 0.2);
+
+  --badge-matriz-bg: rgba(184, 136, 58, 0.12);
+  --badge-matriz-text: #D4A55A;
+  --badge-matriz-border: rgba(212, 165, 90, 0.2);
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 6px 20px -4px rgba(0, 0, 0, 0.45);
+  --shadow-row: 0 1px 0 var(--border-row);
+
+  --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset Global */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-main);
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(ellipse at 10% 0%, rgba(59, 104, 196, 0.07) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 90%, rgba(74, 156, 196, 0.05) 0%, transparent 50%),
+    var(--bg-main);
+  background-attachment: fixed;
+}
+
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.app-header {
+  background: rgba(14, 17, 26, 0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border-subtle);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: 1rem 0;
+}
+
+.header-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-logo {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, #1E3170 0%, #2F57A8 100%);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 2px 10px rgba(47, 87, 168, 0.3);
+/* ==========================================================================
+   Google Material Symbols - Configuração
+   ========================================================================== */
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  user-select: none;
+}
+
+.logo-icon.material-symbols-outlined {
+  font-size: 22px;
+  color: inherit;
+}
+
+.brand-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+  opacity: 0.7;
+  margin-bottom: 0.1rem;
+}
+
+.brand-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-heading);
+  line-height: 1.1;
+}
+
+.brand-title span {
+  color: var(--text-highlight);
+}
+
+.brand-subtitle {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+
+.header-stats {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.25rem;
+}
+
+/* ==========================================================================
+   Área Principal & Controles
+   ========================================================================== */
+
+.main-content {
+  flex: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  width: 100%;
+}
+
+.controls-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.search-box {
+  position: relative;
+  width: 100%;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: var(--text-muted);
+  pointer-events: none;
+  transition: color var(--transition-fast);
+}
+
+.search-box input {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 0.85rem 2.75rem 0.85rem 3rem;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  font-family: inherit;
+  outline: none;
+  transition: all var(--transition-normal);
+}
+
+.search-box input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-box input:focus {
+  border-color: var(--border-focus);
+  background: var(--bg-surface);
+  box-shadow: 0 0 0 3px rgba(59, 104, 196, 0.12);
+}
+
+.clear-btn {
+  position: absolute;
+  right: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition-fast);
+}
+
+.clear-btn .material-symbols-outlined {
+  font-size: 18px;
+}
+
+.clear-btn:hover {
+  color: var(--text-secondary);
+}
+
+.search-box.has-value .clear-btn {
+  display: flex;
+}
+
+/* Abas de Filtro */
+.filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+/* Botões fantasma: sem fundo fora do hover/active */
+.filter-tab {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all var(--transition-fast);
+}
+
+.filter-tab .tab-icon {
+  font-size: 18px;
+  color: currentColor;
+  opacity: 0.85;
+}
+
+.filter-tab:hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+  border-color: var(--border-subtle);
+}
+
+.filter-tab.active {
+  background: rgba(59, 104, 196, 0.14);
+  color: var(--text-highlight);
+  border-color: rgba(59, 104, 196, 0.3);
+}
+
+.tab-count {
+  font-size: 0.7rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--text-muted);
+}
+
+.filter-tab.active .tab-count {
+  background: rgba(59, 104, 196, 0.25);
+  color: var(--text-highlight);
+}
+
+/* ==========================================================================
+   Seção de Documentos
+   ========================================================================== */
+
+.section-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.section-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: -0.01em;
+}
+
+.results-count {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+/* ==========================================================================
+   TABELA (Desktop ≥ 640px)
+   ========================================================================== */
+
+.documents-grid {
+  display: none; /* cards — oculto no desktop */
+}
+
+.documents-table-wrap {
+  display: block;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.documents-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.documents-table thead {
+  background: var(--bg-table-header);
+}
+
+.documents-table th {
+  padding: 0.75rem 1.25rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+  text-align: left;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.documents-table th:last-child {
+  text-align: right;
+}
+
+.documents-table tbody tr {
+  background: var(--bg-table-row);
+  border-bottom: 1px solid var(--border-row);
+  transition: background var(--transition-fast), transform var(--transition-fast);
+  cursor: pointer;
+}
+
+.documents-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.documents-table tbody tr:hover {
+  background: var(--bg-table-row-hover);
+}
+
+.documents-table tbody tr:hover .td-name {
+  color: var(--accent);
+}
+
+.documents-table tbody tr:hover .td-doc-icon {
+  background: rgba(184, 78, 94, 0.18);
+  border-color: rgba(184, 78, 94, 0.35);
+  color: var(--accent);
+}
+
+.documents-table tbody tr:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+  background: var(--bg-table-row-hover);
+}
+
+.documents-table td {
+  padding: 0.85rem 1.25rem;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  vertical-align: middle;
+}
+
+.documents-table td:last-child {
+  text-align: right;
+}
+
+/* Célula título com ícone */
+.td-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.td-doc-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background: rgba(184, 78, 94, 0.1);
+  color: rgba(200, 100, 115, 0.85);
+  border: 1px solid rgba(184, 78, 94, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.td-doc-icon .material-symbols-outlined {
+  font-size: 20px;
+}
+
+.td-name {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-heading);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 280px;
+}
+
+.td-file {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+.td-size {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+.td-date {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   Badges de Categoria
+   ========================================================================== */
+
+.category-badge {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.18rem 0.55rem;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  white-space: nowrap;
+}
+
+.badge-ementa {
+  background: var(--badge-ementa-bg);
+  color: var(--badge-ementa-text);
+  border: 1px solid var(--badge-ementa-border);
+}
+
+.badge-plano {
+  background: var(--badge-plano-bg);
+  color: var(--badge-plano-text);
+  border: 1px solid var(--badge-plano-border);
+}
+
+.badge-matriz {
+  background: var(--badge-matriz-bg);
+  color: var(--badge-matriz-text);
+  border: 1px solid var(--badge-matriz-border);
+}
+
+/* ==========================================================================
+   Botão "Abrir PDF" — fantasma / ghost
+   ========================================================================== */
+
+/* Versão tabela */
+.open-pdf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: transparent;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.open-pdf-btn:hover {
+  background: rgba(59, 104, 196, 0.1);
+  color: var(--text-highlight);
+  border-color: rgba(59, 104, 196, 0.25);
+}
+
+.open-pdf-btn svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+/* Versão card (mobile) */
+.open-pdf-btn-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: transparent;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+  margin-left: auto;
+}
+
+.open-pdf-btn-card:hover {
+  background: rgba(59, 104, 196, 0.1);
+  color: var(--text-highlight);
+  border-color: rgba(59, 104, 196, 0.25);
+}
+
+.open-pdf-btn-card svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   CARDS (Mobile < 640px)
+   ========================================================================== */
+
+.doc-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background var(--transition-normal), border-color var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  gap: 0.75rem;
+}
+
+.doc-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+}
+
+.doc-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.doc-icon-wrap {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  background: rgba(184, 78, 94, 0.1);
+  color: rgba(200, 100, 115, 0.85);
+  border: 1px solid rgba(184, 78, 94, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.doc-icon-wrap .material-symbols-outlined {
+  font-size: 22px;
+}
+
+.icon-inline.material-symbols-outlined {
+  font-size: 16px;
+  margin-right: 0.25rem;
+}
+
+.doc-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.doc-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-heading);
+  line-height: 1.3;
+  margin-bottom: 0.3rem;
+  word-break: break-word;
+}
+
+.doc-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.doc-file-info {
+  font-size: 0.73rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.doc-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  gap: 0.5rem;
+}
+
+.doc-path {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 150px;
+}
+
+/* ==========================================================================
+   Estado Vazio & Botões
+   ========================================================================== */
+
+.empty-state {
+  text-align: center;
+  padding: 3.5rem 1.5rem;
+  background: rgba(20, 25, 38, 0.4);
+  border: 1px dashed var(--border-subtle);
+  border-radius: var(--radius-xl);
+}
+
+.empty-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.empty-icon .material-symbols-outlined {
+  font-size: 30px;
+}
+
+.empty-state h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+}
+
+.empty-state p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  max-width: 380px;
+  margin: 0 auto 1.25rem;
+}
+
+/* ghost button primário */
+.btn-primary {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 0.6rem 1.35rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-primary:hover {
+  background: rgba(59, 104, 196, 0.1);
+  color: var(--text-highlight);
+  border-color: rgba(59, 104, 196, 0.3);
+}
+
+/* ==========================================================================
+   Rodapé
+   ========================================================================== */
+
+.app-footer {
+  border-top: 1px solid var(--border-subtle);
+  background: rgba(10, 13, 20, 0.9);
+  padding: 1.25rem 0;
+  margin-top: auto;
+}
+
+.footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.footer-dot {
+  color: var(--border-subtle);
+}
+
+.footer-sub {
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE
+   ========================================================================== */
+
+/* Mobile-first: mostra cards, esconde tabela */
+.documents-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.documents-table-wrap {
+  display: none;
+}
+
+/* Desktop: esconde cards, mostra tabela */
+@media (min-width: 640px) {
+  .documents-grid {
+    display: none;
+  }
+
+  .documents-table-wrap {
+    display: block;
+  }
+}
+
+/* Ajustes header mobile */
+@media (max-width: 640px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-stats {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .brand-subtitle {
+    display: none;
+  }
+}

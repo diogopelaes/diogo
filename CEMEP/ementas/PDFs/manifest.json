@@ -1,0 +1,222 @@
+[
+  {
+    "id": "banco_de_dados_1",
+    "title": "Banco de Dados — 1ª série",
+    "category": "ementa",
+    "categoryLabel": "Ementa",
+    "filename": "banco_de_dados_1.pdf",
+    "path": "PDFs/ementas/banco_de_dados_1.pdf",
+    "size": "45 KB",
+    "updatedAt": "27/08/2026"
+  },
+  {
+    "id": "banco_de_dados_2",
+    "title": "Banco de Dados — 2ª série",
+    "category": "ementa",
+    "categoryLabel": "Ementa",
+    "filename": "banco_de_dados_2.pdf",
+    "path": "PDFs/ementas/banco_de_dados_2.pdf",
+    "size": "45 KB",
+    "updatedAt": "27/08/2026"
+  },
+  {
+    "id": "banco_de_dados_3",
+    "title": "Banco de Dados — 3ª série",
+    "category": "ementa",
+    "categoryLabel": "Ementa",
+    "filename": "banco_de_dados_3.pdf",
+    "path": "PDFs/ementas/banco_de_dados_3.pdf",
+    "size": "44 KB",
+    "updatedAt": "27/08/2026"
+  },
+  {
+    "id": "desenvolvimento_mobile",
+    "title": "Desenvolvimento Mobile",
+    "category": "ementa",
+    "categoryLabel": "Ementa",
+    "filename": "desenvolvimento_mobile.pdf",
+    "path": "PDFs/ementas/desenvolvimento_mobile.pdf",
+    "size": "44 KB",
+    "updatedAt": "27/08/2026"
+  },
+  {
+    "id": "engenharia_de_software",
+    "title": "Engenharia de Software",
+    "category": "ementa",
+    "categoryLabel": "Ementa",
+    "filename": "engenharia_de_software.pdf",
+    "path": "PDFs/ementas/engenharia_de_software.pdf",
+    "size": "46 KB",
+    "updatedAt": "27/08/2026"
+  },
+  {
+    "id": "filosofia",
+    "title": "Filosofia",
+    "category": "ementa",
+    "categoryLabel": "Ementa",
+    "filename": "filosofia.pdf",
+    "path": "PDFs/ementas/filosofia.pdf",
+    "size": "55 KB",
+    "updatedAt": "27/08/2026"
+  },
+  {
+    "id": "fundamentos_da_informatica",
+    "title": "Fundamentos da Informática",
+    "category": "ementa",
+    "categoryLabel": "Ementa",
+    "filename": "fundamentos_da_informatica.pdf",
+    "path": "PDFs/ementas/fundamentos_da_informatica.pdf",
+    "size": "47 KB",
+    "updatedAt": "27/08/2026"
+  },
+  {
+    "id": "iniciacao_cientifica",
+    "title": "Iniciação Científica",
+    "category": "ementa",
+    "categoryLabel": "Ementa",
+    "filename": "iniciacao_cientifica.pdf",
+    "path": "PDFs/ementas/iniciacao_cientifica.pdf",
+    "size": "48 KB",
+    "updatedAt": "27/08/2026"
+  },
+  {
+    "id": "linguagem_de_programacao_1",
+    "title": "Linguagem de Programação — 1ª série",
+    "category": "ementa",
+    "categoryLabel": "Ementa",
+    "filename": "linguagem_de_programacao_1.pdf",
+    "path": "PDFs/ementas/linguagem_de_programacao_1.pdf",
+    "size": "36 KB",
+    "updatedAt": "27/08/2026"
+  },
+  {
+    "id": "linguagem_de_programacao_2",
+    "title": "Linguagem de Programação — 2ª série",
+    "category": "ementa",
+    "categoryLabel": "Ementa",
+    "filename": "linguagem_de_programacao_2.pdf",
+    "path": "PDFs/ementas/linguagem_de_programacao_2.pdf",
+    "size": "46 KB",
+    "updatedAt": "27/08/2026"
+  },
+  {
+    "id": "linguagem_de_programacao_3",
+    "title": "Linguagem de Programação — 3ª série",
+    "category": "ementa",
+    "categoryLabel": "Ementa",
+    "filename": "linguagem_de_programacao_3.pdf",
+    "path": "PDFs/ementas/linguagem_de_programacao_3.pdf",
+    "size": "46 KB",
+    "updatedAt": "27/08/2026"
+  },
+  {
+    "id": "producao_audiovisual_e_animacao",
+    "title": "Produção Audiovisual e Animação",
+    "category": "ementa",
+    "categoryLabel": "Ementa",
+    "filename": "producao_audiovisual_e_animacao.pdf",
+    "path": "PDFs/ementas/producao_audiovisual_e_animacao.pdf",
+    "size": "47 KB",
+    "updatedAt": "27/08/2026"
+  },
+  {
+    "id": "programacao_e_desenvolvimento_web_1",
+    "title": "Programação e Desenvolvimento Web — 1ª série",
+    "category": "ementa",
+    "categoryLabel": "Ementa",
+    "filename": "programacao_e_desenvolvimento_web_1.pdf",
+    "path": "PDFs/ementas/programacao_e_desenvolvimento_web_1.pdf",
+    "size": "44 KB",
+    "updatedAt": "27/08/2026"
+  },
+  {
+    "id": "programacao_e_desenvolvimento_web_2",
+    "title": "Programação e Desenvolvimento Web — 2ª série",
+    "category": "ementa",
+    "categoryLabel": "Ementa",
+    "filename": "programacao_e_desenvolvimento_web_2.pdf",
+    "path": "PDFs/ementas/programacao_e_desenvolvimento_web_2.pdf",
+    "size": "46 KB",
+    "updatedAt": "27/08/2026"
+  },
+  {
+    "id": "programacao_orientada_a_objetos",
+    "title": "Programação Orientada a Objetos",
+    "category": "ementa",
+    "categoryLabel": "Ementa",
+    "filename": "programacao_orientada_a_objetos.pdf",
+    "path": "PDFs/ementas/programacao_orientada_a_objetos.pdf",
+    "size": "46 KB",
+    "updatedAt": "27/08/2026"
+  },
+  {
+    "id": "projeto_de_vida_e_carreira",
+    "title": "Projeto de Vida e Carreira na Era Tech",
+    "category": "ementa",
+    "categoryLabel": "Ementa",
+    "filename": "projeto_de_vida_e_carreira.pdf",
+    "path": "PDFs/ementas/projeto_de_vida_e_carreira.pdf",
+    "size": "48 KB",
+    "updatedAt": "27/08/2026"
+  },
+  {
+    "id": "tecnica_de_programacao_visual_1",
+    "title": "Técnicas de Programação Visual — 2ª série",
+    "category": "ementa",
+    "categoryLabel": "Ementa",
+    "filename": "tecnica_de_programacao_visual_1.pdf",
+    "path": "PDFs/ementas/tecnica_de_programacao_visual_1.pdf",
+    "size": "44 KB",
+    "updatedAt": "27/08/2026"
+  },
+  {
+    "id": "tecnica_de_programacao_visual_2",
+    "title": "Técnicas de Programação Visual — 3ª série",
+    "category": "ementa",
+    "categoryLabel": "Ementa",
+    "filename": "tecnica_de_programacao_visual_2.pdf",
+    "path": "PDFs/ementas/tecnica_de_programacao_visual_2.pdf",
+    "size": "45 KB",
+    "updatedAt": "27/08/2026"
+  },
+  {
+    "id": "tecnicas_de_programacao_e_algoritmos",
+    "title": "Técnicas de Programação e Algoritmos",
+    "category": "ementa",
+    "categoryLabel": "Ementa",
+    "filename": "tecnicas_de_programacao_e_algoritmos.pdf",
+    "path": "PDFs/ementas/tecnicas_de_programacao_e_algoritmos.pdf",
+    "size": "44 KB",
+    "updatedAt": "27/08/2026"
+  },
+  {
+    "id": "tecnologia_e_robotica_aplicada",
+    "title": "Tecnologia e Robótica Aplicada",
+    "category": "ementa",
+    "categoryLabel": "Ementa",
+    "filename": "tecnologia_e_robotica_aplicada.pdf",
+    "path": "PDFs/ementas/tecnologia_e_robotica_aplicada.pdf",
+    "size": "47 KB",
+    "updatedAt": "27/08/2026"
+  },
+  {
+    "id": "trabalho_de_conclusao_de_curso",
+    "title": "Trabalho de Conclusão de Curso",
+    "category": "ementa",
+    "categoryLabel": "Ementa",
+    "filename": "trabalho_de_conclusao_de_curso.pdf",
+    "path": "PDFs/ementas/trabalho_de_conclusao_de_curso.pdf",
+    "size": "53 KB",
+    "updatedAt": "27/08/2026"
+  },
+  {
+    "id": "Matriz Curricular CEMEP - 2027",
+    "title": "Matriz curricular cemep 2027",
+    "category": "matriz",
+    "categoryLabel": "Matriz",
+    "filename": "Matriz Curricular CEMEP - 2027.pdf",
+    "path": "PDFs/matrizes/Matriz Curricular CEMEP - 2027.pdf",
+    "size": "120 KB",
+    "updatedAt": "27/08/2026"
+  }
+]
