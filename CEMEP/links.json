@@ -56,6 +56,54 @@
         "ext":  ".pdf"
     },
     {
+        "name":  "Aula 05 - 2ª Série - 3º Bim",
+        "fullName":  "Aula 05 - 2ª Série - 3º Bim.pdf",
+        "path":  "aulas/2serie/Aula 05 - 2ª Série - 3º Bim.pdf",
+        "category":  "aulas",
+        "series":  "2serie",
+        "ext":  ".pdf"
+    },
+    {
+        "name":  "Aula 06 - 2ª Série - 3º Bim",
+        "fullName":  "Aula 06 - 2ª Série - 3º Bim.pdf",
+        "path":  "aulas/2serie/Aula 06 - 2ª Série - 3º Bim.pdf",
+        "category":  "aulas",
+        "series":  "2serie",
+        "ext":  ".pdf"
+    },
+    {
+        "name":  "cilindro_revolucao",
+        "fullName":  "cilindro_revolucao.gif",
+        "path":  "aulas/2serie/cilindro_revolucao.gif",
+        "category":  "aulas",
+        "series":  "2serie",
+        "ext":  ".gif"
+    },
+    {
+        "name":  "cone_revolucao",
+        "fullName":  "cone_revolucao.gif",
+        "path":  "aulas/2serie/cone_revolucao.gif",
+        "category":  "aulas",
+        "series":  "2serie",
+        "ext":  ".gif"
+    },
+    {
+        "name":  "esfera_revolucao",
+        "fullName":  "esfera_revolucao.gif",
+        "path":  "aulas/2serie/esfera_revolucao.gif",
+        "category":  "aulas",
+        "series":  "2serie",
+        "ext":  ".gif"
+    },
+    {
+        "name":  "tronco_cone_revolucao",
+        "fullName":  "tronco_cone_revolucao.gif",
+        "path":  "aulas/2serie/tronco_cone_revolucao.gif",
+        "category":  "aulas",
+        "series":  "2serie",
+        "ext":  ".gif"
+    },
+    {
         "name":  "Angulo_Arco_Circ_Trigo",
         "fullName":  "Angulo_Arco_Circ_Trigo.ggb",
         "path":  "aulas/3serie/Angulo_Arco_Circ_Trigo.ggb",
@@ -104,6 +152,14 @@
         "ext":  ".pdf"
     },
     {
+        "name":  "Aula 06 - 3ª Série - 3º Bim",
+        "fullName":  "Aula 06 - 3ª Série - 3º Bim.pdf",
+        "path":  "aulas/3serie/Aula 06 - 3ª Série - 3º Bim.pdf",
+        "category":  "aulas",
+        "series":  "3serie",
+        "ext":  ".pdf"
+    },
+    {
         "name":  "GeoGebra-Windows-Installer-5-4-929-3",
         "fullName":  "GeoGebra-Windows-Installer-5-4-929-3.exe",
         "path":  "aulas/3serie/GeoGebra-Windows-Installer-5-4-929-3.exe",
@@ -120,11 +176,35 @@
         "ext":  ".ggb"
     },
     {
+        "name":  "lista_1Y_3Bim2026",
+        "fullName":  "lista_1Y_3Bim2026.pdf",
+        "path":  "listas/1serie/lista_1Y_3Bim2026.pdf",
+        "category":  "listas",
+        "series":  "1serie",
+        "ext":  ".pdf"
+    },
+    {
+        "name":  "lista_2W_3Bim2026",
+        "fullName":  "lista_2W_3Bim2026.pdf",
+        "path":  "listas/2serie/lista_2W_3Bim2026.pdf",
+        "category":  "listas",
+        "series":  "2serie",
+        "ext":  ".pdf"
+    },
+    {
         "name":  "roteiro_estudo_Geometria_Espacial",
         "fullName":  "roteiro_estudo_Geometria_Espacial.pdf",
         "path":  "listas/2serie/roteiro_estudo_Geometria_Espacial.pdf",
         "category":  "listas",
         "series":  "2serie",
+        "ext":  ".pdf"
+    },
+    {
+        "name":  "Questões Lei Senos e Lei Cossenos",
+        "fullName":  "Questões Lei Senos e Lei Cossenos.pdf",
+        "path":  "listas/3serie/Questões Lei Senos e Lei Cossenos.pdf",
+        "category":  "listas",
+        "series":  "3serie",
         "ext":  ".pdf"
     }
 ]
