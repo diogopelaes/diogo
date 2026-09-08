@@ -23,14 +23,14 @@
 
         .container {
             max-width: 520px;
-            margin: auto;
+            margin: 0 auto;
         }
 
         h1 {
             margin: 0 0 8px;
+            color: #e4e4e7;
             font-size: 24px;
             font-weight: 500;
-            color: #e4e4e7;
         }
 
         .descricao {
@@ -39,24 +39,23 @@
             font-size: 14px;
         }
 
-        .campo {
-            margin-bottom: 14px;
-        }
-
         label {
             display: block;
             margin-bottom: 7px;
-            font-size: 14px;
             color: #a1a1aa;
+            font-size: 14px;
         }
 
         input {
             width: 100%;
             padding: 11px 12px;
+
             border: 1px solid #3f3f46;
             border-radius: 7px;
+
             background: #202023;
             color: #d4d4d8;
+
             font-size: 16px;
             outline: none;
         }
@@ -65,22 +64,39 @@
             border-color: #52525b;
         }
 
+        .botoes {
+            display: flex;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
         button {
-            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            padding: 11px;
+
+            padding: 11px 14px;
+
             border: 1px solid #3f3f46;
             border-radius: 7px;
+
             background: #27272a;
             color: #d4d4d8;
+
             font-size: 15px;
             cursor: pointer;
         }
 
-        button:hover {
+        #btnSortear {
+            flex: 1;
+        }
+
+        #btnRecomecar {
+            flex: 0 0 auto;
+        }
+
+        button:hover:not(:disabled) {
             background: #303034;
         }
 
@@ -103,9 +119,11 @@
             display: flex;
             align-items: center;
             gap: 7px;
+
             margin-bottom: 10px;
-            font-size: 14px;
+
             color: #71717a;
+            font-size: 14px;
         }
 
         .questoes {
@@ -116,8 +134,10 @@
 
         .questao {
             padding: 10px 12px;
+
             border: 1px solid #27272a;
             border-radius: 6px;
+
             background: #202023;
             color: #a1a1aa;
         }
@@ -142,26 +162,33 @@
         <h1>Sorteio de questões</h1>
 
         <p class="descricao">
-            Sorteie as questões aleatoriamente, sem reposição.
+            Sorteio aleatório sem reposição.
         </p>
 
-        <div class="campo">
-            <label for="totalQuestoes">
-                Total de questões
-            </label>
+        <label for="totalQuestoes">
+            Quantidade de questões
+        </label>
 
-            <input
-                type="number"
-                id="totalQuestoes"
-                min="1"
-                value="20"
-            >
+        <input
+            type="number"
+            id="totalQuestoes"
+            min="1"
+            value="20"
+        >
+
+        <div class="botoes">
+
+            <button id="btnSortear">
+                <i data-lucide="shuffle"></i>
+                Sortear
+            </button>
+
+            <button id="btnRecomecar">
+                <i data-lucide="rotate-ccw"></i>
+                Recomeçar
+            </button>
+
         </div>
-
-        <button id="btnSortear">
-            <i data-lucide="shuffle"></i>
-            Sortear
-        </button>
 
         <div id="status" class="status"></div>
 
@@ -186,8 +213,11 @@
         const totalInput =
             document.getElementById("totalQuestoes");
 
-        const botao =
+        const btnSortear =
             document.getElementById("btnSortear");
+
+        const btnRecomecar =
+            document.getElementById("btnRecomecar");
 
         const lista =
             document.getElementById("questoes");
@@ -204,17 +234,16 @@
         let total = 0;
 
 
-        function iniciarSorteio() {
+        function iniciar() {
 
             total = Number(totalInput.value);
 
             if (!Number.isInteger(total) || total < 1) {
-                status.textContent =
-                    "Informe um número válido de questões.";
+                alert("Informe uma quantidade válida de questões.");
                 return;
             }
 
-            // Cria a lista 1, 2, 3, ..., total
+            // Cria as questões disponíveis: 1, 2, 3, ..., total
             disponiveis = Array.from(
                 { length: total },
                 (_, i) => i + 1
@@ -225,7 +254,7 @@
             lista.innerHTML = "";
             fim.textContent = "";
 
-            botao.disabled = false;
+            btnSortear.disabled = false;
 
             atualizarStatus();
         }
@@ -233,28 +262,29 @@
 
         function sortear() {
 
+            // Segurança: não permite sortear além do total
             if (disponiveis.length === 0) {
                 return;
             }
 
             /*
-             * Escolhe uma posição aleatória
-             * dentro das questões ainda disponíveis.
+             * Escolhe uma questão aleatória
+             * dentre as que ainda estão disponíveis.
              */
             const indice = Math.floor(
                 Math.random() * disponiveis.length
             );
 
             /*
-             * Remove a questão da lista de disponíveis.
-             * Portanto, ela NÃO poderá ser sorteada novamente.
+             * Remove a questão da lista.
+             * Isso garante o sorteio SEM reposição.
              */
             const [questao] =
                 disponiveis.splice(indice, 1);
 
             sorteadas.push(questao);
 
-            // Adiciona a questão no final da lista
+            // Exibe a questão sorteada
             const elemento =
                 document.createElement("div");
 
@@ -266,10 +296,10 @@
 
             atualizarStatus();
 
-            // Terminou todas as questões
+            // Não permite mais cliques quando acabar
             if (disponiveis.length === 0) {
 
-                botao.disabled = true;
+                btnSortear.disabled = true;
 
                 fim.textContent =
                     "Todas as questões foram sorteadas.";
@@ -279,40 +309,71 @@
 
         function atualizarStatus() {
 
-            const quantidade =
+            const sorteadasCount =
                 sorteadas.length;
 
             const restantes =
                 disponiveis.length;
 
-            if (quantidade === 0) {
+            if (sorteadasCount === 0) {
+
                 status.textContent =
                     `${total} questões disponíveis.`;
+
             } else {
+
                 status.textContent =
-                    `${quantidade} sorteada${quantidade !== 1 ? "s" : ""} · ` +
-                    `${restantes} restante${restantes !== 1 ? "s" : ""}.`;
+                    `${sorteadasCount} de ${total} sorteada` +
+                    `${sorteadasCount !== 1 ? "s" : ""} · ` +
+                    `${restantes} restante` +
+                    `${restantes !== 1 ? "s" : ""}.`;
             }
         }
 
 
-        // Botão Sorteio
-        botao.addEventListener(
+        // Sorteia uma questão por clique
+        btnSortear.addEventListener(
             "click",
             sortear
         );
 
 
-        // Se alterar o número de questões,
-        // inicia um novo sorteio.
+        // Recomeçar com confirmação
+        btnRecomecar.addEventListener(
+            "click",
+            () => {
+
+                const confirmou = confirm(
+                    "Tem certeza que deseja recomeçar o sorteio?\n\n" +
+                    "Todas as questões já sorteadas serão apagadas."
+                );
+
+                if (confirmou) {
+                    iniciar();
+                }
+            }
+        );
+
+
+        // Se alterar a quantidade, confirma o reinício
         totalInput.addEventListener(
             "change",
-            iniciarSorteio
+            () => {
+
+                const confirmou = confirm(
+                    "Alterar a quantidade de questões irá " +
+                    "reiniciar o sorteio.\n\nDeseja continuar?"
+                );
+
+                if (confirmou) {
+                    iniciar();
+                }
+            }
         );
 
 
         // Inicialização
-        iniciarSorteio();
+        iniciar();
     </script>
 
 </body>
