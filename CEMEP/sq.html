@@ -18,7 +18,7 @@
             padding: 40px 20px;
             background: #18181b;
             color: #d4d4d8;
-            font-family: system-ui, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         }
 
         .container {
@@ -100,6 +100,10 @@
             background: #303034;
         }
 
+        button:active:not(:disabled) {
+            background: #3f3f46;
+        }
+
         button:disabled {
             opacity: 0.35;
             cursor: not-allowed;
@@ -140,6 +144,11 @@
 
             background: #202023;
             color: #a1a1aa;
+        }
+
+        .questao:first-child {
+            color: #d4d4d8;
+            border-color: #3f3f46;
         }
 
         .fim {
@@ -243,7 +252,8 @@
                 return;
             }
 
-            // Cria as questões disponíveis: 1, 2, 3, ..., total
+            // Cria as questões disponíveis:
+            // 1, 2, 3, ..., total
             disponiveis = Array.from(
                 { length: total },
                 (_, i) => i + 1
@@ -262,29 +272,31 @@
 
         function sortear() {
 
-            // Segurança: não permite sortear além do total
+            // Impede qualquer sorteio após o fim
             if (disponiveis.length === 0) {
                 return;
             }
 
             /*
-             * Escolhe uma questão aleatória
-             * dentre as que ainda estão disponíveis.
+             * Escolhe aleatoriamente uma posição
+             * entre as questões ainda disponíveis.
              */
             const indice = Math.floor(
                 Math.random() * disponiveis.length
             );
 
             /*
-             * Remove a questão da lista.
-             * Isso garante o sorteio SEM reposição.
+             * Retira a questão da lista de disponíveis.
+             *
+             * Como ela foi removida, não poderá
+             * ser sorteada novamente.
              */
             const [questao] =
                 disponiveis.splice(indice, 1);
 
             sorteadas.push(questao);
 
-            // Exibe a questão sorteada
+            // Cria o elemento da questão
             const elemento =
                 document.createElement("div");
 
@@ -292,11 +304,17 @@
             elemento.textContent =
                 `Questão ${questao}`;
 
-            lista.appendChild(elemento);
+            /*
+             * Insere no INÍCIO da lista.
+             *
+             * Assim, a última questão sorteada
+             * sempre fica no topo.
+             */
+            lista.prepend(elemento);
 
             atualizarStatus();
 
-            // Não permite mais cliques quando acabar
+            // Todas as questões já foram sorteadas
             if (disponiveis.length === 0) {
 
                 btnSortear.disabled = true;
@@ -309,13 +327,13 @@
 
         function atualizarStatus() {
 
-            const sorteadasCount =
+            const quantidadeSorteada =
                 sorteadas.length;
 
             const restantes =
                 disponiveis.length;
 
-            if (sorteadasCount === 0) {
+            if (quantidadeSorteada === 0) {
 
                 status.textContent =
                     `${total} questões disponíveis.`;
@@ -323,15 +341,15 @@
             } else {
 
                 status.textContent =
-                    `${sorteadasCount} de ${total} sorteada` +
-                    `${sorteadasCount !== 1 ? "s" : ""} · ` +
+                    `${quantidadeSorteada} de ${total} sorteada` +
+                    `${quantidadeSorteada !== 1 ? "s" : ""} · ` +
                     `${restantes} restante` +
                     `${restantes !== 1 ? "s" : ""}.`;
             }
         }
 
 
-        // Sorteia uma questão por clique
+        // Um clique = uma questão
         btnSortear.addEventListener(
             "click",
             sortear
@@ -355,14 +373,18 @@
         );
 
 
-        // Se alterar a quantidade, confirma o reinício
+        /*
+         * Se o usuário alterar a quantidade,
+         * pede confirmação antes de reiniciar.
+         */
         totalInput.addEventListener(
             "change",
             () => {
 
                 const confirmou = confirm(
                     "Alterar a quantidade de questões irá " +
-                    "reiniciar o sorteio.\n\nDeseja continuar?"
+                    "reiniciar o sorteio.\n\n" +
+                    "Deseja continuar?"
                 );
 
                 if (confirmou) {
