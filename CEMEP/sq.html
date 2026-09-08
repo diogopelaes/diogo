@@ -53,13 +53,10 @@
         input {
             width: 100%;
             padding: 11px 12px;
-
             border: 1px solid #3f3f46;
             border-radius: 7px;
-
             background: #202023;
             color: #d4d4d8;
-
             font-size: 16px;
             outline: none;
         }
@@ -70,32 +67,32 @@
 
         button {
             width: 100%;
-
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-
             padding: 11px;
-
             border: 1px solid #3f3f46;
             border-radius: 7px;
-
             background: #27272a;
             color: #d4d4d8;
-
             font-size: 15px;
             cursor: pointer;
-
-            transition: background 0.15s;
         }
 
         button:hover {
             background: #303034;
         }
 
-        button:active {
-            background: #3f3f46;
+        button:disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+
+        .status {
+            margin-top: 14px;
+            color: #71717a;
+            font-size: 13px;
         }
 
         .resultado {
@@ -106,9 +103,7 @@
             display: flex;
             align-items: center;
             gap: 7px;
-
             margin-bottom: 10px;
-
             font-size: 14px;
             color: #71717a;
         }
@@ -121,17 +116,15 @@
 
         .questao {
             padding: 10px 12px;
-
             border: 1px solid #27272a;
             border-radius: 6px;
-
             background: #202023;
             color: #a1a1aa;
         }
 
-        .erro {
+        .fim {
             margin-top: 12px;
-            color: #a1a1aa;
+            color: #71717a;
             font-size: 13px;
         }
 
@@ -149,12 +142,12 @@
         <h1>Sorteio de questões</h1>
 
         <p class="descricao">
-            Sorteio aleatório sem reposição.
+            Sorteie as questões aleatoriamente, sem reposição.
         </p>
 
         <div class="campo">
             <label for="totalQuestoes">
-                Total de questões disponíveis
+                Total de questões
             </label>
 
             <input
@@ -165,25 +158,12 @@
             >
         </div>
 
-        <div class="campo">
-            <label for="quantidadeSorteada">
-                Quantidade a sortear
-            </label>
-
-            <input
-                type="number"
-                id="quantidadeSorteada"
-                min="1"
-                value="5"
-            >
-        </div>
-
         <button id="btnSortear">
             <i data-lucide="shuffle"></i>
             Sortear
         </button>
 
-        <div id="erro" class="erro"></div>
+        <div id="status" class="status"></div>
 
         <section class="resultado">
 
@@ -193,6 +173,8 @@
             </div>
 
             <div id="questoes" class="questoes"></div>
+
+            <div id="fim" class="fim"></div>
 
         </section>
 
@@ -204,71 +186,133 @@
         const totalInput =
             document.getElementById("totalQuestoes");
 
-        const quantidadeInput =
-            document.getElementById("quantidadeSorteada");
-
         const botao =
             document.getElementById("btnSortear");
 
         const lista =
             document.getElementById("questoes");
 
-        const erro =
-            document.getElementById("erro");
+        const status =
+            document.getElementById("status");
+
+        const fim =
+            document.getElementById("fim");
 
 
-        botao.addEventListener("click", () => {
+        let disponiveis = [];
+        let sorteadas = [];
+        let total = 0;
 
-            const total = Number(totalInput.value);
-            const quantidade = Number(quantidadeInput.value);
 
-            erro.textContent = "";
-            lista.innerHTML = "";
+        function iniciarSorteio() {
 
-            if (
-                !Number.isInteger(total) ||
-                !Number.isInteger(quantidade) ||
-                total < 1 ||
-                quantidade < 1
-            ) {
-                erro.textContent =
-                    "Informe valores inteiros maiores que zero.";
+            total = Number(totalInput.value);
+
+            if (!Number.isInteger(total) || total < 1) {
+                status.textContent =
+                    "Informe um número válido de questões.";
                 return;
             }
 
-            if (quantidade > total) {
-                erro.textContent =
-                    "A quantidade a sortear não pode ser maior que o total de questões.";
-                return;
-            }
-
-            // Questões disponíveis
-            const disponiveis = Array.from(
+            // Cria a lista 1, 2, 3, ..., total
+            disponiveis = Array.from(
                 { length: total },
                 (_, i) => i + 1
             );
 
-            // Sorteio sem reposição
-            for (let i = 0; i < quantidade; i++) {
+            sorteadas = [];
 
-                const indice = Math.floor(
-                    Math.random() * disponiveis.length
-                );
+            lista.innerHTML = "";
+            fim.textContent = "";
 
-                // Retira definitivamente da lista
-                const [questao] =
-                    disponiveis.splice(indice, 1);
+            botao.disabled = false;
 
-                const elemento =
-                    document.createElement("div");
+            atualizarStatus();
+        }
 
-                elemento.className = "questao";
-                elemento.textContent =
-                    `Questão ${questao}`;
 
-                lista.appendChild(elemento);
+        function sortear() {
+
+            if (disponiveis.length === 0) {
+                return;
             }
-        });
+
+            /*
+             * Escolhe uma posição aleatória
+             * dentro das questões ainda disponíveis.
+             */
+            const indice = Math.floor(
+                Math.random() * disponiveis.length
+            );
+
+            /*
+             * Remove a questão da lista de disponíveis.
+             * Portanto, ela NÃO poderá ser sorteada novamente.
+             */
+            const [questao] =
+                disponiveis.splice(indice, 1);
+
+            sorteadas.push(questao);
+
+            // Adiciona a questão no final da lista
+            const elemento =
+                document.createElement("div");
+
+            elemento.className = "questao";
+            elemento.textContent =
+                `Questão ${questao}`;
+
+            lista.appendChild(elemento);
+
+            atualizarStatus();
+
+            // Terminou todas as questões
+            if (disponiveis.length === 0) {
+
+                botao.disabled = true;
+
+                fim.textContent =
+                    "Todas as questões foram sorteadas.";
+            }
+        }
+
+
+        function atualizarStatus() {
+
+            const quantidade =
+                sorteadas.length;
+
+            const restantes =
+                disponiveis.length;
+
+            if (quantidade === 0) {
+                status.textContent =
+                    `${total} questões disponíveis.`;
+            } else {
+                status.textContent =
+                    `${quantidade} sorteada${quantidade !== 1 ? "s" : ""} · ` +
+                    `${restantes} restante${restantes !== 1 ? "s" : ""}.`;
+            }
+        }
+
+
+        // Botão Sorteio
+        botao.addEventListener(
+            "click",
+            sortear
+        );
+
+
+        // Se alterar o número de questões,
+        // inicia um novo sorteio.
+        totalInput.addEventListener(
+            "change",
+            iniciarSorteio
+        );
+
+
+        // Inicialização
+        iniciarSorteio();
     </script>
 
 </body>
