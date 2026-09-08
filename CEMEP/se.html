@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sorteio de Questões</title>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            background: #18181b;
+            color: #d4d4d8;
+            font-family: system-ui, sans-serif;
+        }
+
+        .container {
+            max-width: 520px;
+            margin: auto;
+        }
+
+        h1 {
+            margin: 0 0 8px;
+            font-size: 24px;
+            font-weight: 500;
+            color: #e4e4e7;
+        }
+
+        .descricao {
+            margin: 0 0 28px;
+            color: #71717a;
+            font-size: 14px;
+        }
+
+        .campo {
+            margin-bottom: 14px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 14px;
+            color: #a1a1aa;
+        }
+
+        input {
+            width: 100%;
+            padding: 11px 12px;
+
+            border: 1px solid #3f3f46;
+            border-radius: 7px;
+
+            background: #202023;
+            color: #d4d4d8;
+
+            font-size: 16px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #52525b;
+        }
+
+        button {
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            padding: 11px;
+
+            border: 1px solid #3f3f46;
+            border-radius: 7px;
+
+            background: #27272a;
+            color: #d4d4d8;
+
+            font-size: 15px;
+            cursor: pointer;
+
+            transition: background 0.15s;
+        }
+
+        button:hover {
+            background: #303034;
+        }
+
+        button:active {
+            background: #3f3f46;
+        }
+
+        .resultado {
+            margin-top: 28px;
+        }
+
+        .resultado-titulo {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+
+            margin-bottom: 10px;
+
+            font-size: 14px;
+            color: #71717a;
+        }
+
+        .questoes {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .questao {
+            padding: 10px 12px;
+
+            border: 1px solid #27272a;
+            border-radius: 6px;
+
+            background: #202023;
+            color: #a1a1aa;
+        }
+
+        .erro {
+            margin-top: 12px;
+            color: #a1a1aa;
+            font-size: 13px;
+        }
+
+        svg {
+            width: 17px;
+            height: 17px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <h1>Sorteio de questões</h1>
+
+        <p class="descricao">
+            Sorteio aleatório sem reposição.
+        </p>
+
+        <div class="campo">
+            <label for="totalQuestoes">
+                Total de questões disponíveis
+            </label>
+
+            <input
+                type="number"
+                id="totalQuestoes"
+                min="1"
+                value="20"
+            >
+        </div>
+
+        <div class="campo">
+            <label for="quantidadeSorteada">
+                Quantidade a sortear
+            </label>
+
+            <input
+                type="number"
+                id="quantidadeSorteada"
+                min="1"
+                value="5"
+            >
+        </div>
+
+        <button id="btnSortear">
+            <i data-lucide="shuffle"></i>
+            Sortear
+        </button>
+
+        <div id="erro" class="erro"></div>
+
+        <section class="resultado">
+
+            <div class="resultado-titulo">
+                <i data-lucide="list"></i>
+                Questões sorteadas
+            </div>
+
+            <div id="questoes" class="questoes"></div>
+
+        </section>
+
+    </main>
+
+    <script>
+        lucide.createIcons();
+
+        const totalInput =
+            document.getElementById("totalQuestoes");
+
+        const quantidadeInput =
+            document.getElementById("quantidadeSorteada");
+
+        const botao =
+            document.getElementById("btnSortear");
+
+        const lista =
+            document.getElementById("questoes");
+
+        const erro =
+            document.getElementById("erro");
+
+
+        botao.addEventListener("click", () => {
+
+            const total = Number(totalInput.value);
+            const quantidade = Number(quantidadeInput.value);
+
+            erro.textContent = "";
+            lista.innerHTML = "";
+
+            if (
+                !Number.isInteger(total) ||
+                !Number.isInteger(quantidade) ||
+                total < 1 ||
+                quantidade < 1
+            ) {
+                erro.textContent =
+                    "Informe valores inteiros maiores que zero.";
+                return;
+            }
+
+            if (quantidade > total) {
+                erro.textContent =
+                    "A quantidade a sortear não pode ser maior que o total de questões.";
+                return;
+            }
+
+            // Questões disponíveis
+            const disponiveis = Array.from(
+                { length: total },
+                (_, i) => i + 1
+            );
+
+            // Sorteio sem reposição
+            for (let i = 0; i < quantidade; i++) {
+
+                const indice = Math.floor(
+                    Math.random() * disponiveis.length
+                );
+
+                // Retira definitivamente da lista
+                const [questao] =
+                    disponiveis.splice(indice, 1);
+
+                const elemento =
+                    document.createElement("div");
+
+                elemento.className = "questao";
+                elemento.textContent =
+                    `Questão ${questao}`;
+
+                lista.appendChild(elemento);
+            }
+        });
+    </script>
+
+</body>
+</html>
