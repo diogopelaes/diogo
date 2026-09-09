@@ -24,6 +24,14 @@
         "ext":  ".pdf"
     },
     {
+        "name":  "Aula 04 - 1ª Série - 3º Bim",
+        "fullName":  "Aula 04 - 1ª Série - 3º Bim.pdf",
+        "path":  "aulas/1serie/Aula 04 - 1ª Série - 3º Bim.pdf",
+        "category":  "aulas",
+        "series":  "1serie",
+        "ext":  ".pdf"
+    },
+    {
         "name":  "Aula 01 - 2ª Série - 3º Bim",
         "fullName":  "Aula 01 - 2ª Série - 3º Bim.pdf",
         "path":  "aulas/2serie/Aula 01 - 2ª Série - 3º Bim.pdf",
@@ -160,6 +168,14 @@
         "ext":  ".pdf"
     },
     {
+        "name":  "Aula 07 - 3ª Série - 3º Bim",
+        "fullName":  "Aula 07 - 3ª Série - 3º Bim.pdf",
+        "path":  "aulas/3serie/Aula 07 - 3ª Série - 3º Bim.pdf",
+        "category":  "aulas",
+        "series":  "3serie",
+        "ext":  ".pdf"
+    },
+    {
         "name":  "GeoGebra-Windows-Installer-5-4-929-3",
         "fullName":  "GeoGebra-Windows-Installer-5-4-929-3.exe",
         "path":  "aulas/3serie/GeoGebra-Windows-Installer-5-4-929-3.exe",
@@ -184,9 +200,9 @@
         "ext":  ".pdf"
     },
     {
-        "name":  "lista_2W_3Bim2026",
-        "fullName":  "lista_2W_3Bim2026.pdf",
-        "path":  "listas/2serie/lista_2W_3Bim2026.pdf",
+        "name":  "lista_2WXY_3Bim2026",
+        "fullName":  "lista_2WXY_3Bim2026.pdf",
+        "path":  "listas/2serie/lista_2WXY_3Bim2026.pdf",
         "category":  "listas",
         "series":  "2serie",
         "ext":  ".pdf"
@@ -200,9 +216,25 @@
         "ext":  ".pdf"
     },
     {
+        "name":  "lista_3WXY_2Bim2026",
+        "fullName":  "lista_3WXY_2Bim2026.pdf",
+        "path":  "listas/3serie/lista_3WXY_2Bim2026.pdf",
+        "category":  "listas",
+        "series":  "3serie",
+        "ext":  ".pdf"
+    },
+    {
         "name":  "Questões Lei Senos e Lei Cossenos",
         "fullName":  "Questões Lei Senos e Lei Cossenos.pdf",
         "path":  "listas/3serie/Questões Lei Senos e Lei Cossenos.pdf",
+        "category":  "listas",
+        "series":  "3serie",
+        "ext":  ".pdf"
+    },
+    {
+        "name":  "Questões Relação fundamental da Trigonometria",
+        "fullName":  "Questões Relação fundamental da Trigonometria.pdf",
+        "path":  "listas/3serie/Questões Relação fundamental da Trigonometria.pdf",
         "category":  "listas",
         "series":  "3serie",
         "ext":  ".pdf"

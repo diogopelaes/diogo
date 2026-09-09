@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorteio de Questões | CEMEP</title>
+  <link rel="icon" type="image/svg+xml" href="https://api.iconify.design/material-symbols:casino.svg?color=%23ff6b00">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Iconify Icon -->
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@3.0.2/dist/iconify-icon.min.js"></script>
+
+  <!-- Tailwind (Silenciando aviso de produção) -->
+  <script>
+    const _warn = console.warn;
+    console.warn = (...args) => {
+      if (typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) return;
+      _warn(...args);
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- CSS do Design System -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Remove setas do input number */
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    input[type=number] {
+      -moz-appearance: textfield;
+      appearance: textfield;
+    }
+
+    /* Otimizações para telas Mobile */
+    @media (max-width: 640px) {
+      .input-dark {
+        font-size: 16px !important; /* Previne auto-zoom no Safari iOS */
+      }
+      .glass-card {
+        padding: 1.25rem !important;
+        border-radius: 18px !important;
+      }
+      .modal-card {
+        margin: 1rem !important;
+        padding: 1.5rem !important;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+    }
+
+    .sorteio-item {
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .sorteio-item-first {
+      border-color: rgba(255, 107, 0, 0.4);
+      background: rgba(255, 107, 0, 0.05);
+      box-shadow: 0 0 15px rgba(255, 107, 0, 0.1);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-gray-200 min-h-screen flex items-center justify-center p-4 md:p-10"
+      style="overflow-y: auto; -webkit-overflow-scrolling: touch; align-items: flex-start; padding-top: 2rem;">
+
+  <main class="main-container w-full max-w-2xl space-y-8">
+
+    <!-- Cabeçalho -->
+    <header class="text-center space-y-2">
+      <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-orange-600/10 text-orange-500 mb-2">
+        <iconify-icon icon="lucide:shuffle" class="text-5xl"></iconify-icon>
+      </div>
+      <h1 id="tituloDisplay" class="text-3xl sm:text-4xl font-bold text-white tracking-tight break-words px-2">
+        Sorteio de Questões
+      </h1>
+      <p class="text-gray-400 font-medium">Prof. Diogo | CEMEP</p>
+    </header>
+
+    <!-- Card de Configuração e Sorteio -->
+    <div class="glass-card p-6 sm:p-8 space-y-6">
+      
+      <!-- Input Título -->
+      <div class="space-y-3">
+        <label for="tituloSorteio" class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Título do Sorteio</label>
+        <input 
+          type="text" 
+          id="tituloSorteio" 
+          value="Sorteio de Questões" 
+          placeholder="Ex: Sorteio de Questões - Avaliação" 
+          class="input-dark"
+        >
+      </div>
+
+      <!-- Input Quantidade de Questões -->
+      <div class="space-y-3">
+        <label for="totalQuestoes" class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Quantidade de Questões</label>
+        <input 
+          type="number" 
+          id="totalQuestoes" 
+          min="1" 
+          value="20" 
+          class="input-dark"
+        >
+      </div>
+
+      <!-- Input Nome do Estudante -->
+      <div class="space-y-3">
+        <label for="nomeEstudante" class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Nome do Estudante</label>
+        <input 
+          type="text" 
+          id="nomeEstudante" 
+          placeholder="Digite o nome do estudante..." 
+          class="input-dark"
+          autocomplete="off"
+        >
+        <span class="text-xs text-gray-500 block">O campo será esvaziado automaticamente a cada sorteio para o próximo estudante.</span>
+      </div>
+
+      <!-- Botões de Ação -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 pt-2">
+        <button id="btnSortear" class="btn-primary w-full sm:w-auto">
+          <iconify-icon icon="material-symbols:casino" class="text-xl"></iconify-icon>
+          Sortear Questão
+        </button>
+
+        <button id="btnRecomecar" class="btn-secondary w-full sm:w-auto">
+          <iconify-icon icon="material-symbols:restart-alt" class="text-xl"></iconify-icon>
+          Recomeçar
+        </button>
+      </div>
+
+      <!-- Status do Sorteio -->
+      <div id="status" class="text-center text-sm font-medium text-orange-400/90 pt-1"></div>
+
+    </div>
+
+    <!-- Card de Questões Sorteadas -->
+    <div class="glass-card p-6 sm:p-8 space-y-6">
+
+      <div class="flex items-center justify-between border-b border-white/5 pb-4 gap-2">
+        <div class="flex items-center gap-2 text-white font-semibold">
+          <iconify-icon icon="material-symbols:format-list-numbered" class="text-orange-500 text-xl shrink-0"></iconify-icon>
+          <span class="text-sm sm:text-base">Questões Sorteadas</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span id="contadorBadge" class="text-xs font-bold px-3 py-1 bg-white/5 text-orange-400 rounded-full border border-orange-500/20">0 / 20</span>
+          <button 
+            id="printPdfBtn" 
+            type="button" 
+            class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-600/10 hover:bg-orange-600/20 text-orange-400 border border-orange-500/30 hover:border-orange-500/60 text-xs font-semibold transition-all cursor-pointer" 
+            title="Imprimir ou Salvar Lista Sorteada em PDF"
+          >
+            <iconify-icon icon="material-symbols:print" class="text-sm"></iconify-icon>
+            <span>PDF</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mensagem de conclusão no topo da lista -->
+      <div id="fim" class="text-center font-medium text-emerald-400 text-sm empty:hidden"></div>
+
+      <div id="questoes" class="space-y-3 max-h-96 overflow-y-auto pr-1">
+        <!-- Itens sorteados serão inseridos aqui -->
+      </div>
+
+    </div>
+
+    <footer class="text-center text-xs text-gray-600 font-medium uppercase tracking-widest">
+      &copy; Sorteio de Questões &bull; CEMEP
+    </footer>
+
+  </main>
+
+  <!-- Estrutura do Modal Customizado -->
+  <div id="customModal" class="modal-overlay">
+    <div class="modal-card">
+      <header class="modal-header">
+        <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-orange-600/10 text-orange-500 mb-3 mx-auto">
+          <iconify-icon id="modalIcon" icon="material-symbols:warning" class="text-3xl"></iconify-icon>
+        </div>
+        <p id="modalSubtitle" class="modal-subtitle">Confirmação</p>
+        <h3 id="modalTitle" class="modal-title">Atenção</h3>
+      </header>
+
+      <div class="modal-body text-center text-sm text-gray-400">
+        <p id="modalMessage">Mensagem do modal</p>
+      </div>
+
+      <footer class="modal-footer">
+        <button id="modalCancelBtn" class="btn-secondary">
+          Cancelar
+        </button>
+        <button id="modalConfirmBtn" class="btn-primary">
+          Confirmar
+        </button>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    const tituloInput = document.getElementById("tituloSorteio");
+    const tituloDisplay = document.getElementById("tituloDisplay");
+    const totalInput = document.getElementById("totalQuestoes");
+    const nomeInput = document.getElementById("nomeEstudante");
+    const btnSortear = document.getElementById("btnSortear");
+    const btnRecomecar = document.getElementById("btnRecomecar");
+    const lista = document.getElementById("questoes");
+    const status = document.getElementById("status");
+    const fim = document.getElementById("fim");
+    const contadorBadge = document.getElementById("contadorBadge");
+
+    let disponiveis = [];
+    let sorteadas = [];
+    let total = 0;
+
+    // Atualiza o título exibido ao digitar no input título
+    tituloInput.addEventListener("input", () => {
+      const valor = tituloInput.value.trim();
+      tituloDisplay.textContent = valor || "Sorteio de Questões";
+      document.title = valor ? `${valor} | CEMEP` : "Sorteio de Questões | CEMEP";
+    });
+
+    function iniciar() {
+      total = Number(totalInput.value);
+
+      if (!Number.isInteger(total) || total < 1) {
+        mostrarModal({
+          tipo: "alert",
+          titulo: "Quantidade Inválida",
+          subtitulo: "Aviso",
+          mensagem: "Por favor, informe uma quantidade válida de questões.",
+          textoConfirmar: "Entendido",
+          icone: "material-symbols:error-outline"
+        });
+        return;
+      }
+
+      // Questões disponíveis: 1, 2, ..., total
+      disponiveis = Array.from({ length: total }, (_, i) => i + 1);
+      sorteadas = [];
+
+      lista.innerHTML = '<div class="text-center py-6 text-gray-500 text-sm italic">Nenhuma questão sorteada ainda.</div>';
+      fim.textContent = "";
+
+      btnSortear.disabled = false;
+      atualizarStatus();
+    }
+
+    function sortear() {
+      const nome = nomeInput.value.trim();
+
+      // Impede qualquer sorteio após o fim
+      if (disponiveis.length === 0) {
+        return;
+      }
+
+      // Escolhe aleatoriamente uma posição entre as disponíveis
+      const indice = Math.floor(Math.random() * disponiveis.length);
+
+      // Retira a questão da lista (sem reposição)
+      const [questao] = disponiveis.splice(indice, 1);
+
+      sorteadas.push({ questao, nome });
+
+      // Se for o primeiro elemento adicionado, limpa a mensagem de vazio
+      if (sorteadas.length === 1) {
+        lista.innerHTML = "";
+      }
+
+      // Remove destaque do item anterior se houver
+      const itemAnterior = lista.querySelector(".sorteio-item-first");
+      if (itemAnterior) {
+        itemAnterior.classList.remove("sorteio-item-first");
+      }
+
+      // Cria o elemento da questão: Nome à esquerda, Questão e botão Devolver à direita
+      const elemento = document.createElement("div");
+      elemento.className = "sorteio-item sorteio-item-first flex items-center justify-between p-3.5 sm:p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] transition-all gap-2 sm:gap-3";
+      
+      const nomeHtml = nome 
+        ? `<span class="font-medium text-white text-sm sm:text-base md:text-lg break-words">${escapeHtml(nome)}</span>` 
+        : `<span class="text-gray-500 italic text-xs sm:text-sm md:text-base">Sem estudante</span>`;
+
+      elemento.innerHTML = `
+        <div class="flex items-center gap-2 min-w-0 flex-1 pr-1">
+          ${nomeHtml}
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <span class="text-sm sm:text-base md:text-lg font-bold px-3 py-1 sm:px-3.5 rounded-lg bg-orange-600/20 text-orange-400 border border-orange-500/30 font-['Outfit'] tracking-wide shrink-0">
+            Q${questao}
+          </span>
+          <button 
+            type="button" 
+            class="btn-devolver flex items-center justify-center w-8 h-8 rounded-lg text-gray-500 hover:text-red-400 hover:bg-red-500/10 border border-transparent hover:border-red-500/20 transition-all shrink-0 cursor-pointer" 
+            title="Devolver questão ${questao} para o sorteio"
+            aria-label="Devolver questão ${questao}"
+          >
+            <iconify-icon icon="material-symbols:replay" class="text-lg"></iconify-icon>
+          </button>
+        </div>
+      `;
+
+      // Ação de devolver questão
+      const btnDevolver = elemento.querySelector(".btn-devolver");
+      btnDevolver.addEventListener("click", () => {
+        devolverQuestao(questao, elemento);
+      });
+
+      // Insere no INÍCIO da lista para que a mais recente fique no topo
+      lista.prepend(elemento);
+
+      // Esvazia o input de nome e devolve o foco para o próximo estudante
+      nomeInput.value = "";
+      nomeInput.focus();
+
+      atualizarStatus();
+
+      // Todas as questões já foram sorteadas
+      if (disponiveis.length === 0) {
+        btnSortear.disabled = true;
+        fim.innerHTML = `
+          <div class="inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+            <iconify-icon icon="material-symbols:check-circle" class="text-lg"></iconify-icon>
+            <span class="font-semibold">Todas as ${total} questões foram sorteadas!</span>
+          </div>
+        `;
+      }
+    }
+
+    function devolverQuestao(numQuestao, elementoDom) {
+      // Devolve a questão para a lista de disponíveis e reordena
+      disponiveis.push(numQuestao);
+      disponiveis.sort((a, b) => a - b);
+
+      // Remove do histórico de sorteadas
+      const idx = sorteadas.findIndex(item => item.questao === numQuestao);
+      if (idx !== -1) {
+        sorteadas.splice(idx, 1);
+      }
+
+      // Remove o card da lista
+      elementoDom.remove();
+
+      // Se não houver mais itens sorteados, exibe mensagem vazia
+      if (sorteadas.length === 0) {
+        lista.innerHTML = '<div class="text-center py-6 text-gray-500 text-sm italic">Nenhuma questão sorteada ainda.</div>';
+      }
+
+      // Reabilita o botão de sortear caso estivesse desabilitado
+      btnSortear.disabled = false;
+      fim.innerHTML = "";
+
+      atualizarStatus();
+    }
+
+    function atualizarStatus() {
+      const quantidadeSorteada = sorteadas.length;
+      const restantes = disponiveis.length;
+
+      contadorBadge.textContent = `${quantidadeSorteada} / ${total}`;
+
+      if (quantidadeSorteada === 0) {
+        status.textContent = `${total} questões disponíveis para sorteio.`;
+      } else {
+        status.textContent = `${quantidadeSorteada} de ${total} sorteada${quantidadeSorteada !== 1 ? "s" : ""} · ${restantes} restante${restantes !== 1 ? "s" : ""}.`;
+      }
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement("div");
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // Clique no botão sortear
+    btnSortear.addEventListener("click", sortear);
+
+    // Tecla Enter no input de nome aciona o sorteio
+    nomeInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        sortear();
+      }
+    });
+
+    // Modal customizado no estilo do site (substitui alert/confirm nativos)
+    let onModalConfirm = null;
+    let onModalCancel = null;
+
+    function mostrarModal({
+      tipo = "confirm",
+      titulo = "Atenção",
+      subtitulo = "Confirmação",
+      mensagem = "",
+      textoConfirmar = "Confirmar",
+      textoCancelar = "Cancelar",
+      icone = "material-symbols:warning"
+    }) {
+      const modal = document.getElementById("customModal");
+      document.getElementById("modalTitle").textContent = titulo;
+      document.getElementById("modalSubtitle").textContent = subtitulo;
+      document.getElementById("modalMessage").textContent = mensagem;
+      document.getElementById("modalIcon").setAttribute("icon", icone);
+
+      const btnConfirmar = document.getElementById("modalConfirmBtn");
+      const btnCancelar = document.getElementById("modalCancelBtn");
+
+      btnConfirmar.textContent = textoConfirmar;
+      btnCancelar.textContent = textoCancelar;
+
+      if (tipo === "alert") {
+        btnCancelar.style.display = "none";
+      } else {
+        btnCancelar.style.display = "";
+      }
+
+      modal.classList.add("active");
+
+      return new Promise((resolve) => {
+        onModalConfirm = () => {
+          fecharModal();
+          resolve(true);
+        };
+        onModalCancel = () => {
+          fecharModal();
+          resolve(false);
+        };
+      });
+    }
+
+    function fecharModal() {
+      const modal = document.getElementById("customModal");
+      modal.classList.remove("active");
+    }
+
+    document.getElementById("modalConfirmBtn").addEventListener("click", () => {
+      if (onModalConfirm) onModalConfirm();
+    });
+
+    document.getElementById("modalCancelBtn").addEventListener("click", () => {
+      if (onModalCancel) onModalCancel();
+    });
+
+    document.getElementById("customModal").addEventListener("click", (e) => {
+      if (e.target.id === "customModal" && onModalCancel) {
+        onModalCancel();
+      }
+    });
+
+    // Recomeçar o sorteio
+    btnRecomecar.addEventListener("click", async () => {
+      // Se nenhum sorteio foi realizado ainda, reinicia diretamente sem alerta
+      if (sorteadas.length === 0) {
+        nomeInput.value = "";
+        iniciar();
+        return;
+      }
+
+      // Se já houver sorteios, pede confirmação
+      const confirmou = await mostrarModal({
+        tipo: "confirm",
+        titulo: "Recomeçar Sorteio?",
+        subtitulo: "Atenção",
+        mensagem: "Todas as questões já sorteadas serão apagadas e a lista será reiniciada.",
+        textoConfirmar: "Sim, Recomeçar",
+        textoCancelar: "Cancelar",
+        icone: "material-symbols:restart-alt"
+      });
+
+      if (confirmou) {
+        nomeInput.value = "";
+        iniciar();
+      }
+    });
+
+    // Mudança na quantidade de questões
+    totalInput.addEventListener("change", async () => {
+      const novoTotal = Number(totalInput.value);
+      if (!Number.isInteger(novoTotal) || novoTotal < 1) {
+        await mostrarModal({
+          tipo: "alert",
+          titulo: "Quantidade Inválida",
+          subtitulo: "Aviso",
+          mensagem: "Por favor, informe uma quantidade válida de questões.",
+          textoConfirmar: "Entendido",
+          icone: "material-symbols:error-outline"
+        });
+        totalInput.value = total;
+        return;
+      }
+
+      // Se nenhum sorteio foi feito ainda, atualiza diretamente sem alerta
+      if (sorteadas.length === 0) {
+        iniciar();
+        return;
+      }
+
+      // Se já houver sorteios realizados, pede confirmação para reiniciar
+      const confirmou = await mostrarModal({
+        tipo: "confirm",
+        titulo: "Alterar Quantidade?",
+        subtitulo: "Atenção",
+        mensagem: "Alterar a quantidade de questões irá reiniciar o sorteio atual. Deseja continuar?",
+        textoConfirmar: "Sim, Continuar",
+        textoCancelar: "Cancelar",
+        icone: "material-symbols:warning"
+      });
+
+      if (confirmou) {
+        nomeInput.value = "";
+        iniciar();
+      } else {
+        totalInput.value = total;
+      }
+    });
+
+    // Seleciona todo o valor ao focar ou clicar em qualquer input
+    document.querySelectorAll("input").forEach((input) => {
+      input.addEventListener("focus", () => input.select());
+      input.addEventListener("click", () => input.select());
+    });
+
+    // Expõe dados e modal para o módulo print_pdf.js
+    window.obterDadosSorteio = function() {
+      return {
+        titulo: tituloInput.value.trim() || "Sorteio de Questões",
+        total: total,
+        sorteadas: [...sorteadas]
+      };
+    };
+    window.mostrarModal = mostrarModal;
+
+    // Inicialização
+    iniciar();
+  </script>
+
+  <!-- Módulo de Impressão e PDF -->
+  <script src="print_pdf.js"></script>
+
+</body>
+</html>
