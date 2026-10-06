@@ -1,280 +1,40 @@
 ﻿[
     {
-        "name":  "Aula 01 - 1ª Série - 3º Bim",
-        "fullName":  "Aula 01 - 1ª Série - 3º Bim.pdf",
-        "path":  "aulas/1serie/Aula 01 - 1ª Série - 3º Bim.pdf",
+        "name":  "Aula 01 - 1ª Série - 4º Bim",
+        "fullName":  "Aula 01 - 1ª Série - 4º Bim.pdf",
+        "path":  "aulas/1serie/Aula 01 - 1ª Série - 4º Bim.pdf",
         "category":  "aulas",
         "series":  "1serie",
         "ext":  ".pdf"
     },
     {
-        "name":  "Aula 02 - 1ª Série - 3º Bim",
-        "fullName":  "Aula 02 - 1ª Série - 3º Bim.pdf",
-        "path":  "aulas/1serie/Aula 02 - 1ª Série - 3º Bim.pdf",
-        "category":  "aulas",
-        "series":  "1serie",
-        "ext":  ".pdf"
-    },
-    {
-        "name":  "Aula 03 - 1ª Série - 3º Bim",
-        "fullName":  "Aula 03 - 1ª Série - 3º Bim.pdf",
-        "path":  "aulas/1serie/Aula 03 - 1ª Série - 3º Bim.pdf",
-        "category":  "aulas",
-        "series":  "1serie",
-        "ext":  ".pdf"
-    },
-    {
-        "name":  "Aula 04 - 1ª Série - 3º Bim",
-        "fullName":  "Aula 04 - 1ª Série - 3º Bim.pdf",
-        "path":  "aulas/1serie/Aula 04 - 1ª Série - 3º Bim.pdf",
-        "category":  "aulas",
-        "series":  "1serie",
-        "ext":  ".pdf"
-    },
-    {
-        "name":  "Aula 05 - 1ª Série - 3º Bim",
-        "fullName":  "Aula 05 - 1ª Série - 3º Bim.pdf",
-        "path":  "aulas/1serie/Aula 05 - 1ª Série - 3º Bim.pdf",
-        "category":  "aulas",
-        "series":  "1serie",
-        "ext":  ".pdf"
-    },
-    {
-        "name":  "Rec - 1ª Série - 3º Bim",
-        "fullName":  "Rec - 1ª Série - 3º Bim.pdf",
-        "path":  "aulas/1serie/Rec - 1ª Série - 3º Bim.pdf",
-        "category":  "aulas",
-        "series":  "1serie",
-        "ext":  ".pdf"
-    },
-    {
-        "name":  "Aula 01 - 2ª Série - 3º Bim",
-        "fullName":  "Aula 01 - 2ª Série - 3º Bim.pdf",
-        "path":  "aulas/2serie/Aula 01 - 2ª Série - 3º Bim.pdf",
+        "name":  "Aula 01 - 2ª Série - 4º Bim",
+        "fullName":  "Aula 01 - 2ª Série - 4º Bim.pdf",
+        "path":  "aulas/2serie/Aula 01 - 2ª Série - 4º Bim.pdf",
         "category":  "aulas",
         "series":  "2serie",
         "ext":  ".pdf"
     },
     {
-        "name":  "Aula 02 - 2ª Série - 3º Bim",
-        "fullName":  "Aula 02 - 2ª Série - 3º Bim.pdf",
-        "path":  "aulas/2serie/Aula 02 - 2ª Série - 3º Bim.pdf",
-        "category":  "aulas",
-        "series":  "2serie",
-        "ext":  ".pdf"
-    },
-    {
-        "name":  "Aula 03 - 2ª Série - 3º Bim",
-        "fullName":  "Aula 03 - 2ª Série - 3º Bim.pdf",
-        "path":  "aulas/2serie/Aula 03 - 2ª Série - 3º Bim.pdf",
-        "category":  "aulas",
-        "series":  "2serie",
-        "ext":  ".pdf"
-    },
-    {
-        "name":  "Aula 04 - 2ª Série - 3º Bim",
-        "fullName":  "Aula 04 - 2ª Série - 3º Bim.pdf",
-        "path":  "aulas/2serie/Aula 04 - 2ª Série - 3º Bim.pdf",
-        "category":  "aulas",
-        "series":  "2serie",
-        "ext":  ".pdf"
-    },
-    {
-        "name":  "Aula 05 - 2ª Série - 3º Bim",
-        "fullName":  "Aula 05 - 2ª Série - 3º Bim.pdf",
-        "path":  "aulas/2serie/Aula 05 - 2ª Série - 3º Bim.pdf",
-        "category":  "aulas",
-        "series":  "2serie",
-        "ext":  ".pdf"
-    },
-    {
-        "name":  "Aula 06 - 2ª Série - 3º Bim",
-        "fullName":  "Aula 06 - 2ª Série - 3º Bim.pdf",
-        "path":  "aulas/2serie/Aula 06 - 2ª Série - 3º Bim.pdf",
-        "category":  "aulas",
-        "series":  "2serie",
-        "ext":  ".pdf"
-    },
-    {
-        "name":  "cilindro_revolucao",
-        "fullName":  "cilindro_revolucao.gif",
-        "path":  "aulas/2serie/cilindro_revolucao.gif",
-        "category":  "aulas",
-        "series":  "2serie",
-        "ext":  ".gif"
-    },
-    {
-        "name":  "cone_revolucao",
-        "fullName":  "cone_revolucao.gif",
-        "path":  "aulas/2serie/cone_revolucao.gif",
-        "category":  "aulas",
-        "series":  "2serie",
-        "ext":  ".gif"
-    },
-    {
-        "name":  "esfera_revolucao",
-        "fullName":  "esfera_revolucao.gif",
-        "path":  "aulas/2serie/esfera_revolucao.gif",
-        "category":  "aulas",
-        "series":  "2serie",
-        "ext":  ".gif"
-    },
-    {
-        "name":  "Rec - 2ª Série - 3º Bim",
-        "fullName":  "Rec - 2ª Série - 3º Bim.pdf",
-        "path":  "aulas/2serie/Rec - 2ª Série - 3º Bim.pdf",
-        "category":  "aulas",
-        "series":  "2serie",
-        "ext":  ".pdf"
-    },
-    {
-        "name":  "tronco_cone_revolucao",
-        "fullName":  "tronco_cone_revolucao.gif",
-        "path":  "aulas/2serie/tronco_cone_revolucao.gif",
-        "category":  "aulas",
-        "series":  "2serie",
-        "ext":  ".gif"
-    },
-    {
-        "name":  "Angulo_Arco_Circ_Trigo",
-        "fullName":  "Angulo_Arco_Circ_Trigo.ggb",
-        "path":  "aulas/3serie/Angulo_Arco_Circ_Trigo.ggb",
-        "category":  "aulas",
-        "series":  "3serie",
-        "ext":  ".ggb"
-    },
-    {
-        "name":  "Aula 01 - 3ª Série - 3º Bim",
-        "fullName":  "Aula 01 - 3ª Série - 3º Bim.pdf",
-        "path":  "aulas/3serie/Aula 01 - 3ª Série - 3º Bim.pdf",
+        "name":  "Aula 01 - 3ª Série - 4º Bim",
+        "fullName":  "Aula 01 - 3ª Série - 4º Bim.pdf",
+        "path":  "aulas/3serie/Aula 01 - 3ª Série - 4º Bim.pdf",
         "category":  "aulas",
         "series":  "3serie",
         "ext":  ".pdf"
     },
     {
-        "name":  "Aula 02 - 3ª Série - 3º Bim",
-        "fullName":  "Aula 02 - 3ª Série - 3º Bim.pdf",
-        "path":  "aulas/3serie/Aula 02 - 3ª Série - 3º Bim.pdf",
-        "category":  "aulas",
-        "series":  "3serie",
-        "ext":  ".pdf"
-    },
-    {
-        "name":  "Aula 03 - 3ª Série - 3º Bim",
-        "fullName":  "Aula 03 - 3ª Série - 3º Bim.pdf",
-        "path":  "aulas/3serie/Aula 03 - 3ª Série - 3º Bim.pdf",
-        "category":  "aulas",
-        "series":  "3serie",
-        "ext":  ".pdf"
-    },
-    {
-        "name":  "Aula 04 - 3ª Série - 3º Bim",
-        "fullName":  "Aula 04 - 3ª Série - 3º Bim.pdf",
-        "path":  "aulas/3serie/Aula 04 - 3ª Série - 3º Bim.pdf",
-        "category":  "aulas",
-        "series":  "3serie",
-        "ext":  ".pdf"
-    },
-    {
-        "name":  "Aula 05 - 3ª Série - 3º Bim",
-        "fullName":  "Aula 05 - 3ª Série - 3º Bim.pdf",
-        "path":  "aulas/3serie/Aula 05 - 3ª Série - 3º Bim.pdf",
-        "category":  "aulas",
-        "series":  "3serie",
-        "ext":  ".pdf"
-    },
-    {
-        "name":  "Aula 06 - 3ª Série - 3º Bim",
-        "fullName":  "Aula 06 - 3ª Série - 3º Bim.pdf",
-        "path":  "aulas/3serie/Aula 06 - 3ª Série - 3º Bim.pdf",
-        "category":  "aulas",
-        "series":  "3serie",
-        "ext":  ".pdf"
-    },
-    {
-        "name":  "Aula 07 - 3ª Série - 3º Bim",
-        "fullName":  "Aula 07 - 3ª Série - 3º Bim.pdf",
-        "path":  "aulas/3serie/Aula 07 - 3ª Série - 3º Bim.pdf",
-        "category":  "aulas",
-        "series":  "3serie",
-        "ext":  ".pdf"
-    },
-    {
-        "name":  "GeoGebra-Windows-Installer-5-4-929-3",
-        "fullName":  "GeoGebra-Windows-Installer-5-4-929-3.exe",
-        "path":  "aulas/3serie/GeoGebra-Windows-Installer-5-4-929-3.exe",
-        "category":  "aulas",
-        "series":  "3serie",
-        "ext":  ".exe"
-    },
-    {
-        "name":  "Seno_Cos_Circ_Trigo",
-        "fullName":  "Seno_Cos_Circ_Trigo.ggb",
-        "path":  "aulas/3serie/Seno_Cos_Circ_Trigo.ggb",
-        "category":  "aulas",
-        "series":  "3serie",
-        "ext":  ".ggb"
-    },
-    {
-        "name":  "Apresentação - 1ª Série - 1º Bim.pptx",
-        "fullName":  "Apresentação - 1ª Série - 1º Bim.pptx.pdf",
-        "path":  "listas/1serie/Apresentação - 1ª Série - 1º Bim.pptx.pdf",
-        "category":  "listas",
-        "series":  "1serie",
-        "ext":  ".pdf"
-    },
-    {
-        "name":  "lista_1Y_3Bim2026",
-        "fullName":  "lista_1Y_3Bim2026.pdf",
-        "path":  "listas/1serie/lista_1Y_3Bim2026.pdf",
-        "category":  "listas",
-        "series":  "1serie",
-        "ext":  ".pdf"
-    },
-    {
-        "name":  "lista_2WXY_3Bim2026",
-        "fullName":  "lista_2WXY_3Bim2026.pdf",
-        "path":  "listas/2serie/lista_2WXY_3Bim2026.pdf",
+        "name":  "Lista Aula 01 - 2ª Série - 4º Bim",
+        "fullName":  "Lista Aula 01 - 2ª Série - 4º Bim.pdf",
+        "path":  "listas/2serie/Lista Aula 01 - 2ª Série - 4º Bim.pdf",
         "category":  "listas",
         "series":  "2serie",
         "ext":  ".pdf"
     },
     {
-        "name":  "roteiro_estudo_Geometria_Espacial",
-        "fullName":  "roteiro_estudo_Geometria_Espacial.pdf",
-        "path":  "listas/2serie/roteiro_estudo_Geometria_Espacial.pdf",
-        "category":  "listas",
-        "series":  "2serie",
-        "ext":  ".pdf"
-    },
-    {
-        "name":  "Apresentação - 3ª Série - 3º Bim.pptx",
-        "fullName":  "Apresentação - 3ª Série - 3º Bim.pptx.pdf",
-        "path":  "listas/3serie/Apresentação - 3ª Série - 3º Bim.pptx.pdf",
-        "category":  "listas",
-        "series":  "3serie",
-        "ext":  ".pdf"
-    },
-    {
-        "name":  "lista_3WXY_2Bim2026",
-        "fullName":  "lista_3WXY_2Bim2026.pdf",
-        "path":  "listas/3serie/lista_3WXY_2Bim2026.pdf",
-        "category":  "listas",
-        "series":  "3serie",
-        "ext":  ".pdf"
-    },
-    {
-        "name":  "Questões Lei Senos e Lei Cossenos",
-        "fullName":  "Questões Lei Senos e Lei Cossenos.pdf",
-        "path":  "listas/3serie/Questões Lei Senos e Lei Cossenos.pdf",
-        "category":  "listas",
-        "series":  "3serie",
-        "ext":  ".pdf"
-    },
-    {
-        "name":  "Questões Relação fundamental da Trigonometria",
-        "fullName":  "Questões Relação fundamental da Trigonometria.pdf",
-        "path":  "listas/3serie/Questões Relação fundamental da Trigonometria.pdf",
+        "name":  "Lista 1 - 4º Bimestre",
+        "fullName":  "Lista 1 - 4º Bimestre.pdf",
+        "path":  "listas/3serie/Lista 1 - 4º Bimestre.pdf",
         "category":  "listas",
         "series":  "3serie",
         "ext":  ".pdf"
