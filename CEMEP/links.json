@@ -40,6 +40,22 @@
         "ext":  ".pdf"
     },
     {
+        "name":  "Aula 03 - 2ª Série - 4º Bim",
+        "fullName":  "Aula 03 - 2ª Série - 4º Bim.pdf",
+        "path":  "aulas/2serie/Aula 03 - 2ª Série - 4º Bim.pdf",
+        "category":  "aulas",
+        "series":  "2serie",
+        "ext":  ".pdf"
+    },
+    {
+        "name":  "Aula 04 - 2ª Série - 4º Bim",
+        "fullName":  "Aula 04 - 2ª Série - 4º Bim.pdf",
+        "path":  "aulas/2serie/Aula 04 - 2ª Série - 4º Bim.pdf",
+        "category":  "aulas",
+        "series":  "2serie",
+        "ext":  ".pdf"
+    },
+    {
         "name":  "Aula 01 - 3ª Série - 4º Bim",
         "fullName":  "Aula 01 - 3ª Série - 4º Bim.pdf",
         "path":  "aulas/3serie/Aula 01 - 3ª Série - 4º Bim.pdf",
@@ -72,6 +88,30 @@
         "ext":  ".pdf"
     },
     {
+        "name":  "Lista Aula 03 - 2ª Série - 4º Bim",
+        "fullName":  "Lista Aula 03 - 2ª Série - 4º Bim.pdf",
+        "path":  "listas/2serie/Lista Aula 03 - 2ª Série - 4º Bim.pdf",
+        "category":  "listas",
+        "series":  "2serie",
+        "ext":  ".pdf"
+    },
+    {
+        "name":  "Lista Aula 04 - 2ª Série - 4º Bim",
+        "fullName":  "Lista Aula 04 - 2ª Série - 4º Bim.pdf",
+        "path":  "listas/2serie/Lista Aula 04 - 2ª Série - 4º Bim.pdf",
+        "category":  "listas",
+        "series":  "2serie",
+        "ext":  ".pdf"
+    },
+    {
+        "name":  "lista_2W_4Bim2026",
+        "fullName":  "lista_2W_4Bim2026.pdf",
+        "path":  "listas/2serie/lista_2W_4Bim2026.pdf",
+        "category":  "listas",
+        "series":  "2serie",
+        "ext":  ".pdf"
+    },
+    {
         "name":  "Lista Aula 01 - 3ª Série - 4º Bim",
         "fullName":  "Lista Aula 01 - 3ª Série - 4º Bim.pdf",
         "path":  "listas/3serie/Lista Aula 01 - 3ª Série - 4º Bim.pdf",
@@ -83,6 +123,14 @@
         "name":  "Lista Aula 02 - 3ª Série - 4º Bim",
         "fullName":  "Lista Aula 02 - 3ª Série - 4º Bim.pdf",
         "path":  "listas/3serie/Lista Aula 02 - 3ª Série - 4º Bim.pdf",
+        "category":  "listas",
+        "series":  "3serie",
+        "ext":  ".pdf"
+    },
+    {
+        "name":  "Probabilidade",
+        "fullName":  "Probabilidade.pdf",
+        "path":  "listas/3serie/Probabilidade.pdf",
         "category":  "listas",
         "series":  "3serie",
         "ext":  ".pdf"
