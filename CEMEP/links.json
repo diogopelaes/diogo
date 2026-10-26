@@ -160,6 +160,14 @@
         "ext":  ".pdf"
     },
     {
+        "name":  "Progressões",
+        "fullName":  "Progressões.pdf",
+        "path":  "listas/3serie/Progressões.pdf",
+        "category":  "listas",
+        "series":  "3serie",
+        "ext":  ".pdf"
+    },
+    {
         "name":  "ProvãoMatemática2025",
         "fullName":  "ProvãoMatemática2025.pdf",
         "path":  "listas/3serie/ProvãoMatemática2025.pdf",
