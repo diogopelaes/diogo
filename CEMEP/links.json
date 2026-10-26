@@ -80,6 +80,14 @@
         "ext":  ".pdf"
     },
     {
+        "name":  "lista_1Y_4Bim2026",
+        "fullName":  "lista_1Y_4Bim2026.pdf",
+        "path":  "listas/1serie/lista_1Y_4Bim2026.pdf",
+        "category":  "listas",
+        "series":  "1serie",
+        "ext":  ".pdf"
+    },
+    {
         "name":  "Lista Aula 01 - 2ª Série - 4º Bim",
         "fullName":  "Lista Aula 01 - 2ª Série - 4º Bim.pdf",
         "path":  "listas/2serie/Lista Aula 01 - 2ª Série - 4º Bim.pdf",
@@ -120,6 +128,14 @@
         "ext":  ".pdf"
     },
     {
+        "name":  "2FaseUnicamp",
+        "fullName":  "2FaseUnicamp.pdf",
+        "path":  "listas/3serie/2FaseUnicamp.pdf",
+        "category":  "listas",
+        "series":  "3serie",
+        "ext":  ".pdf"
+    },
+    {
         "name":  "Lista Aula 01 - 3ª Série - 4º Bim",
         "fullName":  "Lista Aula 01 - 3ª Série - 4º Bim.pdf",
         "path":  "listas/3serie/Lista Aula 01 - 3ª Série - 4º Bim.pdf",
@@ -139,6 +155,14 @@
         "name":  "Probabilidade",
         "fullName":  "Probabilidade.pdf",
         "path":  "listas/3serie/Probabilidade.pdf",
+        "category":  "listas",
+        "series":  "3serie",
+        "ext":  ".pdf"
+    },
+    {
+        "name":  "ProvãoMatemática2025",
+        "fullName":  "ProvãoMatemática2025.pdf",
+        "path":  "listas/3serie/ProvãoMatemática2025.pdf",
         "category":  "listas",
         "series":  "3serie",
         "ext":  ".pdf"
