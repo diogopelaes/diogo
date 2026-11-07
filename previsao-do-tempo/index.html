@@ -2,7 +2,9 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0e1013" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
 <title>Tempo</title>
 <style>
   :root {
@@ -29,15 +31,16 @@
   body {
     background: var(--bg); color: var(--text);
     font: 15px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    min-height: 100vh; padding: 20px 16px 48px;
+    min-height: 100vh; -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent;
+    padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(40px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
     transition: background .2s, color .2s;
   }
   .wrap { max-width: 680px; margin: 0 auto; }
   svg.i { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; flex: none; }
 
   /* topo */
-  header { display: flex; gap: 8px; align-items: center; margin-bottom: 20px; position: relative; }
-  .search { flex: 1; position: relative; }
+  header { display: flex; gap: 8px; align-items: center; justify-content: flex-end; margin-bottom: 12px; position: relative; }
+  .search { display: none; /* busca de cidade oculta (código mantido) */ }
   .search input {
     width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line);
     background: var(--card); color: var(--text); font: inherit; outline: none;
@@ -55,7 +58,7 @@
   .results button:hover { background: var(--accent-soft); }
   .results small { color: var(--muted); }
   .icon-btn {
-    width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--line);
+    width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--line);
     background: var(--card); color: var(--text); cursor: pointer; font-size: 18px;
     display: grid; place-items: center;
   }
@@ -68,6 +71,12 @@
   .temp { font-size: 64px; font-weight: 300; letter-spacing: -2px; line-height: 1; }
   .temp sup { font-size: 24px; font-weight: 400; vertical-align: top; letter-spacing: 0; color: var(--muted); }
   .desc { font-size: 17px; margin-top: 4px; }
+  .temprow { display: flex; align-items: center; gap: 22px; }
+  .minmax { display: flex; flex-direction: column; gap: 2px; padding-left: 22px; border-left: 1px solid var(--line); }
+  .minmax small { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }
+  .minmax .mx, .minmax .mn { font-size: 26px; font-weight: 400; line-height: 1.15; }
+  .minmax .mx { color: var(--text); }
+  .minmax .mn { color: var(--muted); }
   .chips { display: flex; flex-wrap: wrap; gap: 8px 18px; color: var(--muted); font-size: 13.5px; margin: 14px 0 22px; }
   .chips span { display: inline-flex; align-items: center; gap: 6px; }
   .chips b { color: var(--text); font-weight: 500; }
@@ -115,7 +124,48 @@
   @media (max-width: 440px) {
     .row, .head { grid-template-columns: 40px 26px 46px 1fr 1fr 38px; gap: 6px; padding: 9px 10px; }
     .temp { font-size: 52px; }
+    .temprow { gap: 14px; }
+    .minmax { padding-left: 14px; }
+    .minmax .mx, .minmax .mn { font-size: 21px; }
     .summary .big-icon { font-size: 58px; }
+  }
+  .days { position: relative; }
+  .row .rn { gap: 6px; }
+  .row .rp { display: inline-flex; align-items: center; gap: 5px; }
+  .row .ws small { color: var(--muted); }
+  .day, .icon-btn { touch-action: manipulation; }
+
+  /* ---------- mobile ---------- */
+  @media (max-width: 560px) {
+    header { margin-bottom: 4px; }
+    .summary { flex-direction: column; text-align: center; gap: 2px; margin-bottom: 0; }
+    .summary > div:last-child { display: flex; flex-direction: column; align-items: center; }
+    .summary .big-icon { font-size: 88px; line-height: 1; }
+    .place { display: flex; align-items: center; justify-content: center; gap: 4px; font-size: 14px; margin-bottom: 4px; }
+    .temprow { justify-content: center; gap: 16px; }
+    .temp { font-size: 80px; }
+    .temp sup { font-size: 26px; }
+    .minmax { padding-left: 16px; }
+    .minmax .mx, .minmax .mn { font-size: 24px; }
+    .desc { font-size: 18px; margin-top: 6px; }
+    .chips { justify-content: center; gap: 8px 16px; margin: 14px 0 18px; font-size: 13.5px; }
+
+    .days { margin: 0 -16px 16px; padding: 0 16px 8px; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
+    .day { flex: 0 0 72px; scroll-snap-align: center; padding: 10px 4px; }
+    .day .i { font-size: 26px; }
+
+    .row, .head { grid-template-columns: 38px 24px 42px minmax(0, 1fr) minmax(0, 1fr) 34px; gap: 6px; padding: 10px; }
+    .row { min-height: 54px; }
+    .row .hm { font-size: 12.5px; }
+    .row .rn { flex-direction: column; align-items: flex-start; gap: 0; line-height: 1.25; }
+    .row .rn small { font-size: 11.5px; }
+    .row .wd { gap: 5px; }
+    .row .ws { display: flex; flex-direction: column; line-height: 1.25; }
+    .row .ws .u { font-size: 11px; }
+  }
+  @media (max-width: 340px) {
+    .temp { font-size: 66px; }
+    .minmax .mx, .minmax .mn { font-size: 21px; }
   }
 </style>
 </head>
@@ -241,16 +291,13 @@ function render() {
   const { daily, hourly, current } = data;
   const i = selDay;
   const isToday = i === 0;
-  const [desc, ic] = isToday
-    ? wmo(current.weather_code, current.is_day)
-    : wmo(daily.weather_code[i], 1);
-  const bigTemp = isToday ? current.temperature_2m : daily.temperature_2m_max[i];
+  // topo: sempre as condições atuais
+  const [desc, ic] = wmo(current.weather_code, current.is_day);
+  const bigTemp = current.temperature_2m;
+  const dayName = isToday ? 'Hoje' : fmtDay(daily.time[i], i);
 
   const chips = [
-    isToday
-      ? `<span>${icon('thermo')} Sensação <b>${r0(current.apparent_temperature)}°</b></span>`
-      : `<span>${icon('thermo')} Sensação máx. <b>${r0(daily.apparent_temperature_max[i])}°</b></span>`,
-    `<span>↑ <b>${r0(daily.temperature_2m_max[i])}°</b> ↓ <b>${r0(daily.temperature_2m_min[i])}°</b></span>`,
+    isToday ? `<span>${icon('thermo')} Sensação <b>${r0(current.apparent_temperature)}°</b></span>` : '',
     `<span>${icon('drop')} <b>${daily.precipitation_probability_max[i] ?? 0}%</b> · ${daily.precipitation_sum[i].toFixed(1)} mm</span>`,
     `<span>${icon('wind')} ${isToday ? `<b>${r0(current.wind_speed_10m)}</b>` : `até <b>${r0(daily.wind_speed_10m_max[i])}</b>`} km/h</span>`,
     `<span>${icon('sunrise')} <b>${hhmm(daily.sunrise[i])}</b></span>`,
@@ -272,6 +319,7 @@ function render() {
   hourly.time.forEach((t, k) => {
     if (!t.startsWith(date)) return;
     const h = parseInt(t.slice(11, 13), 10);
+    if (isToday && h < nowHour) return; // hoje: só do horário atual em diante
     const [hd, hi] = wmo(hourly.weather_code[k], hourly.is_day[k]);
     const prob = hourly.precipitation_probability[k] ?? 0;
     const mm = hourly.precipitation[k] ?? 0;
@@ -280,8 +328,8 @@ function render() {
       <span class="h">${String(h).padStart(2, '0')}h</span>
       <span class="ic">${icon(hi)}</span>
       <span class="tp">${r0(hourly.temperature_2m[k])}°</span>
-      <span class="rn ${prob === 0 && mm === 0 ? 'zero' : ''}">${icon('drop')} ${prob}% <small>${mm > 0 ? mm.toFixed(1) + ' mm' : ''}</small></span>
-      <span class="wd">${icon('arrow', `transform:rotate(${hourly.wind_direction_10m[k] + 180}deg)`)} ${r0(hourly.wind_speed_10m[k])} km/h</span>
+      <span class="rn ${prob === 0 && mm === 0 ? 'zero' : ''}"><span class="rp">${icon('drop')} ${prob}%</span><small>${mm > 0 ? mm.toFixed(1) + ' mm' : ''}</small></span>
+      <span class="wd">${icon('arrow', `transform:rotate(${hourly.wind_direction_10m[k] + 180}deg)`)} <span class="ws">${r0(hourly.wind_speed_10m[k])}<small class="u"> km/h</small></span></span>
       <span class="hm">${hourly.relative_humidity_2m[k]}%</span>
     </div>`;
   });
@@ -291,7 +339,14 @@ function render() {
       <div class="big-icon">${icon(ic)}</div>
       <div>
         <div class="place">${icon('pin')} ${place.name}${place.sub ? ' · ' + place.sub : ''}</div>
-        <div class="temp">${r0(bigTemp)}<sup>°C</sup></div>
+        <div class="temprow">
+          <div class="temp">${r0(bigTemp)}<sup>°C</sup></div>
+          <div class="minmax">
+            <small>${dayName}</small>
+            <div class="mx">↑ ${r0(daily.temperature_2m_max[i])}°</div>
+            <div class="mn">↓ ${r0(daily.temperature_2m_min[i])}°</div>
+          </div>
+        </div>
         <div class="desc">${desc}</div>
       </div>
     </div>
@@ -303,9 +358,10 @@ function render() {
     </div>`;
 
   document.querySelectorAll('.day').forEach(b => b.onclick = () => { selDay = +b.dataset.i; render(); });
-  const now = document.getElementById('now');
-  if (now) now.scrollIntoView({ block: 'center', behavior: 'instant' in window ? 'auto' : 'auto' });
-  window.scrollTo(0, 0);
+  // centraliza o dia selecionado na faixa de dias
+  const act = document.querySelector('.day.active');
+  const box = document.getElementById('days');
+  if (act && box) box.scrollLeft = act.offsetLeft - box.offsetLeft - (box.clientWidth - act.offsetWidth) / 2;
 }
 
 /* ---------- busca de cidade ---------- */
