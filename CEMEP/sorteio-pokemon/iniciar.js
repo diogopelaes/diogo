@@ -1,88 +1,104 @@
-const input = document.getElementById("fileInput");
-const fileName = document.getElementById("fileName");
-const processBtn = document.getElementById("processBtn");
-
-// Elementos para Carregar Sorteio
 const jsonInput = document.getElementById("jsonInput");
 const jsonFileName = document.getElementById("jsonFileName");
 const loadJsonBtn = document.getElementById("loadJsonBtn");
+const downloadTemplateBtn = document.getElementById("downloadTemplateBtn");
+const jsonPreview = document.getElementById("jsonPreview");
+const previewTitle = document.getElementById("previewTitle");
+const previewMeta = document.getElementById("previewMeta");
 
-let rawRows = null; // Armazena os dados brutos da planilha antes do processamento final
-let loadedJsonData = null; // Armazena o JSON carregado para continuação
+let loadedJsonData = null;
 
-// URL da API para buscar o horário oficial de São Paulo
-const TIME_API_URL = "https://timeapi.io/api/Time/current/zone?timeZone=America/Sao_Paulo";
-
-async function getSaoPauloTime() {
-  try {
-    const response = await fetch(TIME_API_URL);
-    if (!response.ok) throw new Error("Falha na resposta da API");
-    const data = await response.json();
-    return data.dateTime.split('.')[0]; 
-  } catch (error) {
-    const now = new Date();
-    const offset = -3;
-    const spTime = new Date(now.getTime() + (now.getTimezoneOffset() * 60000) + (offset * 3600000));
-    return spTime.toISOString().split('.')[0].replace('T', ' ');
+/**
+ * Normaliza a estrutura do JSON carregado para garantir compatibilidade
+ */
+function normalizeRaffleData(raw) {
+  if (!raw || !Array.isArray(raw.turmas) || raw.turmas.length === 0) {
+    throw new Error("O JSON precisa conter uma lista de 'turmas'.");
   }
+
+  const repetirEstudante =
+    raw.repetir_estudante !== undefined
+      ? Boolean(raw.repetir_estudante)
+      : Boolean(raw.com_reposicao);
+
+  const repetirNumero =
+    raw.repetir_numero !== undefined ? Boolean(raw.repetir_numero) : false;
+
+  const turmas = raw.turmas.map((t) => {
+    const estudantes = Array.isArray(t.estudantes)
+      ? t.estudantes.map((e) => ({
+          nome: String(e.nome || "").trim(),
+          posicao: e.posicao ?? (repetirEstudante ? null : 0),
+          sorteios_count: Number(e.sorteios_count || 0),
+          sorteios_datas: Array.isArray(e.sorteios_datas) ? e.sorteios_datas : [],
+          questoes_sorteadas: Array.isArray(e.questoes_sorteadas)
+            ? e.questoes_sorteadas
+            : [],
+        }))
+      : [];
+
+    const questoes = Array.isArray(t.questoes) ? t.questoes : [];
+    const questoesSorteadas = Array.isArray(t.questoes_sorteadas)
+      ? t.questoes_sorteadas
+      : [];
+
+    return {
+      turma: String(t.turma || "Turma"),
+      questoes,
+      questoes_sorteadas: questoesSorteadas,
+      estudantes,
+    };
+  });
+
+  return {
+    titulo: raw.titulo || "Sorteio CEMEP",
+    data_criacao: raw.data_criacao || new Date().toISOString().split(".")[0],
+    repetir_estudante: repetirEstudante,
+    repetir_numero: repetirNumero,
+    qtd_sorteios: Number(raw.qtd_sorteios || 0),
+    turmas,
+  };
 }
 
 /**
- * Evento: Seleção de Arquivo
- * Apenas lê os dados brutos e prepara para o processamento
+ * Evento: Seleção de JSON
  */
-input.addEventListener("change", function(event) {
-  const file = event.target.files[0];
-  if (!file) {
-    fileName.textContent = "Escolher arquivo";
-    rawRows = null;
-    return;
-  }
-
-  fileName.textContent = file.name;
-  const reader = new FileReader();
-
-  reader.onload = function(e) {
-    const data = new Uint8Array(e.target.result);
-    const workbook = XLSX.read(data, { type: "array" });
-    const sheetName = workbook.SheetNames[0];
-    const sheet = workbook.Sheets[sheetName];
-    rawRows = XLSX.utils.sheet_to_json(sheet, { defval: "" });
-    
-    if (rawRows.length === 0) {
-      alert("A planilha está vazia.");
-      rawRows = null;
-    }
-  };
-
-  reader.readAsArrayBuffer(file);
-});
-
-/**
- * Evento: Seleção de JSON (Para carregar sorteio existente)
- */
-jsonInput.addEventListener("change", function(event) {
+jsonInput.addEventListener("change", function (event) {
   const file = event.target.files[0];
   if (!file) {
     jsonFileName.textContent = "Escolher arquivo JSON";
     loadedJsonData = null;
+    jsonPreview.classList.add("hidden");
     return;
   }
 
   jsonFileName.textContent = file.name;
   const reader = new FileReader();
 
-  reader.onload = function(e) {
+  reader.onload = function (e) {
     try {
-      loadedJsonData = JSON.parse(e.target.result);
-      // Validação básica se o arquivo tem a estrutura correta
-      if (!loadedJsonData.turmas) {
-        throw new Error("Estrutura inválida");
-      }
+      const parsed = JSON.parse(e.target.result);
+      loadedJsonData = normalizeRaffleData(parsed);
+
+      const totalEstudantes = loadedJsonData.turmas.reduce(
+        (acc, t) => acc + t.estudantes.length,
+        0
+      );
+      const repEstLabel = loadedJsonData.repetir_estudante
+        ? "Estudantes: com repetição"
+        : "Estudantes: sem repetição";
+      const repNumLabel = loadedJsonData.repetir_numero
+        ? "Questões: com repetição"
+        : "Questões: sem repetição";
+
+      previewTitle.textContent = loadedJsonData.titulo;
+      previewMeta.textContent = `${loadedJsonData.turmas.length} turmas • ${totalEstudantes} estudantes • ${repEstLabel} • ${repNumLabel}`;
+      jsonPreview.classList.remove("hidden");
     } catch (err) {
-      alert("Arquivo JSON inválido ou corrompido!");
+      alert("Arquivo JSON inválido ou com estrutura incorreta!");
       jsonFileName.textContent = "Escolher arquivo JSON";
       loadedJsonData = null;
+      jsonPreview.classList.add("hidden");
     }
   };
 
@@ -92,91 +108,39 @@ jsonInput.addEventListener("change", function(event) {
 /**
  * Evento: Clique em "Carregar Dados"
  */
-loadJsonBtn.addEventListener("click", function() {
+loadJsonBtn.addEventListener("click", function () {
   if (!loadedJsonData) {
     alert("Por favor, selecione um arquivo JSON válido primeiro!");
     return;
   }
 
-  // Salva o JSON carregado diretamente e redireciona
   localStorage.setItem("sorteioData", JSON.stringify(loadedJsonData));
   window.location.href = "sorteio.html";
 });
 
 /**
- * Evento: Clique em "Novo Sorteio"
- * Aqui é onde o JSON final é gerado, garantindo que pegamos as opções ATUAIS da tela
+ * Evento: Download do JSON de modelo
  */
-processBtn.addEventListener("click", async function() {
-  if (!rawRows) {
-    alert("Por favor, selecione um arquivo válido primeiro!");
-    return;
+downloadTemplateBtn.addEventListener("click", async function () {
+  try {
+    const response = await fetch("modelo-sorteio.json");
+    if (!response.ok) throw new Error("Falha ao buscar modelo");
+    const blob = await response.blob();
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "modelo-sorteio.json";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  } catch (err) {
+    // Fallback direto via link caso esteja rodando em file://
+    const link = document.createElement("a");
+    link.href = "modelo-sorteio.json";
+    link.download = "modelo-sorteio.json";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   }
-
-  // 1. Limpa QUALQUER dado anterior do localStorage para evitar conflitos
-  localStorage.removeItem("sorteioData");
-
-  // 2. Pega os valores ATUAIS dos campos da tela (Título e Modo)
-  const raffleTitle = document.getElementById("raffleTitle").value.trim() || "Sorteio CEMEP";
-  const comReposicao = document.querySelector('input[name="modo_sorteio"]:checked').value === "com";
-
-  // 3. Busca o horário de criação
-  const creationTime = await getSaoPauloTime();
-
-  // 4. Processa os dados brutos com as configurações escolhidas
-  const finalData = processStudentsData(rawRows, creationTime, comReposicao, raffleTitle);
-
-  // 5. Salva o novo JSON no localStorage
-  localStorage.setItem("sorteioData", JSON.stringify(finalData));
-  
-  // 6. Redireciona
-  window.location.href = "sorteio.html";
 });
-
-/**
- * Lógica de Processamento
- */
-function processStudentsData(rows, timestamp, comReposicao, titulo) {
-  const groups = {};
-
-  rows.forEach(row => {
-    const normalizedRow = {};
-    Object.keys(row).forEach(key => {
-      normalizedRow[key.trim().toLowerCase()] = row[key];
-    });
-
-    const nome = normalizedRow["nome"] || normalizedRow["estudante"] || normalizedRow["aluno"];
-    const turma = normalizedRow["turma"] || normalizedRow["classe"];
-
-    if (nome && turma) {
-      if (!groups[turma]) {
-        groups[turma] = {
-          turma: String(turma),
-          estudantes: []
-        };
-      }
-      groups[turma].estudantes.push({
-        nome: String(nome).trim(),
-        posicao: comReposicao ? null : 0,
-        sorteios_count: 0,
-        sorteios_datas: []
-      });
-    }
-  });
-
-  const sortedGroups = Object.values(groups).sort((a, b) => 
-    String(a.turma).localeCompare(String(b.turma), undefined, { numeric: true, sensitivity: 'base' })
-  );
-
-  sortedGroups.forEach(group => {
-    group.estudantes.sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'));
-  });
-
-  return {
-    titulo: titulo,
-    data_criacao: timestamp,
-    com_reposicao: comReposicao,
-    qtd_sorteios: 0,
-    turmas: sortedGroups
-  };
-}

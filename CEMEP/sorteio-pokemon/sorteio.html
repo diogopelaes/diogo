@@ -180,8 +180,17 @@
         <div class="pt-2">
           <label class="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-2">Selecionar Turma</label>
           <div id="turmaSelectContainer"></div>
+          <div id="modeBadges" class="flex flex-wrap gap-1.5 mt-2"></div>
         </div>
       </header>
+
+      <div id="questionStatusBox" class="hidden pt-3 border-t border-white/5 space-y-1.5">
+        <div class="flex justify-between items-center">
+          <span class="text-[11px] font-bold text-gray-400 uppercase tracking-widest">Questões Disponíveis</span>
+          <span id="questionCount" class="text-xs font-bold px-2.5 py-0.5 bg-orange-500/15 text-orange-400 rounded-full">0/0</span>
+        </div>
+        <div id="questionPills" class="flex flex-wrap gap-1 max-h-16 overflow-y-auto"></div>
+      </div>
 
       <div class="flex-1 flex flex-col overflow-hidden pt-4 border-t border-white/5">
         <div class="flex justify-between items-center mb-4">
@@ -359,10 +368,36 @@
               <p class="capture-tag">Capturado!</p>
               <img class="capture-pokemon-img" id="capture-pokemon-img" src="" alt="" />
               <h3 class="capture-pokemon-name" id="capture-pokemon-name"></h3>
-              <p class="capture-trainer-label">Treinador sorteado</p>
+              <p class="capture-trainer-label">Estudante sorteado</p>
               <p class="capture-trainer-name" id="capture-trainer-name"></p>
               <p class="capture-datetime" id="capture-datetime"></p>
-              <button type="button" class="btn-primary btn-dismiss-reveal" id="btn-dismiss-reveal">Continuar</button>
+
+              <div class="partner-picker-box" id="partner-picker-box">
+                <div class="partner-picker-header">
+                  <span class="partner-picker-title">Apresentar com colegas? (Opcional)</span>
+                  <span class="partner-selected-count" id="partner-selected-count">0 selecionados</span>
+                </div>
+                <input
+                  type="text"
+                  id="partner-search"
+                  class="partner-search"
+                  placeholder="Filtrar colega pelo nome..."
+                  autocomplete="off"
+                />
+                <div class="partner-chips-list" id="partner-chips-list"></div>
+              </div>
+
+              <div class="question-draw-box" id="question-draw-box">
+                <p class="question-draw-label">Questão para apresentar</p>
+                <div class="question-number-display" id="question-number-display">?</div>
+                <p class="question-pool-info" id="question-pool-info"></p>
+                <button type="button" class="btn-primary btn-draw-question" id="btn-draw-question">
+                  <iconify-icon icon="material-symbols:casino"></iconify-icon>
+                  Sortear Questão
+                </button>
+              </div>
+
+              <button type="button" class="btn-secondary btn-dismiss-reveal" id="btn-dismiss-reveal">Continuar</button>
             </div>
           </div>
         </div>
@@ -404,9 +439,6 @@
   <!-- Core do Sorteio -->
   <script src="pokemon-arena.js"></script>
   <script src="sorteio.js"></script>
-
-</body>
-</html>
 
 </body>
 </html>

@@ -1,0 +1,87 @@
+{
+  "titulo": "Apresentação de Questões - Modelo",
+  "data_criacao": "2026-11-14T12:00:00",
+  "repetir_estudante": false,
+  "repetir_numero": false,
+  "qtd_sorteios": 0,
+  "turmas": [
+    {
+      "turma": "Turma A - Exemplo",
+      "questoes": [1, 2, 3, 4, 5, 6, 7, 8],
+      "questoes_sorteadas": [],
+      "estudantes": [
+        {
+          "nome": "Alice Moreira Campos",
+          "posicao": 0,
+          "sorteios_count": 0,
+          "sorteios_datas": [],
+          "questoes_sorteadas": []
+        },
+        {
+          "nome": "Bernardo Teixeira Cunha",
+          "posicao": 0,
+          "sorteios_count": 0,
+          "sorteios_datas": [],
+          "questoes_sorteadas": []
+        },
+        {
+          "nome": "Camila Nogueira Dias",
+          "posicao": 0,
+          "sorteios_count": 0,
+          "sorteios_datas": [],
+          "questoes_sorteadas": []
+        },
+        {
+          "nome": "Diego Farias Monteiro",
+          "posicao": 0,
+          "sorteios_count": 0,
+          "sorteios_datas": [],
+          "questoes_sorteadas": []
+        },
+        {
+          "nome": "Helena Cardoso Vieira",
+          "posicao": 0,
+          "sorteios_count": 0,
+          "sorteios_datas": [],
+          "questoes_sorteadas": []
+        }
+      ]
+    },
+    {
+      "turma": "Turma B - Exemplo",
+      "questoes": [10, 11, 12, 13, 14, 15],
+      "questoes_sorteadas": [],
+      "estudantes": [
+        {
+          "nome": "Igor Vasconcelos Pinto",
+          "posicao": 0,
+          "sorteios_count": 0,
+          "sorteios_datas": [],
+          "questoes_sorteadas": []
+        },
+        {
+          "nome": "Larissa Peixoto Azevedo",
+          "posicao": 0,
+          "sorteios_count": 0,
+          "sorteios_datas": [],
+          "questoes_sorteadas": []
+        },
+        {
+          "nome": "Matheus Ribeiro Siqueira",
+          "posicao": 0,
+          "sorteios_count": 0,
+          "sorteios_datas": [],
+          "questoes_sorteadas": []
+        },
+        {
+          "nome": "Sofia Duarte Magalhães",
+          "posicao": 0,
+          "sorteios_count": 0,
+          "sorteios_datas": [],
+          "questoes_sorteadas": []
+        }
+      ]
+    }
+  ]
+}
+

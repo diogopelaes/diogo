@@ -680,3 +680,4 @@ class PokemonArena {
 }
 
 window.PokemonArenaEngine = PokemonArena;
+window.SorteioSound = SorteioSound;
