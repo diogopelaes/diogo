@@ -80,11 +80,27 @@
         "ext":  ".pdf"
     },
     {
+        "name":  "Apresentação de Questões - 1ª Série - 4º Bim",
+        "fullName":  "Apresentação de Questões - 1ª Série - 4º Bim.pdf",
+        "path":  "listas/1serie/Apresentação de Questões - 1ª Série - 4º Bim.pdf",
+        "category":  "listas",
+        "series":  "1serie",
+        "ext":  ".pdf"
+    },
+    {
         "name":  "lista_1Y_4Bim2026",
         "fullName":  "lista_1Y_4Bim2026.pdf",
         "path":  "listas/1serie/lista_1Y_4Bim2026.pdf",
         "category":  "listas",
         "series":  "1serie",
+        "ext":  ".pdf"
+    },
+    {
+        "name":  "Apresentação de Questões - 2ª Série - 4º Bim",
+        "fullName":  "Apresentação de Questões - 2ª Série - 4º Bim.pdf",
+        "path":  "listas/2serie/Apresentação de Questões - 2ª Série - 4º Bim.pdf",
+        "category":  "listas",
+        "series":  "2serie",
         "ext":  ".pdf"
     },
     {
