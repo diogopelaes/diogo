@@ -152,6 +152,14 @@
         "ext":  ".pdf"
     },
     {
+        "name":  "ENEM 2026 - dia 2",
+        "fullName":  "ENEM 2026 - dia 2.pdf",
+        "path":  "listas/3serie/ENEM 2026 - dia 2.pdf",
+        "category":  "listas",
+        "series":  "3serie",
+        "ext":  ".pdf"
+    },
+    {
         "name":  "Lista Aula 01 - 3ª Série - 4º Bim",
         "fullName":  "Lista Aula 01 - 3ª Série - 4º Bim.pdf",
         "path":  "listas/3serie/Lista Aula 01 - 3ª Série - 4º Bim.pdf",
