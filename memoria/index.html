@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory Duel — Jogo da Memória 2 Jogadores</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-badge" aria-hidden="true">🃏</span>
+        <div>
+          <h1>Memory Duel</h1>
+          <p class="subtitle">Duelo de 2 jogadores · 18 pares temáticos via APIs</p>
+        </div>
+      </div>
+
+      <div class="controls">
+        <label class="select-wrap" for="theme-select">
+          <span class="sr-only">Escolher tema da API</span>
+          <select id="theme-select" aria-label="Escolher tema da API">
+            <option value="wildlife">🦁 Fauna Selvagem (iNaturalist API)</option>
+            <option value="pokemon">🔴 Pokémon (PokéAPI)</option>
+            <option value="dogs">🐶 Cachorros (Dog CEO API)</option>
+            <option value="pets">🐱 Gatos &amp; Cães (Cat + Dog APIs)</option>
+          </select>
+        </label>
+
+        <button id="players-btn" class="icon-btn icon-btn--text" type="button" title="Editar nomes e tema">
+          👥 Nomes &amp; Tema
+        </button>
+
+        <button id="sound-btn" class="icon-btn" type="button" aria-label="Alternar som" title="Som ativado">
+          🔊
+        </button>
+
+        <button id="restart-btn" class="primary-btn" type="button">
+          ↻ Novo Jogo
+        </button>
+      </div>
+    </header>
+
+    <div class="arena">
+      <aside class="sidebar" aria-label="Placar dos jogadores e status da partida">
+        <div class="players-grid">
+          <section id="p1-card" class="player-card player-card--p1 is-active" aria-live="polite">
+            <div class="player-header">
+              <span class="player-dot" aria-hidden="true"></span>
+              <input
+                id="p1-name"
+                class="player-name-input"
+                type="text"
+                value="Jogador 1"
+                maxlength="16"
+                aria-label="Nome do Jogador 1"
+              />
+              <span id="p1-turn-badge" class="turn-badge">Sua vez</span>
+            </div>
+            <div class="player-metrics">
+              <div class="metric">
+                <span class="metric-label">Pares</span>
+                <strong id="p1-score" class="metric-value">0</strong>
+              </div>
+              <div class="metric">
+                <span class="metric-label">Jogadas</span>
+                <strong id="p1-moves" class="metric-value">0</strong>
+              </div>
+              <div class="metric">
+                <span class="metric-label">Seq.</span>
+                <strong id="p1-streak" class="metric-value">0🔥</strong>
+              </div>
+            </div>
+          </section>
+
+          <section id="p2-card" class="player-card player-card--p2" aria-live="polite">
+            <div class="player-header">
+              <span class="player-dot" aria-hidden="true"></span>
+              <input
+                id="p2-name"
+                class="player-name-input"
+                type="text"
+                value="Jogador 2"
+                maxlength="16"
+                aria-label="Nome do Jogador 2"
+              />
+              <span id="p2-turn-badge" class="turn-badge">Sua vez</span>
+            </div>
+            <div class="player-metrics">
+              <div class="metric">
+                <span class="metric-label">Pares</span>
+                <strong id="p2-score" class="metric-value">0</strong>
+              </div>
+              <div class="metric">
+                <span class="metric-label">Jogadas</span>
+                <strong id="p2-moves" class="metric-value">0</strong>
+              </div>
+              <div class="metric">
+                <span class="metric-label">Seq.</span>
+                <strong id="p2-streak" class="metric-value">0🔥</strong>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <section class="match-info">
+          <div class="info-row">
+            <div class="info-stat">
+              <span class="hud-label">Restantes</span>
+              <strong id="pairs-value" class="hud-value">0 / 18</strong>
+            </div>
+            <div class="info-stat">
+              <span class="hud-label">Tempo</span>
+              <strong id="timer-value" class="hud-value">00:00</strong>
+            </div>
+          </div>
+
+          <div id="discovery-banner" class="discovery-banner" aria-live="polite">
+            <span class="discovery-pill">Vez do Jogador 1</span>
+            <p id="discovery-text">Vire duas cartas! Quem acertar o par continua jogando.</p>
+          </div>
+        </section>
+      </aside>
+
+      <main class="board-stage">
+        <div id="loading-overlay" class="loading-overlay" role="status" aria-live="polite">
+          <div class="loader-paw" aria-hidden="true">🐾</div>
+          <p id="loading-text">Buscando 18 animais na API...</p>
+          <div class="progress-track">
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
+        </div>
+
+        <div id="error-overlay" class="error-overlay hidden" role="alert">
+          <p id="error-text">Não foi possível carregar as imagens da API.</p>
+          <button id="retry-btn" class="primary-btn" type="button">Tentar novamente</button>
+        </div>
+
+        <div id="game-board" class="game-board" aria-label="Tabuleiro do jogo da memória 6 por 6"></div>
+      </main>
+    </div>
+  </div>
+
+  <div id="victory-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="victory-title">
+    <div class="modal-card">
+      <div id="victory-trophy" class="modal-trophy" aria-hidden="true">🏆</div>
+      <h2 id="victory-title">Fim de Jogo!</h2>
+      <p id="victory-subtitle" class="modal-subtitle">Todos os 18 pares foram encontrados.</p>
+
+      <div class="versus-summary">
+        <div id="final-p1-box" class="versus-box versus-box--p1">
+          <span id="final-p1-name">Jogador 1</span>
+          <strong id="final-p1-score">0 pares</strong>
+          <small id="final-p1-moves">0 jogadas</small>
+        </div>
+        <div class="versus-divider">VS</div>
+        <div id="final-p2-box" class="versus-box versus-box--p2">
+          <span id="final-p2-name">Jogador 2</span>
+          <strong id="final-p2-score">0 pares</strong>
+          <small id="final-p2-moves">0 jogadas</small>
+        </div>
+      </div>
+
+      <p class="final-time-line">Tempo total: <strong id="final-time">00:00</strong></p>
+
+      <button id="play-again-btn" class="primary-btn primary-btn--lg" type="button">
+        Jogar Novamente
+      </button>
+    </div>
+  </div>
+
+  <div id="players-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="players-modal-title">
+    <div class="modal-card modal-card--setup">
+      <div class="modal-trophy" aria-hidden="true">👥</div>
+      <h2 id="players-modal-title">Configurar Duelo</h2>
+      <p class="modal-subtitle">Escolha os nomes dos jogadores e o tema das 18 cartas.</p>
+
+      <form id="players-form" class="players-form">
+        <label class="field-group field-group--p1">
+          <span>Jogador 1 (Âmbar)</span>
+          <input
+            id="setup-p1-name"
+            type="text"
+            maxlength="16"
+            placeholder="Ex: Ana"
+            autocomplete="off"
+          />
+        </label>
+
+        <label class="field-group field-group--p2">
+          <span>Jogador 2 (Azul)</span>
+          <input
+            id="setup-p2-name"
+            type="text"
+            maxlength="16"
+            placeholder="Ex: Lucas"
+            autocomplete="off"
+          />
+        </label>
+
+        <div class="field-group">
+          <span>Tema do Baralho</span>
+          <div id="setup-theme-grid" class="theme-options" role="radiogroup" aria-label="Tema do Baralho">
+            <label class="theme-option">
+              <input type="radio" name="setup-theme" value="wildlife" checked />
+              <span>🦁 Fauna Selvagem</span>
+            </label>
+            <label class="theme-option">
+              <input type="radio" name="setup-theme" value="pokemon" />
+              <span>
+                <svg class="pokeball-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10" fill="#fff" stroke="#111827" stroke-width="2" />
+                  <path d="M2 12a10 10 0 0 1 20 0z" fill="#ef4444" stroke="#111827" stroke-width="2" />
+                  <line x1="2" y1="12" x2="22" y2="12" stroke="#111827" stroke-width="2" />
+                  <circle cx="12" cy="12" r="3.2" fill="#fff" stroke="#111827" stroke-width="2" />
+                </svg>
+                Pokémon
+              </span>
+            </label>
+            <label class="theme-option">
+              <input type="radio" name="setup-theme" value="dogs" />
+              <span>🐶 Cachorros</span>
+            </label>
+            <label class="theme-option">
+              <input type="radio" name="setup-theme" value="pets" />
+              <span>🐱 Gatos &amp; Cães</span>
+            </label>
+          </div>
+        </div>
+
+        <button class="primary-btn primary-btn--lg" type="submit">
+          Começar Duelo!
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="js/game.js"></script>
+</body>
+</html>
